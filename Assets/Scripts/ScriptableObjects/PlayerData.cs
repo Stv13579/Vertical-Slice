@@ -7,4 +7,6 @@ public class PlayerData : ScriptableObject
 {
     public float mana;
     public float health;
+    public float maxHealth;
+    public float maxMana;
 }

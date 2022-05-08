@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnergyElement : BaseElementClass
 {
+    [SerializeField]
     float fullRestoreAmount;
     float perTickRestore;
 
@@ -14,9 +15,9 @@ public class EnergyElement : BaseElementClass
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName(""))
+        if(Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName("EnergyCast"))
         {
-
+            playerHand.SetTrigger("StopEnergy");
         }
     }
 

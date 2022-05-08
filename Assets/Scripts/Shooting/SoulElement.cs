@@ -28,7 +28,7 @@ public class SoulElement : BaseElementClass
         {
             previousHealth = pData.health;
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Mouse1))
         {
             playerHand.SetTrigger("SoulStopCast");
         }
@@ -41,6 +41,7 @@ public class SoulElement : BaseElementClass
         //
         pData.mana -= manaCost;
         pData.health += healthRestore;
+        pData.health = Mathf.Min(pData.health, pData.maxHealth);
 
     }
 

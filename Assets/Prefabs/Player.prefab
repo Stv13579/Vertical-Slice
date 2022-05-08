@@ -129,6 +129,7 @@ MonoBehaviour:
   elements:
   - {fileID: 1363181306}
   - {fileID: -3814465932704652785}
+  - {fileID: 5625023910511142018}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ GameObject:
   - component: {fileID: 1363181306}
   - component: {fileID: -3814465932704652785}
   - component: {fileID: 1363181307}
+  - component: {fileID: 5625023910511142018}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -535,7 +537,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryElements:
-  - {fileID: -3814465932704652785}
+  - {fileID: 1363181306}
+  - {fileID: 5625023910511142018}
   catalystElements:
   - {fileID: -3814465932704652785}
   comboElements: []
+--- !u!114 &5625023910511142018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf13d3fada83fd343a9a2057f37dd69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 1
+  animationToPlay: CrystalProj
+  useDelay: 1
+  playerHand: {fileID: 155558029}
+  pData: {fileID: 11400000, guid: a9fe631035c4c564caf8679fc1e57d05, type: 2}
+  crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
+    type: 3}
+  damage: 1
+  projectileSpeed: 10

@@ -11,13 +11,6 @@ public class CrystalElement : BaseElementClass
 
     public float projectileSpeed;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -27,8 +20,11 @@ public class CrystalElement : BaseElementClass
     public override void ElementEffect()
     {
         base.ElementEffect();
-
-        GameObject newCrystalPro = Instantiate(crystalProjectile, transform.position, Camera.main.transform.rotation);
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject newCrystalPro = Instantiate(crystalProjectile, transform.position, Camera.main.transform.rotation);
+            newCrystalPro.transform.rotation = Quaternion.Euler(newCrystalPro.transform.rotation.x, newCrystalPro.transform.rotation.y + (10.0f * i), newCrystalPro.transform.rotation.z);
+        }
 
     }
 
@@ -40,7 +36,7 @@ public class CrystalElement : BaseElementClass
     protected override void StartAnims(string animationName)
     {
         base.StartAnims(animationName);
-
+        playerHand.SetTrigger(animationName);
 
     }
 }

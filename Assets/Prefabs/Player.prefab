@@ -584,7 +584,7 @@ MonoBehaviour:
   handVFX: {fileID: 0}
   manaCost: 0
   animationToPlay: StartEnergy
-  useDelay: 1
+  useDelay: 0
   playerHand: {fileID: 155558029}
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fullRestoreAmount: 30

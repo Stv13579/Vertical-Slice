@@ -14,6 +14,7 @@ public class Fireball : MonoBehaviour
     AnimationCurve gravCurve;
 
     float gravityLifetime; 
+    float startLifetime; 
 
     void Start()
     {
@@ -28,7 +29,8 @@ public class Fireball : MonoBehaviour
         }
 
         Vector3 movement = transform.forward * speed * Time.deltaTime;
-        movement.y -= gravity * gravCurve.Evaluate(5 - gravityLifetime) * Time.deltaTime;
+        gravity *= 1.01f;
+        movement.y -= gravity /** gravCurve.Evaluate(startLifetime - gravityLifetime)*/ * Time.deltaTime;
 
         transform.position += movement;
         

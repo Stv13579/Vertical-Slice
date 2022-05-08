@@ -470,7 +470,7 @@ MonoBehaviour:
   animationToPlay: FireProj
   useDelay: 1
   playerHand: {fileID: 155558029}
-  pData: {fileID: 11400000, guid: a9fe631035c4c564caf8679fc1e57d05, type: 2}
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
   damage: 1
@@ -520,7 +520,7 @@ MonoBehaviour:
   animationToPlay: SoulCast
   useDelay: 1
   playerHand: {fileID: 155558029}
-  pData: {fileID: 11400000, guid: a9fe631035c4c564caf8679fc1e57d05, type: 2}
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   healthRestore: 10
 --- !u!114 &1363181307
 MonoBehaviour:

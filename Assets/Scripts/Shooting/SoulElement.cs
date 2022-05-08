@@ -57,6 +57,7 @@ public class SoulElement : BaseElementClass
 
     protected override bool PayCosts()
     {
+        //Override of paycosts so that mana is only subtracted at then end, in case the cast is cancelled
         if (pData.mana >= manaCost)
         {
             return true;

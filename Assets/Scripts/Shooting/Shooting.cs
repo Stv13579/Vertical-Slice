@@ -11,28 +11,36 @@ public class Shooting : MonoBehaviour
     List<BaseElementClass> catalystElements;
     [SerializeField] 
     List<BaseElementClass> comboElements;
-    [SerializeField]
-    BaseElementClass rightElement;
-    [SerializeField]
-    BaseElementClass leftElement;
-    [SerializeField]
-    BaseElementClass comboElement;
+    int leftElementIndex = 0;
+    int rightElementIndex = 0;
 
     private void Update()
     {
         //Starts the process of activating the element held in the left hand
         if(Input.GetKeyDown(KeyCode.Mouse0))  
         {
-            leftElement.ActivateElement();
+            primaryElements[leftElementIndex].ActivateElement();
+        }
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            catalystElements[rightElementIndex].ActivateElement();
         }
 
         if(Input.GetKeyUp(KeyCode.Q))
         {
-
+            leftElementIndex++;
+            if(leftElementIndex >= primaryElements.Count)
+            {
+                leftElementIndex = 0;
+            }
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
-
+            rightElementIndex++;
+            if (rightElementIndex >= catalystElements.Count)
+            {
+                rightElementIndex = 0;
+            }
         }
 
 

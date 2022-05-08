@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements:
   - {fileID: 1363181306}
+  - {fileID: -3814465932704652785}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +352,7 @@ GameObject:
   - component: {fileID: 5625023911835613076}
   - component: {fileID: 5625023911835613077}
   - component: {fileID: 1363181306}
+  - component: {fileID: -3814465932704652785}
   - component: {fileID: 1363181307}
   m_Layer: 0
   m_Name: Player
@@ -500,6 +502,26 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   gravityLifetime: 1
+--- !u!114 &-3814465932704652785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9db0c08d04e6aa4d9f985850dc115e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 1
+  animationToPlay: SoulCast
+  useDelay: 1
+  playerHand: {fileID: 155558029}
+  pData: {fileID: 11400000, guid: a9fe631035c4c564caf8679fc1e57d05, type: 2}
+  healthRestore: 10
 --- !u!114 &1363181307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,9 +534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558fa0c35cea95b47b1f48af76d2f1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryElements: []
-  catalystElements: []
+  primaryElements:
+  - {fileID: -3814465932704652785}
+  catalystElements:
+  - {fileID: -3814465932704652785}
   comboElements: []
-  rightElement: {fileID: 0}
-  leftElement: {fileID: 1363181306}
-  comboElement: {fileID: 0}

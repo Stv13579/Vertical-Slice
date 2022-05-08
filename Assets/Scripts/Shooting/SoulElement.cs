@@ -10,10 +10,7 @@ public class SoulElement : BaseElementClass
     //Cached health from previous frame
     private float previousHealth = 0.0f;
 
-    //Whether the element is currently casting
-    private bool casting = false;
-    //Whether the element was casting las frame
-    private bool wasCasting = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +25,8 @@ public class SoulElement : BaseElementClass
         {
             previousHealth = pData.health;
         }
-        if(Input.GetKeyUp(KeyCode.Mouse1))
+        //Checking if the mouse button has been released, which cancels the spell
+        if(Input.GetKeyUp(KeyCode.Mouse0))
         {
             playerHand.SetTrigger("SoulStopCast");
         }
@@ -38,11 +36,10 @@ public class SoulElement : BaseElementClass
     public override void ElementEffect()
     {
         base.ElementEffect();
-        //
+        //Subtract the mana cost, restore health, and cap it and the max health
         pData.mana -= manaCost;
         pData.health += healthRestore;
         pData.health = Mathf.Min(pData.health, pData.maxHealth);
-
     }
 
     public override void ActivateVFX()
@@ -55,7 +52,7 @@ public class SoulElement : BaseElementClass
         base.StartAnims(animationName);
 
         playerHand.SetTrigger(animationName);
-        casting = true;
+        playerHand.ResetTrigger("SoulStopCast");
     }
 
     protected override bool PayCosts()

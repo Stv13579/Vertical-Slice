@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BaseElementClass : MonoBehaviour
 {
     //base class that all other player elements derives from
-
-    //Button input
-    //The button to be pressed when activating the element.
-    [SerializeField]
-    string buttonCode;
-
-    //Whether the button needs to be held down during the cast (such as the laser)
-    bool heldCast;
 
     //VFX instantiation
     //VFX that plays when the element is used (eg a fireball from fire)
@@ -22,57 +15,71 @@ public class BaseElementClass : MonoBehaviour
     [SerializeField]
     GameObject handVFX;
 
-    //Animation trigger
-    //The animtor which the element calls animations on
-    Animator playerHand;
+    [SerializeField]
+    public float manaCost;
 
     //A string to pass to the animator to activate appropriate triggers when 
+    [SerializeField]
     string animationToPlay;
 
-    //Mana cost/expenditure
-    //The amount of mana per expenditure (single cost for single use, or per tick/second/rate for held elements)
-    [SerializeField]
-    float manaCost;
+    //Whether the button needs to be held down during the cast (such as the laser)
+    bool heldCast;
 
     //Cooldown/Firerate 
     //The amount of time before the element can be used again (usually brief)
     [SerializeField]
-    float useDelay;
-    float currentUseDelay;
+    public float useDelay;
 
-    public void StartAnims()
+    //Animation trigger
+    //The animator which the element calls animations on
+    [SerializeField]
+    protected Animator playerHand;
+
+    float currentUseDelay = 0;
+
+    GameObject player;
+    [SerializeField]
+    protected PlayerData pData;
+
+    protected virtual void StartAnims(string animationName)
     {
 
     }
 
-    //Called from the hand objects when the appropriate even triggers to turn on the vfx
-    public void ActivateVFX()
+    //Called from the hand objects when the appropriate event triggers to turn on the vfx
+    public virtual void ActivateVFX()
     {
 
     }
 
     //The actual mechanical effect (eg fire object etc)
-    public void ElementEffect()
+    public virtual void ElementEffect()
     {
 
     }
 
     //deduct mana from the mana pool. If unable too, return false, otherwise true
-    public bool PayCosts()
+    protected virtual bool PayCosts()
     {
-
-
-        return true;
+        if (pData.mana >= manaCost)
+        {
+            pData.mana -= manaCost;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //Activates the element, essentially the very start of everything, only if the delay has expired
     public void ActivateElement()
     {
-        if (currentUseDelay < 0)
+        if (currentUseDelay <= 0)
         {
             if(PayCosts())
             {
-                StartAnims();
+                StartAnims(animationToPlay);
                 currentUseDelay = useDelay;
             }
         }

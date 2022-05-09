@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Enemy Data")]
 public class EnemyData : ScriptableObject
 {
     public float maxHealth;

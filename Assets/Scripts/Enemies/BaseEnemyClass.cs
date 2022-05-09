@@ -39,7 +39,10 @@ public class BaseEnemyClass : MonoBehaviour
         //}
 
         //Come back to hopping
-        transform.position += (positionToMoveTo - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
+        Vector3 moveVec = (positionToMoveTo - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
+        moveVec.y = 0;
+        moveVec.y -= 1 * Time.deltaTime;
+        transform.position += moveVec;
     }
 
 

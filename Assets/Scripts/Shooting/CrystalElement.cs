@@ -11,6 +11,12 @@ public class CrystalElement : BaseElementClass
 
     public float projectileSpeed;
 
+    [SerializeField]
+    AnimationCurve damageCurve;
+
+    [SerializeField]
+    float lifeTimer;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +29,8 @@ public class CrystalElement : BaseElementClass
         for (int i = 0; i < 5; i++)
         {
             GameObject newCrystalPro = Instantiate(crystalProjectile, transform.position, Camera.main.transform.rotation);
-            newCrystalPro.transform.rotation = Quaternion.Euler(newCrystalPro.transform.rotation.x, newCrystalPro.transform.rotation.y + (10.0f * i), newCrystalPro.transform.rotation.z);
+            newCrystalPro.transform.eulerAngles = new Vector3(newCrystalPro.transform.eulerAngles.x, newCrystalPro.transform.eulerAngles.y + (10.0f * i - 25.0f), newCrystalPro.transform.eulerAngles.z);
+            newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage, damageCurve, lifeTimer);
         }
 
     }

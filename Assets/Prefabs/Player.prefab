@@ -130,6 +130,7 @@ MonoBehaviour:
   - {fileID: 1363181306}
   - {fileID: -3814465932704652785}
   - {fileID: 5625023910511142018}
+  - {fileID: 7929494458867233755}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +357,7 @@ GameObject:
   - component: {fileID: -3814465932704652785}
   - component: {fileID: 1363181307}
   - component: {fileID: 5625023910511142018}
+  - component: {fileID: 7929494458867233755}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -541,6 +543,7 @@ MonoBehaviour:
   - {fileID: 5625023910511142018}
   catalystElements:
   - {fileID: -3814465932704652785}
+  - {fileID: 7929494458867233755}
   comboElements: []
 --- !u!114 &5625023910511142018
 MonoBehaviour:
@@ -560,8 +563,28 @@ MonoBehaviour:
   animationToPlay: CrystalProj
   useDelay: 1
   playerHand: {fileID: 155558029}
-  pData: {fileID: 11400000, guid: a9fe631035c4c564caf8679fc1e57d05, type: 2}
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
   damage: 1
   projectileSpeed: 10
+--- !u!114 &7929494458867233755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45551ed7f619ff2428cd862ab5928719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 0
+  animationToPlay: StartEnergy
+  useDelay: 0
+  playerHand: {fileID: 155558029}
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  fullRestoreAmount: 30

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 100
   health: 100
+  maxHealth: 10000
+  maxMana: 100

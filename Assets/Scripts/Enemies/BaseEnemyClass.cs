@@ -71,5 +71,10 @@ public class BaseEnemyClass : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Rigidbody>().AddForce(0, 100, 0);
+    }
 }

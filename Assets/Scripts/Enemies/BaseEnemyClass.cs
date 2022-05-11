@@ -77,4 +77,9 @@ public class BaseEnemyClass : MonoBehaviour
     {
         GetComponent<Rigidbody>().AddForce(0, 100, 0);
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        GetComponent<Rigidbody>().AddForce(0, 100, 0);
+    }
 }

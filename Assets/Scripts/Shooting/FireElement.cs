@@ -18,6 +18,8 @@ public class FireElement : BaseElementClass
 
     public float explosionArea;
 
+    public float explosionDamage;
+
     public float gravity;
 
     [SerializeField]
@@ -39,7 +41,7 @@ public class FireElement : BaseElementClass
         base.ElementEffect();
         //
         GameObject newFireball = Instantiate(fireBall, transform.position, Camera.main.transform.rotation);
-        newFireball.GetComponent<Fireball>().SetVars(projectileSpeed, damage, gravity, gravCurve, gravityLifetime);
+        newFireball.GetComponent<Fireball>().SetVars(projectileSpeed, damage, gravity, gravCurve, gravityLifetime, explosionArea, explosionDamage);
     }
 
     public override void ActivateVFX()

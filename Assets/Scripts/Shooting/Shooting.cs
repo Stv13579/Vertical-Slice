@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Shooting : MonoBehaviour
 {
@@ -9,21 +10,29 @@ public class Shooting : MonoBehaviour
     List<BaseElementClass> primaryElements;
     [SerializeField] 
     List<BaseElementClass> catalystElements;
+
+    [Serializable]
+    public struct ComboElementList
+    {
+        public List<BaseElementClass> comboElements;
+    }
+
     [SerializeField] 
-    List<BaseElementClass> comboElements;
+    List<ComboElementList> comboElements;
     int leftElementIndex = 0;
     int rightElementIndex = 0;
 
+    bool inComboMode = false;
+
     private void Update()
     {
-        //Starts the process of activating the element held in the left hand
-        if(Input.GetKeyDown(KeyCode.Mouse0))  
+        if(!inComboMode)
         {
-            primaryElements[leftElementIndex].ActivateElement();
+            NonComboShooting();
         }
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        else
         {
-            catalystElements[rightElementIndex].ActivateElement();
+            ComboShooting();
         }
 
         if(Input.GetKeyUp(KeyCode.Q))
@@ -43,6 +52,33 @@ public class Shooting : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyUp(KeyCode.F))
+        {
+            inComboMode = !inComboMode;
+            //Activate an animation trigger?
 
+        }
+
+    }
+
+    void NonComboShooting()
+    {
+        //Starts the process of activating the element held in the left hand
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            primaryElements[leftElementIndex].ActivateElement();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            catalystElements[rightElementIndex].ActivateElement();
+        }
+    }
+
+    void ComboShooting()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            comboElements[leftElementIndex].comboElements[rightElementIndex].ActivateElement();
+        }
     }
 }

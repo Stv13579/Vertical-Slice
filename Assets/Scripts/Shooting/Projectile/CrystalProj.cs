@@ -13,16 +13,24 @@ public class CrystalProj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(damageLifeTimer > 0)
+        if(damageLifeTimer > 2)
         {
             damageLifeTimer -= Time.deltaTime;
         }
-        Vector3 projMovement = transform.forward * speed * Time.deltaTime;
+        if(startLifeTimer > 0)
+        {
+            startLifeTimer -= Time.deltaTime;
+        }
         damage -= damageCurve.Evaluate(startLifeTimer - damageLifeTimer) * Time.deltaTime;
-
+        MoveCrystalProjectile();
+        KillProjectile();
+    }
+    private void MoveCrystalProjectile()
+    {
+        Vector3 projMovement = transform.forward * speed * Time.deltaTime;
         transform.position += projMovement;
     }
-
+    //setter to set the varibles
     public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer)
     {
         speed = spd;
@@ -30,9 +38,17 @@ public class CrystalProj : MonoBehaviour
         damageCurve = dmgCurve;
         startLifeTimer = stLifeTimer;
     }
+    private void KillProjectile()
+    {
+        if (startLifeTimer <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        // if hits enemy or hits wall
+        // Destroy(gameObject);
     }
 }

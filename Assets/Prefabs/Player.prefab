@@ -91,7 +91,7 @@ BoxCollider:
   m_GameObject: {fileID: 155558024}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: -3814465932704652785}
   - {fileID: 5625023910511142018}
   - {fileID: 7929494458867233755}
+  - {fileID: 443619680}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,9 +359,10 @@ GameObject:
   - component: {fileID: 1363181307}
   - component: {fileID: 5625023910511142018}
   - component: {fileID: 7929494458867233755}
+  - component: {fileID: 443619680}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,9 +479,10 @@ MonoBehaviour:
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
-  damage: 1
-  projectileSpeed: 10
+  damage: 10
+  projectileSpeed: 30
   explosionArea: 0
+  explosionDamage: 0
   gravity: 1
   gravCurve:
     serializedVersion: 2
@@ -544,7 +547,13 @@ MonoBehaviour:
   catalystElements:
   - {fileID: -3814465932704652785}
   - {fileID: 7929494458867233755}
-  comboElements: []
+  comboElements:
+  - comboElements:
+    - {fileID: 0}
+    - {fileID: 0}
+  - comboElements:
+    - {fileID: 0}
+    - {fileID: 443619680}
 --- !u!114 &5625023910511142018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +577,13 @@ MonoBehaviour:
     type: 3}
   damage: 1
   projectileSpeed: 10
+  damageCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  lifeTimer: 0
 --- !u!114 &7929494458867233755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,3 +604,26 @@ MonoBehaviour:
   playerHand: {fileID: 155558029}
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fullRestoreAmount: 30
+--- !u!114 &443619680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a545276928e5e44aa2d0e2fb6d1794d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 10
+  animationToPlay: ShardCast
+  useDelay: 3
+  playerHand: {fileID: 155558029}
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
+    type: 3}
+  damage: 10
+  projectileSpeed: 100

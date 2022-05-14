@@ -2,19 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SAIM : MonoBehaviour
+public class TriggerScript : MonoBehaviour
 {
-
-    [SerializeField]
-    GameObject enemy;
-
-    List<BaseEnemyClass> spawnedEnemies;
-
-    GameObject player;
-
-    public bool triggered;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +13,6 @@ public class SAIM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
-
-
 }

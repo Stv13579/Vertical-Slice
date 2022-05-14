@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1833,6 +1833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 748787822}
   - component: {fileID: 748787823}
+  - component: {fileID: 748787824}
   m_Layer: 0
   m_Name: TriggerBox
   m_TagString: Untagged
@@ -1867,6 +1868,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 100, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &748787824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748787821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a581f6b3047e354aba0ae0fd440b685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &864761151
 PrefabInstance:
   m_ObjectHideFlags: 0

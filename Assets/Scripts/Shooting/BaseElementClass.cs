@@ -94,7 +94,7 @@ public class BaseElementClass : MonoBehaviour
         
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if(currentUseDelay > 0)
         {

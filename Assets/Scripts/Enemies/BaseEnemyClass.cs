@@ -13,6 +13,10 @@ public class BaseEnemyClass : MonoBehaviour
 
     float startY;
 
+    [HideInInspector]
+    public GameObject spawner;
+
+
     private void Start()
     {
         startY = transform.position.y;
@@ -67,7 +71,11 @@ public class BaseEnemyClass : MonoBehaviour
         {
             eData.dead = true;
             //Normally do death animation/vfx, might even fade alpha w/e before deleting.
+
+
             //Destroy for now
+            spawner.GetComponent<SAIM>().spawnedEnemies.Remove(this);
+
             Destroy(gameObject);
         }
     }
@@ -80,6 +88,7 @@ public class BaseEnemyClass : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+
         GetComponent<Rigidbody>().AddForce(0, 100, 0);
     }
 }

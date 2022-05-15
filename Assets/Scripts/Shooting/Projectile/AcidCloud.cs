@@ -14,6 +14,7 @@ public class AcidCloud : MonoBehaviour
     {
         if(transform.localScale.x < cloudSize)
         {
+            //Makes the acid cloud grow over time, up to the preset maximum size
             transform.localScale += new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime);
         }
 
@@ -26,6 +27,7 @@ public class AcidCloud : MonoBehaviour
 
     public void SetVars(float dmg, float size, float duration)
     {
+        //Set up the variables according to the element script
         damage = dmg;
         cloudSize = size;
         cloudDuration = duration;
@@ -35,6 +37,7 @@ public class AcidCloud : MonoBehaviour
     {
         if(other.GetComponent<BaseEnemyClass>())
         {
+            //If an enemy is inside the cloud, deal damage to it
             other.GetComponent<BaseEnemyClass>().TakeDamage(damage);
         }
     }

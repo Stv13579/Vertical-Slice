@@ -11,6 +11,9 @@ public class BaseEnemyClass : MonoBehaviour
 
     GameObject player;
 
+    [SerializeField]
+    GameObject currencyDrop;
+
     float startY;
 
     [HideInInspector]
@@ -77,6 +80,12 @@ public class BaseEnemyClass : MonoBehaviour
 
             //Destroy for now
             spawner.GetComponent<SAIM>().spawnedEnemies.Remove(this);
+
+            //Spawn currency
+            for(int i = 0; i < Random.Range(0, 3); i++)
+            {
+                Instantiate(currencyDrop, this.transform.position, Quaternion.identity);
+            }
 
             Destroy(gameObject);
         }

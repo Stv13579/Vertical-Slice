@@ -84,7 +84,6 @@ public class Shooting : MonoBehaviour
 
     public String GetPrimaryElement()
     {
-        Debug.Log(primaryElements[leftElementIndex].elementName);
         return (primaryElements[leftElementIndex].elementName);
     }
 

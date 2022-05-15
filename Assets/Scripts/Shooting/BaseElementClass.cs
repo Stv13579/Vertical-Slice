@@ -37,6 +37,8 @@ public class BaseElementClass : MonoBehaviour
 
     float currentUseDelay = 0;
 
+    //The name of the element, for UI purposes
+    public string elementName;
     GameObject player;
     [SerializeField]
     protected PlayerData pData;

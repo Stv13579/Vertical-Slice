@@ -132,6 +132,7 @@ MonoBehaviour:
   - {fileID: 5625023910511142018}
   - {fileID: 7929494458867233755}
   - {fileID: 443619680}
+  - {fileID: 5153590985047999224}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +361,7 @@ GameObject:
   - component: {fileID: 5625023910511142018}
   - component: {fileID: 7929494458867233755}
   - component: {fileID: 443619680}
+  - component: {fileID: 5153590985047999224}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -476,6 +478,7 @@ MonoBehaviour:
   animationToPlay: FireProj
   useDelay: 1
   playerHand: {fileID: 155558029}
+  elementName: Fire
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
@@ -527,6 +530,7 @@ MonoBehaviour:
   animationToPlay: SoulCast
   useDelay: 1
   playerHand: {fileID: 155558029}
+  elementName: Soul
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   healthRestore: 10
 --- !u!114 &1363181307
@@ -549,10 +553,10 @@ MonoBehaviour:
   - {fileID: 7929494458867233755}
   comboElements:
   - comboElements:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 5153590985047999224}
+    - {fileID: 443619680}
   - comboElements:
-    - {fileID: 0}
+    - {fileID: 443619680}
     - {fileID: 443619680}
 --- !u!114 &5625023910511142018
 MonoBehaviour:
@@ -572,6 +576,7 @@ MonoBehaviour:
   animationToPlay: CrystalProj
   useDelay: 1
   playerHand: {fileID: 155558029}
+  elementName: Crystal
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
@@ -602,6 +607,7 @@ MonoBehaviour:
   animationToPlay: StartEnergy
   useDelay: 0
   playerHand: {fileID: 155558029}
+  elementName: Energy
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fullRestoreAmount: 30
 --- !u!114 &443619680
@@ -622,8 +628,34 @@ MonoBehaviour:
   animationToPlay: ShardCast
   useDelay: 3
   playerHand: {fileID: 155558029}
+  elementName: Shard Cannon
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
   damage: 10
   projectileSpeed: 100
+--- !u!114 &5153590985047999224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7099779d118fc7245900c12972886993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 5
+  animationToPlay: AcidCast
+  useDelay: 2
+  playerHand: {fileID: 155558029}
+  elementName: Acid Cloud
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  cloudProj: {fileID: 8417138957682568096, guid: 10b41ea33a4534e4bb8656dcf5ea9cae,
+    type: 3}
+  damage: 0.1
+  cloudSize: 4
+  cloudDuration: 10

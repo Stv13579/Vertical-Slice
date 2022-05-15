@@ -81,4 +81,20 @@ public class Shooting : MonoBehaviour
             comboElements[leftElementIndex].comboElements[rightElementIndex].ActivateElement();
         }
     }
+
+    public String GetPrimaryElement()
+    {
+        Debug.Log(primaryElements[leftElementIndex].elementName);
+        return (primaryElements[leftElementIndex].elementName);
+    }
+
+    public String GetCatalystElement()
+    {
+        return (catalystElements[rightElementIndex].elementName);
+    }
+
+    public String GetComboElement()
+    {
+        return (comboElements[leftElementIndex].comboElements[rightElementIndex].elementName);
+    }
 }

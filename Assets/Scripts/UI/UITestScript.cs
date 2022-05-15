@@ -20,7 +20,7 @@ public class UITestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manaText.text = "Mana: " + pData.mana + "/" + pData.maxMana;
+        manaText.text = "Mana: " + pData.mana.ToString("F0") + "/" + pData.maxMana;
         healthText.text = "Health: " + pData.health + "/" + pData.maxHealth;
         leftSpellText.text = "Left Spell: " +  player.GetPrimaryElement();
         rightSpellText.text = "Right Spell: " + player.GetCatalystElement();

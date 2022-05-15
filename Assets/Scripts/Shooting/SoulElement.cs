@@ -55,7 +55,7 @@ public class SoulElement : BaseElementClass
         playerHand.ResetTrigger("SoulStopCast");
     }
 
-    protected override bool PayCosts()
+    protected override bool PayCosts(float modifier = 1)
     {
         //Override of paycosts so that mana is only subtracted at then end, in case the cast is cancelled
         if (pData.mana >= manaCost)

@@ -22,11 +22,19 @@ public class NormalSlimeEnemy : BaseEnemyClass
         transform.position += moveVec;
     }
 
+    new private void Update()
+    {
+        Movement(player.transform.position);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<Rigidbody>().AddForce(0, 100, 0);
+        if (GetComponent<Rigidbody>().velocity.y < 10)
+        {
+            GetComponent<Rigidbody>().AddForce(0, 100, 0);
+        }
 
-        if(collision.collider.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Attacking();
         }

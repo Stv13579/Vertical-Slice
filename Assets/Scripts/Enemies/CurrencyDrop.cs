@@ -16,6 +16,7 @@ public class CurrencyDrop : MonoBehaviour
         rb.AddForce((this.transform.up * 500 + new Vector3(Random.Range(-1.0f, 1.0f), 0.0f, Random.Range(-1.0f, 1.0f)) * 50));
         //Ignore collisions between currency objects
         Physics.IgnoreLayerCollision(4, 4);
+        Physics.IgnoreLayerCollision(4, 8);
     }
 
     // Update is called once per frame

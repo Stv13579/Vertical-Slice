@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8048053914739367019}
   - component: {fileID: 8048053914739367018}
   - component: {fileID: 8048053914739367016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}

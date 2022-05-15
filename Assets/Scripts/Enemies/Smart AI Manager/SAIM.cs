@@ -93,6 +93,10 @@ public class SAIM : MonoBehaviour
     {
         for (int i = 0; i < amountToSpawn; i++)
         {
+            Vector3 spawnPosition = nodes[0].transform.position;
+
+
+
             GameObject spawnedEnemy = Instantiate(data.enemyTypes[Random.Range(0, data.enemyTypes.Count)], nodes[0].transform.position, Quaternion.identity);
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
             spawnAmount++;

@@ -7,7 +7,7 @@ public class BaseEnemyClass : MonoBehaviour
     //base class that all enemies derive from.
 
     [SerializeField]
-    EnemyData eData;
+    protected EnemyData eData;
 
     GameObject player;
 
@@ -33,23 +33,9 @@ public class BaseEnemyClass : MonoBehaviour
     }
 
     //Movement
-    public void Movement(Vector3 positionToMoveTo)
+    public virtual void Movement(Vector3 positionToMoveTo)
     {
-        //if((positionToMoveTo - transform.position).magnitude > eData.maxHopDistance & (eData.currentHopDistance == eData.maxHopDistance))
-        //{
-        //    //Move instead
-        //}
-        //else
-        //{   
-            
-
-        //}
-
-        //Come back to hopping
-        Vector3 moveVec = (positionToMoveTo - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec;
+        
 
         
     }
@@ -92,17 +78,5 @@ public class BaseEnemyClass : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        GetComponent<Rigidbody>().AddForce(0, 100, 0);
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if(GetComponent<Rigidbody>().velocity.y < 10)
-        {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
-        }
-
-    }
+    
 }

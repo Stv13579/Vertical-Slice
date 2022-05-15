@@ -42,7 +42,7 @@ public class CurrencyDrop : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //Give the player the currency
+            player.gameObject.GetComponent<PlayerClass>().money += 1;
             Destroy(this.gameObject);
         }
     }

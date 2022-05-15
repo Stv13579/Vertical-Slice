@@ -660,6 +660,7 @@ MonoBehaviour:
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   currentHealth: 0
   currentMana: 0
+  money: 0
 --- !u!114 &1363181307
 MonoBehaviour:
   m_ObjectHideFlags: 0

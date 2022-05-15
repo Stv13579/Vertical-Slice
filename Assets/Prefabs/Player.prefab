@@ -388,9 +388,10 @@ GameObject:
   - component: {fileID: 5625023911835613079}
   - component: {fileID: 5625023911835613076}
   - component: {fileID: 5625023911835613077}
+  - component: {fileID: 5625023910511142016}
+  - component: {fileID: 1363181307}
   - component: {fileID: 1363181306}
   - component: {fileID: -3814465932704652785}
-  - component: {fileID: 1363181307}
   - component: {fileID: 5625023910511142018}
   - component: {fileID: 7929494458867233755}
   - component: {fileID: 443619680}
@@ -494,6 +495,46 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5625023910511142016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3c96bbe0d9f9544905dfe06fdf9fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  currentHealth: 0
+  currentMana: 0
+--- !u!114 &1363181307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558fa0c35cea95b47b1f48af76d2f1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryElements:
+  - {fileID: 1363181306}
+  - {fileID: 5625023910511142018}
+  catalystElements:
+  - {fileID: -3814465932704652785}
+  - {fileID: 7929494458867233755}
+  comboElements:
+  - comboElements:
+    - {fileID: 5153590985047999224}
+    - {fileID: 128290791}
+  - comboElements:
+    - {fileID: 443619680}
+    - {fileID: 443619680}
 --- !u!114 &1363181306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,31 +608,6 @@ MonoBehaviour:
   elementName: Soul
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   healthRestore: 10
---- !u!114 &1363181307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5625023911835613081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558fa0c35cea95b47b1f48af76d2f1a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primaryElements:
-  - {fileID: 1363181306}
-  - {fileID: 5625023910511142018}
-  catalystElements:
-  - {fileID: -3814465932704652785}
-  - {fileID: 7929494458867233755}
-  comboElements:
-  - comboElements:
-    - {fileID: 5153590985047999224}
-    - {fileID: 128290791}
-  - comboElements:
-    - {fileID: 443619680}
-    - {fileID: 443619680}
 --- !u!114 &5625023910511142018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +731,7 @@ MonoBehaviour:
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   LaserBeam: {fileID: 3981687641008780923}
   damage: 1
-  laserStillOn: 0
+  usingLaserBeam: 0
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
 --- !u!1001 &5625023910865451700
 PrefabInstance:

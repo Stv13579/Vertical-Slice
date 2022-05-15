@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UITestScript : MonoBehaviour
 {
     public PlayerData pData;
+    PlayerClass playerClass;
     Shooting player;
 
     [SerializeField]
@@ -15,13 +16,14 @@ public class UITestScript : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Shooting>();
+        playerClass = player.gameObject.GetComponent<PlayerClass>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        manaText.text = "Mana: " + pData.mana.ToString("F0") + "/" + pData.maxMana;
-        healthText.text = "Health: " + pData.health + "/" + pData.maxHealth;
+        manaText.text = "Mana: " + playerClass.currentMana.ToString("F0") + "/" + pData.maxMana;
+        healthText.text = "Health: " + playerClass.currentHealth + "/" + pData.maxHealth;
         leftSpellText.text = "Left Spell: " +  player.GetPrimaryElement();
         rightSpellText.text = "Right Spell: " + player.GetCatalystElement();
         comboSpellText.text = "Combo Spell: " + player.GetComboElement();

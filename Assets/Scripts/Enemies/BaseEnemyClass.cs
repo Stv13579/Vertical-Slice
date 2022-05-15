@@ -8,8 +8,12 @@ public class BaseEnemyClass : MonoBehaviour
 
     [SerializeField]
     protected EnemyData eData;
+    float currentHealth;
+    bool isDead = false;
 
     GameObject player;
+
+    protected PlayerClass playerClass;
 
     [SerializeField]
     GameObject currencyDrop;
@@ -24,6 +28,8 @@ public class BaseEnemyClass : MonoBehaviour
     {
         startY = transform.position.y;
         player = GameObject.Find("Player");
+        playerClass = player.GetComponent<PlayerClass>();
+        currentHealth = eData.maxHealth;
     }
 
     public void Update()
@@ -51,16 +57,16 @@ public class BaseEnemyClass : MonoBehaviour
     //Taking damage
     public void TakeDamage(float damageToTake)
     {
-        eData.currentHealth -= damageToTake * eData.damageResistance - eData.damageThreshold;
+        currentHealth -= damageToTake * eData.damageResistance - eData.damageThreshold;
         Death();
     }
 
     //Death
     public void Death()
     {
-        if(eData.currentHealth <= 0)
+        if(currentHealth <= 0)
         {
-            eData.dead = true;
+            isDead = true;
             //Normally do death animation/vfx, might even fade alpha w/e before deleting.
 
 

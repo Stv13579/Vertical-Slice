@@ -47,6 +47,8 @@ public class BaseEnemyClass : MonoBehaviour
         moveVec.y = 0;
         moveVec.y -= 1 * Time.deltaTime;
         transform.position += moveVec;
+
+        
     }
 
 
@@ -88,7 +90,10 @@ public class BaseEnemyClass : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+        if(GetComponent<Rigidbody>().velocity.y < 10)
+        {
+            GetComponent<Rigidbody>().AddForce(0, 100, 0);
+        }
 
-        GetComponent<Rigidbody>().AddForce(0, 100, 0);
     }
 }

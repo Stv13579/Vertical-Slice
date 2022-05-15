@@ -8,6 +8,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     public override void Attacking()
     {
         base.Attacking();
+        playerClass.currentHealth -= eData.damageAmount;
     }
 
     public override void Movement(Vector3 positionToMoveTo)
@@ -24,6 +25,11 @@ public class NormalSlimeEnemy : BaseEnemyClass
     private void OnCollisionEnter(Collision collision)
     {
         GetComponent<Rigidbody>().AddForce(0, 100, 0);
+
+        if(collision.collider.tag == "Player")
+        {
+            Attacking();
+        }
     }
 
     private void OnCollisionStay(Collision collision)

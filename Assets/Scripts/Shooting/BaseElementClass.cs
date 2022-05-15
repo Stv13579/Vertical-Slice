@@ -42,7 +42,13 @@ public class BaseElementClass : MonoBehaviour
     GameObject player;
     [SerializeField]
     protected PlayerData pData;
+    protected PlayerClass playerClass;
 
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        playerClass = player.GetComponent<PlayerClass>();
+    }
     protected virtual void StartAnims(string animationName)
     {
 
@@ -63,9 +69,9 @@ public class BaseElementClass : MonoBehaviour
     //deduct mana from the mana pool. If unable too, return false, otherwise true
     protected virtual bool PayCosts(float modifier = 1)
     {
-        if (pData.mana >= manaCost)
+        if (playerClass.currentMana >= manaCost)
         {
-            pData.mana -= manaCost * modifier;
+            playerClass.currentMana -= manaCost * modifier;
             return true;
         }
         else

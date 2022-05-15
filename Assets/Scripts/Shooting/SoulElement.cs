@@ -17,16 +17,16 @@ public class SoulElement : BaseElementClass
         base.Update();
 
         //Checking if the player has taken damage, which cancels the spell
-        if(previousHealth > pData.health)
+        if(previousHealth > playerClass.currentHealth)
         {
             playerHand.SetTrigger("SoulStopCast");
         }
         else
         {
-            previousHealth = pData.health;
+            previousHealth = playerClass.currentHealth;
         }
         //Checking if the mouse button has been released, which cancels the spell
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Mouse1) && playerHand.GetCurrentAnimatorStateInfo(0).IsName("SoulCast"))
         {
             playerHand.SetTrigger("SoulStopCast");
         }
@@ -37,9 +37,9 @@ public class SoulElement : BaseElementClass
     {
         base.ElementEffect();
         //Subtract the mana cost, restore health, and cap it and the max health
-        pData.mana -= manaCost;
-        pData.health += healthRestore;
-        pData.health = Mathf.Min(pData.health, pData.maxHealth);
+        playerClass.currentMana -= manaCost;
+        playerClass.currentHealth += healthRestore;
+        playerClass.currentHealth = Mathf.Min(playerClass.currentHealth, pData.maxHealth);
     }
 
     public override void ActivateVFX()
@@ -58,7 +58,7 @@ public class SoulElement : BaseElementClass
     protected override bool PayCosts(float modifier = 1)
     {
         //Override of paycosts so that mana is only subtracted at then end, in case the cast is cancelled
-        if (pData.mana >= manaCost)
+        if (playerClass.currentMana >= manaCost)
         {
             return true;
         }

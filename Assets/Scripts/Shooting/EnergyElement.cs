@@ -24,10 +24,10 @@ public class EnergyElement : BaseElementClass
     public override void ElementEffect()
     {
         base.ElementEffect();
-        pData.mana += fullRestoreAmount;
-        if(pData.mana > pData.maxMana)
+        playerClass.currentMana += fullRestoreAmount;
+        if(playerClass.currentMana > pData.maxMana)
         {
-            pData.mana = pData.maxMana;
+            playerClass.currentMana = pData.maxMana;
         }
 
     }

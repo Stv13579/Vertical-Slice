@@ -98,6 +98,7 @@ public class SAIM : MonoBehaviour
 
 
             GameObject spawnedEnemy = Instantiate(data.enemyTypes[Random.Range(0, data.enemyTypes.Count)], nodes[0].transform.position, Quaternion.identity);
+            spawnedEnemy.GetComponent<BaseEnemyClass>().spawner = this.gameObject;
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
             spawnAmount++;
         }

@@ -26,7 +26,7 @@ public class SoulElement : BaseElementClass
             previousHealth = playerClass.currentHealth;
         }
         //Checking if the mouse button has been released, which cancels the spell
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Mouse1) && playerHand.GetCurrentAnimatorStateInfo(0).IsName("SoulCast"))
         {
             playerHand.SetTrigger("SoulStopCast");
         }

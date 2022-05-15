@@ -21,4 +21,18 @@ public class LaserBeam : MonoBehaviour
     {
         damage = dmg;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //if enemy, hit them for the damage
+        Collider taggedEnemy = null;
+
+
+        if (other.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+
+            taggedEnemy = other;
+        }
+    }
 }

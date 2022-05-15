@@ -27,7 +27,6 @@ public class LaserBeam : MonoBehaviour
         //if enemy, hit them for the damage
         Collider taggedEnemy = null;
 
-
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);

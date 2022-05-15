@@ -48,7 +48,18 @@ public class CrystalProj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // if hits enemy or hits wall
-        // Destroy(gameObject);
+        //if enemy, hit them for the damage
+        Collider taggedEnemy = null;
+
+
+        if (other.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+
+            taggedEnemy = other;
+
+            Destroy(gameObject);
+        }
+
     }
 }

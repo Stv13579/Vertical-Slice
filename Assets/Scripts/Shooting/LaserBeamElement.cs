@@ -7,7 +7,7 @@ public class LaserBeamElement : BaseElementClass
     [SerializeField]
     GameObject LaserBeam;
     public float damage;
-    public bool laserStillOn;
+    public bool usingLaserBeam;
     public PlayerData pData;
     // Update is called once per frame
     void Update()
@@ -25,6 +25,7 @@ public class LaserBeamElement : BaseElementClass
     {
         if (Input.GetKeyUp(KeyCode.Mouse0) || !PayCosts(Time.deltaTime))
         {
+            usingLaserBeam = false;
            LaserBeam.SetActive(false);
            playerHand.SetTrigger("LaserStopCast");
         }
@@ -32,8 +33,10 @@ public class LaserBeamElement : BaseElementClass
     public override void ElementEffect()
     {
         base.ElementEffect();
+        usingLaserBeam = true;
         LaserBeam.SetActive(true);
-        
+        LaserBeam.GetComponent<LaserBeam>().SetVars(damage);
+
     }
     public override void ActivateVFX()
     {

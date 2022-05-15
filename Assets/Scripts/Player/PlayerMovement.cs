@@ -63,7 +63,14 @@ public class PlayerMovement : MonoBehaviour
 
         Jumping();
         HeadBobbing();
-
+        if(this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
+        {
+            moveSpeed = 6.0f;
+        }
+        else
+        {
+            moveSpeed = 12.0f;
+        }
         // converting the players input into a vector 3 and timings it by the players look direction
         Vector3 inputMove = new Vector3(x, 0.0f, z);
         Vector3 realMove = Quaternion.Euler(0.0f, lookScript.GetSpin(), 0.0f) * inputMove;
@@ -178,5 +185,6 @@ public class PlayerMovement : MonoBehaviour
         localPos.y = headBobNeutral + (headBobMove * headBobBlendCurve.Evaluate(headBobMultiplier));
         lookScript.GetCamera().transform.localPosition = localPos;
     }
+
 }
 

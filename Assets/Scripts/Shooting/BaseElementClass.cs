@@ -61,11 +61,11 @@ public class BaseElementClass : MonoBehaviour
     }
 
     //deduct mana from the mana pool. If unable too, return false, otherwise true
-    protected virtual bool PayCosts()
+    protected virtual bool PayCosts(float modifier = 1)
     {
         if (pData.mana >= manaCost)
         {
-            pData.mana -= manaCost;
+            pData.mana -= manaCost * modifier;
             return true;
         }
         else

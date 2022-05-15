@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserBeam : MonoBehaviour
 {
+    float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class LaserBeam : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetVars(float dmg)
+    {
+        damage = dmg;
     }
 }

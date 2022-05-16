@@ -18,6 +18,9 @@ public class Fireball : MonoBehaviour
     float startLifetime;
 
     float explosionRadii;
+
+    List<string> attackTypes;
+
     void Start()
     {
         
@@ -38,7 +41,7 @@ public class Fireball : MonoBehaviour
         
     }
 
-    public void SetVars(float spd, float dmg, float grav, AnimationCurve grCurve, float lifeTime, float explosionRadius, float expDamage)
+    public void SetVars(float spd, float dmg, float grav, AnimationCurve grCurve, float lifeTime, float explosionRadius, float expDamage, List<string> types)
     {
         speed = spd;
         damage = dmg;
@@ -47,6 +50,8 @@ public class Fireball : MonoBehaviour
         gravityLifetime = lifeTime;
         explosionRadii = explosionRadius;
         explosionDamage = expDamage;
+        attackTypes = types;
+
     }
 
 
@@ -59,7 +64,7 @@ public class Fireball : MonoBehaviour
 
         if(other.tag  == "Enemy")
         {
-            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
 
             taggedEnemy = other;
         }
@@ -72,7 +77,7 @@ public class Fireball : MonoBehaviour
             {
                 if(objectsHit[i].tag == "Enemy" && objectsHit[i] != taggedEnemy)
                 {
-                    objectsHit[i].GetComponent<BaseEnemyClass>().TakeDamage(explosionDamage);
+                    objectsHit[i].GetComponent<BaseEnemyClass>().TakeDamage(explosionDamage, attackTypes);
                 }
             }
 

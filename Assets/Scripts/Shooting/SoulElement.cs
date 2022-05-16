@@ -38,8 +38,7 @@ public class SoulElement : BaseElementClass
         base.ElementEffect();
         //Subtract the mana cost, restore health, and cap it and the max health
         playerClass.currentMana -= manaCost;
-        playerClass.currentHealth += healthRestore;
-        playerClass.currentHealth = Mathf.Min(playerClass.currentHealth, pData.maxHealth);
+        playerClass.ChangeHealth(healthRestore);
     }
 
     public override void ActivateVFX()

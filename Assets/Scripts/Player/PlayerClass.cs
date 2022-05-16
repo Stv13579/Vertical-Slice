@@ -30,4 +30,13 @@ public class PlayerClass : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void ChangeHealth(float healthAmount)
+    {
+        currentHealth = Mathf.Min(currentHealth + healthAmount, pData.maxHealth);
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
+    }
 }

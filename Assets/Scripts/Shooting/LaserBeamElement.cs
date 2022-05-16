@@ -34,7 +34,7 @@ public class LaserBeamElement : BaseElementClass
         base.ElementEffect();
         usingLaserBeam = true;
         LaserBeam.SetActive(true);
-        LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage);
+        LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage, attackTypes);
 
     }
     public override void ActivateVFX()

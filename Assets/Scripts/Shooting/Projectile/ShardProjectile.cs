@@ -10,6 +10,7 @@ public class ShardProjectile : MonoBehaviour
 
     int pierceAmount;
 
+    List<string> attackTypes;
 
 
     void Start()
@@ -29,10 +30,12 @@ public class ShardProjectile : MonoBehaviour
 
     }
 
-    public void SetVars(float spd, float dmg)
+    public void SetVars(float spd, float dmg, List<string> types)
     {
         speed = spd;
         damage = dmg;
+        attackTypes = types;
+
     }
 
 
@@ -42,7 +45,7 @@ public class ShardProjectile : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
 
 
         }

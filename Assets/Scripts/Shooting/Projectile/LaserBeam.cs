@@ -5,6 +5,8 @@ using UnityEngine;
 public class LaserBeam : MonoBehaviour
 {
     float damage;
+    List<string> attackTypes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,11 @@ public class LaserBeam : MonoBehaviour
         
     }
 
-    public void SetVars(float dmg)
+    public void SetVars(float dmg, List<string> types)
     {
         damage = dmg;
+        attackTypes = types;
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -29,7 +33,7 @@ public class LaserBeam : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
 
             taggedEnemy = other;
         }

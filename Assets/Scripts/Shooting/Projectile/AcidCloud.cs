@@ -10,6 +10,7 @@ public class AcidCloud : MonoBehaviour
 
     float cloudDuration;
 
+    List<string> attackTypes;
     void Update()
     {
         if(transform.localScale.x < cloudSize)
@@ -25,12 +26,13 @@ public class AcidCloud : MonoBehaviour
         }
     }
 
-    public void SetVars(float dmg, float size, float duration)
+    public void SetVars(float dmg, float size, float duration, List<string> types)
     {
         //Set up the variables according to the element script
         damage = dmg;
         cloudSize = size;
         cloudDuration = duration;
+        attackTypes = types;
     }
 
     private void OnTriggerStay(Collider other)
@@ -38,7 +40,7 @@ public class AcidCloud : MonoBehaviour
         if(other.GetComponent<BaseEnemyClass>())
         {
             //If an enemy is inside the cloud, deal damage to it
-            other.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+            other.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
         }
     }
 }

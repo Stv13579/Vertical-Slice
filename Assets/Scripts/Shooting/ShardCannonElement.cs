@@ -35,7 +35,7 @@ public class ShardCannonElement : BaseElementClass
 
         //rot.SetEulerAngles(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
         GameObject newShard = Instantiate(shardProj, transform.position, rot);
-        newShard.GetComponent<ShardProjectile>().SetVars(projectileSpeed, damage);
+        newShard.GetComponent<ShardProjectile>().SetVars(projectileSpeed, damage, attackTypes);
     }
 
     public override void ActivateVFX()

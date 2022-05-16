@@ -8,7 +8,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     public override void Attacking()
     {
         base.Attacking();
-        playerClass.currentHealth -= eData.damageAmount;
+        playerClass.ChangeHealth(-eData.damageAmount);
     }
 
     public override void Movement(Vector3 positionToMoveTo)

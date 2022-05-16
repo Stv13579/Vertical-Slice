@@ -39,6 +39,9 @@ public class BaseElementClass : MonoBehaviour
 
     //The name of the element, for UI purposes
     public string elementName;
+
+    [SerializeField]
+    protected List<string> attackTypes;
     GameObject player;
     [SerializeField]
     protected PlayerData pData;

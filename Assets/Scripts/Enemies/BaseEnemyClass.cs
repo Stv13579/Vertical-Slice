@@ -23,6 +23,9 @@ public class BaseEnemyClass : MonoBehaviour
     [HideInInspector]
     public GameObject spawner;
 
+    [SerializeField]
+    List<string> weaknesses, resistances;
+
 
     private void Start()
     {
@@ -55,9 +58,27 @@ public class BaseEnemyClass : MonoBehaviour
 
 
     //Taking damage
-    public void TakeDamage(float damageToTake)
+    public void TakeDamage(float damageToTake, List<string> attackTypes)
     {
-        currentHealth -= damageToTake * eData.damageResistance - eData.damageThreshold;
+        float multiplier = 1;
+        foreach(string type in attackTypes)
+        {
+            foreach (string weak in weaknesses)
+            {
+                if(weak == type)
+                {
+                    multiplier *= 2; 
+                }
+            }
+            foreach (string resist in resistances)
+            {
+                if(resist == type)
+                {
+                    multiplier *= 0.5f;
+                }
+            }
+        }
+        currentHealth -= (damageToTake * multiplier) * eData.damageResistance - eData.damageThreshold;
         Death();
     }
 

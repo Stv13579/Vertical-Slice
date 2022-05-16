@@ -10,6 +10,8 @@ public class CrystalProj : MonoBehaviour
     float damageLifeTimer;
     float startLifeTimer;
 
+    List<string> attackTypes;
+
     // Update is called once per frame
     void Update()
     {
@@ -31,12 +33,14 @@ public class CrystalProj : MonoBehaviour
         transform.position += projMovement;
     }
     //setter to set the varibles
-    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer)
+    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<string> types)
     {
         speed = spd;
         damage = dmg;
         damageCurve = dmgCurve;
         startLifeTimer = stLifeTimer;
+        attackTypes = types;
+
     }
     private void KillProjectile()
     {
@@ -54,7 +58,7 @@ public class CrystalProj : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage);
+            other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
 
             taggedEnemy = other;
 

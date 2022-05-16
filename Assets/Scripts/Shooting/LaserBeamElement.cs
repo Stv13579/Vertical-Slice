@@ -8,9 +8,8 @@ public class LaserBeamElement : BaseElementClass
     GameObject LaserBeam;
     public float damage;
     public bool usingLaserBeam;
-    public PlayerData pData;
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         base.Update();
 

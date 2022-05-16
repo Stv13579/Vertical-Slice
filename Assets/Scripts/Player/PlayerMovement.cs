@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float jumpSpeed = 15.0f;
     [SerializeField]
-    private float airStrafeSpeed = 1.0f;
     private float acceleration = 10.0f;
     private AnimationCurve frictionCurve = AnimationCurve.Linear(0, 0.1f, 1, 1);
     [SerializeField]

@@ -17,7 +17,7 @@ public class ShardCannonElement : BaseElementClass
 
     public float projectileSpeed;
 
-    void Update()
+    protected override void Update()
     {
         base.Update();
 

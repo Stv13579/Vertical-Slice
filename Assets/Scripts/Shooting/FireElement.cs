@@ -28,7 +28,7 @@ public class FireElement : BaseElementClass
     [SerializeField]
     float gravityLifetime;
 
-    void Update()
+    protected override void Update()
     {
         base.Update();
 

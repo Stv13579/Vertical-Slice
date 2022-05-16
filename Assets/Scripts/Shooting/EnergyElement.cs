@@ -13,7 +13,7 @@ public class EnergyElement : BaseElementClass
         heldCast = true;
     }
 
-    void Update()
+    protected override void Update()
     {
         if(Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName("EnergyCast"))
         {

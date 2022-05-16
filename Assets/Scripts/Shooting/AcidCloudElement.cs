@@ -15,7 +15,7 @@ public class AcidCloudElement : BaseElementClass
 
     public float cloudDuration;
 
-    void Update()
+    protected override void Update()
     {
         base.Update();
     }

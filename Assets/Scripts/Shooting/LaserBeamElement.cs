@@ -9,7 +9,7 @@ public class LaserBeamElement : BaseElementClass
     public float damage;
     public bool usingLaserBeam;
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         base.Update();
 

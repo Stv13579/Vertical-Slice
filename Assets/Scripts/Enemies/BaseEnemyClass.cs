@@ -11,7 +11,7 @@ public class BaseEnemyClass : MonoBehaviour
     float currentHealth;
     bool isDead = false;
 
-    GameObject player;
+    protected GameObject player;
 
     protected PlayerClass playerClass;
 

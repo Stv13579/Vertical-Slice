@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 639663662}
   - component: {fileID: 639663661}
   - component: {fileID: 484961556092764448}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bouncer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639663659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 33.9, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: 22.6, z: 0}
+  m_LocalScale: {x: 50, y: 30, z: 50}
   m_Children: []
   m_Father: {fileID: 7510551828275542973}
   m_RootOrder: 0

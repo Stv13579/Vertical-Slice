@@ -29,7 +29,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10)
+        if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
             GetComponent<Rigidbody>().AddForce(0, 100, 0);
         }
@@ -42,7 +42,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     private void OnCollisionStay(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10)
+        if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
             GetComponent<Rigidbody>().AddForce(0, 100, 0);
         }

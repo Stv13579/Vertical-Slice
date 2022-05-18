@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
   player: {fileID: 0}
-  totalSpawns: 100
+  totalSpawns: 10
   spawnDuration: 100
   difficulty: 1
   adjustedDifficulty: 1

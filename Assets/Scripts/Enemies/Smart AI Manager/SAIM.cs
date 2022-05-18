@@ -97,9 +97,10 @@ public class SAIM : MonoBehaviour
         {
             Vector3 spawnPosition = nodes[0].transform.position;
 
+            //spawnPosition.x += Random.Range(-1.0f, 2.0f);
+            //spawnPosition.z += Random.Range(-1.0f, 2.0f);
 
-
-            GameObject spawnedEnemy = Instantiate(data.enemyTypes[Random.Range(0, data.enemyTypes.Count)], nodes[0].transform.position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(data.enemyTypes[Random.Range(0, data.enemyTypes.Count)], spawnPosition, Quaternion.identity);
             spawnedEnemy.GetComponent<BaseEnemyClass>().spawner = this.gameObject;
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
             spawnAmount++;
@@ -113,9 +114,15 @@ public class SAIM : MonoBehaviour
         {
             for (int j = 0; j < spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList.Count; j++)
             {
-                Vector3 newDir = spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList[j].transform.position - transform.position;
+                Vector3 newDir = spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList[j].transform.position - spawnedEnemies[i].gameObject.transform.position;
                 newDir.y = 0;
-                transform.position -= newDir * Time.deltaTime;
+                if(newDir.magnitude == 0)
+                {
+                    newDir = new Vector3(Random.Range(-1, 2), 0, Random.Range(-1, 2));
+                    newDir = newDir.normalized;
+
+                }
+                spawnedEnemies[i].gameObject.transform.position -= newDir * Time.deltaTime * 10;
                 spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
                 j--;
 

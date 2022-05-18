@@ -26,6 +26,8 @@ public class BaseEnemyClass : MonoBehaviour
     [SerializeField]
     List<string> weaknesses, resistances;
 
+    [HideInInspector]
+    public List<GameObject> bounceList;
 
     private void Start()
     {

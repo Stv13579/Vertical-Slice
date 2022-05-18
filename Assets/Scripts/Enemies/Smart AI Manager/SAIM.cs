@@ -44,6 +44,8 @@ public class SAIM : MonoBehaviour
 
         AdjustDifficulty();
 
+        Move();
+
 
         if(spawningFinished && spawnedEnemies.Count == 0)
         {
@@ -107,7 +109,18 @@ public class SAIM : MonoBehaviour
 
     public void Move()
     {
+        for (int i = 0; i < spawnedEnemies.Count; i++)
+        {
+            for (int j = 0; j < spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList.Count; j++)
+            {
+                Vector3 newDir = spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList[j].transform.position - transform.position;
+                newDir.y = 0;
+                transform.position -= newDir * Time.deltaTime;
+                spawnedEnemies[i].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
+                j--;
 
+            }
+        }
     }
 
     //Check every frame and adjust variables accordingly

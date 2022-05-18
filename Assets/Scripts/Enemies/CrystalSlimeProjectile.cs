@@ -10,6 +10,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
+        // shoots the projectiles up and out 
         rb.AddForce(this.transform.up * 2000 + this.transform.forward * 700);
     }
 
@@ -19,11 +20,12 @@ public class CrystalSlimeProjectile : MonoBehaviour
         
     }
 
+    // damages the player it the get in contact with the projectile
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerClass>().currentHealth -= projectileDamage;
+            other.gameObject.GetComponent<PlayerClass>().ChangeHealth(-projectileDamage);
             Destroy(this.gameObject);
         }
         if (!other.GetComponent<CrystalSlimeProjectile>())

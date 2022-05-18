@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CrystalSimeEnemy : BaseEnemyClass
 {
-    bool isAttack = false;
-    float attackRange = 10.0f;
     float shootTimer = 0.0f;
     public GameObject enemyProjectile;
     // Update is called once per frame
@@ -21,6 +19,7 @@ public class CrystalSimeEnemy : BaseEnemyClass
         base.Attacking();
         if (shootTimer <= 0)
         {
+            // instanciates 5 projectiles above itself
             for (int i = 0; i < 5; i++)
             {
                 GameObject tempEnemyProjectile = Instantiate(enemyProjectile, transform.position + new Vector3(0.0f,3.0f,0.0f), Quaternion.identity);

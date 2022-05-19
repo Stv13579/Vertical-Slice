@@ -13,17 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Data
   m_EditorClassIdentifier: 
   maxHealth: 10
-  currentHealth: -40
   damageAmount: 1
-  moveSpeed: 5
+  moveSpeed: 0
   damageThreshold: 0
   damageResistance: 1
-  dead: 1
-  maxHopDistance: 0
-  currentHopDistance: 0
-  slimeHopHeight:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4

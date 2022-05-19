@@ -9,15 +9,29 @@ public class PlayerClass : MonoBehaviour
     public float currentHealth;
     public float currentMana;
     public float money;
-    // Start is called before the first frame update
+
+    //A list of items which are collectible objects which add extra effects to the player
+    public List<Item> heldItems = new List<Item>();
+
+    [HideInInspector]
+    public GameObject itemUI;
+
+    //public GameObject testItemUIWidget;
+
     void Start()
     {
         currentHealth = pData.maxHealth;
         currentMana = pData.maxMana;
         money = 0.0f;
+        itemUI = GameObject.Find("ItemArray");
+
+        //TEST IMPLEMENTATION
+
+        //Item newItem = new Item(Instantiate(testItemUIWidget));
+
+        //AddItem(newItem);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y <= -30)
@@ -26,9 +40,20 @@ public class PlayerClass : MonoBehaviour
         }
     }
 
+    public void AddItem(Item newItem)
+    {
+        //Other functionality.
+        newItem.AddEffect(this); 
+    }
+
     void Death()
     {
+        for (int i = 0; i < heldItems.Count; i++)
+        {
+            heldItems[i].DeathTriggers();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       
     }
 
     public void ChangeHealth(float healthAmount)

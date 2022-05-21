@@ -598,10 +598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7853506573a143b3c9c6f789e0444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
+  moveSpeed: 16
   gravity: 30
-  jumpSpeed: 15
-  airStrafeSpeed: 1
+  jumpSpeed: 20
+  acceleration: 10
   coyoteTime: 1
   headBobBlendCurve:
     serializedVersion: 2
@@ -661,6 +661,8 @@ MonoBehaviour:
   currentHealth: 0
   currentMana: 0
   money: 0
+  heldItems: []
+  itemUI: {fileID: 0}
 --- !u!114 &1363181307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +707,7 @@ MonoBehaviour:
   useDelay: 1
   playerHand: {fileID: 155558029}
   elementName: Fire
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
@@ -757,6 +760,7 @@ MonoBehaviour:
   useDelay: 1
   playerHand: {fileID: 5531581038826687481}
   elementName: Soul
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   healthRestore: 10
 --- !u!114 &5625023910511142018
@@ -778,6 +782,7 @@ MonoBehaviour:
   useDelay: 1
   playerHand: {fileID: 155558029}
   elementName: Crystal
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
@@ -809,6 +814,7 @@ MonoBehaviour:
   useDelay: 0
   playerHand: {fileID: 5531581038826687481}
   elementName: Energy
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   fullRestoreAmount: 30
 --- !u!114 &443619680
@@ -830,6 +836,7 @@ MonoBehaviour:
   useDelay: 3
   playerHand: {fileID: 155558029}
   elementName: Shard Cannon
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
@@ -854,6 +861,7 @@ MonoBehaviour:
   useDelay: 2
   playerHand: {fileID: 155558029}
   elementName: Acid Cloud
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   cloudProj: {fileID: 8417138957682568096, guid: 10b41ea33a4534e4bb8656dcf5ea9cae,
     type: 3}
@@ -879,11 +887,11 @@ MonoBehaviour:
   useDelay: 0
   playerHand: {fileID: 155558029}
   elementName: LaserBeam
+  attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   LaserBeam: {fileID: 3981687641008780923}
   damage: 1
   usingLaserBeam: 0
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
 --- !u!1001 &4854432157825868252
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
             other.gameObject.GetComponent<PlayerClass>().ChangeHealth(-projectileDamage);
             Destroy(this.gameObject);
         }
-        if (!other.GetComponent<CrystalSlimeProjectile>())
+        if (!other.GetComponent<CrystalSlimeProjectile>() && other.tag != "Enemy")
         {
             Debug.Log(other.gameObject.name);
             Destroy(this.gameObject);

@@ -26,7 +26,6 @@ public class BaseEnemyClass : MonoBehaviour
     [SerializeField]
     List<string> weaknesses, resistances;
 
-    [HideInInspector]
     public List<GameObject> bounceList;
 
     private void Start()
@@ -41,6 +40,10 @@ public class BaseEnemyClass : MonoBehaviour
     {
         Movement(player.transform.position);
         Attacking();
+        if(transform.position.y < -30)
+        {
+            Death();
+        }
     }
 
     //Movement

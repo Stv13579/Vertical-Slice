@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class IncreaseMaxHealthScript : Item
 {
-    public IncreaseMaxHealthScript(GameObject uiWidge) : base(uiWidge)
-    {
-
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +13,7 @@ public class IncreaseMaxHealthScript : Item
     public override void AddEffect(PlayerClass player)
     {
         base.AddEffect(player);
+        IncreaseMaxHealth(player);
     }
     public void IncreaseMaxHealth(PlayerClass player)
     {

@@ -59,11 +59,9 @@ public class CrystalProj : MonoBehaviour
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
-
             taggedEnemy = other;
 
             Destroy(gameObject);
         }
-
     }
 }

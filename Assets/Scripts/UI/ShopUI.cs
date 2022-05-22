@@ -5,29 +5,38 @@ using UnityEngine.UI;
 
 public class ShopUI : MonoBehaviour
 {
-    List<Item> shopItems;
+    List<Item> shopItems = new List<Item>();
     public List<GameObject> buttons;
-    ItemList items;
+    public ItemList items;
     PlayerClass player;
+    GameObject inventory;
+    List<int> ids = new List<int>();
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerClass>();
+        inventory = GameObject.Find("Player").transform.GetChild(2).gameObject;
+        Debug.Log("Test2");
+
         int itemsAdded = 0;
         int exitCounter = 0;
         while(itemsAdded < 3)
         {
+            
             int i = Random.Range(0, items.itemList.Count);
+            Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
             if(!items.itemList[i].alreadyAdded || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
             {
-                items.itemList[i].item.sprite = items.itemList[i].sprite;
-                shopItems[itemsAdded] = items.itemList[i].item;
+
+                item.sprite = items.itemList[i].sprite;
+                shopItems.Add(item);
+                ids.Add(i);
                 items.itemList[i].SetAdded();
                 itemsAdded += 1;
             }
             exitCounter++;
             if(exitCounter > 50)
             {
-                //to do, have default items get added (npc items mot likely)
+                //to do, have default items get added (npc items most likely)
                 Debug.Log("Exited");
                 itemsAdded = 3;
             }
@@ -36,36 +45,23 @@ public class ShopUI : MonoBehaviour
         {
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].itemName;
             buttons[i].transform.GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprite;
+            Debug.Log("Test3");
+
         }
     }
 
-    public void Button1()
+    public void Button(int button)
     {
-        if(player.money > shopItems[0].currencyCost)
+        if(player.money >= shopItems[button].currencyCost)
         {
-            player.AddItem(shopItems[0]);
-            buttons[0].SetActive(false);
-            player.ChangeMoney(-shopItems[0].currencyCost);
-        }
-    }
+            Item item = (Item)inventory.AddComponent(shopItems[button].GetType());
+            Destroy(shopItems[button]);
+            items.itemList[ids[button]].SetAdded();
 
-    public void Button2()
-    {
-        if (player.money > shopItems[1].currencyCost)
-        {
-            player.AddItem(shopItems[1]);
-            buttons[1].SetActive(false);
-            player.ChangeMoney(-shopItems[1].currencyCost);
+            player.AddItem(item);
+            buttons[button].SetActive(false);
+            player.ChangeMoney(-item.currencyCost);
         }
-    }
-
-    public void Button3()
-    {
-        if (player.money > shopItems[2].currencyCost)
-        {
-            player.AddItem(shopItems[2]);
-            buttons[2].SetActive(false);
-            player.ChangeMoney(-shopItems[2].currencyCost);
-        }
+        Debug.Log("Test");
     }
 }

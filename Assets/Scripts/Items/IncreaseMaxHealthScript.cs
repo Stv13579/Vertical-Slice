@@ -18,9 +18,8 @@ public class IncreaseMaxHealthScript : Item
     {
         base.AddEffect(player);
     }
-    public override void IncreaseMaxHealth(PlayerClass player)
+    public void IncreaseMaxHealth(PlayerClass player)
     {
-        base.IncreaseMaxHealth(player);
         player.pData.maxHealth = 125.0f;
         
     }

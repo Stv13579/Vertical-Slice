@@ -12,7 +12,7 @@ public class ItemList : ScriptableObject
     //Struct containing an Item item, a bool of whether that item has been added to the player already, and a bool of whether multiple of hat item can be added to the player
     public struct ItemEntry
     {
-        public Item item;
+        public string item;
         [HideInInspector]
         public bool alreadyAdded;
         public bool mulipleAllowed;

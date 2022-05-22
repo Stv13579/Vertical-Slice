@@ -12,3 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2fc3b54b0beaa42942063043fdae00, type: 3}
   m_Name: Item List
   m_EditorClassIdentifier: 
+  itemList:
+  - item: Item
+    alreadyAdded: 0
+    mulipleAllowed: 0
+    sprite: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
+  - item: Item
+    alreadyAdded: 0
+    mulipleAllowed: 0
+    sprite: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
+  - item: Item
+    alreadyAdded: 0
+    mulipleAllowed: 0
+    sprite: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}

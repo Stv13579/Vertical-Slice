@@ -12,14 +12,11 @@ public class Item : MonoBehaviour
     public Sprite sprite;
     public string itemName = "";
 
-    public Item(GameObject uiWidge)
-    {
-        UIWidget = uiWidge;
-    }
-
     //Any effects from obtaining an item go here e.g. if the item increases max health, add it here.
     public virtual void AddEffect(PlayerClass player)
     {
+        UIWidget = new GameObject("ItemWidget", typeof(RectTransform), typeof(Image));
+        UIWidget.GetComponent<Image>().sprite = sprite;
         UIWidget.transform.SetParent(player.itemUI.transform);
         UIWidget.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,0);
         player.heldItems.Add(this);

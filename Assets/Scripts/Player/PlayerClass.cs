@@ -64,4 +64,15 @@ public class PlayerClass : MonoBehaviour
             Death();
         }
     }
+
+    public void ChangeMana(float manaAmount)
+    {
+        currentMana = Mathf.Min(currentMana + manaAmount, pData.maxMana);
+        currentMana = Mathf.Max(currentMana, 0);
+    }
+
+    public void ChangeMoney(float moneyAmount)
+    {
+        money = Mathf.Max(money + moneyAmount, 0);
+    }
 }

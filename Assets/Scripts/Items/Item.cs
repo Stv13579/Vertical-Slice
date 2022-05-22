@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using System;
 
 [Serializable]
-public class Item 
+public class Item : MonoBehaviour
 {
     GameObject UIWidget;
-    float currencyCost;
+    public float currencyCost;
+    public Sprite sprite;
+    public string itemName = "";
 
     public Item(GameObject uiWidge)
     {

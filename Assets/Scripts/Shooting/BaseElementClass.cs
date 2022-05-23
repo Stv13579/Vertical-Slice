@@ -97,6 +97,12 @@ public class BaseElementClass : MonoBehaviour
         
     }
 
+    //For unique behaviour when the mb is lifted while using an element
+    public virtual void LiftEffect()
+    {
+
+    }
+
     protected virtual void Update()
     {
         if(currentUseDelay > 0)

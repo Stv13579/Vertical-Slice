@@ -4024,7 +4024,7 @@ PrefabInstance:
     - target: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
@@ -9055,6 +9055,15 @@ MonoBehaviour:
   elementName: Curse
   attackTypes: []
   pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  curseTargets:
+    serializedVersion: 2
+    m_Bits: 256
+  range: 100
+  curseVFX: {fileID: 1851046429954357201, guid: 718220abca31952449419007f10c3ee5,
+    type: 3}
+  explosionRange: 10
+  damage: 10
+  types: []
 --- !u!95 &1589786974 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5531581038826687481, guid: b3c8d9beac7f5f14aaa36cd4e751fb94,
@@ -9527,7 +9536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694756848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.1}
+  m_LocalPosition: {x: 4.42, y: 0, z: 14.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076927584}

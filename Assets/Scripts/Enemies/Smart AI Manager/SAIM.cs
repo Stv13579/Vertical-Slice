@@ -297,16 +297,25 @@ public class SAIM : MonoBehaviour
         //Bouncing away from each other
         for (int j = 0; j < spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList.Count; j++)
         {
-            Vector3 newDir = spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList[j].transform.position - spawnedEnemies[elementIndex].gameObject.transform.position;
-            newDir.y = 0;
-            if (newDir.magnitude == 0)
+            if (spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList[j] == null)
             {
-                newDir = new Vector3(Random.Range(-1, 2), 0, Random.Range(-1, 2));
-                newDir = newDir.normalized;
-
+                spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
             }
-            spawnedEnemies[elementIndex].gameObject.transform.position -= newDir * Time.deltaTime;
-            spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
+            else 
+            {
+                Vector3 newDir = spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList[j].transform.position - spawnedEnemies[elementIndex].gameObject.transform.position;
+                newDir.y = 0;
+                if (newDir.magnitude == 0)
+                {
+                    newDir = new Vector3(Random.Range(-1, 2), 0, Random.Range(-1, 2));
+                    newDir = newDir.normalized;
+
+                }
+                spawnedEnemies[elementIndex].gameObject.transform.position -= newDir * Time.deltaTime;
+                spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
+            }
+
+            
             j--;
 
         }

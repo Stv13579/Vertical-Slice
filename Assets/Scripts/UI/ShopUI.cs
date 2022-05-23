@@ -15,7 +15,6 @@ public class ShopUI : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<PlayerClass>();
         inventory = GameObject.Find("Player").transform.GetChild(2).gameObject;
-        Debug.Log("Test2");
 
         int itemsAdded = 0;
         int exitCounter = 0;
@@ -26,7 +25,6 @@ public class ShopUI : MonoBehaviour
             Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
             if(!items.itemList[i].alreadyAdded || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
             {
-
                 item.sprite = items.itemList[i].sprite;
                 shopItems.Add(item);
                 ids.Add(i);
@@ -45,7 +43,6 @@ public class ShopUI : MonoBehaviour
         {
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].itemName;
             buttons[i].transform.GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprite;
-            Debug.Log("Test3");
 
         }
     }
@@ -55,6 +52,7 @@ public class ShopUI : MonoBehaviour
         if(player.money >= shopItems[button].currencyCost)
         {
             Item item = (Item)inventory.AddComponent(shopItems[button].GetType());
+            item.sprite = shopItems[button].sprite;
             Destroy(shopItems[button]);
             items.itemList[ids[button]].SetAdded();
 
@@ -62,6 +60,5 @@ public class ShopUI : MonoBehaviour
             buttons[button].SetActive(false);
             player.ChangeMoney(-item.currencyCost);
         }
-        Debug.Log("Test");
     }
 }

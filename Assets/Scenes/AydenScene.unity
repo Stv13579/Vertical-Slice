@@ -163,12 +163,12 @@ PrefabInstance:
     - target: {fileID: 8226606755440833374, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8746298259855731172, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8746298259855731172, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}
@@ -1000,6 +1000,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameplayUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243254885593302868, guid: 224c3f54e55ccdf44afb429223002c96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6243254885593302872, guid: 224c3f54e55ccdf44afb429223002c96,
         type: 3}
@@ -2226,7 +2231,7 @@ PrefabInstance:
     - target: {fileID: 8883177769087771241, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8883177769087771241, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
@@ -2460,6 +2465,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2042192858260725985, guid: b825781df9d5838409e3db87e103e516,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2042192858260725989, guid: b825781df9d5838409e3db87e103e516,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2473,7 +2483,7 @@ PrefabInstance:
     - target: {fileID: 2042192858260725989, guid: b825781df9d5838409e3db87e103e516,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2042192858260725989, guid: b825781df9d5838409e3db87e103e516,
         type: 3}
@@ -4394,7 +4404,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!1001 &1553576170
 PrefabInstance:
@@ -5494,9 +5504,9 @@ GameObject:
   - component: {fileID: 1739012228}
   - component: {fileID: 1739012227}
   - component: {fileID: 1739012226}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5948,9 +5958,9 @@ GameObject:
   - component: {fileID: 1878526497}
   - component: {fileID: 1878526496}
   - component: {fileID: 1878526495}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6096,7 +6106,7 @@ GameObject:
   - component: {fileID: 1918090725}
   m_Layer: 10
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6442,36 +6452,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -336889632035386535, guid: e58b19a5981749846bb8c4bbcfaea26d, type: 3}
---- !u!1 &2105093605
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2105093606}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2105093606
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105093605}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06894159, y: -2.1404026, z: 15.923004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2140354829
 PrefabInstance:
   m_ObjectHideFlags: 0

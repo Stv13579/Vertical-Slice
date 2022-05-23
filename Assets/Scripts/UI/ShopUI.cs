@@ -25,7 +25,6 @@ public class ShopUI : MonoBehaviour
             Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
             if(!items.itemList[i].alreadyAdded || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
             {
-
                 item.sprite = items.itemList[i].sprite;
                 shopItems.Add(item);
                 ids.Add(i);

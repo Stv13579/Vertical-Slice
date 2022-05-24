@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseMaxHealthScript : Item
+public class IncreaseMaxManaScript : Item
 {
     public override void AddEffect(PlayerClass player)
     {
         base.AddEffect(player);
-        IncreaseMaxHealth(player);
+        IncreaseMaxMana(player);
     }
-    public void IncreaseMaxHealth(PlayerClass player)
+    public void IncreaseMaxMana(PlayerClass player)
     {
-        player.pData.maxHealth += 25.0f;
-        
+        player.pData.maxMana += 25.0f;
+
     }
 }

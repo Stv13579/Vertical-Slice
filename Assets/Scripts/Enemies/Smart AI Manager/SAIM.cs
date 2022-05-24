@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+[System.Serializable]
 public class SAIM : MonoBehaviour
 {
     [HideInInspector]
     public List<BaseEnemyClass> spawnedEnemies;
 
+    [SerializeField, HideInInspector]
+    public List<Node> nodes;
+    [SerializeField, HideInInspector]
+    List<Node> deadNodes;
+
+    public List<Node> aliveNodes;
+
     [SerializeField]
-    List<GameObject> nodes;
-    List<GameObject> deadNodes = new List<GameObject>();
-    List<GameObject> aliveNodes = new List<GameObject>();
     List<GameObject> blockers = new List<GameObject>();
+
+    public List<GameObject> testObjects;
 
     [SerializeField]
     GameObject node;
@@ -26,6 +33,7 @@ public class SAIM : MonoBehaviour
     [SerializeField]
     float nodeSpacing;
 
+    [SerializeField]
     GameObject nodeMaster;
 
     //FOR TESTING
@@ -52,18 +60,32 @@ public class SAIM : MonoBehaviour
 
     public SAIMData data;
 
+
+
     void Start()
     {
         data.adjustedDifficulty = data.difficulty;
         data.player = GameObject.Find("Player");
-        nodeMaster = transform.GetChild(1).gameObject;
-        CreateAndKillNodes();
+        
+        //CreateAndKillNodes();
         foreach (Transform child in blockerMaster.transform)
         {
             blockers.Add(child.gameObject);
         }
 
-        
+        //nodes.AddRange(nodeMaster.GetComponentsInChildren<Node>());
+
+        //for (int i = 0; i < nodes.Count; i++)
+        //{
+        //    if (nodes[i].GetComponent<Node>().GetAlive())
+        //    {
+        //        aliveNodes.Add(nodes[i]);
+        //    }
+        //    else
+        //    {
+        //        deadNodes.Add(nodes[i]);
+        //    }
+        //}
     }
 
 
@@ -113,10 +135,15 @@ public class SAIM : MonoBehaviour
     }
 
     //Creates a grid of nodes with a given bounds, then kills the illegal ones (too high, inside collison, over dead space etc). 
-    void CreateAndKillNodes()
+    public void CreateAndKillNodes()
     {
+        //deadNodes = new List<Node>();
+        //aliveNodes = new List<Node>();
+
+        nodeMaster = transform.GetChild(1).gameObject;
+
         //Create a field of nodes
-        for(int i = 0; i < gridSize; i++)
+        for (int i = 0; i < gridSize; i++)
         {
             for (int j = 0; j < gridSize; j++)
             {
@@ -127,7 +154,7 @@ public class SAIM : MonoBehaviour
 
                     newNode.transform.localPosition = nodeVec;
 
-                    nodes.Add(newNode);
+                    nodes.Add(newNode.GetComponent<Node>());
 
                 }
             }
@@ -198,6 +225,10 @@ public class SAIM : MonoBehaviour
             {
                 aliveNodes.Add(nodes[i]);
             }
+            else
+            {
+                //deadNodes.Add(nodes[i]);
+            }
         }
 
     } 
@@ -208,9 +239,24 @@ public class SAIM : MonoBehaviour
         nodes[index].GetComponent<MeshRenderer>().enabled = false;
         nodes[index].GetComponent<Node>().SetAlive(false);
 
-        nodes[index].layer = LayerMask.NameToLayer("DeadNode");
+        nodes[index].gameObject.layer = LayerMask.NameToLayer("DeadNode");
 
         deadNodes.Add(nodes[index]);
+    }
+
+    public void DestroyAllNodes()
+    {
+        nodeMaster.transform.localPosition = Vector3.zero;
+        int j = 0;
+        foreach (Node node in nodes)
+        {
+            DestroyImmediate(nodes[j]);
+            j++;
+        }
+
+        nodes.Clear();
+        aliveNodes.Clear();
+        deadNodes.Clear();
     }
 
     void CheckEndOfRoom()

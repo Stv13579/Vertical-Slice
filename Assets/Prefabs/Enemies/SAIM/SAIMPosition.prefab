@@ -488,6 +488,7 @@ MonoBehaviour:
   blockerMaster: {fileID: 899267844}
   gridSize: 30
   nodeSpacing: 5
+  nodeMaster: {fileID: 8734336063286986332}
   killMat: {fileID: 2100000, guid: f57426ad889f9a344a8ced825cad61a9, type: 2}
   nodeLayerMask:
     serializedVersion: 2

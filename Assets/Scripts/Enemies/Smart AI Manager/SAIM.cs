@@ -221,13 +221,15 @@ public class SAIM : MonoBehaviour
 
         for (int i = 0; i < nodes.Count; i++)
         {
-            nodes[i].GetComponent<BoxCollider>().enabled = false;
+            DestroyImmediate(nodes[i].GetComponent<BoxCollider>());
             if(nodes[i].GetComponent<Node>().GetAlive())
             {
                 aliveNodes.Add(nodes[i]);
             }
             else
             {
+
+                DestroyImmediate(nodes[i].gameObject);
                 //deadNodes.Add(nodes[i]);
             }
         }

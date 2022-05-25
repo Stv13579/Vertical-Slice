@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireSlimeTrail : MonoBehaviour
 {
     float trailDamage;
-    float trailDuration = 3.0f;
+    float trailDuration = 5.0f;
     float trailDamageTicker = 1.0f;
 
     // Update is called once per frame

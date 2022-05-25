@@ -14,10 +14,13 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     {
         Movement(player.transform.position);
     }
-
     public override void Attacking()
     {
-    
+        base.Attacking();
+    }
+
+    public void FireSlimeAttack()
+    {
         RaycastHit hit;
         Vector3 Back = new Vector3(0f, backCastDistance, 0f);
         // check of the ray cast line is hitting the ground
@@ -32,26 +35,18 @@ public class FireSlimeEnemy : NormalSlimeEnemy
             tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(eData.damageAmount);
         }
     }
-
     public override void Movement(Vector3 positionToMoveTo)
     {
         base.Movement(positionToMoveTo);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public override void OnCollisionEnter(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10)
-        {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
-        }
-        Attacking();
+        base.OnCollisionEnter(collision);
+        FireSlimeAttack();
     }
-
-    private void OnCollisionStay(Collision collision)
+    public override void OnCollisionStay(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10)
-        {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
-        }
+        base.OnCollisionStay(collision);
     }
 }

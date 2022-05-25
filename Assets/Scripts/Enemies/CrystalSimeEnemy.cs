@@ -10,19 +10,22 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
     new private void Update()
     {
         Movement(player.transform.position);
-        Attacking();
+        CrystalSlimeAttack();
         shootTimer -= Time.deltaTime;
     }
 
     public override void Attacking()
     {
-        
+        base.Attacking();
+    }
+    public void CrystalSlimeAttack()
+    {
         if (shootTimer <= 0)
         {
             // instanciates 5 projectiles above itself
             for (int i = 0; i < 5; i++)
             {
-                GameObject tempEnemyProjectile = Instantiate(enemyProjectile, transform.position + new Vector3(0.0f,3.0f,0.0f), Quaternion.identity);
+                GameObject tempEnemyProjectile = Instantiate(enemyProjectile, transform.position + new Vector3(0.0f, 3.0f, 0.0f), Quaternion.identity);
                 Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), tempEnemyProjectile.GetComponent<Collider>());
                 tempEnemyProjectile.GetComponent<CrystalSlimeProjectile>().SetVars(eData.damageAmount);
                 tempEnemyProjectile.transform.eulerAngles = new Vector3(tempEnemyProjectile.transform.eulerAngles.x, tempEnemyProjectile.transform.eulerAngles.y + (360.0f / 5.0f * i), tempEnemyProjectile.transform.eulerAngles.z);
@@ -30,26 +33,17 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
             shootTimer = 2.0f;
         }
     }
-
     public override void Movement(Vector3 positionToMoveTo)
     {
         base.Movement(positionToMoveTo);
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    public override void OnCollisionEnter(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10)
-        {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
-        }
+        base.OnCollisionEnter(collision);
     }
-
-    private void OnCollisionStay(Collision collision)
+    public override void OnCollisionStay(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10)
-        {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
-        }
+        base.OnCollisionStay(collision);
     }
 }

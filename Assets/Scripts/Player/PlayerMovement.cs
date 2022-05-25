@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         HeadBobbing();
         if(this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
         {
-            moveSpeed = 0.5f;
+            movementMulti = 0.5f;
         }
         else
         {

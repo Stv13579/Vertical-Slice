@@ -251,7 +251,11 @@ public class SAIM : MonoBehaviour
         int j = 0;
         foreach (Node node in nodes)
         {
-            DestroyImmediate(nodes[j].gameObject);
+            if(nodes[j] != null)
+            {
+                DestroyImmediate(nodes[j].gameObject);
+            }
+            
             j++;
         }
 

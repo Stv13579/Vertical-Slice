@@ -20,6 +20,14 @@ public class NormalSlimeEnemy : BaseEnemyClass
         moveVec.y = 0;
         moveVec.y -= 1 * Time.deltaTime;
         transform.position += moveVec;
+
+
+
+        transform.LookAt(positionToMoveTo);
+        Quaternion rot = transform.rotation;
+        rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
+        transform.rotation = rot;
+        
     }
 
     new private void Update()

@@ -44,7 +44,7 @@ public class BaseElementClass : MonoBehaviour
     protected List<string> attackTypes;
     GameObject player;
     [SerializeField]
-    protected PlayerData pData;
+
     protected PlayerClass playerClass;
 
     private void Start()

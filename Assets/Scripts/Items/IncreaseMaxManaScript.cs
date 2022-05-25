@@ -9,9 +9,10 @@ public class IncreaseMaxManaScript : Item
         base.AddEffect(player);
         IncreaseMaxMana(player);
     }
+
     public void IncreaseMaxMana(PlayerClass player)
     {
-        player.pData.maxMana += 25.0f;
+        player.maxMana += 25.0f;
 
     }
 }

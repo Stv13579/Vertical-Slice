@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalSimeEnemy : BaseEnemyClass
+public class CrystalSimeEnemy : NormalSlimeEnemy
 {
     float shootTimer = 0.0f;
     public GameObject enemyProjectile;
@@ -16,7 +16,7 @@ public class CrystalSimeEnemy : BaseEnemyClass
 
     public override void Attacking()
     {
-        base.Attacking();
+        
         if (shootTimer <= 0)
         {
             // instanciates 5 projectiles above itself
@@ -34,10 +34,7 @@ public class CrystalSimeEnemy : BaseEnemyClass
     public override void Movement(Vector3 positionToMoveTo)
     {
         base.Movement(positionToMoveTo);
-        Vector3 moveVec = (positionToMoveTo - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec;
+
     }
 
     private void OnCollisionEnter(Collision collision)

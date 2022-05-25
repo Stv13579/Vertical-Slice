@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTime = 0.75f;
     private float currentCoyoteTime;
 
+    [SerializeField]
+    public float movementMulti = 1;
+
     [Header("Character velocity")]
     private Vector3 velocity;
     private Vector3 StoredJumpVelo;
@@ -64,11 +67,11 @@ public class PlayerMovement : MonoBehaviour
         HeadBobbing();
         if(this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
         {
-            moveSpeed = 6.0f;
+            moveSpeed = 0.5f;
         }
         else
         {
-            moveSpeed = 12.0f;
+            movementMulti = 1;
         }
         // converting the players input into a vector 3 and timings it by the players look direction
         Vector3 inputMove = new Vector3(x, 0.0f, z);
@@ -97,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         // getting the position before the player moves (headbobbing)
         oldPos = transform.position;
         // moving the player on screen
-        cController.Move(velocity * Time.deltaTime);
+        cController.Move(velocity * Time.deltaTime * movementMulti);
         // getting the position after the player moves (headbobbing)
         newPos = transform.position;
 

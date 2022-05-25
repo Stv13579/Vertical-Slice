@@ -221,6 +221,7 @@ public class SAIM : MonoBehaviour
 
         for (int i = 0; i < nodes.Count; i++)
         {
+            nodes[i].GetComponent<BoxCollider>().enabled = false;
             if(nodes[i].GetComponent<Node>().GetAlive())
             {
                 aliveNodes.Add(nodes[i]);
@@ -250,7 +251,7 @@ public class SAIM : MonoBehaviour
         int j = 0;
         foreach (Node node in nodes)
         {
-            DestroyImmediate(nodes[j]);
+            DestroyImmediate(nodes[j].gameObject);
             j++;
         }
 

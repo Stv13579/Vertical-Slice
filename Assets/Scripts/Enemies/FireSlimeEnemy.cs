@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireSlimeEnemy : BaseEnemyClass
+public class FireSlimeEnemy : NormalSlimeEnemy
 {
     public GameObject enemyTrail;
     [SerializeField]
@@ -17,7 +17,7 @@ public class FireSlimeEnemy : BaseEnemyClass
 
     public override void Attacking()
     {
-        base.Attacking();
+    
         RaycastHit hit;
         Vector3 Back = new Vector3(0f, backCastDistance, 0f);
         // check of the ray cast line is hitting the ground
@@ -36,10 +36,6 @@ public class FireSlimeEnemy : BaseEnemyClass
     public override void Movement(Vector3 positionToMoveTo)
     {
         base.Movement(positionToMoveTo);
-        Vector3 moveVec = (positionToMoveTo - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec;
     }
 
     private void OnCollisionEnter(Collision collision)

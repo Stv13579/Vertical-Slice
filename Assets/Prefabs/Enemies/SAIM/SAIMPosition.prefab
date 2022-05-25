@@ -484,6 +484,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedEnemies: []
   nodes: []
+  deadNodes: []
+  aliveNodes: []
+  blockers: []
+  testObjects: []
   node: {fileID: 8347918277696960310, guid: 19b356d1bf4d4fc4ca38af2ef736c48b, type: 3}
   blockerMaster: {fileID: 899267844}
   gridSize: 30
@@ -514,7 +518,7 @@ GameObject:
   - component: {fileID: 8734336063852731038}
   - component: {fileID: 8734336063852731039}
   - component: {fileID: 8734336063852731008}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TriggerBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

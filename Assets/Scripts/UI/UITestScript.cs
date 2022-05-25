@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UITestScript : MonoBehaviour
 {
-    public PlayerData pData;
+
     PlayerClass playerClass;
     Shooting player;
 
@@ -22,8 +22,8 @@ public class UITestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manaText.text = "Mana: " + playerClass.currentMana.ToString("F0") + "/" + pData.maxMana;
-        healthText.text = "Health: " + playerClass.currentHealth + "/" + pData.maxHealth;
+        manaText.text = "Mana: " + playerClass.currentMana.ToString("F0") + "/" + playerClass.maxMana;
+        healthText.text = "Health: " + playerClass.currentHealth + "/" + playerClass.maxHealth;
         leftSpellText.text = "Left Spell: " +  player.GetPrimaryElement();
         rightSpellText.text = "Right Spell: " + player.GetCatalystElement();
         comboSpellText.text = "Combo Spell: " + player.GetComboElement();

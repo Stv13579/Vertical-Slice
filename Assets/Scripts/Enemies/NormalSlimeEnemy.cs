@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NormalSlimeEnemy : BaseEnemyClass
 {
+    float damageTicker = 0.0f;
     // need to work on
     public override void Attacking()
     {
@@ -20,14 +21,23 @@ public class NormalSlimeEnemy : BaseEnemyClass
         moveVec.y = 0;
         moveVec.y -= 1 * Time.deltaTime;
         transform.position += moveVec;
+
+
+
+        transform.LookAt(positionToMoveTo);
+        Quaternion rot = transform.rotation;
+        rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
+        transform.rotation = rot;
+        
     }
 
     new private void Update()
     {
         Movement(player.transform.position);
+        damageTicker -= Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public virtual void OnCollisionEnter(Collision collision)
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
@@ -37,16 +47,21 @@ public class NormalSlimeEnemy : BaseEnemyClass
         if (collision.gameObject.tag == "Player")
         {
             Attacking();
+            damageTicker = 1.0f;
         }
     }
-
-    private void OnCollisionStay(Collision collision)
+    public virtual void OnCollisionStay(Collision collision)
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
             GetComponent<Rigidbody>().AddForce(0, 100, 0);
         }
 
+        if (collision.gameObject.tag == "Player" && damageTicker <= 0.0f)
+        {
+            Attacking();
+            damageTicker = 1.0f;
+        }
     }
 
 }

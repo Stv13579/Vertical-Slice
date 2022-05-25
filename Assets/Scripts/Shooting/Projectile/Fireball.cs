@@ -60,16 +60,18 @@ public class Fireball : MonoBehaviour
     {
         //if enemy, hit them for the damage
         Collider taggedEnemy = null;
-        
 
-        if(other.tag  == "Enemy")
+        if (other.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
+        if (other.tag  == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
 
             taggedEnemy = other;
         }
-
-        if(other.gameObject.tag != "Player")
+        if(other.gameObject.tag != "Player" && other.gameObject.tag != "Node")
         {
             Collider[] objectsHit = Physics.OverlapSphere(transform.position, explosionRadii);
 

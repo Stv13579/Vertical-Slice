@@ -44,7 +44,7 @@ public class BaseElementClass : MonoBehaviour
     protected List<string> attackTypes;
     GameObject player;
     [SerializeField]
-    protected PlayerData pData;
+
     protected PlayerClass playerClass;
 
     private void Start()
@@ -95,6 +95,12 @@ public class BaseElementClass : MonoBehaviour
             }
         }
         
+    }
+
+    //For unique behaviour when the mb is lifted while using an element
+    public virtual void LiftEffect()
+    {
+
     }
 
     protected virtual void Update()

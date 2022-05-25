@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 155558026}
   - component: {fileID: 155558029}
   - component: {fileID: 155558030}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979699312}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668261772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Elements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 9120363950679359206}
   - component: {fileID: 5531581038826687481}
   - component: {fileID: 6891722332411488174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,6 +343,7 @@ MonoBehaviour:
   - {fileID: 443619680}
   - {fileID: 5153590985047999224}
   - {fileID: 128290791}
+  - {fileID: 7904701518895008356}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +356,7 @@ GameObject:
   - component: {fileID: 5625023910628228236}
   - component: {fileID: 5625023910628228239}
   - component: {fileID: 5625023910628228234}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -474,7 +475,7 @@ GameObject:
   - component: {fileID: 5625023911016436713}
   - component: {fileID: 5625023911016436712}
   - component: {fileID: 5625023911016436715}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +578,9 @@ GameObject:
   - component: {fileID: 443619680}
   - component: {fileID: 5153590985047999224}
   - component: {fileID: 128290791}
-  m_Layer: 0
+  - component: {fileID: 1589786973}
+  - component: {fileID: 7904701518895008356}
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -629,11 +632,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7853506573a143b3c9c6f789e0444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 16
-  gravity: 30
-  jumpSpeed: 20
+  moveSpeed: 20
+  gravity: 60
+  jumpSpeed: 30
   acceleration: 10
   coyoteTime: 1
+  movementMulti: 1
   headBobBlendCurve:
     serializedVersion: 2
     m_Curve:
@@ -688,12 +692,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3c96bbe0d9f9544905dfe06fdf9fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
   currentHealth: 0
   currentMana: 0
+  maxHealth: 100
+  maxMana: 100
   money: 0
   heldItems: []
   itemUI: {fileID: 0}
+  fallSpawner: {fileID: 0}
 --- !u!114 &1363181307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +723,7 @@ MonoBehaviour:
     - {fileID: 5153590985047999224}
     - {fileID: 128290791}
   - comboElements:
-    - {fileID: 443619680}
+    - {fileID: 7904701518895008356}
     - {fileID: 443619680}
 --- !u!114 &1363181306
 MonoBehaviour:
@@ -739,7 +745,7 @@ MonoBehaviour:
   playerHand: {fileID: 155558029}
   elementName: Fire
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
   damage: 10
@@ -792,7 +798,7 @@ MonoBehaviour:
   playerHand: {fileID: 5531581038826687481}
   elementName: Soul
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   healthRestore: 10
 --- !u!114 &5625023910511142018
 MonoBehaviour:
@@ -814,14 +820,32 @@ MonoBehaviour:
   playerHand: {fileID: 155558029}
   elementName: Crystal
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
   damage: 10
   projectileSpeed: 20
   damageCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -846,7 +870,7 @@ MonoBehaviour:
   playerHand: {fileID: 5531581038826687481}
   elementName: Energy
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   fullRestoreAmount: 30
 --- !u!114 &443619680
 MonoBehaviour:
@@ -868,7 +892,7 @@ MonoBehaviour:
   playerHand: {fileID: 155558029}
   elementName: Shard Cannon
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
   damage: 10
@@ -893,7 +917,7 @@ MonoBehaviour:
   playerHand: {fileID: 155558029}
   elementName: Acid Cloud
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   cloudProj: {fileID: 8417138957682568096, guid: 10b41ea33a4534e4bb8656dcf5ea9cae,
     type: 3}
   damage: 0.1
@@ -919,10 +943,70 @@ MonoBehaviour:
   playerHand: {fileID: 155558029}
   elementName: LaserBeam
   attackTypes: []
-  pData: {fileID: 11400000, guid: 669f2c153108a8f4fb86898b67aa2f1d, type: 2}
+  playerClass: {fileID: 0}
   LaserBeam: {fileID: 3981687641008780923}
   damage: 1
   usingLaserBeam: 0
+--- !u!114 &1589786973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20194a6adee714a4b908a68c6a4ccc37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 10
+  animationToPlay: CurseCast
+  useDelay: 1
+  playerHand: {fileID: 5531581038826687481}
+  elementName: Curse
+  attackTypes: []
+  playerClass: {fileID: 0}
+  curseTargets:
+    serializedVersion: 2
+    m_Bits: 256
+  range: 100
+  curseVFX: {fileID: 1851046429954357201, guid: 718220abca31952449419007f10c3ee5,
+    type: 3}
+  explosionRange: 10
+  damage: 10
+  types: []
+--- !u!114 &7904701518895008356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625023911835613081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20194a6adee714a4b908a68c6a4ccc37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedVFX: {fileID: 0}
+  handVFX: {fileID: 0}
+  manaCost: 10
+  animationToPlay: CurseCast
+  useDelay: 1
+  playerHand: {fileID: 5531581038826687481}
+  elementName: Curse
+  attackTypes: []
+  playerClass: {fileID: 0}
+  curseTargets:
+    serializedVersion: 2
+    m_Bits: 256
+  range: 100
+  curseVFX: {fileID: 1851046429954357201, guid: 718220abca31952449419007f10c3ee5,
+    type: 3}
+  explosionRange: 10
+  damage: 10
+  types: []
 --- !u!1001 &4854432157825868252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1005,6 +1089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: L_Arm_LowPoly
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b72c2be87015114788ccfecb412fd25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b72c2be87015114788ccfecb412fd25, type: 3}
 --- !u!4 &4959819087821456951 stripped
@@ -1020,6 +1109,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1668261772}
     m_Modifications:
+    - target: {fileID: 8741999943941267335, guid: 9d0cd90afa85ff94fa6a88965851589e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8741999944741850316, guid: 9d0cd90afa85ff94fa6a88965851589e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1079,6 +1173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LaserBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741999944741850319, guid: 9d0cd90afa85ff94fa6a88965851589e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8741999944741850319, guid: 9d0cd90afa85ff94fa6a88965851589e,
         type: 3}
@@ -1172,6 +1271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: R_Arm_LowPoly
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c23d17df6d11045bcdcf2d491d7849,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a5c23d17df6d11045bcdcf2d491d7849,
         type: 3}
@@ -1273,6 +1377,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: R_Arm_LowPoly
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b72c2be87015114788ccfecb412fd25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b72c2be87015114788ccfecb412fd25, type: 3}

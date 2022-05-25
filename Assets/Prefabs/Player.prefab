@@ -633,10 +633,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  gravity: 40
+  gravity: 60
   jumpSpeed: 30
   acceleration: 10
   coyoteTime: 1
+  movementMulti: 1
   headBobBlendCurve:
     serializedVersion: 2
     m_Curve:
@@ -826,7 +827,25 @@ MonoBehaviour:
   projectileSpeed: 20
   damageCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

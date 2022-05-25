@@ -15,7 +15,7 @@ public class CrystalProj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(damageLifeTimer > 2)
+        if(damage > 2)
         {
             damageLifeTimer -= Time.deltaTime;
         }

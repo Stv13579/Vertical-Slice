@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float headBobFrequency = 1.0f;
     private float headBobAmplitude = 0.1f;
     // the default position of the head
-    private float headBobNeutral = 0.5f;
+    private float headBobNeutral = 0.4f;
     private float headBobMinSpeed = 0.1f;
     private float headBobBlendSpeed = 4.0f;
     [SerializeField] private AnimationCurve headBobBlendCurve = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);

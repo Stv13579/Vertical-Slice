@@ -71,7 +71,7 @@ public class Fireball : MonoBehaviour
 
             taggedEnemy = other;
         }
-        if(other.gameObject.tag != "Player")
+        if(other.gameObject.tag != "Player" && other.gameObject.tag != "Node")
         {
             Collider[] objectsHit = Physics.OverlapSphere(transform.position, explosionRadii);
 

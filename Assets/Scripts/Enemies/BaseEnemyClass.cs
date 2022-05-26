@@ -28,6 +28,12 @@ public class BaseEnemyClass : MonoBehaviour
 
     public List<GameObject> bounceList;
 
+    
+    public delegate void DeathTrigger();
+
+    [HideInInspector]
+    public List<DeathTrigger> deathTriggers = new List<DeathTrigger>();
+
     private void Start()
     {
         startY = transform.position.y;
@@ -90,19 +96,34 @@ public class BaseEnemyClass : MonoBehaviour
     //Death
     public void Death()
     {
+        if(isDead)
+        {
+            return;
+        }
         if(currentHealth <= 0)
         {
             isDead = true;
             //Normally do death animation/vfx, might even fade alpha w/e before deleting.
 
 
+
             //Destroy for now
-            spawner.GetComponent<SAIM>().spawnedEnemies.Remove(this);
+            if(spawner)
+            {
+                spawner.GetComponent<SAIM>().spawnedEnemies.Remove(this);
+            }
+
 
             //Spawn currency
             for(int i = 0; i < Random.Range(0, 3); i++)
             {
                 Instantiate(currencyDrop, this.transform.position, Quaternion.identity);
+            }
+
+            //Death triggers
+            foreach (DeathTrigger dTrigs in deathTriggers)
+            {
+                dTrigs();
             }
 
             Destroy(gameObject);

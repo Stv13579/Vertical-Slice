@@ -42,13 +42,12 @@ public class BaseEnemyClass : MonoBehaviour
         currentHealth = eData.maxHealth;
     }
 
-    public void Update()
+    public virtual void Update()
     {
-        Movement(player.transform.position);
-        Attacking();
         if(transform.position.y < -30)
         {
             Death();
+            currentHealth = 0;
         }
     }
 

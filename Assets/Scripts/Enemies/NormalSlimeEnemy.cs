@@ -31,8 +31,9 @@ public class NormalSlimeEnemy : BaseEnemyClass
         
     }
 
-    new private void Update()
+    protected virtual void Update()
     {
+        base.Update();
         Movement(player.transform.position);
         damageTicker -= Time.deltaTime;
     }

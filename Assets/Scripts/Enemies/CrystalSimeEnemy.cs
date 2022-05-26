@@ -9,7 +9,7 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
     // Update is called once per frame
     new private void Update()
     {
-        Movement(player.transform.position);
+        base.Update();
         CrystalSlimeAttack();
         shootTimer -= Time.deltaTime;
     }

@@ -12,7 +12,7 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     float trailOffset = 0.01f;
     new private void Update()
     {
-        Movement(player.transform.position);
+        base.Update();
     }
     public override void Attacking()
     {

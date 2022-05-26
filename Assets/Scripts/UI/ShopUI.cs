@@ -11,6 +11,9 @@ public class ShopUI : MonoBehaviour
     PlayerClass player;
     GameObject inventory;
     List<int> ids = new List<int>();
+
+
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerClass>();
@@ -23,12 +26,12 @@ public class ShopUI : MonoBehaviour
             
             int i = Random.Range(0, items.itemList.Count);
             Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
-            if(!items.itemList[i].alreadyAdded || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
+            if((!items.itemList[i].alreadyAdded || (ids[0] != i) || (ids[1] != i)) || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
             {
                 item.sprite = items.itemList[i].sprite;
                 shopItems.Add(item);
                 ids.Add(i);
-                items.itemList[i].SetAdded();
+                items.itemList[i].alreadyAdded = true;
                 itemsAdded += 1;
             }
             exitCounter++;
@@ -43,7 +46,6 @@ public class ShopUI : MonoBehaviour
         {
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].itemName;
             buttons[i].transform.GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprite;
-
         }
     }
 
@@ -54,11 +56,23 @@ public class ShopUI : MonoBehaviour
             Item item = (Item)inventory.AddComponent(shopItems[button].GetType());
             item.sprite = shopItems[button].sprite;
             Destroy(shopItems[button]);
-            items.itemList[ids[button]].SetAdded();
+            //items.itemList[ids[button]].SetAdded();
 
             player.AddItem(item);
             buttons[button].SetActive(false);
             player.ChangeMoney(-item.currencyCost);
         }
     }
+
+    public void CloseShop()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if(buttons[i].activeInHierarchy)
+            {
+                items.itemList[ids[i]].alreadyAdded = false;
+            }
+        }
+    }
+
 }

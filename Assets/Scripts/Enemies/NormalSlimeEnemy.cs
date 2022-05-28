@@ -14,17 +14,17 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     public override void Movement(Vector3 positionToMoveTo)
     {
-        base.Movement(positionToMoveTo);
+        base.Movement(moveDirection);
 
         //Come back to hopping
-        Vector3 moveVec = (positionToMoveTo - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
+        Vector3 moveVec = (moveDirection - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
         moveVec.y = 0;
         moveVec.y -= 1 * Time.deltaTime;
         transform.position += moveVec;
 
 
 
-        transform.LookAt(positionToMoveTo);
+        transform.LookAt(moveDirection);
         Quaternion rot = transform.rotation;
         rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
         transform.rotation = rot;

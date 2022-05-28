@@ -34,6 +34,8 @@ public class BaseEnemyClass : MonoBehaviour
     [HideInInspector]
     public List<DeathTrigger> deathTriggers = new List<DeathTrigger>();
 
+    public Vector3 moveDirection;
+
     private void Start()
     {
         startY = transform.position.y;

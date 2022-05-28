@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Node : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class Node : MonoBehaviour
 
     public Vector2Int gridIndex;
 
+    public Vector3 bestNextNodePos = Vector3.zero;
+
+    public void SetDestination()
+    {
+        cost = 0;
+        bestCost = 0;
+    }
+
     public void SetAlive(bool set)
     {
         alive = set;
@@ -20,5 +29,11 @@ public class Node : MonoBehaviour
     public bool GetAlive()
     {
         return alive;
+    }
+
+    private void Update()
+    {
+        Debug.DrawRay(transform.position, bestNextNodePos - transform.position, Color.green);
+        GetComponentInChildren<TextMeshPro>().text = bestCost.ToString();
     }
 }

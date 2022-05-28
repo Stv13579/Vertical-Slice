@@ -102,13 +102,19 @@ public class SAIM : MonoBehaviour
         //    }
         //}
 
-        CreateIntegrationFlowField(nodeGrid[10].nodeCol[10]);
+        CreateIntegrationFlowField(nodeGrid[15].nodeCol[17]);
+        GenerateFlowField();
     }
 
 
 
     void Update()
     {
+        if(!triggered)
+        {
+            return;
+        }
+
         spawnTimer += Time.deltaTime;
         timeInSpawning += Time.deltaTime;
 
@@ -149,7 +155,19 @@ public class SAIM : MonoBehaviour
     {
         Move();
 
-        
+        foreach (BaseEnemyClass enemy in spawnedEnemies)
+        {
+            float dist = float.MaxValue;
+
+            foreach (Node node in aliveNodes)
+            {
+                if((node.transform.position - enemy.transform.position).magnitude < dist)
+                {
+                    dist = (node.transform.position - enemy.transform.position).magnitude;
+                    enemy.moveDirection = node.bestNextNodePos;
+                }
+            }
+        }
         
     }
 
@@ -324,7 +342,7 @@ public class SAIM : MonoBehaviour
         //}
         instantiateNodeGrid.Clear();
         //nodeGrid.Clear();
-        nodes.Clear();
+        //nodes.Clear();
     } 
 
     void KillNode(int index)
@@ -473,8 +491,7 @@ public class SAIM : MonoBehaviour
     {
         destinationNode = destNode;
 
-        destinationNode.cost = 0;
-        destinationNode.bestCost = 0;
+        destinationNode.SetDestination();
 
         Queue<Node> nodesToCheck = new Queue<Node>();
 
@@ -484,7 +501,7 @@ public class SAIM : MonoBehaviour
         while(nodesToCheck.Count > 0)
         {
             Node currentNode = nodesToCheck.Dequeue();
-            List<Node> currentNeighbours = GetNeighbourNodes(currentNode);
+            List<Node> currentNeighbours = GetNeighbourNodes(currentNode, false);
 
             foreach (Node node in currentNeighbours)
             {
@@ -509,20 +526,59 @@ public class SAIM : MonoBehaviour
 
     }
 
-    //Gets the north south east and west nodes of a given node, plus diags
-    List<Node> GetNeighbourNodes(Node nodeCentre)
+    //Using the integrated field, generate the flow field by pointing each node at the next node
+    void GenerateFlowField()
+    {
+
+        //Iterate through each node
+        foreach (Node currentNode in aliveNodes)
+        {
+            List<Node> currentNodeNeigbours = GetNeighbourNodes(currentNode, true);
+
+            int bestCost = currentNode.bestCost;
+
+            //Look at the node's neigbours to decide which to 'point' at.
+            //This will be the node with the lowest bestCost.
+            foreach (Node currentNeigbourNode in currentNodeNeigbours)
+            {
+                if(currentNeigbourNode.bestCost < bestCost)
+                {
+                    bestCost = currentNeigbourNode.bestCost;
+                    currentNode.bestNextNodePos = currentNeigbourNode.transform.position;
+
+                }
+            }
+        }
+    }
+
+    //Gets the north south east and west nodes of a given node, plus diags if true
+    List<Node> GetNeighbourNodes(Node nodeCentre, bool isDiag)
     {
         List<Node> neigbours = new List<Node>();
 
         for (int i = -1; i < 2; i++)
         {
-            for (int k = 1; k < 2; k++)
+            for (int k = -1; k < 2; k++) 
             {
 
                 //Checks whether it is itself or is null (which would be an edge for instance)
-                if(k != 0 && i != 0)
+                if(k == 0 && i == 0)
                 {
-                    if(nodeGrid[nodeCentre.gridIndex.x+i].nodeCol[nodeCentre.gridIndex.y+k] != null)
+
+                }
+                //If not getting diagonals
+                else if (!isDiag && k != 0 && i != 0)
+                {
+
+                }
+                else
+                {
+                    if(nodeCentre.gridIndex.x + i >= gridSize || nodeCentre.gridIndex.x + i < 0 ||
+                       nodeCentre.gridIndex.y + k >= gridSize || nodeCentre.gridIndex.y + k < 0)
+                    {
+
+                    }
+                    else if(nodeGrid[nodeCentre.gridIndex.x+i].nodeCol[nodeCentre.gridIndex.y+k] != null)
                     {
                         neigbours.Add(nodeGrid[nodeCentre.gridIndex.x + i].nodeCol[nodeCentre.gridIndex.y + k]);
                     }

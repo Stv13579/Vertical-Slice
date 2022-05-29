@@ -39,6 +39,11 @@ public class Fireball : MonoBehaviour
 
         transform.position += movement;
         
+
+        if(transform.position.y < -100)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetVars(float spd, float dmg, float grav, AnimationCurve grCurve, float lifeTime, float explosionRadius, float expDamage, List<string> types)
@@ -71,7 +76,7 @@ public class Fireball : MonoBehaviour
 
             taggedEnemy = other;
         }
-        if(other.gameObject.tag != "Player")
+        if(other.gameObject.tag != "Player" && other.gameObject.tag != "Node")
         {
             Collider[] objectsHit = Physics.OverlapSphere(transform.position, explosionRadii);
 

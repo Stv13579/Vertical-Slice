@@ -6,18 +6,34 @@ public class CrystalSlimeProjectile : MonoBehaviour
 {
     Rigidbody rb;
     float projectileDamage;
+    GameObject Player;
+    float followTimer;
+    float lifeTimer;
     // Start is called before the first frame update
     void Start()
     {
+        lifeTimer = 5.0f;
+        followTimer = 2.0f;
         rb = this.gameObject.GetComponent<Rigidbody>();
         // shoots the projectiles up and out 
         rb.AddForce(this.transform.up * 2000 + this.transform.forward * 700);
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        followTimer -= Time.deltaTime;
+        lifeTimer -= Time.deltaTime;
+        if (followTimer >= 0)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, Player.transform.position, 10 * Time.deltaTime);
+        }
+        if(lifeTimer <= 0)
+        {
+            Destroy(this.gameObject);
+            lifeTimer = 5.0f;
+        }
     }
 
     // damages the player it the get in contact with the projectile
@@ -33,7 +49,6 @@ public class CrystalSlimeProjectile : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     public void SetVars(float damage)
     {
         projectileDamage = damage;

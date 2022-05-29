@@ -8,6 +8,7 @@ TagManager:
   - Environment
   - Node
   - Bouncer
+  - TriggerBox
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Node
   - CatchAll
   - DeadNode
-  - 
+  - TriggerBox
   - 
   - 
   - 

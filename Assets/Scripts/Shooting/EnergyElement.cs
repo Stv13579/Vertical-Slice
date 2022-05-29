@@ -10,6 +10,7 @@ public class EnergyElement : BaseElementClass
 
     private void Start()
     {
+        base.Start();
         heldCast = true;
     }
 
@@ -25,9 +26,9 @@ public class EnergyElement : BaseElementClass
     {
         base.ElementEffect();
         playerClass.currentMana += fullRestoreAmount;
-        if(playerClass.currentMana > pData.maxMana)
+        if(playerClass.currentMana > playerClass.maxMana)
         {
-            playerClass.currentMana = pData.maxMana;
+            playerClass.currentMana = playerClass.maxMana;
         }
 
     }

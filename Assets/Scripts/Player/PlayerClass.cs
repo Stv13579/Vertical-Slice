@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerClass : MonoBehaviour
 {
-    public PlayerData pData;
     public float currentHealth;
     public float currentMana;
+
+    public float maxHealth;
+    public float maxMana;
+
     public float money;
 
     //A list of items which are collectible objects which add extra effects to the player
@@ -18,10 +21,12 @@ public class PlayerClass : MonoBehaviour
 
     //public GameObject testItemUIWidget;
 
+    public Transform fallSpawner;
+
     void Start()
     {
-        currentHealth = pData.maxHealth;
-        currentMana = pData.maxMana;
+        currentHealth = maxHealth;
+        currentMana = maxMana;
         money = 0.0f;
         itemUI = GameObject.Find("ItemArray");
 
@@ -36,7 +41,8 @@ public class PlayerClass : MonoBehaviour
     {
         if (transform.position.y <= -30)
         {
-            Death();
+            transform.position = fallSpawner.position;
+            Debug.Log("Reset Position");
         }
     }
 
@@ -58,7 +64,7 @@ public class PlayerClass : MonoBehaviour
 
     public void ChangeHealth(float healthAmount)
     {
-        currentHealth = Mathf.Min(currentHealth + healthAmount, pData.maxHealth);
+        currentHealth = Mathf.Min(currentHealth + healthAmount, maxHealth);
         if(currentHealth <= 0)
         {
             Death();
@@ -67,7 +73,7 @@ public class PlayerClass : MonoBehaviour
 
     public void ChangeMana(float manaAmount)
     {
-        currentMana = Mathf.Min(currentMana + manaAmount, pData.maxMana);
+        currentMana = Mathf.Min(currentMana + manaAmount, maxMana);
         currentMana = Mathf.Max(currentMana, 0);
     }
 

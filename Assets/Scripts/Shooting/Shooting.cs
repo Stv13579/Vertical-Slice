@@ -77,6 +77,15 @@ public class Shooting : MonoBehaviour
         {
             catalystElements[rightElementIndex].ActivateElement();
         }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            primaryElements[leftElementIndex].LiftEffect();
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            catalystElements[rightElementIndex].LiftEffect();
+        }
     }
 
     void ComboShooting()
@@ -84,6 +93,11 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             comboElements[leftElementIndex].comboElements[rightElementIndex].ActivateElement();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            comboElements[leftElementIndex].comboElements[rightElementIndex].LiftEffect();
         }
     }
 

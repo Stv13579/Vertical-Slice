@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9965eb33e7d0d804086e863e303af43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eData: {fileID: 11400000, guid: 30f65910d6c8c5c458045ce970dd28fd, type: 2}
+  maxHealth: 50
+  damageAmount: 1
+  moveSpeed: 10
+  damageThreshold: 0
+  damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
     type: 3}
   spawner: {fileID: 0}
   weaknesses: []
   resistances: []
   bounceList: []
+  moveDirection: {x: 0, y: 0, z: 0}
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
+  enemyProjectileScale: {x: 0.3, y: 0.3, z: 0.3}
 --- !u!1001 &1404476596481006036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_Name
-      value: CrystalSlime
+      value: CrystalSlime_Small
       objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}

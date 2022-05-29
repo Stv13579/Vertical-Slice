@@ -12,18 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2d49cb487f6f94cb35fe0f28ea65bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eData: {fileID: 11400000, guid: 30f65910d6c8c5c458045ce970dd28fd, type: 2}
+  maxHealth: 50
+  damageAmount: 1
+  moveSpeed: 10
+  damageThreshold: 0
+  damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
     type: 3}
   spawner: {fileID: 0}
   weaknesses: []
   resistances: []
   bounceList: []
+  moveDirection: {x: 0, y: 0, z: 0}
   enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
     type: 3}
   trailLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  fireTrailScale: {x: 0.5, y: 1, z: 0.5}
 --- !u!1001 &1250805480861160025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_Name
-      value: FireSlime
+      value: FireSlime_Small
       objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}

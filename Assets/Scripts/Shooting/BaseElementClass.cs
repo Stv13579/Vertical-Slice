@@ -37,9 +37,10 @@ public class BaseElementClass : MonoBehaviour
 
     float currentUseDelay = 0;
 
-    //The name of the element, for UI purposes
+    //Variables for UI purposes
     public string elementName;
     public Sprite uiSprite;
+    public Sprite crosshair;
 
     [SerializeField]
     protected List<string> attackTypes;

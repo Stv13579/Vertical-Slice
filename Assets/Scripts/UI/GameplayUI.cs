@@ -11,7 +11,7 @@ public class GameplayUI : MonoBehaviour
 
     //Serialize all UI elements
     [SerializeField]
-    Image healthBar, manaBar, activePrimaryElement, activeCatalystElement, activeComboElement;
+    Image healthBar, manaBar, activePrimaryElement, activeCatalystElement, activeComboElement, crosshair;
 
     [SerializeField]
     Text moneyText;
@@ -32,6 +32,7 @@ public class GameplayUI : MonoBehaviour
         activePrimaryElement.sprite = player.GetPrimaryElement();
         activeCatalystElement.sprite = player.GetCatalystElement();
         activeComboElement.sprite = player.GetComboElement();
+        crosshair.sprite = player.GetCrosshair();
         if (Input.GetKeyDown(KeyCode.F))
         {
             activePrimaryElement.transform.parent.parent.gameObject.SetActive(!activePrimaryElement.transform.parent.parent.gameObject.activeSelf);

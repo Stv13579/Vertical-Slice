@@ -116,4 +116,16 @@ public class Shooting : MonoBehaviour
     {
         return (comboElements[leftElementIndex].comboElements[rightElementIndex].uiSprite);
     }
+
+    public Sprite GetCrosshair()
+    {
+        if(inComboMode)
+        {
+            return (comboElements[leftElementIndex].comboElements[rightElementIndex].crosshair);
+        }
+        else
+        {
+            return (primaryElements[leftElementIndex].crosshair);
+        }
+    }
 }

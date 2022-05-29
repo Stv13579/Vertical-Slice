@@ -12,6 +12,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // setting the timers at start
         lifeTimer = 5.0f;
         followTimer = 2.0f;
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -25,10 +26,12 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
+        // if follow timer is greater then 0 then follow the player
         if (followTimer >= 0)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, Player.transform.position, 10 * Time.deltaTime);
         }
+        // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
         if(lifeTimer <= 0)
         {
             Destroy(this.gameObject);
@@ -36,7 +39,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
         }
     }
 
-    // damages the player it the get in contact with the projectile
+    // damages the player if get in contact with the projectile
+    // or destroy object if it touchs the ground
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -49,6 +53,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    // setter
     public void SetVars(float damage)
     {
         projectileDamage = damage;

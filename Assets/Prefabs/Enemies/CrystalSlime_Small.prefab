@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-362456135243041838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074025805592656083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9965eb33e7d0d804086e863e303af43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  damageAmount: 1
+  moveSpeed: 10
+  damageThreshold: 0
+  damageResistance: 1
+  currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
+    type: 3}
+  spawner: {fileID: 0}
+  weaknesses: []
+  resistances: []
+  bounceList: []
+  moveDirection: {x: 0, y: 0, z: 0}
+  enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
+    type: 3}
+  enemyProjectileScale: {x: 0.3, y: 0.3, z: 0.3}
+--- !u!1001 &1404476596481006036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5579087073775013529, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0b386e9a3c9145479505e70a91e7dc2, type: 2}
+    - target: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_Name
+      value: CrystalSlime_Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678994780238758098, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0b386e9a3c9145479505e70a91e7dc2, type: 2}
+    m_RemovedComponents:
+    - {fileID: 8048053914739367016, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
+--- !u!1 &8074025805592656083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404476596481006036}
+  m_PrefabAsset: {fileID: 0}

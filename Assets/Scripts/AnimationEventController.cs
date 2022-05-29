@@ -15,4 +15,12 @@ public class AnimationEventController : MonoBehaviour
             elements[activateType].ElementEffect();
         }
     }
+
+    public void Lifted(int activateType)
+    {
+        if (activateType <= elements.Count)
+        {           
+            elements[activateType].LiftEffect();
+        }
+    }    
 }

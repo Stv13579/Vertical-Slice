@@ -11,4 +11,12 @@ public class TriggerScript : MonoBehaviour
             transform.parent.GetComponent<SAIM>().triggered = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            transform.parent.GetComponent<SAIM>().playerLeaving = true;
+        }
+    }
 }

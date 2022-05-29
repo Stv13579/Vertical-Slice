@@ -9,7 +9,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     public override void Attacking()
     {
         base.Attacking();
-        playerClass.ChangeHealth(-eData.damageAmount);
+        playerClass.ChangeHealth(-damageAmount);
     }
 
     public override void Movement(Vector3 positionToMoveTo)
@@ -17,7 +17,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
         base.Movement(moveDirection);
 
         //Come back to hopping
-        Vector3 moveVec = (moveDirection - transform.position).normalized * eData.moveSpeed * Time.deltaTime;
+        Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
         moveVec.y = 0;
         moveVec.y -= 1 * Time.deltaTime;
         transform.position += moveVec;
@@ -44,7 +44,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
         {
             GetComponent<Rigidbody>().AddForce(0, 50, 0);
         }
-
+        // if colliding with player attack enemy reset damage ticker
+        // we reset it so that the player doesn't take double damage
         if (collision.gameObject.tag == "Player")
         {
             Attacking();
@@ -58,6 +59,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
             GetComponent<Rigidbody>().AddForce(0, 50, 0);
         }
 
+        // checks if colliding with player and damage ticker is less then 0
+        // player should take damage every one second after if they are still colliding with enemy normal slime
         if (collision.gameObject.tag == "Player" && damageTicker <= 0.0f)
         {
             Attacking();

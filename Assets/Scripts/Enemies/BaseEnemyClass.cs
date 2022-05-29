@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class BaseEnemyClass : MonoBehaviour
 {
+    public float maxHealth;
+    public float damageAmount;
+    public float moveSpeed;
+
+    //The amount of flat damage any instance of incoming damage is reduced by
+    public float damageThreshold;
+
+    //The amount of percentage damage any instance of incoming damage is reduced by
+    public float damageResistance = 1;
+
     //base class that all enemies derive from.
 
-    [SerializeField]
-    protected EnemyData eData;
     float currentHealth;
     bool isDead = false;
-
     protected GameObject player;
 
     protected PlayerClass playerClass;
@@ -41,7 +48,7 @@ public class BaseEnemyClass : MonoBehaviour
         startY = transform.position.y;
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();
-        currentHealth = eData.maxHealth;
+        currentHealth = maxHealth;
     }
 
     public virtual void Update()
@@ -90,7 +97,7 @@ public class BaseEnemyClass : MonoBehaviour
                 }
             }
         }
-        currentHealth -= (damageToTake * multiplier) * eData.damageResistance - eData.damageThreshold;
+        currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
         Death();
     }
 

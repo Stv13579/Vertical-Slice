@@ -7,19 +7,19 @@ public class FireSlimeTrail : MonoBehaviour
     float trailDamage;
     float trailDuration = 5.0f;
     float trailDamageTicker = 1.0f;
-
     // Update is called once per frame
     void Update()
     {
         trailDuration -= Time.deltaTime;
         trailDamageTicker -= Time.deltaTime;
-        // deletes the trail after 3 seconds
+        // deletes the trail after trailDuration <= 0
         if(trailDuration <= 0)
         {
             Destroy(gameObject);
         }
     }
 
+    // setter
     public void SetVars(float damage)
     {
         trailDamage = damage;

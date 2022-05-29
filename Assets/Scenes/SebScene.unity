@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2482,9 +2482,16 @@ MonoBehaviour:
   spawnedEnemies: []
   nodes:
   - {fileID: 133975972}
+  deadNodes: []
+  aliveNodes: []
+  nodeGrid: []
+  blockers: []
+  testObjects: []
   node: {fileID: 0}
+  blockerMaster: {fileID: 0}
   gridSize: 0
   nodeSpacing: 0
+  nodeMaster: {fileID: 0}
   killMat: {fileID: 0}
   nodeLayerMask:
     serializedVersion: 2
@@ -2496,6 +2503,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   triggered: 0
+  playerLeaving: 0
+  roomComplete: 0
   data: {fileID: 11400000, guid: 93a350c4038134444b9794f303a0daf6, type: 2}
 --- !u!4 &648418748
 Transform:
@@ -5171,9 +5180,16 @@ MonoBehaviour:
   spawnedEnemies: []
   nodes:
   - {fileID: 1272299479}
+  deadNodes: []
+  aliveNodes: []
+  nodeGrid: []
+  blockers: []
+  testObjects: []
   node: {fileID: 0}
+  blockerMaster: {fileID: 0}
   gridSize: 0
   nodeSpacing: 0
+  nodeMaster: {fileID: 0}
   killMat: {fileID: 0}
   nodeLayerMask:
     serializedVersion: 2
@@ -5185,6 +5201,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   triggered: 0
+  playerLeaving: 0
+  roomComplete: 0
   data: {fileID: 11400000, guid: 93a350c4038134444b9794f303a0daf6, type: 2}
 --- !u!4 &1466188794
 Transform:
@@ -7592,6 +7610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShopUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042192858260725985, guid: b825781df9d5838409e3db87e103e516,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042192858260725989, guid: b825781df9d5838409e3db87e103e516,
         type: 3}

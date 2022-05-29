@@ -58,6 +58,10 @@ public class CrystalProj : MonoBehaviour
     {
         //if enemy, hit them for the damage
         // destroy projectile after
+        if (other.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
         Collider taggedEnemy = null;
         if (other.tag == "Enemy")
         {

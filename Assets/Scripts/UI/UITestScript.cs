@@ -27,7 +27,6 @@ public class UITestScript : MonoBehaviour
         leftSpellText.text = "Left Spell: " +  player.GetPrimaryElement();
         rightSpellText.text = "Right Spell: " + player.GetCatalystElement();
         comboSpellText.text = "Combo Spell: " + player.GetComboElement();
-        moneyText.text = "Money: " + playerClass.money;
         if(Input.GetKeyDown(KeyCode.F))
         {
             leftSpellText.enabled = !leftSpellText.enabled;

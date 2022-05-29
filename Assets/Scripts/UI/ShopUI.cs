@@ -23,7 +23,7 @@ public class ShopUI : MonoBehaviour
         int exitCounter = 0;
         while(itemsAdded < 3)
         {
-            
+            //Get a random item from the global item list, check if the item is valid to giv to the player, and if so add it, otherwise try again
             int i = Random.Range(0, items.itemList.Count);
             Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
             if((!items.itemList[i].alreadyAdded || (ids[0] != i) || (ids[1] != i)) || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
@@ -37,6 +37,8 @@ public class ShopUI : MonoBehaviour
             exitCounter++;
             if(exitCounter > 50)
             {
+                //If the loop goes on too long, place default items
+
                 //to do, have default items get added (npc items most likely)
                 Debug.Log("Exited");
                 itemsAdded = 3;
@@ -44,8 +46,10 @@ public class ShopUI : MonoBehaviour
         }
         for(int i = 0; i < 3; i++)
         {
+            //Give the UI buttons the necessary information for each item they contain
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].itemName;
             buttons[i].transform.GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprite;
+            buttons[i].transform.GetChild(2).GetComponent<Text>().text = shopItems[i].currencyCost.ToString();
         }
     }
 
@@ -53,11 +57,10 @@ public class ShopUI : MonoBehaviour
     {
         if(player.money >= shopItems[button].currencyCost)
         {
+            //If he player has enough money, give the player the item, take away their money, and remove he option from the shop
             Item item = (Item)inventory.AddComponent(shopItems[button].GetType());
             item.sprite = shopItems[button].sprite;
             Destroy(shopItems[button]);
-            //items.itemList[ids[button]].SetAdded();
-
             player.AddItem(item);
             buttons[button].SetActive(false);
             player.ChangeMoney(-item.currencyCost);
@@ -70,6 +73,7 @@ public class ShopUI : MonoBehaviour
         {
             if(buttons[i].activeInHierarchy)
             {
+                //If an item isn't bought when leaving the shop, mark it available to be obtained again
                 items.itemList[ids[i]].alreadyAdded = false;
             }
         }

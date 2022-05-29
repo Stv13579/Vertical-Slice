@@ -101,18 +101,19 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    public String GetPrimaryElement()
+    public Sprite GetPrimaryElement()
     {
-        return (primaryElements[leftElementIndex].elementName);
+        return primaryElements[leftElementIndex].uiSprite;
     }
 
-    public String GetCatalystElement()
+    public Sprite GetCatalystElement()
     {
-        return (catalystElements[rightElementIndex].elementName);
+        return catalystElements[rightElementIndex].uiSprite;
     }
 
-    public String GetComboElement()
+
+    public Sprite GetComboElement()
     {
-        return (comboElements[leftElementIndex].comboElements[rightElementIndex].elementName);
+        return (comboElements[leftElementIndex].comboElements[rightElementIndex].uiSprite);
     }
 }

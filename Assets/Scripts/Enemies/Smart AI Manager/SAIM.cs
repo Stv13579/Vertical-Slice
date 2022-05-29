@@ -75,8 +75,13 @@ public class SAIM : MonoBehaviour
     public SAIMData data;
 
     //Flow Field pathfinding variables
-    Node destinationNode; 
-    
+    Node destinationNode;
+
+    GameObject player;
+
+    //Nodes to pathfind to
+    Node playerNode;
+
     void Start()
     {
         data.adjustedDifficulty = data.difficulty;
@@ -88,29 +93,17 @@ public class SAIM : MonoBehaviour
             blockers.Add(child.gameObject);
         }
 
-        //nodes.AddRange(nodeMaster.GetComponentsInChildren<Node>());
+        player = GameObject.Find("Player");
 
-        //for (int i = 0; i < nodes.Count; i++)
-        //{
-        //    if (nodes[i].GetComponent<Node>().GetAlive())
-        //    {
-        //        aliveNodes.Add(nodes[i]);
-        //    }
-        //    else
-        //    {
-        //        deadNodes.Add(nodes[i]);
-        //    }
-        //}
-
-        CreateIntegrationFlowField(nodeGrid[15].nodeCol[17]);
-        GenerateFlowField();
+        //CreateIntegrationFlowField(nodeGrid[15].nodeCol[17]);
+        //GenerateFlowField();
     }
 
 
 
     void Update()
     {
-        if(!triggered)
+        if(!triggered || roomComplete)
         {
             return;
         }
@@ -153,7 +146,14 @@ public class SAIM : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!triggered || roomComplete)
+        {
+            return;
+        }
+
         Move();
+
+        Node pNode = null;
 
         foreach (BaseEnemyClass enemy in spawnedEnemies)
         {
@@ -166,7 +166,27 @@ public class SAIM : MonoBehaviour
                     dist = (node.transform.position - enemy.transform.position).magnitude;
                     enemy.moveDirection = node.bestNextNodePos;
                 }
+
             }
+
+            dist = float.MaxValue;
+
+            foreach (Node node in aliveNodes)
+            {
+                if ((node.transform.position - player.transform.position).magnitude < dist)
+                {
+                    pNode = node;
+                    dist = (node.transform.position - player.transform.position).magnitude;
+                }
+
+            }
+        }
+
+        if(pNode != playerNode)
+        {
+            playerNode = pNode;
+            CreateIntegrationFlowField(playerNode);
+            GenerateFlowField();
         }
         
     }
@@ -476,7 +496,7 @@ public class SAIM : MonoBehaviour
                     newDir = newDir.normalized;
 
                 }
-                spawnedEnemies[elementIndex].gameObject.transform.position -= newDir * Time.deltaTime;
+                spawnedEnemies[elementIndex].gameObject.GetComponent<Rigidbody>().AddForce(-newDir * Time.deltaTime * 1000);
                 spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
             }
 
@@ -489,6 +509,12 @@ public class SAIM : MonoBehaviour
     //Given a target location, give out nodes the values which will eventually dictate direction
     public void CreateIntegrationFlowField(Node destNode)
     {
+        foreach (Node node in aliveNodes)
+        {
+            node.ResetNode();
+        }
+
+
         destinationNode = destNode;
 
         destinationNode.SetDestination();

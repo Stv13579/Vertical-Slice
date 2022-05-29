@@ -47,7 +47,7 @@ public class BaseElementClass : MonoBehaviour
 
     protected PlayerClass playerClass;
 
-    private void Start()
+    protected virtual void Start()
     {
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();

@@ -21,6 +21,12 @@ public class Node : MonoBehaviour
         bestCost = 0;
     }
 
+    public void ResetNode()
+    {
+        cost = 1;
+        bestCost = int.MaxValue;
+    }
+
     public void SetAlive(bool set)
     {
         alive = set;
@@ -33,7 +39,11 @@ public class Node : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, bestNextNodePos - transform.position, Color.green);
-        GetComponentInChildren<TextMeshPro>().text = bestCost.ToString();
+        if(bestNextNodePos != Vector3.zero)
+        {
+            Debug.DrawRay(transform.position, bestNextNodePos - transform.position, Color.green);
+        }
+        
+        //GetComponentInChildren<TextMeshPro>().text = bestCost.ToString();
     }
 }

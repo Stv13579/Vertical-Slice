@@ -10,6 +10,7 @@ public class EnergyElement : BaseElementClass
 
     private void Start()
     {
+        base.Start();
         heldCast = true;
     }
 

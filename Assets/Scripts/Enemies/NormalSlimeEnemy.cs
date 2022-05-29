@@ -24,7 +24,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
 
 
-        transform.LookAt(moveDirection);
+        transform.LookAt(player.transform.position);
         Quaternion rot = transform.rotation;
         rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
         transform.rotation = rot;
@@ -42,7 +42,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
+            GetComponent<Rigidbody>().AddForce(0, 50, 0);
         }
 
         if (collision.gameObject.tag == "Player")
@@ -55,7 +55,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
-            GetComponent<Rigidbody>().AddForce(0, 100, 0);
+            GetComponent<Rigidbody>().AddForce(0, 50, 0);
         }
 
         if (collision.gameObject.tag == "Player" && damageTicker <= 0.0f)

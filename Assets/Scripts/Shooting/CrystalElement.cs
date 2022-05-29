@@ -33,6 +33,12 @@ public class CrystalElement : BaseElementClass
             //changes the angle of where they are being fired to
             newCrystalPro.transform.RotateAround(Camera.main.transform.position, Camera.main.transform.up, 10.0f * i - 25.0f);
 
+            Vector3 newRot = newCrystalPro.transform.rotation.eulerAngles;
+
+            
+
+            newCrystalPro.transform.rotation = Quaternion.Euler(newRot);
+
             newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage, damageCurve, lifeTimer, attackTypes);
 
         }

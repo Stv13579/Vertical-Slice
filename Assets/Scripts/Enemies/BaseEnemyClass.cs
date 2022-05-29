@@ -34,6 +34,8 @@ public class BaseEnemyClass : MonoBehaviour
     [HideInInspector]
     public List<DeathTrigger> deathTriggers = new List<DeathTrigger>();
 
+    public Vector3 moveDirection;
+
     private void Start()
     {
         startY = transform.position.y;
@@ -42,13 +44,12 @@ public class BaseEnemyClass : MonoBehaviour
         currentHealth = eData.maxHealth;
     }
 
-    public void Update()
+    public virtual void Update()
     {
-        Movement(player.transform.position);
-        Attacking();
         if(transform.position.y < -30)
         {
             Death();
+            currentHealth = 0;
         }
     }
 

@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpSpeed = 15.0f;
     [SerializeField]
     private float acceleration = 10.0f;
+    [SerializeField]
     private AnimationCurve frictionCurve = AnimationCurve.Linear(0, 0.1f, 1, 1);
     [SerializeField]
     private float coyoteTime = 0.75f;

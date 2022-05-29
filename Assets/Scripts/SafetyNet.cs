@@ -9,6 +9,7 @@ public class SafetyNet : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.GetComponent<PlayerClass>().fallSpawner = this.transform;
+            
         }
     }
 }

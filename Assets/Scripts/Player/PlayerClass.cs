@@ -42,6 +42,7 @@ public class PlayerClass : MonoBehaviour
         if (transform.position.y <= -30)
         {
             transform.position = fallSpawner.position;
+            Debug.Log("Reset Position");
         }
     }
 

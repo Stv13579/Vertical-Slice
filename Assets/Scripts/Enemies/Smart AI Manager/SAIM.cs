@@ -16,6 +16,20 @@ public class SAIM : MonoBehaviour
 
     public List<Node> aliveNodes;
 
+    [SerializeField,HideInInspector]
+    List<List<List<Node>>> instantiateNodeGrid;
+
+    [System.Serializable]
+    public class NodeMatrix
+    {
+
+        public List<Node> nodeCol;
+    }
+
+
+    [SerializeField, HideInInspector]
+    List<NodeMatrix> nodeGrid;
+
     [SerializeField]
     List<GameObject> blockers = new List<GameObject>();
 
@@ -60,7 +74,13 @@ public class SAIM : MonoBehaviour
 
     public SAIMData data;
 
+    //Flow Field pathfinding variables
+    Node destinationNode;
 
+    GameObject player;
+
+    //Nodes to pathfind to
+    Node playerNode;
 
     void Start()
     {
@@ -73,25 +93,21 @@ public class SAIM : MonoBehaviour
             blockers.Add(child.gameObject);
         }
 
-        //nodes.AddRange(nodeMaster.GetComponentsInChildren<Node>());
+        player = GameObject.Find("Player");
 
-        //for (int i = 0; i < nodes.Count; i++)
-        //{
-        //    if (nodes[i].GetComponent<Node>().GetAlive())
-        //    {
-        //        aliveNodes.Add(nodes[i]);
-        //    }
-        //    else
-        //    {
-        //        deadNodes.Add(nodes[i]);
-        //    }
-        //}
+        //CreateIntegrationFlowField(nodeGrid[15].nodeCol[17]);
+        //GenerateFlowField();
     }
 
 
 
     void Update()
     {
+        if(!triggered || roomComplete)
+        {
+            return;
+        }
+
         spawnTimer += Time.deltaTime;
         timeInSpawning += Time.deltaTime;
 
@@ -122,15 +138,56 @@ public class SAIM : MonoBehaviour
             //end the room
         }
 
-       
+        //Generate flow field based on player position
+        //Check nearest node, call generate integration field based on that node.
+        
 
     }
 
     private void FixedUpdate()
     {
+        if(!triggered || roomComplete)
+        {
+            return;
+        }
+
         Move();
 
-        
+        Node pNode = null;
+
+        foreach (BaseEnemyClass enemy in spawnedEnemies)
+        {
+            float dist = float.MaxValue;
+
+            foreach (Node node in aliveNodes)
+            {
+                if((node.transform.position - enemy.transform.position).magnitude < dist)
+                {
+                    dist = (node.transform.position - enemy.transform.position).magnitude;
+                    enemy.moveDirection = node.bestNextNodePos;
+                }
+
+            }
+
+            dist = float.MaxValue;
+
+            foreach (Node node in aliveNodes)
+            {
+                if ((node.transform.position - player.transform.position).magnitude < dist)
+                {
+                    pNode = node;
+                    dist = (node.transform.position - player.transform.position).magnitude;
+                }
+
+            }
+        }
+
+        if(pNode != playerNode)
+        {
+            playerNode = pNode;
+            CreateIntegrationFlowField(playerNode);
+            GenerateFlowField();
+        }
         
     }
 
@@ -139,6 +196,29 @@ public class SAIM : MonoBehaviour
     {
         //deadNodes = new List<Node>();
         //aliveNodes = new List<Node>();
+
+        instantiateNodeGrid = new List<List<List<Node>>>();
+
+        for (int i = 0; i < gridSize; i++)
+        {
+            instantiateNodeGrid.Add(new List<List<Node>>());
+            for (int j = 0; j < gridSize; j++)
+            {
+                instantiateNodeGrid[i].Add(new List<Node>());
+            }
+        }
+
+        nodeGrid = new List<NodeMatrix>();
+        
+        for (int g = 0; g < gridSize; g++)
+        {
+            nodeGrid.Add(new NodeMatrix());
+            nodeGrid[g].nodeCol = new List<Node>();
+        }
+
+
+
+
 
         nodeMaster = transform.GetChild(1).gameObject;
 
@@ -156,6 +236,7 @@ public class SAIM : MonoBehaviour
 
                     nodes.Add(newNode.GetComponent<Node>());
 
+                    instantiateNodeGrid[i][j].Add(newNode.GetComponent<Node>());
                 }
             }
         }
@@ -218,6 +299,37 @@ public class SAIM : MonoBehaviour
             nodes[i].GetComponent<Collider>().enabled = true;
         }
 
+        for (int i = 0; i < gridSize; i++)
+        {
+            for (int j = 0; j < gridSize; j++)
+            {
+
+                bool isAliveNode = false;
+                Node aliveNode = null;
+                for (int k = 0; k < gridSize; k++)
+                {
+                    //The logic here is to create a 2D node grid not taking into account the Y element which does exist in practice.
+                    //This is done by making a new grid removing the third dimension of the reference in the list.
+                    //on every 'y' there should only be one alive node, or none.
+                    if(instantiateNodeGrid[i][k][j].GetAlive())
+                    {
+                        isAliveNode = true;
+                        aliveNode = instantiateNodeGrid[i][k][j];
+                    }    
+                }
+                if (isAliveNode)
+                {
+                    aliveNode.gridIndex = new Vector2Int(i, j);
+                    nodeGrid[i].nodeCol.Add(aliveNode);
+                }
+                else
+                {
+                    nodeGrid[i].nodeCol.Add(null);
+                }
+                
+            }
+        }
+
 
         for (int i = 0; i < nodes.Count; i++)
         {
@@ -234,6 +346,23 @@ public class SAIM : MonoBehaviour
             }
         }
 
+
+        
+        //for (int i = 0; i < gridSize; i++)
+        //{
+        //    for (int j = 0; j < gridSize; j++)
+        //    {
+        //        instantiateNodeGrid[i].Clear();
+        //        for (int k = 0; k < gridSize; k++)
+        //        {
+        //            instantiateNodeGrid[i][j].Clear();
+        //        }
+      
+        //    }
+        //}
+        instantiateNodeGrid.Clear();
+        //nodeGrid.Clear();
+        //nodes.Clear();
     } 
 
     void KillNode(int index)
@@ -250,20 +379,23 @@ public class SAIM : MonoBehaviour
     public void DestroyAllNodes()
     {
         nodeMaster.transform.localPosition = Vector3.zero;
-        int j = 0;
+        int l = 0;
         foreach (Node node in nodes)
         {
-            if(nodes[j] != null)
+            if(nodes[l] != null)
             {
-                DestroyImmediate(nodes[j].gameObject);
+                DestroyImmediate(nodes[l].gameObject);
             }
             
-            j++;
+            l++;
         }
 
         nodes.Clear();
         aliveNodes.Clear();
         deadNodes.Clear();
+        //nodeGrid.Clear();
+        //instantiateNodeGrid.Clear();
+
     }
 
     void CheckEndOfRoom()
@@ -364,7 +496,7 @@ public class SAIM : MonoBehaviour
                     newDir = newDir.normalized;
 
                 }
-                spawnedEnemies[elementIndex].gameObject.transform.position -= newDir * Time.deltaTime;
+                spawnedEnemies[elementIndex].gameObject.GetComponent<Rigidbody>().AddForce(-newDir * Time.deltaTime * 1000);
                 spawnedEnemies[elementIndex].GetComponent<BaseEnemyClass>().bounceList.RemoveAt(j);
             }
 
@@ -372,6 +504,116 @@ public class SAIM : MonoBehaviour
             j--;
 
         }
+    }
+
+    //Given a target location, give out nodes the values which will eventually dictate direction
+    public void CreateIntegrationFlowField(Node destNode)
+    {
+        foreach (Node node in aliveNodes)
+        {
+            node.ResetNode();
+        }
+
+
+        destinationNode = destNode;
+
+        destinationNode.SetDestination();
+
+        Queue<Node> nodesToCheck = new Queue<Node>();
+
+        nodesToCheck.Enqueue(destinationNode);
+
+        //Grow the queue as we check local nodes, finishing once all nodes are checked, starting with the destination node.
+        while(nodesToCheck.Count > 0)
+        {
+            Node currentNode = nodesToCheck.Dequeue();
+            List<Node> currentNeighbours = GetNeighbourNodes(currentNode, false);
+
+            foreach (Node node in currentNeighbours)
+            {
+                //If the neighbour is a wall or other impassable terrain, straight up ignore it and move on
+                if(node.cost == int.MaxValue)
+                {
+                    continue;
+                }
+                
+
+                //If the neigbour node being checked has a higher best cost than the current node's best cost plus this neigbour node's best cost,
+                //change it's best cost to that value and enque it to become the next node to be checked. 
+                //This will stop the algo backtracking, as long as max best cost is sufficiently high enough.
+                if(node.cost + currentNode.bestCost < node.bestCost)
+                {
+                    node.bestCost = node.cost + currentNode.bestCost;
+                    nodesToCheck.Enqueue(node);
+                }
+
+            }
+        }
+
+    }
+
+    //Using the integrated field, generate the flow field by pointing each node at the next node
+    void GenerateFlowField()
+    {
+
+        //Iterate through each node
+        foreach (Node currentNode in aliveNodes)
+        {
+            List<Node> currentNodeNeigbours = GetNeighbourNodes(currentNode, true);
+
+            int bestCost = currentNode.bestCost;
+
+            //Look at the node's neigbours to decide which to 'point' at.
+            //This will be the node with the lowest bestCost.
+            foreach (Node currentNeigbourNode in currentNodeNeigbours)
+            {
+                if(currentNeigbourNode.bestCost < bestCost)
+                {
+                    bestCost = currentNeigbourNode.bestCost;
+                    currentNode.bestNextNodePos = currentNeigbourNode.transform.position;
+
+                }
+            }
+        }
+    }
+
+    //Gets the north south east and west nodes of a given node, plus diags if true
+    List<Node> GetNeighbourNodes(Node nodeCentre, bool isDiag)
+    {
+        List<Node> neigbours = new List<Node>();
+
+        for (int i = -1; i < 2; i++)
+        {
+            for (int k = -1; k < 2; k++) 
+            {
+
+                //Checks whether it is itself or is null (which would be an edge for instance)
+                if(k == 0 && i == 0)
+                {
+
+                }
+                //If not getting diagonals
+                else if (!isDiag && k != 0 && i != 0)
+                {
+
+                }
+                else
+                {
+                    if(nodeCentre.gridIndex.x + i >= gridSize || nodeCentre.gridIndex.x + i < 0 ||
+                       nodeCentre.gridIndex.y + k >= gridSize || nodeCentre.gridIndex.y + k < 0)
+                    {
+
+                    }
+                    else if(nodeGrid[nodeCentre.gridIndex.x+i].nodeCol[nodeCentre.gridIndex.y+k] != null)
+                    {
+                        neigbours.Add(nodeGrid[nodeCentre.gridIndex.x + i].nodeCol[nodeCentre.gridIndex.y + k]);
+                    }
+                    
+                }
+            }
+        }
+
+        return neigbours;
     }
 
     //Check every frame and adjust variables accordingly

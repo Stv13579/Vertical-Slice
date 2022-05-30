@@ -7,18 +7,12 @@ public class LaserBeam : MonoBehaviour
     float damage;
     List<string> attackTypes;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        // might need later to add some juice
     }
-
+    // setter
     public void SetVars(float dmg, List<string> types)
     {
         damage = dmg;

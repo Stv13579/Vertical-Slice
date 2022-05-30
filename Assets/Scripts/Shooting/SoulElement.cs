@@ -30,6 +30,7 @@ public class SoulElement : BaseElementClass
         {
             playerHand.SetTrigger("SoulStopCast");
         }
+        previousHealth = playerClass.currentHealth;
 
     }
 
@@ -37,7 +38,7 @@ public class SoulElement : BaseElementClass
     {
         base.ElementEffect();
         //Subtract the mana cost, restore health, and cap it and the max health
-        playerClass.currentMana -= manaCost;
+        playerClass.ChangeMana(-manaCost);
         playerClass.ChangeHealth(healthRestore);
     }
 

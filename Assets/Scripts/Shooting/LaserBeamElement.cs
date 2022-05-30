@@ -22,6 +22,8 @@ public class LaserBeamElement : BaseElementClass
 
     public void DeactivateLaser()
     {
+        //if left click is up or if player has no mana
+        // stop the laser beam
         if (Input.GetKeyUp(KeyCode.Mouse0) || !PayCosts(Time.deltaTime))
         {
             usingLaserBeam = false;

@@ -15,6 +15,7 @@ public class CrystalProj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // the max drop off the damage can do is 2
         if(damage > 2)
         {
             damageLifeTimer -= Time.deltaTime;
@@ -27,6 +28,7 @@ public class CrystalProj : MonoBehaviour
         MoveCrystalProjectile();
         KillProjectile();
     }
+    // move crystal projectile forwards
     private void MoveCrystalProjectile()
     {
         Vector3 projMovement = transform.forward * speed * Time.deltaTime;
@@ -42,6 +44,8 @@ public class CrystalProj : MonoBehaviour
         attackTypes = types;
 
     }
+    // if the life timer for the projectiles is 0
+    // destroy the projectiles
     private void KillProjectile()
     {
         if (startLifeTimer <= 0)
@@ -53,9 +57,12 @@ public class CrystalProj : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if enemy, hit them for the damage
+        // destroy projectile after
+        if (other.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
         Collider taggedEnemy = null;
-
-
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);

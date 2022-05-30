@@ -10,6 +10,8 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     float trailCastDistance = 1.0f;
     float backCastDistance = 0.1f;
     float trailOffset = 0.01f;
+    [SerializeField]
+    private Vector3 fireTrailScale;
     new private void Update()
     {
         base.Update();
@@ -26,13 +28,14 @@ public class FireSlimeEnemy : NormalSlimeEnemy
         // check of the ray cast line is hitting the ground
         if (Physics.Raycast(transform.position + Back, -transform.up, out hit, trailCastDistance + backCastDistance, trailLayerMask))
         {
-            Debug.Log(hit.transform.gameObject.name);
             // rotate the go if it hits a flat surface or an angled surface
             Quaternion newrotation = Quaternion.FromToRotation(transform.up, hit.normal);
             // creates a plane which is the trail of the fire slime
             GameObject tempEnemyTrail = Instantiate(enemyTrail, hit.point + hit.normal * trailOffset, newrotation);
             // sets the damage
-            tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(eData.damageAmount);
+            tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
+            // sets the scale of the firetrail as there are different sizes of enemies
+            tempEnemyTrail.transform.localScale = fireTrailScale;
         }
     }
     public override void Movement(Vector3 positionToMoveTo)

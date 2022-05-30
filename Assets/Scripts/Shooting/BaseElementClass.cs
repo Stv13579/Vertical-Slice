@@ -49,10 +49,12 @@ public class BaseElementClass : MonoBehaviour
 
     protected PlayerClass playerClass;
 
+    protected Transform shootingTranform;
     protected virtual void Start()
     {
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();
+        shootingTranform = GameObject.Find("Elements").transform;
     }
     protected virtual void StartAnims(string animationName)
     {

@@ -40,7 +40,7 @@ public class FireElement : BaseElementClass
     {
         base.ElementEffect();
         //
-        GameObject newFireball = Instantiate(fireBall, transform.position, Camera.main.transform.rotation);
+        GameObject newFireball = Instantiate(fireBall, shootingTranform.position, Camera.main.transform.rotation);
         newFireball.GetComponent<Fireball>().SetVars(projectileSpeed, damage, gravity, gravCurve, gravityLifetime, explosionArea, explosionDamage, attackTypes);
     }
 

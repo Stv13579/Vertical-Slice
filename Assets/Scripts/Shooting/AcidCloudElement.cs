@@ -25,7 +25,7 @@ public class AcidCloudElement : BaseElementClass
         //Instantiate an acid cloud object in the direction the player is looking
         Vector3 camLook = Camera.main.transform.forward;
         camLook = new Vector3(camLook.x, 0.0f, camLook.z).normalized;
-        GameObject newShard = Instantiate(cloudProj, transform.position + (camLook * 3), Quaternion.identity);
+        GameObject newShard = Instantiate(cloudProj, shootingTranform.position + (camLook * 3), Quaternion.identity);
         newShard.GetComponent<AcidCloud>().SetVars(damage, cloudSize, cloudDuration, attackTypes);
     }
 

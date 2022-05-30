@@ -34,7 +34,7 @@ public class ShardCannonElement : BaseElementClass
         rot = rot * Quaternion.Euler(90, 0, 0);
 
         //rot.SetEulerAngles(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
-        GameObject newShard = Instantiate(shardProj, transform.position, rot);
+        GameObject newShard = Instantiate(shardProj, shootingTranform.position, rot);
         newShard.GetComponent<ShardProjectile>().SetVars(projectileSpeed, damage, attackTypes);
     }
 

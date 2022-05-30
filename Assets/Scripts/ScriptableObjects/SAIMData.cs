@@ -20,10 +20,10 @@ public class SAIMData : ScriptableObject
     [SerializeField]
     public float spawnDuration;
 
-    //The set difficulty.
+    //The set difficulty. 1 for easy, 5 med, 10 hard.
     public int difficulty;
 
-    //Based off of the set difficulty, will change dynamically as the player plays.
+    //Based off of the set difficulty, will change dynamically as the player plays. Starts at 10
     public int adjustedDifficulty;
 
 
@@ -33,7 +33,16 @@ public class SAIMData : ScriptableObject
 
     //The max amount to spawn in each spawn event
     public int spawnMax;
+    public int spawnMin;
 
     //If there are less enemies than this number, can spawn.
     public int enemyMinimum;
+
+    public float difficultyAdjustTimerTotal_DAMAGE;
+    public float difficultyAdjustTimerTotal_KILLS;
+
+    //The amount of damage the player takes within a time period to adjust difficulty
+    public int playerDamageThreshold;
+
+    public int enemyKillThreshold;
 }

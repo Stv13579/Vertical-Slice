@@ -25,4 +25,9 @@ MonoBehaviour:
   adjustedDifficulty: 1
   totalSpawnTimer: 50
   spawnMax: 5
+  spawnMin: 0
   enemyMinimum: 2
+  difficultyAdjustTimerTotal_DAMAGE: 100
+  difficultyAdjustTimerTotal_KILLS: 15
+  playerDamageThreshold: 200
+  enemyKillThreshold: 4

@@ -82,10 +82,22 @@ public class SAIM : MonoBehaviour
     //Nodes to pathfind to
     Node playerNode;
 
+    //Difficulty adjustment properties
+    float diffAdjTimerDAM;
+    float diffAdjTimerKIL;
+
+    float previousHealth;
+    int previousEnemyCount;
+
+    int currentKills;
+    float currentDamageTaken;
+
     void Start()
     {
         data.adjustedDifficulty = data.difficulty;
         data.player = GameObject.Find("Player");
+        diffAdjTimerDAM = data.difficultyAdjustTimerTotal_DAMAGE;
+        diffAdjTimerKIL = data.difficultyAdjustTimerTotal_KILLS;
         
         //CreateAndKillNodes();
         foreach (Transform child in blockerMaster.transform)
@@ -113,7 +125,7 @@ public class SAIM : MonoBehaviour
 
         if(CheckSpawnConditions())
         {
-            Spawn(Random.Range(1, data.spawnMax));
+            Spawn(Random.Range(data.spawnMin, data.spawnMax));
            
         }
 
@@ -619,6 +631,91 @@ public class SAIM : MonoBehaviour
     //Check every frame and adjust variables accordingly
     public void AdjustDifficulty()
     {
+        //Check if the player has taken a significant amount of damage over a period of time
+        if(previousHealth > player.GetComponent<PlayerClass>().currentHealth)
+        {
+            currentDamageTaken += previousHealth - player.GetComponent<PlayerClass>().currentHealth;
+        }
+        previousHealth = player.GetComponent<PlayerClass>().currentHealth;
+
+        //
+        diffAdjTimerDAM -= Time.deltaTime;
+        if(diffAdjTimerDAM < 0)
+        {
+            if(currentDamageTaken >= data.playerDamageThreshold)
+            {
+                //If so, reduce diff.
+                data.adjustedDifficulty--;
+                Debug.Log("Diff Down!" + data.adjustedDifficulty);
+            }
+
+            diffAdjTimerDAM = data.difficultyAdjustTimerTotal_DAMAGE;
+            currentDamageTaken = 0;
+
+        }
+
+        //See how many enemies the player has killed in that time. If it's a lot, adj diff up.
+
+        if(previousEnemyCount > spawnedEnemies.Count)
+        {
+            currentKills += previousEnemyCount - spawnedEnemies.Count;
+        }
+
+        previousEnemyCount = spawnedEnemies.Count;
+
+        diffAdjTimerKIL -= Time.deltaTime;
+        if (diffAdjTimerKIL < 0)
+        {
+            if (currentKills >= data.enemyKillThreshold)
+            {
+                //If so, reduce diff.
+                data.adjustedDifficulty++;
+                Debug.Log("Diff Up!" + data.adjustedDifficulty);
+            }
+
+            diffAdjTimerKIL = data.difficultyAdjustTimerTotal_KILLS;
+            currentKills = 0;
+
+        }
+
+        //See difficulty difference and make changes to spawning and behaviour as appropriate.
+        SetBasedOnDiffculty();
 
     }
+
+    //Sets the variables that control actual difficulty (spawn rates for example) based on the diff variables
+    void SetBasedOnDiffculty()
+    {
+        if(data.adjustedDifficulty > 10)
+        {
+            data.adjustedDifficulty = 10;
+            Debug.Log("Diff capped!");
+        }
+
+        int actualDiff = data.difficulty + (data.adjustedDifficulty < 1 ? 1 : data.adjustedDifficulty);
+
+        if(actualDiff < 5)
+        {
+            data.spawnMax = 3;
+            data.spawnMin = 1;
+        }
+        else if (actualDiff < 10)
+        {
+            data.spawnMax = 6;
+            data.spawnMin = 2;
+        }
+        else if (actualDiff < 15)
+        {
+            data.spawnMax = 10;
+            data.spawnMin = 5;
+        }
+        else if (actualDiff < 20)
+        {
+            data.spawnMax = 20;
+            data.spawnMin = 10;
+        }
+
+
+    }
+
 }

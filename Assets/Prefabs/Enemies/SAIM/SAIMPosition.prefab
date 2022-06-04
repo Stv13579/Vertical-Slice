@@ -920,7 +920,7 @@ MonoBehaviour:
     m_Bits: 1024
   blankSpaceLayerMask:
     serializedVersion: 2
-    m_Bits: 9216
+    m_Bits: 140288
   verticalSpaceLayerMask:
     serializedVersion: 2
     m_Bits: 4096

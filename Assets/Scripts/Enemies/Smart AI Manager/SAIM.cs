@@ -40,6 +40,10 @@ public class SAIM : MonoBehaviour
     [SerializeField]
     GameObject blockerMaster;
 
+    //Object which connects rooms
+    [SerializeField]
+    GameObject bridge;
+
     //number in nodes of the sides of the grid.
     [SerializeField]
     int gridSize;
@@ -135,10 +139,12 @@ public class SAIM : MonoBehaviour
         if(triggered && !roomComplete)
         {
             blockerMaster.SetActive(true);
+            bridge.SetActive(false);
         }
         else
         {
             blockerMaster.SetActive(false);
+            bridge.SetActive(true);
         }
 
         AdjustDifficulty();
@@ -284,7 +290,7 @@ public class SAIM : MonoBehaviour
             //raycast down and if it hits catchall, kill it
             if (Physics.Raycast(nodes[i].transform.position, nodes[i].transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, blankSpaceLayerMask))
             {
-                if (hit.collider.isTrigger)
+                if (hit.collider.isTrigger || hit.collider.gameObject.layer == 17)
                 {
                     KillNode(i);
                 }

@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 9da5ed44507aff84fa15b9eaa0c0953e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MAT_VFX_FireSprites: {fileID: 2800000, guid: eddaf50f3e1645d488e4da45f5f7c106,
+      type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

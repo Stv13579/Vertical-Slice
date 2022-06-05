@@ -12,6 +12,6 @@ public class IncreaseMaxHealthScript : Item
     public void IncreaseMaxHealth(PlayerClass player)
     {
         player.maxHealth += 25.0f;
-        
+        player.ChangeHealth(25.0f);
     }
 }

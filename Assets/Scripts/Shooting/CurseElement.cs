@@ -22,6 +22,7 @@ public class CurseElement : BaseElementClass
 
     [SerializeField]
     float damage;
+    public float damageMultiplier = 1;
 
     [SerializeField]
     List<string> types;
@@ -68,7 +69,7 @@ public class CurseElement : BaseElementClass
 
             if (hit.tag == "Enemy")
             {
-                hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, types);
+                hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);
             }
         }
         Debug.Log("Explodded");

@@ -9,11 +9,15 @@ public class AcidCloudElement : BaseElementClass
     [SerializeField]
     GameObject cloudProj;
 
-    public float damage;
+    [SerializeField]
+    float damage;
+    public float damageMultiplier = 1;
 
-    public float cloudSize;
+    [SerializeField]
+    float cloudSize;
 
-    public float cloudDuration;
+    [SerializeField]
+    float cloudDuration;
 
     protected override void Update()
     {
@@ -26,7 +30,7 @@ public class AcidCloudElement : BaseElementClass
         Vector3 camLook = Camera.main.transform.forward;
         camLook = new Vector3(camLook.x, 0.0f, camLook.z).normalized;
         GameObject newShard = Instantiate(cloudProj, shootingTranform.position + (camLook * 3), Quaternion.identity);
-        newShard.GetComponent<AcidCloud>().SetVars(damage, cloudSize, cloudDuration, attackTypes);
+        newShard.GetComponent<AcidCloud>().SetVars(damage * damageMultiplier, cloudSize, cloudDuration, attackTypes);
     }
 
     public override void ActivateVFX()

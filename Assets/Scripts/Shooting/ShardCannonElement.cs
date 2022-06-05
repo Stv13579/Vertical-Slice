@@ -13,9 +13,12 @@ public class ShardCannonElement : BaseElementClass
     [SerializeField]
     GameObject shardProj;
 
-    public float damage;
+    [SerializeField]
+    float damage;
+    public float damageMultiplier = 1;
 
-    public float projectileSpeed;
+    [SerializeField]
+    float projectileSpeed;
 
     protected override void Update()
     {
@@ -35,7 +38,7 @@ public class ShardCannonElement : BaseElementClass
 
         //rot.SetEulerAngles(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
         GameObject newShard = Instantiate(shardProj, shootingTranform.position, rot);
-        newShard.GetComponent<ShardProjectile>().SetVars(projectileSpeed, damage, attackTypes);
+        newShard.GetComponent<ShardProjectile>().SetVars(projectileSpeed, damage * damageMultiplier, attackTypes);
     }
 
     public override void ActivateVFX()

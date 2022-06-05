@@ -7,9 +7,12 @@ public class CrystalElement : BaseElementClass
     [SerializeField]
     GameObject crystalProjectile;
 
-    public float damage;
+    [SerializeField]
+    float damage;
+    public float damageMultiplier = 1;
 
-    public float projectileSpeed;
+    [SerializeField]
+    float projectileSpeed;
 
     [SerializeField]
     AnimationCurve damageCurve;
@@ -35,7 +38,7 @@ public class CrystalElement : BaseElementClass
                 //changes the angle of where they are being fired to
                 newCrystalPro.transform.RotateAround(Camera.main.transform.position, Camera.main.transform.up, 3.0f * i - 5.0f);
                 // setting the varibles from CrystalProj script
-                newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage, damageCurve, lifeTimer, attackTypes);
+                newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage * damageMultiplier, damageCurve, lifeTimer, attackTypes);
             }
         }
 

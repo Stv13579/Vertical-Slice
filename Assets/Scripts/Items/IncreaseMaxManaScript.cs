@@ -13,6 +13,6 @@ public class IncreaseMaxManaScript : Item
     public void IncreaseMaxMana(PlayerClass player)
     {
         player.maxMana += 25.0f;
-
+        player.ChangeMana(25.0f);
     }
 }

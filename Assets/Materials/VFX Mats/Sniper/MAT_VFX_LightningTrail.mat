@@ -101,7 +101,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColour: {r: 2, g: 1.5058824, b: 0, a: 0}
+    - _BaseColour: {r: 8.47419, g: 2.0409043, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashSpeed: {r: 0.1, g: 2, b: 5, a: 10}

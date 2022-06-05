@@ -9,6 +9,7 @@ using System;
 public class ItemEntry
 {
     public string item;
+    public string itemName;
     //[HideInInspector]
     public bool alreadyAdded;
     public bool mulipleAllowed;

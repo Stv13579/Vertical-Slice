@@ -85,7 +85,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FireProjectile
-  m_Speed: 1
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7272167296185313712}
@@ -98,7 +98,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 609d2dcccddc5af4583873edea993123, type: 2}
+  m_Motion: {fileID: 5640207286593123106, guid: bdddcfde0b12e5b4099a5552a5a85e36,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -208,7 +209,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1901993996733585687}
@@ -228,7 +229,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: -3100369314251171874, guid: bdddcfde0b12e5b4099a5552a5a85e36,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -375,19 +377,19 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6606047110124945449}
-    m_Position: {x: 280, y: -200, z: 0}
+    m_Position: {x: 450, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6874286836130056734}
-    m_Position: {x: 480, y: -130, z: 0}
+    m_Position: {x: 190, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6935065324626559166}
-    m_Position: {x: 590, y: -60, z: 0}
+    m_Position: {x: 530, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1350231304060664317}
     m_Position: {x: 130, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9029649697829955364}
-    m_Position: {x: -60, y: 250, z: 0}
+    m_Position: {x: -60, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2890176713619686202}
     m_Position: {x: 160, y: 260, z: 0}
@@ -397,7 +399,7 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 8269631810148003054}
-    m_Position: {x: 620, y: 260, z: 0}
+    m_Position: {x: 600, y: 260, z: 0}
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}

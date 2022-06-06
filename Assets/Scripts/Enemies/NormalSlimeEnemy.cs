@@ -5,6 +5,11 @@ using UnityEngine;
 public class NormalSlimeEnemy : BaseEnemyClass
 {
     float damageTicker = 0.0f;
+
+    [SerializeField]
+    float jumpForce;
+
+
     // need to work on
     public override void Attacking()
     {
@@ -42,7 +47,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
-            GetComponent<Rigidbody>().AddForce(0, 50, 0);
+            GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
         // if colliding with player attack enemy reset damage ticker
         // we reset it so that the player doesn't take double damage
@@ -56,7 +61,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
-            GetComponent<Rigidbody>().AddForce(0, 50, 0);
+            GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
 
         // checks if colliding with player and damage ticker is less then 0

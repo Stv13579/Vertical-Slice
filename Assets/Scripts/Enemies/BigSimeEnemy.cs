@@ -9,7 +9,7 @@ public class BigSimeEnemy : NormalSlimeEnemy
     public float LookAhead = 3.0f;
     public float StepInterval = 0.25f;
     public float DangerZone = 5.0f;
-    public Transform test;
+    //public Transform test;
 
     public override void Attacking()
     {
@@ -25,7 +25,7 @@ public class BigSimeEnemy : NormalSlimeEnemy
     new private void Update()
     {
         base.Update();
-        //Shield();
+        Shield();
         // Initialize bullet positions
         //List<Vector3> posArray = new List<Vector3>(BulletPos.Count);
         //for (int i = 0; i < BulletPos.Count; i++)
@@ -51,44 +51,40 @@ public class BigSimeEnemy : NormalSlimeEnemy
         //        posArray[i] += 12.0f * StepInterval * BulletPos[i].forward;
         //    }
         //}
+
+
     }
-    //public void Shield()
-    //{
-    //    float minDistance = 10;
-    //    float distanceBetween2Enemies = Vector3.Distance(transform.position, GetClosestObject(enemyPos).position);
-    //    if (distanceBetween2Enemies < minDistance && )
-    //    {
-    //        Vector3.MoveTowards(transform.position, GetClosestObject(enemyPos).position, 10);
-    //    }
-    //    else
-    //    {
-    //        Movement(player.transform.position);
-    //    }
-    //}
+    public void Shield()
+    {
+        float minDistance = 7;
+        float distanceBetween2Enemies = Vector3.Distance(transform.position, GetClosestObject(enemyPos).position);
+        if (distanceBetween2Enemies < minDistance && player.GetComponentInChildren<PlayerLineOfSight>().lookTimer < 0.0f)
+        {
+            Vector3.MoveTowards(transform.position, GetClosestObject(enemyPos).position, 10);
+        }
+        else
+        {
+            Movement(player.transform.position);
+        }
+    }
 
-    //public Transform GetClosestObject(List<Transform> objectList)
-    //{
-    //    Transform bestTarget = null;
-    //    float closestDistanceSqr = Mathf.Infinity;
-    //    foreach(Transform potentialTarget in objectList)
-    //    {
-    //        Vector3 directionToTarget = potentialTarget.position - transform.position;
-    //        float DisSqrToTarget = directionToTarget.sqrMagnitude;
-    //        if(DisSqrToTarget < closestDistanceSqr)
-    //        {
-    //            closestDistanceSqr = DisSqrToTarget;
-    //            bestTarget = potentialTarget;
-    //        }
-    //    }
+    public Transform GetClosestObject(List<Transform> objectList)
+    {
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        foreach (Transform potentialTarget in objectList)
+        {
+            Vector3 directionToTarget = potentialTarget.position - transform.position;
+            float DisSqrToTarget = directionToTarget.sqrMagnitude;
+            if (DisSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = DisSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+        }
 
-    //    return bestTarget;
-    //}
-
-    //public void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawWireSphere(transform.position, 5);
-    //}
+        return bestTarget;
+    }
 
     public override void OnCollisionEnter(Collision collision)
     {

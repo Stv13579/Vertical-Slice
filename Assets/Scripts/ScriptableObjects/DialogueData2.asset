@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4772e73c7175546bfe5e360e613f50, type: 3}
+  m_Name: DialogueData2
+  m_EditorClassIdentifier: 
+  npcName: Jim
+  dialoguePairs:
+  - snippetName: JimStart
+    npcDialogue: Hello
+    playerOptions:
+    - Hi
+    - Hello
+    outcomeIndex: 0100000001000000
+  - snippetName: JimContinue
+    npcDialogue: My Name is Jim
+    playerOptions:
+    - My Name is Ayden
+    - Fuck you
+    - <LEAVE>
+    outcomeIndex: ffffffff02000000ffffffff
+  - snippetName: JimMean
+    npcDialogue: Fuck you too
+    playerOptions: []
+    outcomeIndex: ffffffff
+  dialogueBox: {fileID: 0}
+  nameBackground: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  backButton: {fileID: 0}
+  nameFont: {fileID: 0}
+  dialogueFont: {fileID: 0}
+  interactImage: {fileID: 0}
+  dialogueOption1Text: {fileID: 0}
+  dialogueOption2Text: {fileID: 0}
+  dialogueOption3Text: {fileID: 0}
+  dialogueOption4Text: {fileID: 0}
+  nameBackgroundColor: {r: 0, g: 0, b: 0, a: 255}
+  nameTextColor: {r: 0, g: 0, b: 0, a: 255}
+  dialogueTextColor: {r: 0, g: 0, b: 0, a: 255}
+  dialogueBoxColor: {r: 0, g: 0, b: 0, a: 255}

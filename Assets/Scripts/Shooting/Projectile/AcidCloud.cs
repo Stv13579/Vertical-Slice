@@ -20,9 +20,19 @@ public class AcidCloud : MonoBehaviour
         }
 
         cloudDuration -= Time.deltaTime;
-        if(cloudDuration <= 0)
+        if(cloudDuration <= 1)
         {
-            Destroy(this.gameObject);
+            this.transform.parent.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.transform.parent.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.transform.parent.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+        if (this.transform.parent.GetChild(0).gameObject.GetComponent<ParticleSystem>().particleCount < 100 && cloudDuration < 1)
+        {
+            Destroy(this.gameObject.GetComponent<Collider>());
+        }
+        if (this.transform.parent.GetChild(0).gameObject.GetComponent<ParticleSystem>().particleCount < 1 && cloudDuration < 1)
+        {
+            Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
 

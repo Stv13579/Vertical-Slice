@@ -247,7 +247,7 @@ MonoBehaviour:
   background: {fileID: 8746404322708548360}
   text: {fileID: 8149178136570370053}
   button: {fileID: 3080749677520060800}
-  sceneToLoad: Scene_HubWorld
+  sceneToLoad: RowanHubWorldScene
 --- !u!1 &7543125319181202533
 GameObject:
   m_ObjectHideFlags: 0

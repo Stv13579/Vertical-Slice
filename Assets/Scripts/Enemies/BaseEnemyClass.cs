@@ -47,7 +47,7 @@ public class BaseEnemyClass : MonoBehaviour
 
     public Vector3 moveDirection;
 
-    private void Start()
+    public virtual void Start()
     {
         startY = transform.position.y;
         player = GameObject.Find("Player");

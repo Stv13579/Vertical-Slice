@@ -28,6 +28,7 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
+  jumpForce: 50
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
   enemyProjectileScale: {x: 0.3, y: 0.3, z: 0.3}

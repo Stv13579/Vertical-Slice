@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7611b7647fa799347af631f36fcb9091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitDelay: 0
 --- !u!1 &5522943214007235700
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +651,7 @@ MonoBehaviour:
   tiltExtents: {x: -85, y: 85}
   spinExtents: {x: 0, y: 0}
   sensitivity: 2
+  ableToMove: 1
 --- !u!114 &5625023911835613076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +718,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ableToMove: 1
 --- !u!143 &5625023911835613077
 CharacterController:
   m_ObjectHideFlags: 0
@@ -753,6 +756,8 @@ MonoBehaviour:
   money: 0
   heldItems: []
   itemUI: {fileID: 0}
+  gameOverScreen: {fileID: 5938581657908307557, guid: c15b7a340c63df74189d70226e0485bc,
+    type: 3}
   fallSpawner: {fileID: 0}
 --- !u!114 &1363181307
 MonoBehaviour:
@@ -779,6 +784,7 @@ MonoBehaviour:
   - comboElements:
     - {fileID: 7904701518895008356}
     - {fileID: 443619680}
+  ableToShoot: 1
 --- !u!114 &1363181306
 MonoBehaviour:
   m_ObjectHideFlags: 0

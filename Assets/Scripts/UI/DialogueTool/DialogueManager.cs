@@ -110,9 +110,10 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIndex = 0;
         dialoguePairIndex = 0;
-        player.GetComponentInChildren<MouseLook>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        player.GetComponent<Shooting>().enabled = false;
+        player.GetComponent<PlayerLook>().enabled = false;
         player.GetComponent<PlayerMovement>().enabled = false;
         DisplayNPCDialogue();
     }
@@ -204,7 +205,8 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        player.GetComponentInChildren<MouseLook>().enabled = true;
+        player.GetComponent<Shooting>().enabled = true;
+        player.GetComponent<PlayerLook>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
     }
 }

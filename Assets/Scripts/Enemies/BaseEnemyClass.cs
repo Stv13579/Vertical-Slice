@@ -35,6 +35,10 @@ public class BaseEnemyClass : MonoBehaviour
 
     public List<GameObject> bounceList;
 
+    //Particle effect when the enemy is destroyed
+    public GameObject deathSpawn;
+    //Particle effect when the enemy is hit
+    public GameObject hitSpawn;
     
     public delegate void DeathTrigger();
 
@@ -79,6 +83,7 @@ public class BaseEnemyClass : MonoBehaviour
     //Taking damage
     public void TakeDamage(float damageToTake, List<string> attackTypes)
     {
+        Instantiate(hitSpawn, transform.position, Quaternion.identity);
         float multiplier = 1;
         foreach(string type in attackTypes)
         {
@@ -133,6 +138,8 @@ public class BaseEnemyClass : MonoBehaviour
             {
                 dTrigs();
             }
+
+            Instantiate(deathSpawn, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
         }

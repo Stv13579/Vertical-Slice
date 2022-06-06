@@ -66,6 +66,11 @@ public class Fireball : MonoBehaviour
         //if enemy, hit them for the damage
         Collider taggedEnemy = null;
 
+        if(other.isTrigger)
+        {
+            return;
+        }
+
         if (other.tag == "Environment")
         {
             Destroy(gameObject);

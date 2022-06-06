@@ -44,6 +44,10 @@ public class ShopUI : MonoBehaviour
                 items.itemList[i].alreadyAdded = true;
                 itemsAdded += 1;
             }
+            else
+            {
+                Destroy(item);
+            }
             exitCounter++;
             if(exitCounter > 50)
             {

@@ -6,7 +6,11 @@ public class LaserBeamElement : BaseElementClass
 {
     [SerializeField]
     GameObject LaserBeam;
-    public float damage;
+
+    [SerializeField]
+    float damage;
+    public float damageMultiplier = 1;
+
     public bool usingLaserBeam;
     // Update is called once per frame
     protected override void Update()
@@ -36,7 +40,7 @@ public class LaserBeamElement : BaseElementClass
         base.ElementEffect();
         usingLaserBeam = true;
         LaserBeam.SetActive(true);
-        LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage, attackTypes);
+        LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage * damageMultiplier, attackTypes);
 
     }
     public override void ActivateVFX()

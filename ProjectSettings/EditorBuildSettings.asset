@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SebScene.unity
     guid: e20dd56dd4773194e9242abfdfe89f89
   - enabled: 1
-    path: Assets/Scenes/RowanScene.unity
+    path: Assets/Scenes/RowanScenes/RowanScene.unity
     guid: ea2856d552d59b547aeb75656af2e860
   - enabled: 1
-    path: Assets/Scenes/RowanHubWorldScene.unity
+    path: Assets/Scenes/RowanScenes/RowanHubWorldScene.unity
     guid: f150ae3efb4e18a449f9f28efb142ffa
   m_configObjects: {}

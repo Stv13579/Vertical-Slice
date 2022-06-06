@@ -40,6 +40,10 @@ public class SAIM : MonoBehaviour
     [SerializeField]
     GameObject blockerMaster;
 
+    //Object which connects rooms
+    [SerializeField]
+    GameObject bridge;
+
     //number in nodes of the sides of the grid.
     [SerializeField]
     int gridSize;
@@ -56,6 +60,7 @@ public class SAIM : MonoBehaviour
     public LayerMask nodeLayerMask;
     public LayerMask blankSpaceLayerMask;
     public LayerMask verticalSpaceLayerMask;
+    public LayerMask impassableLayerMask;
     bool doneonce = false;
 
     [HideInInspector]
@@ -134,10 +139,12 @@ public class SAIM : MonoBehaviour
         if(triggered && !roomComplete)
         {
             blockerMaster.SetActive(true);
+            bridge.SetActive(false);
         }
         else
         {
             blockerMaster.SetActive(false);
+            bridge.SetActive(true);
         }
 
         AdjustDifficulty();
@@ -264,14 +271,16 @@ public class SAIM : MonoBehaviour
 
         //Check all nodes that are inside a collider, and kill them.
 
-        //Raycast up, then down. if both hit enviro triggers, kill it. 
+        //Raycast from above and below. if both hit enviro triggers, kill it. 
         for (int i = 0; i < nodes.Count; i++)
         {
             RaycastHit hit;
 
             
-            if (Physics.Raycast(nodes[i].transform.position, nodes[i].transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, nodeLayerMask) &&
-            Physics.Raycast(nodes[i].transform.position, nodes[i].transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity, nodeLayerMask) )
+            if (
+                Physics.Raycast(nodes[i].transform.position + (nodes[i].transform.TransformDirection(Vector3.down) * 1000), nodes[i].transform.TransformDirection(Vector3.up), out hit, 1000, nodeLayerMask) &&
+                Physics.Raycast(nodes[i].transform.position + (nodes[i].transform.TransformDirection(Vector3.up) * 1000), nodes[i].transform.TransformDirection(Vector3.down), out hit, 1000, nodeLayerMask)
+                )
             {
 
                 KillNode(i);
@@ -281,12 +290,13 @@ public class SAIM : MonoBehaviour
             //raycast down and if it hits catchall, kill it
             if (Physics.Raycast(nodes[i].transform.position, nodes[i].transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, blankSpaceLayerMask))
             {
-                if (hit.collider.isTrigger)
+                if (hit.collider.isTrigger || hit.collider.gameObject.layer == 17)
                 {
                     KillNode(i);
                 }
             }
 
+            //Check if the node is inside an impassble collider (e.g. barriers, buildings etc)
             
 
         }
@@ -309,6 +319,21 @@ public class SAIM : MonoBehaviour
                 KillNode(i);
             }
             nodes[i].GetComponent<Collider>().enabled = true;
+        }
+
+        for (int i = 0; i < nodes.Count; i++)
+        {
+            //Check if the node is inside an impassble collider (e.g. barriers, buildings etc)
+            if (
+              Physics.Raycast(nodes[i].transform.position + (nodes[i].transform.TransformDirection(Vector3.down) * 1000), nodes[i].transform.TransformDirection(Vector3.up),  1000, impassableLayerMask) &&
+              Physics.Raycast(nodes[i].transform.position + (nodes[i].transform.TransformDirection(Vector3.up) * 1000), nodes[i].transform.TransformDirection(Vector3.down), 1000, impassableLayerMask)
+              )
+            {
+
+                KillNode(i);
+
+            }
+
         }
 
         for (int i = 0; i < gridSize; i++)

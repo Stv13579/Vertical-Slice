@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 75
   damageAmount: 5
-  moveSpeed: 7
+  moveSpeed: 4
   damageThreshold: 0
   damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
@@ -25,6 +25,11 @@ MonoBehaviour:
   bounceList: []
   moveDirection: {x: 0, y: 0, z: 0}
   enemyPos: []
+  BulletPos: []
+  LookAhead: 3
+  StepInterval: 0.25
+  DangerZone: 5
+  test: {fileID: 0}
 --- !u!1001 &2703953588024392954
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class Shooting : MonoBehaviour
 
     bool inComboMode = false;
 
+    public bool ableToShoot = true;
+
     private void Update()
     {
         if(Input.GetKey(KeyCode.Escape))
@@ -31,14 +33,18 @@ public class Shooting : MonoBehaviour
             Application.Quit();
         }
 
-        if(!inComboMode)
+        if(ableToShoot)
         {
-            NonComboShooting();
+            if (!inComboMode)
+            {
+                NonComboShooting();
+            }
+            else
+            {
+                ComboShooting();
+            }
         }
-        else
-        {
-            ComboShooting();
-        }
+
 
         if(Input.GetKeyUp(KeyCode.Q))
         {

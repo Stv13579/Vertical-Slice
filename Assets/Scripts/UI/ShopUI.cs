@@ -12,27 +12,41 @@ public class ShopUI : MonoBehaviour
     GameObject inventory;
     List<int> ids = new List<int>();
 
+    public Text moneyText;
 
+    [HideInInspector]
+    public ShopkeeperScript shopkeeper;
 
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerClass>();
         inventory = GameObject.Find("Player").transform.GetChild(2).gameObject;
 
+        //For vertical slice purposes, remove for full game
+        foreach(ItemEntry item in items.itemList)
+        {
+            item.alreadyAdded = false;
+        }
+
         int itemsAdded = 0;
         int exitCounter = 0;
         while(itemsAdded < 3)
         {
-            //Get a random item from the global item list, check if the item is valid to giv to the player, and if so add it, otherwise try again
+            //Get a random item from the global item list, check if the item is valid to give to the player, and if so add it, otherwise try again
             int i = Random.Range(0, items.itemList.Count);
             Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
-            if((!items.itemList[i].alreadyAdded || (ids[0] != i) || (ids[1] != i)) || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
+            if(!items.itemList[i].alreadyAdded || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
             {
                 item.sprite = items.itemList[i].sprite;
+                item.itemName = items.itemList[i].itemName;
                 shopItems.Add(item);
                 ids.Add(i);
                 items.itemList[i].alreadyAdded = true;
                 itemsAdded += 1;
+            }
+            else
+            {
+                Destroy(item);
             }
             exitCounter++;
             if(exitCounter > 50)
@@ -53,6 +67,10 @@ public class ShopUI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        moneyText.text = player.money.ToString();
+    }
     public void Button(int button)
     {
         if(player.money >= shopItems[button].currencyCost)
@@ -77,6 +95,7 @@ public class ShopUI : MonoBehaviour
                 items.itemList[ids[i]].alreadyAdded = false;
             }
         }
+        shopkeeper.LeaveShop();
     }
 
 }

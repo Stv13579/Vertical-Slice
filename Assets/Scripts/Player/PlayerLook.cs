@@ -16,6 +16,8 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private float sensitivity = 2.0f;
     bool cursorLocked = false;
 
+    public bool ableToMove = true;
+
     // getter to get the camera
     public Camera GetCamera() { return camera; }
     // getter to get the spin value
@@ -76,7 +78,11 @@ public class PlayerLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCamera();
-        HandleEditorInputs();
+        if(ableToMove)
+        {
+            MoveCamera();
+            HandleEditorInputs();
+        }
+
     }
 }

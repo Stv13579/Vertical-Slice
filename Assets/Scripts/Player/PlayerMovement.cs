@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 oldPos;
     private Vector3 newPos;
 
+    public bool ableToMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +57,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMoving();
+        if(ableToMove)
+        {
+            PlayerMoving();
+        }
     }
 
     private void PlayerMoving()

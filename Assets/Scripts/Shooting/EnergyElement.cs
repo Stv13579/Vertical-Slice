@@ -25,12 +25,7 @@ public class EnergyElement : BaseElementClass
     public override void ElementEffect()
     {
         base.ElementEffect();
-        playerClass.currentMana += fullRestoreAmount;
-        if(playerClass.currentMana > playerClass.maxMana)
-        {
-            playerClass.currentMana = playerClass.maxMana;
-        }
-
+        playerClass.ChangeMana(fullRestoreAmount);
     }
 
     protected override void StartAnims(string animationName)

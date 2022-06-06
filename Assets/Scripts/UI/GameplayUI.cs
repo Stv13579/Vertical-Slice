@@ -14,18 +14,21 @@ public class GameplayUI : MonoBehaviour
     Image healthBar, manaBar, activePrimaryElement, activeCatalystElement, activeComboElement, crosshair;
 
     [SerializeField]
+    List<Image> items;
+    int itemIndex = 0;
+
+    [SerializeField]
     Text moneyText;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Shooting>();
         playerClass = player.gameObject.GetComponent<PlayerClass>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Getting the current values from the player and updating the UI with them
         healthBar.fillAmount = playerClass.currentHealth / playerClass.maxHealth;
         manaBar.fillAmount = playerClass.currentMana / playerClass.maxMana;
         moneyText.text = playerClass.money.ToString();
@@ -39,6 +42,16 @@ public class GameplayUI : MonoBehaviour
             activeCatalystElement.transform.parent.parent.gameObject.SetActive(!activeCatalystElement.transform.parent.parent.gameObject.activeSelf);
             activeComboElement.transform.parent.parent.gameObject.SetActive(!activeComboElement.transform.parent.parent.gameObject.activeSelf);
 
+        }
+    }
+
+    public void AddItem(Sprite sprite)
+    {
+        if(itemIndex < items.Count)
+        {
+            items[itemIndex].sprite = sprite;
+            items[itemIndex].enabled = true;
+            itemIndex++;
         }
     }
 }

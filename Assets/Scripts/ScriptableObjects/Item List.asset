@@ -14,14 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - item: IncreaseMaxHealthScript
+    itemName: Ring of Vitality
     alreadyAdded: 1
     mulipleAllowed: 0
-    sprite: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
-  - item: IncreaseMaxHealthScript
+    sprite: {fileID: 21300000, guid: c044a32fad1067144a56f52d7ccb8e36, type: 3}
+  - item: IncreaseMaxManaScript
+    itemName: Ring of Wisdom
     alreadyAdded: 1
     mulipleAllowed: 0
-    sprite: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
-  - item: IncreaseMaxHealthScript
+    sprite: {fileID: 21300000, guid: 55980c051e129aa4685e936a8e1dad47, type: 3}
+  - item: IncreaseFireDamageScript
+    itemName: Inferno Ring
+    alreadyAdded: 0
+    mulipleAllowed: 0
+    sprite: {fileID: 21300000, guid: ae6d38d4504c6614db48e4a2c1f29bc4, type: 3}
+  - item: IncreaseCrystalDamageScript
+    itemName: Ring of the Deep
     alreadyAdded: 1
     mulipleAllowed: 0
-    sprite: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}
+    sprite: {fileID: 21300000, guid: 30f109746d5e8d740acd6ca4d5b8b238, type: 3}

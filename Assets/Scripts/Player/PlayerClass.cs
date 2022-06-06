@@ -19,7 +19,8 @@ public class PlayerClass : MonoBehaviour
     [HideInInspector]
     public GameObject itemUI;
 
-    //public GameObject testItemUIWidget;
+    public GameObject gameOverScreen;
+    bool dead = false;
 
     public Transform fallSpawner;
 
@@ -58,14 +59,21 @@ public class PlayerClass : MonoBehaviour
         {
             heldItems[i].DeathTriggers();
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-       
+        Instantiate(gameOverScreen);
+        dead = true;
+        this.gameObject.GetComponent<PlayerLook>().ableToMove = false;
+        this.gameObject.GetComponent<PlayerLook>().LockCursor();
+
+        this.gameObject.GetComponent<PlayerMovement>().ableToMove = false;
+        this.gameObject.GetComponent<Shooting>().ableToShoot = false;
+
+
     }
 
     public void ChangeHealth(float healthAmount)
     {
         currentHealth = Mathf.Min(currentHealth + healthAmount, maxHealth);
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !dead)
         {
             Death();
         }

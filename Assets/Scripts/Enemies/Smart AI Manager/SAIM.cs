@@ -97,6 +97,9 @@ public class SAIM : MonoBehaviour
     int currentKills;
     float currentDamageTaken;
 
+    int fireUse;
+    int crystalUse;
+
     void Start()
     {
         data.adjustedDifficulty = data.difficulty;
@@ -115,8 +118,6 @@ public class SAIM : MonoBehaviour
         //CreateIntegrationFlowField(nodeGrid[15].nodeCol[17]);
         //GenerateFlowField();
     }
-
-
 
     void Update()
     {
@@ -492,6 +493,8 @@ public class SAIM : MonoBehaviour
             spawnPosition.z += Random.Range(-1.0f, 2.0f);
             spawnPosition.y += 2;
 
+            ChooseEnemy();
+
             GameObject spawnedEnemy = Instantiate(data.enemyTypes[Random.Range(0, data.enemyTypes.Count)], spawnPosition, Quaternion.identity);
             spawnedEnemy.GetComponent<BaseEnemyClass>().spawner = this.gameObject;
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
@@ -499,6 +502,17 @@ public class SAIM : MonoBehaviour
         }
     }
 
+    public int ChooseEnemy()
+    {
+        if(fireUse > crystalUse)
+        {
+            return Mathf.Min(Random.Range(0, data.enemyTypes.Count), Random.Range(0, data.enemyTypes.Count));
+        }
+        else
+        {
+            return Mathf.Max(Random.Range(0, data.enemyTypes.Count), Random.Range(0, data.enemyTypes.Count));
+        }
+    }
 
     public void SelectSpawnNode()
     {
@@ -702,6 +716,9 @@ public class SAIM : MonoBehaviour
             currentKills = 0;
 
         }
+
+
+       
 
         //See difficulty difference and make changes to spawning and behaviour as appropriate.
         SetBasedOnDiffculty();

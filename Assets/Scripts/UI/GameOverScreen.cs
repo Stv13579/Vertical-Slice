@@ -19,7 +19,7 @@ public class GameOverScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadScene();
+        StartCoroutine(LoadScene());
     }
 
     // Update is called once per frame

@@ -39,8 +39,12 @@ public class Fireball : MonoBehaviour
 
         transform.position += movement;
         
+        if (this.gameObject.transform.GetChild(1).GetChild(0).gameObject.GetComponent<ParticleSystem>().time >= 2)
+        {
+            Destroy(this.gameObject);
+        }
 
-        if(transform.position.y < -100)
+        if (transform.position.y < -100)
         {
             Destroy(gameObject);
         }
@@ -73,7 +77,15 @@ public class Fireball : MonoBehaviour
 
         if (other.tag == "Environment")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gravity = 0;
+            speed = 0;
+            Destroy(this.gameObject.GetComponent<Collider>());
+            this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.gameObject.transform.GetChild(0).GetChild(1).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
         }
         if (other.tag  == "Enemy")
         {
@@ -92,8 +104,14 @@ public class Fireball : MonoBehaviour
                     objectsHit[i].GetComponent<BaseEnemyClass>().TakeDamage(explosionDamage, attackTypes);
                 }
             }
+            gravity = 0;
+            speed = 0;
+            Destroy(this.gameObject.GetComponent<Collider>());
+            this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.gameObject.transform.GetChild(0).GetChild(1).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
-            Destroy(gameObject);
         }
 
 

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class IncreaseCrystalDamageScript : Item
 {
+    private void Start()
+    {
+        itemName = "Crystal Ring";
+    }
+
     public override void AddEffect(PlayerClass player)
     {
         base.AddEffect(player);

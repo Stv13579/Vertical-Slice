@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
     public Sprite sprite;
     public string itemName = "";
 
+
     //Any effects from obtaining an item go here e.g. if the item increases max health, add it here.
     public virtual void AddEffect(PlayerClass player)
     {

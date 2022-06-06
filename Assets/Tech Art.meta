@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Tech Art.meta
 guid: a8323278b173ca943be0e26a83586db3
+========
+guid: dee9b1d3826200240acb61d8ad4e7fe7
+>>>>>>>> main:Assets/Scenes/SebScenes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

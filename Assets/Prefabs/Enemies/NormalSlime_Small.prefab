@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 8048053914739367019}
   - component: {fileID: 8048053914739367018}
   - component: {fileID: 5167392731316396107}
-  - component: {fileID: -6137002133915147612}
   - component: {fileID: 8940881081434796308}
   m_Layer: 8
   m_Name: NormalSlime_Small
@@ -261,40 +260,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-6137002133915147612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7165516955107352839}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ddc6b67c95bad40be2ea042b8ba38c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 75
-  damageAmount: 5
-  moveSpeed: 4
-  damageThreshold: 0
-  damageResistance: 1
-  currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
-    type: 3}
-  spawner: {fileID: 0}
-  weaknesses: []
-  resistances: []
-  bounceList: []
-  deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
-    type: 3}
-  hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
-    type: 3}
-  moveDirection: {x: 0, y: 0, z: 0}
-  jumpForce: 50
-  enemyPos: []
-  BulletPos: []
-  LookAhead: 3
-  StepInterval: 0.25
-  DangerZone: 5
 --- !u!114 &8940881081434796308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +288,7 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
-  jumpForce: 0
+  jumpForce: 100
 --- !u!1001 &750315651
 PrefabInstance:
   m_ObjectHideFlags: 0

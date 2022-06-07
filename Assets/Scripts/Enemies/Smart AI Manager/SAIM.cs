@@ -140,12 +140,21 @@ public class SAIM : MonoBehaviour
         if(triggered && !roomComplete)
         {
             blockerMaster.SetActive(true);
-            bridge.SetActive(false);
+
+            if(bridge)
+            {
+                bridge.SetActive(false);
+            }
+
         }
         else
         {
             blockerMaster.SetActive(false);
-            bridge.SetActive(true);
+            
+            if (bridge)
+            {
+                bridge.SetActive(true);
+            }
         }
 
         AdjustDifficulty();

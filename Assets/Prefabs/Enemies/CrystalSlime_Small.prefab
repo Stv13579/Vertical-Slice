@@ -28,7 +28,7 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
-  jumpForce: 50
+  jumpForce: 100
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
   enemyProjectileScale: {x: 0.3, y: 0.3, z: 0.3}
@@ -111,6 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e0b386e9a3c9145479505e70a91e7dc2, type: 2}
     m_RemovedComponents:
     - {fileID: 8048053914739367016, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
+    - {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
 --- !u!1 &8074025805592656083 stripped
 GameObject:

@@ -56,7 +56,6 @@ public class NormalSlimeEnemy : BaseEnemyClass
             Attacking();
             damageTicker = 1.0f;
         }
-
     }
     public virtual void OnCollisionStay(Collision collision)
     {

@@ -39,16 +39,22 @@ public class BaseEnemyClass : MonoBehaviour
     public GameObject deathSpawn;
     //Particle effect when the enemy is hit
     public GameObject hitSpawn;
-    
+
     public delegate void DeathTrigger();
 
     [HideInInspector]
     public List<DeathTrigger> deathTriggers = new List<DeathTrigger>();
 
     public Vector3 moveDirection;
+    protected AudioManager audioManager;
 
     [SerializeField]
-    string audioToPlay;
+    string attackAudio;
+    [SerializeField]
+    string deathAudio;
+    [SerializeField]
+    string takeDamageAudio;
+
 
     public virtual void Start()
     {
@@ -56,6 +62,7 @@ public class BaseEnemyClass : MonoBehaviour
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();
         currentHealth = maxHealth;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public virtual void Update()
@@ -79,7 +86,8 @@ public class BaseEnemyClass : MonoBehaviour
     //Attacking
     public virtual void Attacking()
     {
-
+        audioManager.Stop(attackAudio);
+        audioManager.Play(attackAudio);
     }
 
 
@@ -106,6 +114,8 @@ public class BaseEnemyClass : MonoBehaviour
             }
         }
         currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
+        audioManager.Stop(takeDamageAudio);
+        audioManager.Play(takeDamageAudio);
         Death();
     }
 
@@ -143,7 +153,11 @@ public class BaseEnemyClass : MonoBehaviour
             }
 
             Instantiate(deathSpawn, transform.position, Quaternion.identity);
-             
+
+
+            audioManager.Stop(deathAudio);
+            audioManager.Play(deathAudio);
+
             Destroy(gameObject);
         }
     }

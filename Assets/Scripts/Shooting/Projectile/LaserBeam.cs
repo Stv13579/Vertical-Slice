@@ -13,6 +13,12 @@ public class LaserBeam : MonoBehaviour
     float hitDelay;
     float currentHitDelay;
 
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -50,6 +56,8 @@ public class LaserBeam : MonoBehaviour
         if (other.tag == "Enemy" && !containedEnemies.Contains(other.gameObject))
         { 
             containedEnemies.Add(other.gameObject);
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
         }
     }
 

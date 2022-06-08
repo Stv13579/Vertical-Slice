@@ -47,9 +47,13 @@ public class PlayerMovement : MonoBehaviour
 
     public bool ableToMove = true;
 
+    float randIndexTimer = 0.0f;
+
+    private AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         lookScript = this.gameObject.GetComponent<PlayerLook>();
         cController = this.gameObject.GetComponent<CharacterController>();
     }
@@ -115,7 +119,37 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -1.0f;
         }
+        randIndexTimer -= Time.deltaTime;
+        int randomSoundIndex = Random.Range(0, 4);
+        if (isGrounded == true && (Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) ||
+           (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
+           {
+            if (randIndexTimer <= 0.0f)
+            {
+                if (randomSoundIndex == 0)
+                {
+                    audioManager.Stop("Player Running 1");
+                    audioManager.Play("Player Running 1");
+                }
+                else if (randomSoundIndex == 1)
+                {
+                    audioManager.Stop("Player Running 2");
+                    audioManager.Play("Player Running 2");
+                }
+                else if (randomSoundIndex == 2)
+                {
+                    audioManager.Stop("Player Running 3");
+                    audioManager.Play("Player Running 3");
+                }
+                else
+                {
+                    audioManager.Stop("Player Running 4");
+                    audioManager.Play("Player Running 4");
+                }
+                randIndexTimer = 0.5f;
+            }
 
+        }
         CoyoteTime();
     }
 
@@ -126,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = jumpSpeed;
             isGrounded = false;
+            audioManager.Stop("Player Landing");
+            audioManager.Play("Player Landing");
         }
     }
 

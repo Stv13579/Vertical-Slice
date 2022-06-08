@@ -31,6 +31,8 @@ public class AudioManager : MonoBehaviour
     }
 
     public Sound[] sounds;
+
+    public string initalMusic;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class AudioManager : MonoBehaviour
             i.audioSource.loop = i.loop;
         }
 
-        Play("BGM");
+        Play(initalMusic);
     }
 
     public void Play(string soundName) // play sound 

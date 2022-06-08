@@ -8,7 +8,11 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     [SerializeField]
     float jumpForce;
-
+    public override void Start()
+    {
+        base.Start();
+        
+    }
 
     // need to work on
     public override void Attacking()
@@ -47,6 +51,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
+            audioManager.Stop("Slime Bounce");
+            audioManager.Play("Slime Bounce");
             GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
         // if colliding with player attack enemy reset damage ticker
@@ -62,6 +68,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
+            audioManager.Stop("Slime Bounce");
+            audioManager.Play("Slime Bounce");
             GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
 
@@ -73,5 +81,4 @@ public class NormalSlimeEnemy : BaseEnemyClass
             damageTicker = 1.0f;
         }
     }
-
 }

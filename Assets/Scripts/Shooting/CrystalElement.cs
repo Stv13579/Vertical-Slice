@@ -34,6 +34,7 @@ public class CrystalElement : BaseElementClass
         {
             for (int j = 0; j < 2; j++)
             {
+
                 GameObject newCrystalPro = Instantiate(crystalProjectile, new Vector3(shootingTranform.position.x, shootingTranform.position.y - j, shootingTranform.position.z), Camera.main.transform.rotation);
                 //changes the angle of where they are being fired to
                 newCrystalPro.transform.RotateAround(Camera.main.transform.position, Camera.main.transform.up, 3.0f * i - 5.0f);
@@ -41,7 +42,6 @@ public class CrystalElement : BaseElementClass
                 newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage * damageMultiplier, damageCurve, lifeTimer, attackTypes);
             }
         }
-
     }
 
     public override void ActivateVFX()

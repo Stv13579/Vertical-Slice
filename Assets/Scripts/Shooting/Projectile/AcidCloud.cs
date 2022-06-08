@@ -11,6 +11,15 @@ public class AcidCloud : MonoBehaviour
     float cloudDuration;
 
     List<string> attackTypes;
+
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Stop("Gas Cloud (Long)");
+        audioManager.Play("Gas Cloud (Long)");
+    }
     void Update()
     {
         if(transform.localScale.x < cloudSize)
@@ -51,6 +60,8 @@ public class AcidCloud : MonoBehaviour
         {
             //If an enemy is inside the cloud, deal damage to it
             other.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
         }
     }
 }

@@ -44,159 +44,202 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Ambient Sound
+    clip: {fileID: 8300000, guid: 5897f7744a68ef74eabf1147ee6f8eb9, type: 3}
+    volume: 0.041
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Hub Room Music
+    clip: {fileID: 8300000, guid: 04601794dd9cd4f4597225023dd43a4a, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Inlevel Music
+    clip: {fileID: 8300000, guid: 7cbc720e479f11842bb0dd6590674538, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Menu and Pause
+    clip: {fileID: 8300000, guid: 57b9a4f4e43a62c4a9782e7da700a9e5, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Shop Buy
+    clip: {fileID: 8300000, guid: 9e05a52546a53ca4ea00842cf2a6b293, type: 3}
+    volume: 0.1
+    pitch: 0.13
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Player Landing
+    clip: {fileID: 8300000, guid: 1ccdc4866bd9de642b7fba57f3480139, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Player Running 1
+    clip: {fileID: 8300000, guid: 20a1bc8baac1e584cb92322f864e1434, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Player Running 2
+    clip: {fileID: 8300000, guid: ace699798758f1d4287fa726f8c5ec77, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Player Running 3
+    clip: {fileID: 8300000, guid: c21acd1990114264abda555c0b43e7c8, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Player Running 4
+    clip: {fileID: 8300000, guid: 518b97ec227dda043a540ec681bb6b26, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Player Damage
+    clip: {fileID: 8300000, guid: f6ec4b903945e634e9bd0d1350d81a49, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Slime Damage
+    clip: {fileID: 8300000, guid: 40fe354b4490cc249880903ac8fe5352, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Slime Death
+    clip: {fileID: 8300000, guid: 2e2673ffa53c75e4384fd1a9826614a9, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Slime Bounce
+    clip: {fileID: 8300000, guid: e92cff4a4082b2745a3ccc63be022908, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Fire Slime Trail Initial
+    clip: {fileID: 8300000, guid: 72d3dbb09f672f74fa5fb6d9fc9cb69c, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Fire Slime Trail Alive
+    clip: {fileID: 8300000, guid: 635781578a9a13a4686371e6a46e1a06, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Crystal Slime Projectile
+    clip: {fileID: 8300000, guid: 4a0e24da8a7d10e439a3b43f12067b2f, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Change Element
+    clip: {fileID: 8300000, guid: ffb08f902d9ea1d41872f9edb5a9910c, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Currency Pickup
+    clip: {fileID: 8300000, guid: 3e7a5b856238e7341a70e9b691e4396c, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Energy Element
+    clip: {fileID: 8300000, guid: 5eb79fc400fa7b74492561c6d2c2d3b7, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Soul Element
+    clip: {fileID: 8300000, guid: d4cbf1488a228cd448404f5ab0d04fff, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Crystal Shotgun
+    clip: {fileID: 8300000, guid: b3995630e4b256e48a4f5753f0294d52, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Fireball Initial
+    clip: {fileID: 8300000, guid: d983dc9d97d0d944a82a5149dddf03fa, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Fireball Impact
+    clip: {fileID: 8300000, guid: 235cb9f15ec4d754faf9c979a3bc564f, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Laser Beam
+    clip: {fileID: 8300000, guid: 852852fb9775f264fbd68b998c2af30f, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Shard Cannon
+    clip: {fileID: 8300000, guid: ce81c42d9d8191641a4b1ae7dedad444, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Curse Element Initial
+    clip: {fileID: 8300000, guid: f9708217a56fb7047bda9a0ecc85a33c, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Curse Element Explosion
+    clip: {fileID: 8300000, guid: 5d32df3b842f4ba4fb9e78ab4b8581b0, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Acid Cloud (Long)
+    clip: {fileID: 8300000, guid: 97a0f82ac2767cb459a49b7da4b441c7, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Acid Cloud (Short)
+    clip: {fileID: 8300000, guid: 21d0d549315044940a8c6e9c984345f0, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Slime Boss Death
+    clip: {fileID: 8300000, guid: 911d25d278ce8514fbc0cfe0b6711c62, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Slime Boss Bounce
+    clip: {fileID: 8300000, guid: 0a1dea852096a9d4280c321d7c229b9a, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
+  - name: Slime Boss Damage
+    clip: {fileID: 8300000, guid: 2480e1ba740576f48b47f70eca298d55, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  initalMusic: Ambient Sound

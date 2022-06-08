@@ -28,6 +28,9 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
+  attackAudio: Play Damage
+  deathAudio: Slime Death
+  takeDamageAudio: Slime Damage
   jumpForce: 100
   enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
     type: 3}

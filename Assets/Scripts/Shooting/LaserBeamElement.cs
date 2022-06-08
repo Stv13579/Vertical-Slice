@@ -33,6 +33,7 @@ public class LaserBeamElement : BaseElementClass
             usingLaserBeam = false;
            LaserBeam.SetActive(false);
            playerHand.SetTrigger("LaserStopCast");
+            audioManager.Stop("Laser Beam");
         }
     }
     public override void ElementEffect()
@@ -41,7 +42,6 @@ public class LaserBeamElement : BaseElementClass
         usingLaserBeam = true;
         LaserBeam.SetActive(true);
         LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage * damageMultiplier, attackTypes);
-
     }
     public override void ActivateVFX()
     {

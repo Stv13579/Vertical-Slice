@@ -21,9 +21,10 @@ public class Fireball : MonoBehaviour
 
     List<string> attackTypes;
 
+    AudioManager audioManager;
     void Start()
     {
-        
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -90,7 +91,8 @@ public class Fireball : MonoBehaviour
         if (other.tag  == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
-
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
             taggedEnemy = other;
         }
         if(other.gameObject.tag != "Player" && other.gameObject.tag != "Node")
@@ -111,7 +113,9 @@ public class Fireball : MonoBehaviour
             this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
             this.gameObject.transform.GetChild(0).GetChild(1).GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
-
+            // Sound FX
+            audioManager.Stop("Fireball Impact");
+            audioManager.Play("Fireball Impact");
         }
 
 

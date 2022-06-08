@@ -26,6 +26,12 @@ public class Shooting : MonoBehaviour
 
     public bool ableToShoot = true;
 
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     private void Update()
     {
         if(Input.GetKey(KeyCode.Escape))
@@ -49,6 +55,9 @@ public class Shooting : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Q))
         {
             leftElementIndex++;
+            // play audio of switching weapons
+            audioManager.Stop("Change Element");
+            audioManager.Play("Change Element");
             if(leftElementIndex >= primaryElements.Count)
             {
                 leftElementIndex = 0;
@@ -57,6 +66,9 @@ public class Shooting : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E))
         {
             rightElementIndex++;
+            // play audio of switching weapons
+            audioManager.Stop("Change Element");
+            audioManager.Play("Change Element");
             if (rightElementIndex >= catalystElements.Count)
             {
                 rightElementIndex = 0;

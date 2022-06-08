@@ -9,6 +9,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
     GameObject Player;
     float followTimer;
     float lifeTimer;
+    AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
         // shoots the projectiles up and out 
         rb.AddForce(this.transform.up * 2000 + this.transform.forward * 700);
         Player = GameObject.Find("Player");
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerClass>().ChangeHealth(-projectileDamage);
             Destroy(this.gameObject);
+            audioManager.Stop("Player Damage");
+            audioManager.Play("Player Damage");
         }
         if (other.tag == "Environment")
         {

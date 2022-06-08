@@ -12,10 +12,10 @@ public class ShardProjectile : MonoBehaviour
 
     List<string> attackTypes;
 
-
+    AudioManager audioManager;
     void Start()
     {
-
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -46,8 +46,8 @@ public class ShardProjectile : MonoBehaviour
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
-
-
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
         }
 
         if (other.gameObject.tag != "Player")

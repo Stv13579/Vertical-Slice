@@ -7,6 +7,7 @@ public class CurrencyDrop : MonoBehaviour
     Rigidbody rb;
     Transform player;
     bool moving = false;
+    AudioManager audioManager;
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -17,6 +18,7 @@ public class CurrencyDrop : MonoBehaviour
         //Ignore collisions between currency objects
         Physics.IgnoreLayerCollision(4, 4);
         Physics.IgnoreLayerCollision(4, 8);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,8 @@ public class CurrencyDrop : MonoBehaviour
         {
             player.gameObject.GetComponent<PlayerClass>().money += 1;
             Destroy(this.gameObject);
+            audioManager.Stop("Currency Pickup");
+            audioManager.Play("Currency Pickup");
         }
     }
 }

@@ -19,6 +19,7 @@ public class EnergyElement : BaseElementClass
         if(Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName("EnergyCast"))
         {
             playerHand.SetTrigger("StopEnergy");
+            audioManager.Stop("Energy Element");
         }
     }
 

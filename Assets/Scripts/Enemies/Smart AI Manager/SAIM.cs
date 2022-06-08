@@ -16,7 +16,7 @@ public class SAIM : MonoBehaviour
 
     public List<Node> aliveNodes;
 
-    [SerializeField,HideInInspector]
+    [SerializeField, HideInInspector]
     List<List<List<Node>>> instantiateNodeGrid;
 
     [System.Serializable]
@@ -100,8 +100,17 @@ public class SAIM : MonoBehaviour
     int fireUse;
     int crystalUse;
 
+    // Aydens Audio
+    AudioManager audioManager;
+    [SerializeField]
+    string initialMusic;
+    [SerializeField]
+    string battleMusic;
     void Start()
     {
+        //Aydens Audio manager
+        audioManager = FindObjectOfType<AudioManager>();
+
         data.adjustedDifficulty = data.difficulty;
         data.player = GameObject.Find("Player");
         diffAdjTimerDAM = data.difficultyAdjustTimerTotal_DAMAGE;
@@ -509,6 +518,9 @@ public class SAIM : MonoBehaviour
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
             spawnAmount++;
         }
+        // Aydens Audio
+        audioManager.Stop(initialMusic);
+        audioManager.Play(battleMusic);
     }
 
     public int ChooseEnemy()

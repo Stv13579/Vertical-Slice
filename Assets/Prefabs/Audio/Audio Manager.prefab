@@ -146,12 +146,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Boss Damage
-    clip: {fileID: 8300000, guid: 53767e8c5a0e319408123aa4c6e1cb9f, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 0
-    audioSource: {fileID: 0}
   - name: Change Element
     clip: {fileID: 8300000, guid: ffb08f902d9ea1d41872f9edb5a9910c, type: 3}
     volume: 0.1
@@ -165,7 +159,7 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   - name: Energy Element
-    clip: {fileID: 8300000, guid: 5102dc089d4f149419c5a10a50a48d4c, type: 3}
+    clip: {fileID: 8300000, guid: 5eb79fc400fa7b74492561c6d2c2d3b7, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
@@ -226,6 +220,24 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: Acid Cloud (Short)
     clip: {fileID: 8300000, guid: 21d0d549315044940a8c6e9c984345f0, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Slime Boss Death
+    clip: {fileID: 8300000, guid: 911d25d278ce8514fbc0cfe0b6711c62, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Slime Boss Bounce
+    clip: {fileID: 8300000, guid: 0a1dea852096a9d4280c321d7c229b9a, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Slime Boss Damage
+    clip: {fileID: 8300000, guid: 2480e1ba740576f48b47f70eca298d55, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0

@@ -40,6 +40,8 @@ public class FireSlimeTrail : MonoBehaviour
         if(other.GetComponent<PlayerClass>())
         {
             other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
+            audioManager.Stop("Player Damage");
+            audioManager.Play("Player Damage");
         }
     }
 
@@ -52,6 +54,8 @@ public class FireSlimeTrail : MonoBehaviour
             {
                 other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
                 trailDamageTicker = 1.0f;
+                audioManager.Stop("Player Damage");
+                audioManager.Play("Player Damage");
             }
         }
     }

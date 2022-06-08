@@ -42,7 +42,6 @@ public class SoulElement : BaseElementClass
         //Subtract the mana cost, restore health, and cap it and the max health
         playerClass.ChangeMana(-manaCost);
         playerClass.ChangeHealth(healthRestore);
-        audioManager.Play("Soul Element");
     }
 
     public override void ActivateVFX()

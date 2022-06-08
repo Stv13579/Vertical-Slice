@@ -72,6 +72,8 @@ public class CurseElement : BaseElementClass
                 hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);
             }
         }
+        audioManager.Stop("Curse Element Explosion");
+        audioManager.Play("Curse Element Explosion");
         Debug.Log("Explodded");
     }
 

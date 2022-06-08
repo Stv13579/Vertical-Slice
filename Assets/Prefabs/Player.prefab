@@ -727,9 +727,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7853506573a143b3c9c6f789e0444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 30
   gravity: 60
-  jumpSpeed: 15
+  jumpSpeed: 30
   acceleration: 10
   frictionCurve:
     serializedVersion: 2
@@ -870,6 +870,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 6ee77b03add3bef47a42ac7213c82bf0, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Fireball Initial
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
   damage: 5
@@ -926,6 +927,7 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Soul Element
   healthRestore: 50
 --- !u!114 &5625023910511142018
 MonoBehaviour:
@@ -950,6 +952,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Crystal Shotgun
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
   damage: 1
@@ -1003,6 +1006,7 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Energy Element
   fullRestoreAmount: 60
 --- !u!114 &443619680
 MonoBehaviour:
@@ -1027,6 +1031,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: db3d8f6650a6d9d42aa38560b3d2008d, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Shard Cannon
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
   damage: 30
@@ -1055,6 +1060,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Acid Cloud (Long)
   cloudProj: {fileID: 8417138957682568096, guid: 10b41ea33a4534e4bb8656dcf5ea9cae,
     type: 3}
   damage: 0.1
@@ -1084,6 +1090,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 770339e41d8494046adb4a9a0b4714db, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Laser Beam
   LaserBeam: {fileID: 3981687641008780923}
   damage: 1
   damageMultiplier: 1
@@ -1111,6 +1118,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingSoundFX: Curse Element Initial
   curseTargets:
     serializedVersion: 2
     m_Bits: 256

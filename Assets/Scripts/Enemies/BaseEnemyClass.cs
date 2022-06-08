@@ -56,9 +56,6 @@ public class BaseEnemyClass : MonoBehaviour
     string takeDamageAudio;
 
 
-    [SerializeField]
-    string audioToPlay;
-
     public virtual void Start()
     {
         startY = transform.position.y;
@@ -156,13 +153,11 @@ public class BaseEnemyClass : MonoBehaviour
             }
 
             Instantiate(deathSpawn, transform.position, Quaternion.identity);
-<<<<<<< Updated upstream
-             
-=======
+
 
             audioManager.Stop(deathAudio);
             audioManager.Play(deathAudio);
->>>>>>> Stashed changes
+
             Destroy(gameObject);
         }
     }

@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Ambient Sound
     clip: {fileID: 8300000, guid: 5897f7744a68ef74eabf1147ee6f8eb9, type: 3}
-    volume: 0.1
+    volume: 0.041
     pitch: 1
     loop: 1
     audioSource: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   - name: Shop Buy
     clip: {fileID: 8300000, guid: 9e05a52546a53ca4ea00842cf2a6b293, type: 3}
     volume: 0.1
-    pitch: 1
+    pitch: 0.13
     loop: 0
     audioSource: {fileID: 0}
   - name: Player Landing
@@ -177,7 +177,7 @@ MonoBehaviour:
     loop: 1
     audioSource: {fileID: 0}
   - name: Crystal Shotgun
-    clip: {fileID: 8300000, guid: d0616cc18616d5546a99791a258be6ed, type: 3}
+    clip: {fileID: 8300000, guid: b3995630e4b256e48a4f5753f0294d52, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
     loop: 1
     audioSource: {fileID: 0}
   - name: Shard Cannon
-    clip: {fileID: 8300000, guid: d9f646bee64ed874c93352fdd025e4a5, type: 3}
+    clip: {fileID: 8300000, guid: ce81c42d9d8191641a4b1ae7dedad444, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
@@ -218,15 +218,16 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Gas Cloud (Long)
-    clip: {fileID: 8300000, guid: 90a0de0254bd452439c9a29fe6b56f58, type: 3}
+  - name: Acid Cloud (Long)
+    clip: {fileID: 8300000, guid: 97a0f82ac2767cb459a49b7da4b441c7, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Gas Cloud (Short)
+  - name: Acid Cloud (Short)
     clip: {fileID: 8300000, guid: 21d0d549315044940a8c6e9c984345f0, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
+  initalMusic: Ambient Sound

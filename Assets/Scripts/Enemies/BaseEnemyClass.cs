@@ -47,6 +47,9 @@ public class BaseEnemyClass : MonoBehaviour
 
     public Vector3 moveDirection;
 
+    [SerializeField]
+    string audioToPlay;
+
     public virtual void Start()
     {
         startY = transform.position.y;
@@ -140,7 +143,7 @@ public class BaseEnemyClass : MonoBehaviour
             }
 
             Instantiate(deathSpawn, transform.position, Quaternion.identity);
-
+             
             Destroy(gameObject);
         }
     }

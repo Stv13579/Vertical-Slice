@@ -1049,7 +1049,7 @@ MonoBehaviour:
   manaCost: 5
   animationToPlay: AcidCast
   useDelay: 2
-  playerHand: {fileID: 155558029}
+  playerHand: {fileID: 6931027923422626699}
   elementName: Acid Cloud
   uiSprite: {fileID: 21300000, guid: 52f739ba6ce3b2e4bb4e300fd3f42b31, type: 3}
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
@@ -1078,7 +1078,7 @@ MonoBehaviour:
   manaCost: 5
   animationToPlay: LaserCast
   useDelay: 0
-  playerHand: {fileID: 155558029}
+  playerHand: {fileID: 6931027923422626699}
   elementName: LaserBeam
   uiSprite: {fileID: 21300000, guid: edc6bb5259b8a07418dc078001b9464c, type: 3}
   crosshair: {fileID: 21300000, guid: 770339e41d8494046adb4a9a0b4714db, type: 3}
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   manaCost: 10
   animationToPlay: CurseCast
   useDelay: 1
-  playerHand: {fileID: 5531581038826687481}
+  playerHand: {fileID: 6931027923422626699}
   elementName: Curse
   uiSprite: {fileID: 21300000, guid: 7ab09dbefaadcb646a19d0ca81d1ffdd, type: 3}
   crosshair: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}

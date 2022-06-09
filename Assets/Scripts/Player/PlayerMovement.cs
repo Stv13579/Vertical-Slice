@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         int randomSoundIndex = Random.Range(0, 4);
         if (isGrounded == true && (Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) ||
            (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
-           {
+        {
             if (randIndexTimer <= 0.0f)
             {
                 if (randomSoundIndex == 0)

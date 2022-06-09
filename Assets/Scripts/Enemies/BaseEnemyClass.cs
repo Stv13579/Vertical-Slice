@@ -82,6 +82,13 @@ public class BaseEnemyClass : MonoBehaviour
         
     }
 
+    public virtual void Movement(Vector3 positionToMoveTo, float speed)
+    {
+
+
+
+    }
+
 
     //Attacking
     public virtual void Attacking()

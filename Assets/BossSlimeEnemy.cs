@@ -42,6 +42,21 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     float changeTime;
     float currentChangeTime;
 
+    [SerializeField]
+    float timeBetweenAttacks;
+    float currentAttackTime;
+
+    /// <summary>
+    /// Fire Type Properties
+    /// </summary>
+    [SerializeField]
+    float fireChargeDuration;
+    float currentChargeDuration;
+    [SerializeField]
+    float fireChargeSpeed;
+    Vector3 chargeVec;
+    
+
     public override void Start()
     {
         base.Start();
@@ -49,40 +64,57 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         currentChangeTime = changeTime;
         mat1 = rend.material;
         mat2 = rend.material;
+        currentAttackTime = timeBetweenAttacks;
+        currentChargeDuration = fireChargeDuration;
     }
 
     protected override void Update()
     {
-        moveDirection = player.transform.position;
-        base.Update();
+        if(!ExecuteAttack())
+        {
+            moveDirection = player.transform.position;
+            base.Update();
 
-        ExecuteAttack();
+            chargeVec = (moveDirection - transform.position).normalized;
+
+            //SwitchType();
+        }
         
-        SwitchType();
+        
         UpdateMaterials();
     }
 
     //Execute the attack based on the type it currently is
-    private void ExecuteAttack()
+    private bool ExecuteAttack()
     {
+        if(currentAttackTime > 0)
+        {
+            currentAttackTime -= Time.deltaTime;
+            return false;
+        }
+
         switch (currentType)
         {
             case Type.crystal:
                 //Slowly send crystals out which bombard the arena, giving some telegraph to their landing zones
-
-
+                currentAttackTime = timeBetweenAttacks;
                 break;
             case Type.fire:
                 //Periodically charge in a straight line, setting the ground on fire.
-
+                FireAttack();
                 break;
             case Type.normal:
                 //Periodically jump up high and slam down.
-
+                currentAttackTime = timeBetweenAttacks;
                 break;
             default:
                 break;
         }
+
+        //Reset attack time when ready
+        //currentAttackTime = timeBetweenAttacks;
+        return true;
+
     }
 
     //Choose a type at random, and switch up weak point, mats and enum
@@ -147,21 +179,43 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         }
     }
 
+    //Attacks
+
+    private void FireAttack()
+    {
+        if (currentChargeDuration > 0)
+        {
+            Vector3 moveVec = chargeVec * moveSpeed * fireChargeSpeed * Time.deltaTime;
+            moveVec.y = 0;
+            moveVec.y -= 1 * Time.deltaTime;
+            transform.position += moveVec;
+            currentChargeDuration -= Time.deltaTime;
+        }
+        else
+        {
+            currentChargeDuration = fireChargeDuration;
+            currentAttackTime = timeBetweenAttacks;
+        }
+    }
+
 
     //Change mats
     private void SwitchToCrystal()
     {
         mat2 = crystalMat;
+        currentType = Type.crystal;
     }
 
     private void SwitchToFire()
     {
         mat2 = fireMat;
+        currentType = Type.fire;
     }
 
     private void SwitchToNormal()
     {
         mat2 = normalMat;
+        currentType = Type.normal;
     }
 
     private void UpdateMaterials()

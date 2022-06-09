@@ -727,9 +727,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7853506573a143b3c9c6f789e0444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 15
   gravity: 60
-  jumpSpeed: 30
+  jumpSpeed: 15
   acceleration: 10
   frictionCurve:
     serializedVersion: 2

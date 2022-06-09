@@ -40,6 +40,25 @@ public class NormalSlimeEnemy : BaseEnemyClass
         
     }
 
+    public override void Movement(Vector3 positionToMoveTo, float speed)
+    {
+        base.Movement(moveDirection);
+
+        //Come back to hopping
+        Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
+        moveVec.y = 0;
+        moveVec.y -= 1 * Time.deltaTime;
+        transform.position += moveVec;
+
+
+
+        transform.LookAt(player.transform.position);
+        Quaternion rot = transform.rotation;
+        rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
+        transform.rotation = rot;
+
+    }
+
     protected virtual void Update()
     {
         base.Update();

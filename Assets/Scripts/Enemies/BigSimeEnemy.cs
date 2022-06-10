@@ -25,7 +25,7 @@ public class BigSimeEnemy : NormalSlimeEnemy
     new private void Update()
     {
         base.Update();
-        Shield();
+        //Shield();
         // Initialize bullet positions
         //List<Vector3> posArray = new List<Vector3>(BulletPos.Count);
         //for (int i = 0; i < BulletPos.Count; i++)
@@ -54,37 +54,37 @@ public class BigSimeEnemy : NormalSlimeEnemy
 
 
     }
-    public void Shield()
-    {
-        float minDistance = 7;
-        float distanceBetween2Enemies = Vector3.Distance(transform.position, GetClosestObject(enemyPos).position);
-        if (distanceBetween2Enemies < minDistance && player.GetComponentInChildren<PlayerLineOfSight>().lookTimer < 0.0f)
-        {
-            Vector3.MoveTowards(transform.position, GetClosestObject(enemyPos).position, 10);
-        }
-        else
-        {
-            Movement(player.transform.position);
-        }
-    }
+    //public void Shield()
+    //{
+    //    float minDistance = 7;
+    //    float distanceBetween2Enemies = Vector3.Distance(transform.position, GetClosestObject(enemyPos).position);
+    //    if (distanceBetween2Enemies < minDistance && player.GetComponentInChildren<PlayerLineOfSight>().lookTimer < 0.0f)
+    //    {
+    //        Vector3.MoveTowards(transform.position, GetClosestObject(enemyPos).position, 10);
+    //    }
+    //    else
+    //    {
+    //        Movement(player.transform.position);
+    //    }
+    //}
 
-    public Transform GetClosestObject(List<Transform> objectList)
-    {
-        Transform bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
-        foreach (Transform potentialTarget in objectList)
-        {
-            Vector3 directionToTarget = potentialTarget.position - transform.position;
-            float DisSqrToTarget = directionToTarget.sqrMagnitude;
-            if (DisSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = DisSqrToTarget;
-                bestTarget = potentialTarget;
-            }
-        }
+    //public Transform GetClosestObject(List<Transform> objectList)
+    //{
+    //    Transform bestTarget = null;
+    //    float closestDistanceSqr = Mathf.Infinity;
+    //    foreach (Transform potentialTarget in objectList)
+    //    {
+    //        Vector3 directionToTarget = potentialTarget.position - transform.position;
+    //        float DisSqrToTarget = directionToTarget.sqrMagnitude;
+    //        if (DisSqrToTarget < closestDistanceSqr)
+    //        {
+    //            closestDistanceSqr = DisSqrToTarget;
+    //            bestTarget = potentialTarget;
+    //        }
+    //    }
 
-        return bestTarget;
-    }
+    //    return bestTarget;
+    //}
 
     public override void OnCollisionEnter(Collision collision)
     {

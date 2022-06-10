@@ -122,7 +122,7 @@ public class BaseEnemyClass : MonoBehaviour
         }
         currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
         audioManager.Stop(takeDamageAudio);
-        audioManager.Play(takeDamageAudio);
+        audioManager.Play(takeDamageAudio, player.transform, this.transform);
         Death();
     }
 
@@ -163,7 +163,7 @@ public class BaseEnemyClass : MonoBehaviour
 
 
             audioManager.Stop(deathAudio);
-            audioManager.Play(deathAudio);
+            audioManager.Play(deathAudio, player.transform, this.transform);
 
             Destroy(gameObject);
         }

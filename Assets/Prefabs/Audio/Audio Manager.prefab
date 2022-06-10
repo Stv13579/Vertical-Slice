@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Ambient Sound
     clip: {fileID: 8300000, guid: 5897f7744a68ef74eabf1147ee6f8eb9, type: 3}
-    volume: 0.041
+    volume: 0.1
     pitch: 1
     loop: 1
     audioSource: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   - name: Shop Buy
     clip: {fileID: 8300000, guid: 9e05a52546a53ca4ea00842cf2a6b293, type: 3}
     volume: 0.1
-    pitch: 0.13
+    pitch: 1
     loop: 0
     audioSource: {fileID: 0}
   - name: Player Landing
@@ -106,7 +106,7 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: Player Damage
     clip: {fileID: 8300000, guid: f6ec4b903945e634e9bd0d1350d81a49, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
@@ -243,3 +243,4 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   initalMusic: Ambient Sound
+  audioDistance: 30

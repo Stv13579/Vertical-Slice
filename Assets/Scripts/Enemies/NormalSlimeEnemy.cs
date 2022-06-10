@@ -71,7 +71,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
             audioManager.Stop("Slime Bounce");
-            audioManager.Play("Slime Bounce");
+            audioManager.Play("Slime Bounce", player.transform, this.transform);
             GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
         // if colliding with player attack enemy reset damage ticker
@@ -88,7 +88,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
             audioManager.Stop("Slime Bounce");
-            audioManager.Play("Slime Bounce");
+            audioManager.Play("Slime Bounce", player.transform, this.transform);
             GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
 

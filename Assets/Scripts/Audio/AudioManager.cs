@@ -33,6 +33,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public string initalMusic;
+    [SerializeField]
+    float audioDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,10 +49,10 @@ public class AudioManager : MonoBehaviour
             i.audioSource.loop = i.loop;
         }
 
-        Play(initalMusic);
+        //Play(initalMusic);
     }
 
-    public void Play(string soundName) // play sound 
+    public void Play(string soundName, Transform playerPos = null, Transform enemyPos = null) // play sound 
     {
         Sound s = Array.Find(sounds, item => item.name == soundName);
 
@@ -59,10 +61,16 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " was not found!"); // error message
             return;
         }
-        if(!s.audioSource.isPlaying)
+        if (playerPos != null && enemyPos != null)
+        {
+            float positionDistance = Vector3.Distance(playerPos.position, enemyPos.position);
+            s.audioSource.volume = (1 - (positionDistance / audioDistance)) > 0 ? (1 - (positionDistance / audioDistance)) : 0;
+        }
+        if (!s.audioSource.isPlaying)
         {
             s.audioSource.Play();
         }
+
     }
 
 

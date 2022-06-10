@@ -8,12 +8,14 @@ public class FireSlimeTrail : MonoBehaviour
     float trailDuration = 5.0f;
     float trailDamageTicker = 1.0f;
     AudioManager audioManager;
+    GameObject player;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.Stop("Fire Slime Trail Alive");
-        audioManager.Play("Fire Slime Trail Alive");
+        audioManager.Play("Fire Slime Trail Alive", player.transform, this.transform);
     }
     // Update is called once per frame
     void Update()

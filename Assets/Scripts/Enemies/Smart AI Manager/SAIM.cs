@@ -16,7 +16,7 @@ public class SAIM : MonoBehaviour
 
     public List<Node> aliveNodes;
 
-    [SerializeField,HideInInspector]
+    [SerializeField, HideInInspector]
     List<List<List<Node>>> instantiateNodeGrid;
 
     [System.Serializable]
@@ -97,8 +97,20 @@ public class SAIM : MonoBehaviour
     int currentKills;
     float currentDamageTaken;
 
+    int fireUse;
+    int crystalUse;
+
+    // Aydens Audio
+    AudioManager audioManager;
+    [SerializeField]
+    string initialMusic;
+    [SerializeField]
+    string battleMusic;
     void Start()
     {
+        //Aydens Audio manager
+        audioManager = FindObjectOfType<AudioManager>();
+
         data.adjustedDifficulty = data.difficulty;
         data.player = GameObject.Find("Player");
         diffAdjTimerDAM = data.difficultyAdjustTimerTotal_DAMAGE;
@@ -115,8 +127,6 @@ public class SAIM : MonoBehaviour
         //CreateIntegrationFlowField(nodeGrid[15].nodeCol[17]);
         //GenerateFlowField();
     }
-
-
 
     void Update()
     {
@@ -139,12 +149,21 @@ public class SAIM : MonoBehaviour
         if(triggered && !roomComplete)
         {
             blockerMaster.SetActive(true);
-            bridge.SetActive(false);
+
+            if(bridge)
+            {
+                bridge.SetActive(false);
+            }
+
         }
         else
         {
             blockerMaster.SetActive(false);
-            bridge.SetActive(true);
+            
+            if (bridge)
+            {
+                bridge.SetActive(true);
+            }
         }
 
         AdjustDifficulty();
@@ -492,13 +511,29 @@ public class SAIM : MonoBehaviour
             spawnPosition.z += Random.Range(-1.0f, 2.0f);
             spawnPosition.y += 2;
 
+            ChooseEnemy();
+
             GameObject spawnedEnemy = Instantiate(data.enemyTypes[Random.Range(0, data.enemyTypes.Count)], spawnPosition, Quaternion.identity);
             spawnedEnemy.GetComponent<BaseEnemyClass>().spawner = this.gameObject;
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
             spawnAmount++;
         }
+        // Aydens Audio
+        audioManager.Stop(initialMusic);
+        audioManager.Play(battleMusic);
     }
 
+    public int ChooseEnemy()
+    {
+        if(fireUse > crystalUse)
+        {
+            return Mathf.Min(Random.Range(0, data.enemyTypes.Count), Random.Range(0, data.enemyTypes.Count));
+        }
+        else
+        {
+            return Mathf.Max(Random.Range(0, data.enemyTypes.Count), Random.Range(0, data.enemyTypes.Count));
+        }
+    }
 
     public void SelectSpawnNode()
     {
@@ -702,6 +737,9 @@ public class SAIM : MonoBehaviour
             currentKills = 0;
 
         }
+
+
+       
 
         //See difficulty difference and make changes to spawning and behaviour as appropriate.
         SetBasedOnDiffculty();

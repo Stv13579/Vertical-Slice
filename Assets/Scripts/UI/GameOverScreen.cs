@@ -14,10 +14,12 @@ public class GameOverScreen : MonoBehaviour
     float buttonTimer = 0;
     public string sceneToLoad;
 
+    AsyncOperation operation;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(LoadScene());
     }
 
     // Update is called once per frame
@@ -50,6 +52,20 @@ public class GameOverScreen : MonoBehaviour
 
     public void ReturnToHub()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        operation.allowSceneActivation = true;
+    }
+
+    public IEnumerator LoadScene()
+    {
+        operation = SceneManager.LoadSceneAsync(sceneToLoad);
+
+        operation.allowSceneActivation = false;
+
+        while (!operation.isDone)
+        {
+
+            yield return null;
+        }
+
     }
 }

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4772e73c7175546bfe5e360e613f50, type: 3}
+  m_Name: DialogueData
+  m_EditorClassIdentifier: 
+  npcName: Rowan
+  dialoguePairs:
+  - snippetName: Rowan Start
+    npcDialogue: Hi I'm Rowan
+    playerOptions:
+    - Hello I'm Ayden
+    - Fuck you buddy
+    - <Leave>
+    outcomeIndex: 0100000002000000ffffffff
+  - snippetName: RowanNice
+    npcDialogue: Have a nice day dude, Im off to eat a sandwich!
+    playerOptions:
+    - Enjoy your sandwich friendo
+    outcomeIndex: ffffffff
+  - snippetName: RowanMean
+    npcDialogue: You're a piece of shit and I hope you die
+    playerOptions:
+    - Well that's... well your m-... well, fuck you
+    outcomeIndex: ffffffff
+  dialogueBox: {fileID: 5780690771016637322, guid: 3a46358c33e6f3a409f751fece40f21f,
+    type: 3}
+  nameBackground: {fileID: 5882580178830445840, guid: cdab9f33b8ff9b44c85f3bb0bf699973,
+    type: 3}
+  dialogueText: {fileID: 7848049855286761796, guid: cce1faf127fc0824eac6cfc1916d49f0,
+    type: 3}
+  nameText: {fileID: 5362426274966899394, guid: c8299fe3cfde0e646bfb6e9f9b3cc7c5,
+    type: 3}
+  backButton: {fileID: 1482639516364977522, guid: 935ebb87d227c4940ad6397cbec8ca8d,
+    type: 3}
+  nameFont: {fileID: 12800000, guid: 601b358d1a66c244086687776ee92aa5, type: 3}
+  dialogueFont: {fileID: 12800000, guid: 7713f3e85e2f62b41bac675905408d11, type: 3}
+  interactImage: {fileID: 41097970534180306, guid: d4e8fe58267636f428f4aa8c7b770669,
+    type: 3}
+  dialogueOptionButton: {fileID: 8296146220623773992, guid: 4b8e23c373d2f30449bd247ed7cd6ae3,
+    type: 3}
+  nameBackgroundColor: {r: 0, g: 0, b: 0, a: 255}
+  nameTextColor: {r: 0, g: 0, b: 0, a: 255}
+  dialogueTextColor: {r: 0, g: 0, b: 0, a: 255}
+  dialogueBoxColor: {r: 0, g: 0, b: 0, a: 255}

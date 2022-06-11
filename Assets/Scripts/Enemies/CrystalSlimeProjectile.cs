@@ -6,9 +6,11 @@ public class CrystalSlimeProjectile : MonoBehaviour
 {
     Rigidbody rb;
     float projectileDamage;
-    GameObject Player;
+    GameObject player;
     float followTimer;
     float lifeTimer;
+    AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody>();
         // shoots the projectiles up and out 
         rb.AddForce(this.transform.up * 2000 + this.transform.forward * 700);
-        Player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -29,7 +32,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
         // if follow timer is greater then 0 then follow the player
         if (followTimer >= 0)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, Player.transform.position, 10 * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 10 * Time.deltaTime);
         }
         // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
         if(lifeTimer <= 0)
@@ -47,6 +50,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerClass>().ChangeHealth(-projectileDamage);
             Destroy(this.gameObject);
+            audioManager.Stop("Player Damage");
+            audioManager.Play("Player Damage", player.transform, this.transform);
         }
         if (other.tag == "Environment")
         {

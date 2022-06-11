@@ -11,7 +11,11 @@ public class CrystalProj : MonoBehaviour
     float startLifeTimer;
 
     List<string> attackTypes;
-
+    AudioManager audioManager;
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -67,7 +71,8 @@ public class CrystalProj : MonoBehaviour
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
             taggedEnemy = other;
-
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
             Destroy(gameObject);
         }
     }

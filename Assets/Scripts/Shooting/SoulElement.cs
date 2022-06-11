@@ -20,6 +20,7 @@ public class SoulElement : BaseElementClass
         if(previousHealth > playerClass.currentHealth)
         {
             playerHand.SetTrigger("SoulStopCast");
+            audioManager.Stop("Soul Element");
         }
         else
         {
@@ -29,6 +30,7 @@ public class SoulElement : BaseElementClass
         if(Input.GetKeyUp(KeyCode.Mouse1) && playerHand.GetCurrentAnimatorStateInfo(0).IsName("SoulCast"))
         {
             playerHand.SetTrigger("SoulStopCast");
+            audioManager.Stop("Soul Element");
         }
         previousHealth = playerClass.currentHealth;
 

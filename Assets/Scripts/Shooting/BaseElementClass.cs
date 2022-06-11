@@ -50,11 +50,18 @@ public class BaseElementClass : MonoBehaviour
     protected PlayerClass playerClass;
 
     protected Transform shootingTranform;
+
+    protected AudioManager audioManager;
+
+    [SerializeField]
+    string shootingSoundFX;
+
     protected virtual void Start()
     {
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();
         shootingTranform = GameObject.Find("Elements").transform;
+        audioManager = FindObjectOfType<AudioManager>();
     }
     protected virtual void StartAnims(string animationName)
     {
@@ -70,7 +77,8 @@ public class BaseElementClass : MonoBehaviour
     //The actual mechanical effect (eg fire object etc)
     public virtual void ElementEffect()
     {
-
+        audioManager.Stop(shootingSoundFX);
+        audioManager.Play(shootingSoundFX);
     }
 
     //deduct mana from the mana pool. If unable too, return false, otherwise true

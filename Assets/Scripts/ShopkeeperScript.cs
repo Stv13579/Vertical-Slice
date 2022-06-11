@@ -31,6 +31,7 @@ public class ShopkeeperScript : MonoBehaviour
             playerMove.ableToMove = false;
             playerLook.ableToMove = false;
             shooting.ableToShoot = false;
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
 
         }
@@ -49,6 +50,7 @@ public class ShopkeeperScript : MonoBehaviour
             playerMove = other.gameObject.GetComponent<PlayerMovement>();
             playerLook = other.gameObject.GetComponent<PlayerLook>();
             shooting = other.gameObject.GetComponent<Shooting>();
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -57,6 +59,8 @@ public class ShopkeeperScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             inRange = false;
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
         }
     }
 
@@ -68,6 +72,7 @@ public class ShopkeeperScript : MonoBehaviour
         playerMove.ableToMove = true;
         playerLook.ableToMove = true;
         shooting.ableToShoot = true;
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
 
     }

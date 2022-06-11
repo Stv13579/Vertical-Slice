@@ -138,3 +138,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7611b7647fa799347af631f36fcb9091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitDelay: 5

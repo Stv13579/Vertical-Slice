@@ -11,6 +11,15 @@ public class AcidCloud : MonoBehaviour
     float cloudDuration;
 
     List<string> attackTypes;
+
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Stop("Gas Cloud (Long)");
+        audioManager.Play("Gas Cloud (Long)");
+    }
     void Update()
     {
         if(transform.localScale.x < cloudSize)
@@ -20,9 +29,19 @@ public class AcidCloud : MonoBehaviour
         }
 
         cloudDuration -= Time.deltaTime;
-        if(cloudDuration <= 0)
+        if(cloudDuration <= 1)
         {
-            Destroy(this.gameObject);
+            this.transform.parent.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.transform.parent.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            this.transform.parent.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
+        if (this.transform.parent.GetChild(0).gameObject.GetComponent<ParticleSystem>().particleCount < 100 && cloudDuration < 1)
+        {
+            Destroy(this.gameObject.GetComponent<Collider>());
+        }
+        if (this.transform.parent.GetChild(0).gameObject.GetComponent<ParticleSystem>().particleCount < 1 && cloudDuration < 1)
+        {
+            Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
 
@@ -41,6 +60,8 @@ public class AcidCloud : MonoBehaviour
         {
             //If an enemy is inside the cloud, deal damage to it
             other.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
         }
     }
 }

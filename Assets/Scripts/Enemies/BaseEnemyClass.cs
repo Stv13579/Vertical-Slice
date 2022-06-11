@@ -35,20 +35,34 @@ public class BaseEnemyClass : MonoBehaviour
 
     public List<GameObject> bounceList;
 
-    
+    //Particle effect when the enemy is destroyed
+    public GameObject deathSpawn;
+    //Particle effect when the enemy is hit
+    public GameObject hitSpawn;
+
     public delegate void DeathTrigger();
 
     [HideInInspector]
     public List<DeathTrigger> deathTriggers = new List<DeathTrigger>();
 
     public Vector3 moveDirection;
+    protected AudioManager audioManager;
 
-    private void Start()
+    [SerializeField]
+    string attackAudio;
+    [SerializeField]
+    string deathAudio;
+    [SerializeField]
+    string takeDamageAudio;
+
+
+    public virtual void Start()
     {
         startY = transform.position.y;
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();
         currentHealth = maxHealth;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public virtual void Update()
@@ -68,17 +82,26 @@ public class BaseEnemyClass : MonoBehaviour
         
     }
 
+    public virtual void Movement(Vector3 positionToMoveTo, float speed)
+    {
+
+
+
+    }
+
 
     //Attacking
     public virtual void Attacking()
     {
-
+        audioManager.Stop(attackAudio);
+        audioManager.Play(attackAudio);
     }
 
 
     //Taking damage
     public void TakeDamage(float damageToTake, List<string> attackTypes)
     {
+        Instantiate(hitSpawn, transform.position, Quaternion.identity);
         float multiplier = 1;
         foreach(string type in attackTypes)
         {
@@ -98,6 +121,8 @@ public class BaseEnemyClass : MonoBehaviour
             }
         }
         currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
+        audioManager.Stop(takeDamageAudio);
+        audioManager.Play(takeDamageAudio, player.transform, this.transform);
         Death();
     }
 
@@ -133,6 +158,12 @@ public class BaseEnemyClass : MonoBehaviour
             {
                 dTrigs();
             }
+
+            Instantiate(deathSpawn, transform.position, Quaternion.identity);
+
+
+            audioManager.Stop(deathAudio);
+            audioManager.Play(deathAudio, player.transform, this.transform);
 
             Destroy(gameObject);
         }

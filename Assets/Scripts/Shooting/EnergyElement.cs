@@ -27,6 +27,8 @@ public class EnergyElement : BaseElementClass
     {
         base.ElementEffect();
         playerClass.ChangeMana(fullRestoreAmount);
+        playerHand.SetTrigger("StopEnergy");
+        audioManager.Stop("Energy Element");
     }
 
     protected override void StartAnims(string animationName)
@@ -34,6 +36,8 @@ public class EnergyElement : BaseElementClass
         base.StartAnims(animationName);
 
         playerHand.SetTrigger(animationName);
+
+        audioManager.Play("Energy Element");
 
 
     }

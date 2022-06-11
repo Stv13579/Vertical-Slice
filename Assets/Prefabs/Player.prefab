@@ -819,7 +819,8 @@ MonoBehaviour:
   money: 0
   heldItems: []
   itemUI: {fileID: 0}
-  gameOverScreen: {fileID: 0}
+  gameOverScreen: {fileID: 5938581657908307557, guid: c15b7a340c63df74189d70226e0485bc,
+    type: 3}
   fallSpawner: {fileID: 0}
 --- !u!114 &1363181307
 MonoBehaviour:

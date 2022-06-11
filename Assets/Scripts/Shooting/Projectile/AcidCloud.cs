@@ -10,7 +10,9 @@ public class AcidCloud : MonoBehaviour
 
     float cloudDuration;
 
-    List<string> attackTypes;
+    [SerializeField] GameObject acidBurnVFX;
+
+    [SerializeField] List<string> attackTypes;
 
     AudioManager audioManager;
 
@@ -62,6 +64,15 @@ public class AcidCloud : MonoBehaviour
             other.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
             audioManager.Stop("Slime Damage");
             audioManager.Play("Slime Damage");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<BaseEnemyClass>())
+        {
+            //When enemy enters cloud, add vfx
+            Instantiate(acidBurnVFX, other.transform);
         }
     }
 }

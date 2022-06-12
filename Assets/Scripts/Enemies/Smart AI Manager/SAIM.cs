@@ -42,7 +42,7 @@ public class SAIM : MonoBehaviour
 
     //Object which connects rooms
     [SerializeField]
-    GameObject bridge;
+    List<GameObject> bridges;
 
     //number in nodes of the sides of the grid.
     [SerializeField]
@@ -148,21 +148,29 @@ public class SAIM : MonoBehaviour
 
         if(triggered && !roomComplete)
         {
-            blockerMaster.SetActive(true);
+            
 
-            if(bridge)
+            if(bridges.Count > 0)
             {
-                bridge.SetActive(false);
+                foreach (GameObject bridge in bridges)
+                {
+                    bridge.SetActive(false);
+                }
+                
             }
 
         }
         else
         {
-            blockerMaster.SetActive(false);
             
-            if (bridge)
+
+            if (bridges.Count > 0)
             {
-                bridge.SetActive(true);
+                foreach (GameObject bridge in bridges)
+                {
+                    bridge.SetActive(true);
+                }
+
             }
         }
 

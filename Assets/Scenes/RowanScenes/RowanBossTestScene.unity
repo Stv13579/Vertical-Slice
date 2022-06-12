@@ -1523,35 +1523,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
-      propertyPath: currentType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
-      propertyPath: fireChargeSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
-      propertyPath: fireChargeDuration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
-      propertyPath: timeBetweenAttacks
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4878662708443654493, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}
       propertyPath: m_Name
       value: BossSlime
-      objectReference: {fileID: 0}
-    - target: {fileID: 4878662708443654493, guid: 726a78b5187dfac49b2b6db7edec71fe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5260113440462795751, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}

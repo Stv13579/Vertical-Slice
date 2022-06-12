@@ -31,7 +31,7 @@ MonoBehaviour:
   attackAudio: 
   deathAudio: 
   takeDamageAudio: 
-  jumpForce: 10
+  jumpForce: 50
   currentType: 0
   normalMat: {fileID: 2100000, guid: ae8af0f837a7bc64786dcdf9f4b2d1dd, type: 2}
   fireMat: {fileID: 2100000, guid: 92c3a625923882747bf64474e18c83f2, type: 2}
@@ -50,7 +50,8 @@ MonoBehaviour:
     type: 3}
   normalSlimeJumpForce: 1000
   airSpeed: 10
-  crystalProjectiles: {fileID: 0}
+  crystalProjectiles: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
+    type: 3}
   projScale: {x: 0, y: 0, z: 0}
 --- !u!1001 &2361428090863536218
 PrefabInstance:

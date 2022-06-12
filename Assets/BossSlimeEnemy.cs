@@ -26,6 +26,8 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     Renderer rend;
 
+    BossSpawn spawner;
+
     /// <summary>
     /// The duration of the lerp between mats
     /// </summary>
@@ -75,6 +77,9 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     float airSpeed;
 
+    /// <summary>
+    /// Crystal Type Properties
+    /// </summary>
     [SerializeField]
     GameObject crystalProjectiles;
     [SerializeField]
@@ -90,10 +95,15 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         mat2 = rend.material;
         currentAttackTime = timeBetweenAttacks;
         currentChargeDuration = fireChargeDuration;
+
+        spawner = GameObject.Find("BossSpawner").GetComponent<BossSpawn>();
     }
 
     protected override void Update()
     {
+
+        Death();
+
         if(!ExecuteAttack())
         {
             moveDirection = player.transform.position;
@@ -328,6 +338,17 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         }
 
         base.OnCollisionEnter(collision);
+    }
+
+    public override void Death()
+    {
+        if(currentHealth <= 0)
+        {
+            spawner.bossDead = true;
+        }
+        base.Death();
+
+        
     }
 
 }

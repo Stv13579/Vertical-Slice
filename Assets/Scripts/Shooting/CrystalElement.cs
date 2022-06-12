@@ -35,9 +35,11 @@ public class CrystalElement : BaseElementClass
             for (int j = 0; j < 2; j++)
             {
 
-                GameObject newCrystalPro = Instantiate(crystalProjectile, new Vector3(shootingTranform.position.x, shootingTranform.position.y - j, shootingTranform.position.z), Camera.main.transform.rotation);
+                GameObject newCrystalPro = Instantiate(crystalProjectile, shootingTranform.position, Camera.main.transform.rotation);
                 //changes the angle of where they are being fired to
-                newCrystalPro.transform.RotateAround(Camera.main.transform.position, Camera.main.transform.up, 3.0f * i - 5.0f);
+                newCrystalPro.transform.RotateAround(shootingTranform.position, Camera.main.transform.up, 3.0f * i - 5.0f);
+                newCrystalPro.transform.RotateAround(shootingTranform.position, Camera.main.transform.right, 3.0f * j - 5.0f);
+
                 // setting the varibles from CrystalProj script
                 newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage * damageMultiplier, damageCurve, lifeTimer, attackTypes);
             }

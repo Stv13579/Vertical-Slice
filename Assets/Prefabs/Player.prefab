@@ -904,7 +904,7 @@ MonoBehaviour:
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
-    m_Bits: 200499
+    m_Bits: 200497
   shootingSoundFX: Fireball Initial
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
@@ -994,7 +994,7 @@ MonoBehaviour:
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 208689
   shootingSoundFX: Crystal Shotgun
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 208689
   shootingSoundFX: Shard Cannon
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
-  shootingTranform: {fileID: 0}
+  shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
     m_Bits: 0

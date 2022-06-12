@@ -47,9 +47,19 @@ public class PlayerMovement : MonoBehaviour
 
     public bool ableToMove = true;
 
+    float randIndexTimer = 0.0f;
+
+    private AudioManager audioManager;
+
+    private Transform cameraTransform;
+
+    private bool isHeadShaking;
+
     // Start is called before the first frame update
     void Start()
     {
+        cameraTransform = this.gameObject.GetComponentInChildren<Camera>().transform;
+        audioManager = FindObjectOfType<AudioManager>();
         lookScript = this.gameObject.GetComponent<PlayerLook>();
         cController = this.gameObject.GetComponent<CharacterController>();
     }
@@ -57,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ableToMove)
+        if (ableToMove)
         {
             PlayerMoving();
         }
@@ -111,11 +121,47 @@ public class PlayerMovement : MonoBehaviour
         newPos = transform.position;
 
         // collision when touching the roof
-        if((cController.collisionFlags & CollisionFlags.Above) != 0)
+        if ((cController.collisionFlags & CollisionFlags.Above) != 0)
         {
+            if(isHeadShaking == true)
+            {
+                //StartCoroutine(Shake(0.1f, 1.0f));
+                isHeadShaking = false;
+            }
             velocity.y = -1.0f;
         }
 
+        randIndexTimer -= Time.deltaTime;
+        int randomSoundIndex = Random.Range(0, 4);
+        if (isGrounded == true && (Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) ||
+           (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.D)))
+        {
+            if (randIndexTimer <= 0.0f)
+            {
+                if (randomSoundIndex == 0)
+                {
+                    audioManager.Stop("Player Running 1");
+                    audioManager.Play("Player Running 1");
+                }
+                else if (randomSoundIndex == 1)
+                {
+                    audioManager.Stop("Player Running 2");
+                    audioManager.Play("Player Running 2");
+                }
+                else if (randomSoundIndex == 2)
+                {
+                    audioManager.Stop("Player Running 3");
+                    audioManager.Play("Player Running 3");
+                }
+                else
+                {
+                    audioManager.Stop("Player Running 4");
+                    audioManager.Play("Player Running 4");
+                }
+                randIndexTimer = 0.5f;
+            }
+
+        }
         CoyoteTime();
     }
 
@@ -126,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = jumpSpeed;
             isGrounded = false;
+            isHeadShaking = true;
         }
     }
 
@@ -138,6 +185,13 @@ public class PlayerMovement : MonoBehaviour
             StoredJumpVelo = velocity;
             velocity.y = -1.0f;
             currentCoyoteTime = coyoteTime;
+            if (isHeadShaking == true)
+            {
+                //StartCoroutine(Shake(0.1f, 1.0f));
+                audioManager.Stop("Player Landing");
+                audioManager.Play("Player Landing");
+                isHeadShaking = false;
+            }
         }
         // coyoteTime
         if (currentCoyoteTime > 0)
@@ -192,6 +246,25 @@ public class PlayerMovement : MonoBehaviour
         float headBobMove = (Mathf.Cos(headBobTimer * headBobFrequency) - 1.0f) * headBobAmplitude;
         localPos.y = headBobNeutral + (headBobMove * headBobBlendCurve.Evaluate(headBobMultiplier));
         lookScript.GetCamera().transform.localPosition = localPos;
+    }
+
+    private IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos = cameraTransform.localEulerAngles;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            float z = Random.Range(0.0f, 1.0f) * magnitude;
+
+            cameraTransform.localEulerAngles += new Vector3(0, 0, z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        cameraTransform.localEulerAngles = originalPos;
     }
 
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5590294782171415337}
   - component: {fileID: 5590294782171415336}
   - component: {fileID: 5590294782171415335}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: 2x3x3 Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallFlat (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
 --- !u!4 &5340721607616138194 stripped
@@ -275,6 +280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopFlat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0, type: 3}
@@ -351,6 +361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721607643387173 stripped
@@ -425,6 +440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -501,6 +521,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721607568702614 stripped
@@ -575,6 +600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5531bc11b6012d4986adc84541bad84,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5531bc11b6012d4986adc84541bad84, type: 3}
@@ -661,6 +691,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721607518156423 stripped
@@ -746,6 +781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundCorner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9d170f20109ef84a8bf30057259a299,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d170f20109ef84a8bf30057259a299, type: 3}
 --- !u!4 &5340721607540085101 stripped
@@ -820,6 +860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -896,6 +941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
 --- !u!4 &5340721607391941539 stripped
@@ -970,6 +1020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallGroundCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9d170f20109ef84a8bf30057259a299,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d170f20109ef84a8bf30057259a299, type: 3}
@@ -1046,6 +1101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopFlat
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0, type: 3}
 --- !u!4 &5340721607405208424 stripped
@@ -1120,6 +1180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -1206,6 +1271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721607288377592 stripped
@@ -1280,6 +1350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -1356,6 +1431,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallFlat (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
 --- !u!4 &5340721607290800017 stripped
@@ -1430,6 +1510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallWindow (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
@@ -1506,6 +1591,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721607300057909 stripped
@@ -1580,6 +1670,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopFlat (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0, type: 3}
@@ -1656,6 +1751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721607218458363 stripped
@@ -1730,6 +1830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd723bd63a2134846ae4e9c82ad167df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd723bd63a2134846ae4e9c82ad167df, type: 3}
@@ -1806,6 +1911,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallFlat (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
 --- !u!4 &5340721607101132674 stripped
@@ -1880,6 +1990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
@@ -1956,6 +2071,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721607048651540 stripped
@@ -2030,6 +2150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
@@ -2106,6 +2231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721607007198541 stripped
@@ -2180,6 +2310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallCorner (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
@@ -2256,6 +2391,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
 --- !u!4 &5340721606957694138 stripped
@@ -2330,6 +2470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallGroundDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e19182b79485c0649b307ecbd3939c65,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19182b79485c0649b307ecbd3939c65, type: 3}
@@ -2406,6 +2551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721606937720426 stripped
@@ -2480,6 +2630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallWindow (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
@@ -2566,6 +2721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundCorner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9d170f20109ef84a8bf30057259a299,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d170f20109ef84a8bf30057259a299, type: 3}
 --- !u!4 &5340721606850105634 stripped
@@ -2640,6 +2800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
@@ -2716,6 +2881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallFlat (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
 --- !u!4 &5340721606844163247 stripped
@@ -2790,6 +2960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -2866,6 +3041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundCorner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c9d170f20109ef84a8bf30057259a299,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d170f20109ef84a8bf30057259a299, type: 3}
 --- !u!4 &5340721606803665297 stripped
@@ -2940,6 +3120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
@@ -3016,6 +3201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopFlat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0, type: 3}
 --- !u!4 &5340721606759515608 stripped
@@ -3090,6 +3280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopSide
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
@@ -3166,6 +3361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721606713529600 stripped
@@ -3240,6 +3440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallCorner (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
@@ -3316,6 +3521,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
 --- !u!4 &5340721606575308267 stripped
@@ -3390,6 +3600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -3466,6 +3681,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721606564212401 stripped
@@ -3540,6 +3760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
@@ -3616,6 +3841,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721606505758108 stripped
@@ -3690,6 +3920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallCorner (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
@@ -3766,6 +4001,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
 --- !u!4 &5340721606484852834 stripped
@@ -3840,6 +4080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -3916,6 +4161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallCorner (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
 --- !u!4 &5340721606462058492 stripped
@@ -3990,6 +4240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopCorner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5531bc11b6012d4986adc84541bad84,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5531bc11b6012d4986adc84541bad84, type: 3}
@@ -4076,6 +4331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721606330680175 stripped
@@ -4150,6 +4410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -4236,6 +4501,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721606281924571 stripped
@@ -4310,6 +4580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallCorner (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c1636814fb43e64a81b99ed43b69b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1636814fb43e64a81b99ed43b69b83, type: 3}
@@ -4386,6 +4661,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopFlat (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0, type: 3}
 --- !u!4 &5340721606287787063 stripped
@@ -4460,6 +4740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
@@ -4536,6 +4821,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721606261407071 stripped
@@ -4610,6 +4900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -4686,6 +4981,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721606151715032 stripped
@@ -4760,6 +5060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}
@@ -4846,6 +5151,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721605970674443 stripped
@@ -4920,6 +5230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallWindow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
@@ -4996,6 +5311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_RooftopCorner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5531bc11b6012d4986adc84541bad84,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5531bc11b6012d4986adc84541bad84, type: 3}
 --- !u!4 &5340721605880542298 stripped
@@ -5070,6 +5390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopFlat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f7c1b0f4d8dad4894e89f67b6aedb0, type: 3}
@@ -5146,6 +5471,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721605884859379 stripped
@@ -5220,6 +5550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopCorner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5531bc11b6012d4986adc84541bad84,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5531bc11b6012d4986adc84541bad84, type: 3}
@@ -5296,6 +5631,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721605859699278 stripped
@@ -5371,6 +5711,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallFlat (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
 --- !u!4 &5340721605739632198 stripped
@@ -5445,6 +5790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallFlat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
@@ -5531,6 +5881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721605727599714 stripped
@@ -5606,6 +5961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallWindow (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
 --- !u!4 &5340721605641477855 stripped
@@ -5680,6 +6040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_WallWindow (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 456a6269c215ec04b992a76871b84751,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456a6269c215ec04b992a76871b84751, type: 3}
@@ -5766,6 +6131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallGroundSide (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdec4cfc5b52c0e41be3141be637ca06,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdec4cfc5b52c0e41be3141be637ca06, type: 3}
 --- !u!4 &5340721605655536584 stripped
@@ -5841,6 +6211,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model_Environment_WallFlat (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc39a654ed17e3e4ca709fb316991724,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc39a654ed17e3e4ca709fb316991724, type: 3}
 --- !u!4 &5340721605615920999 stripped
@@ -5915,6 +6290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Environment_RooftopSide (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a887005b35f374e4eb57f01b33198963,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a887005b35f374e4eb57f01b33198963, type: 3}

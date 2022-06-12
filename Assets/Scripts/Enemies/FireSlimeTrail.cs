@@ -7,6 +7,16 @@ public class FireSlimeTrail : MonoBehaviour
     float trailDamage;
     float trailDuration = 5.0f;
     float trailDamageTicker = 1.0f;
+    AudioManager audioManager;
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Stop("Fire Slime Trail Alive");
+        audioManager.Play("Fire Slime Trail Alive", player.transform, this.transform);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +25,7 @@ public class FireSlimeTrail : MonoBehaviour
         // deletes the trail after trailDuration <= 0
         if(trailDuration <= 0)
         {
+            audioManager.Stop("Fire Slime Trail Alive");
             Destroy(gameObject);
         }
     }
@@ -31,6 +42,8 @@ public class FireSlimeTrail : MonoBehaviour
         if(other.GetComponent<PlayerClass>())
         {
             other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
+            audioManager.Stop("Player Damage");
+            audioManager.Play("Player Damage");
         }
     }
 
@@ -43,6 +56,8 @@ public class FireSlimeTrail : MonoBehaviour
             {
                 other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
                 trailDamageTicker = 1.0f;
+                audioManager.Stop("Player Damage");
+                audioManager.Play("Player Damage");
             }
         }
     }

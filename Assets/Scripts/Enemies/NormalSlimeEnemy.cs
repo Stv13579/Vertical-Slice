@@ -8,7 +8,11 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     [SerializeField]
     float jumpForce;
-
+    public override void Start()
+    {
+        base.Start();
+        
+    }
 
     // need to work on
     public override void Attacking()
@@ -36,6 +40,25 @@ public class NormalSlimeEnemy : BaseEnemyClass
         
     }
 
+    public override void Movement(Vector3 positionToMoveTo, float speed)
+    {
+        base.Movement(moveDirection);
+
+        //Come back to hopping
+        Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
+        moveVec.y = 0;
+        moveVec.y -= 1 * Time.deltaTime;
+        transform.position += moveVec; 
+
+
+
+        transform.LookAt(player.transform.position);
+        Quaternion rot = transform.rotation;
+        rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
+        transform.rotation = rot;
+
+    }
+
     protected virtual void Update()
     {
         base.Update();
@@ -47,6 +70,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
+            audioManager.Stop("Slime Bounce");
+            audioManager.Play("Slime Bounce", player.transform, this.transform);
             GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
         // if colliding with player attack enemy reset damage ticker
@@ -61,6 +86,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)
         {
+            audioManager.Stop("Slime Bounce");
+            audioManager.Play("Slime Bounce", player.transform, this.transform);
             GetComponent<Rigidbody>().AddForce(0, jumpForce, 0);
         }
 
@@ -72,5 +99,4 @@ public class NormalSlimeEnemy : BaseEnemyClass
             damageTicker = 1.0f;
         }
     }
-
 }

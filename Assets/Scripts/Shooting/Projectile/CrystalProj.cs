@@ -11,7 +11,13 @@ public class CrystalProj : MonoBehaviour
     float startLifeTimer;
 
     List<string> attackTypes;
-
+    AudioManager audioManager;
+    bool ismoving;
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+        ismoving = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +31,10 @@ public class CrystalProj : MonoBehaviour
             startLifeTimer -= Time.deltaTime;
         }
         damage -= damageCurve.Evaluate(startLifeTimer - damageLifeTimer) * Time.deltaTime;
-        MoveCrystalProjectile();
+        if (ismoving == true)
+        {
+            MoveCrystalProjectile();
+        }
         KillProjectile();
     }
     // move crystal projectile forwards
@@ -60,14 +69,15 @@ public class CrystalProj : MonoBehaviour
         // destroy projectile after
         if (other.tag == "Environment")
         {
-            Destroy(gameObject);
+            ismoving = false;
         }
         Collider taggedEnemy = null;
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
             taggedEnemy = other;
-
+            audioManager.Stop("Slime Damage");
+            audioManager.Play("Slime Damage");
             Destroy(gameObject);
         }
     }

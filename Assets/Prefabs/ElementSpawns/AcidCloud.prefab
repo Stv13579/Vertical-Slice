@@ -89,6 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2b204e250f67842bc72322748e69a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acidBurnVFX: {fileID: 2657539707504406110, guid: bce72c7b368ca134db72e54b55111728,
+    type: 3}
+  attackTypes: []
 --- !u!1001 &6650773874861889113
 PrefabInstance:
   m_ObjectHideFlags: 0

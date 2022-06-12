@@ -11,6 +11,12 @@ public class ShopkeeperScript : MonoBehaviour
     PlayerMovement playerMove;
     PlayerLook playerLook;
     Shooting shooting;
+    GameObject gameUI;
+
+    private void Start()
+    {
+        gameUI = GameObject.Find("GameplayUI");
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.T) && inRange && !inShop)
@@ -31,9 +37,16 @@ public class ShopkeeperScript : MonoBehaviour
             playerMove.ableToMove = false;
             playerLook.ableToMove = false;
             shooting.ableToShoot = false;
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameUI.SetActive(false);
 
 
         }
+        if (playerMove != null)
+        {
+            this.gameObject.transform.GetChild(0).LookAt(new Vector3(playerMove.gameObject.transform.position.x, this.gameObject.transform.GetChild(0).position.y, playerMove.gameObject.transform.position.z));
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape) && inRange && inShop)
         {
@@ -49,6 +62,7 @@ public class ShopkeeperScript : MonoBehaviour
             playerMove = other.gameObject.GetComponent<PlayerMovement>();
             playerLook = other.gameObject.GetComponent<PlayerLook>();
             shooting = other.gameObject.GetComponent<Shooting>();
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -57,6 +71,8 @@ public class ShopkeeperScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             inRange = false;
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
         }
     }
 
@@ -68,7 +84,8 @@ public class ShopkeeperScript : MonoBehaviour
         playerMove.ableToMove = true;
         playerLook.ableToMove = true;
         shooting.ableToShoot = true;
-
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        gameUI.SetActive(true);
 
     }
 }

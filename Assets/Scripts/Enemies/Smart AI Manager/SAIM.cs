@@ -16,7 +16,7 @@ public class SAIM : MonoBehaviour
 
     public List<Node> aliveNodes;
 
-    [SerializeField,HideInInspector]
+    [SerializeField, HideInInspector]
     List<List<List<Node>>> instantiateNodeGrid;
 
     [System.Serializable]
@@ -42,7 +42,7 @@ public class SAIM : MonoBehaviour
 
     //Object which connects rooms
     [SerializeField]
-    GameObject bridge;
+    List<GameObject> bridges;
 
     //number in nodes of the sides of the grid.
     [SerializeField]
@@ -100,8 +100,17 @@ public class SAIM : MonoBehaviour
     int fireUse;
     int crystalUse;
 
+    // Aydens Audio
+    AudioManager audioManager;
+    [SerializeField]
+    string initialMusic;
+    [SerializeField]
+    string battleMusic;
     void Start()
     {
+        //Aydens Audio manager
+        audioManager = FindObjectOfType<AudioManager>();
+
         data.adjustedDifficulty = data.difficulty;
         data.player = GameObject.Find("Player");
         diffAdjTimerDAM = data.difficultyAdjustTimerTotal_DAMAGE;
@@ -139,13 +148,30 @@ public class SAIM : MonoBehaviour
 
         if(triggered && !roomComplete)
         {
-            blockerMaster.SetActive(true);
-            bridge.SetActive(false);
+            
+
+            if(bridges.Count > 0)
+            {
+                foreach (GameObject bridge in bridges)
+                {
+                    bridge.SetActive(false);
+                }
+                
+            }
+
         }
         else
         {
-            blockerMaster.SetActive(false);
-            bridge.SetActive(true);
+            
+
+            if (bridges.Count > 0)
+            {
+                foreach (GameObject bridge in bridges)
+                {
+                    bridge.SetActive(true);
+                }
+
+            }
         }
 
         AdjustDifficulty();
@@ -500,6 +526,9 @@ public class SAIM : MonoBehaviour
             spawnedEnemies.Add(spawnedEnemy.GetComponent<BaseEnemyClass>());
             spawnAmount++;
         }
+        // Aydens Audio
+        audioManager.Stop(initialMusic);
+        audioManager.Play(battleMusic);
     }
 
     public int ChooseEnemy()

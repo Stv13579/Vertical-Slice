@@ -59,6 +59,7 @@ public class PlayerClass : MonoBehaviour
         {
             heldItems[i].DeathTriggers();
         }
+        itemUI.transform.parent.gameObject.SetActive(false);
         Instantiate(gameOverScreen);
         dead = true;
         this.gameObject.GetComponent<PlayerLook>().ableToMove = false;

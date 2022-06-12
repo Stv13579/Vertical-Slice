@@ -37,6 +37,9 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
                 tempEnemyProjectile.GetComponent<CrystalSlimeProjectile>().SetVars(damageAmount);
                 //setting the rotations of the projectiles so that it spawns in like a circle
                 tempEnemyProjectile.transform.eulerAngles = new Vector3(tempEnemyProjectile.transform.eulerAngles.x, tempEnemyProjectile.transform.eulerAngles.y + (360.0f / 5.0f * i), tempEnemyProjectile.transform.eulerAngles.z);
+                audioManager.Stop("Crystal Slime Projectile");
+                // play SFX
+                audioManager.Play("Crystal Slime Projectile", player.transform, this.transform);
             }
             shootTimer = 2.0f;
         }

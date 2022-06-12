@@ -28,7 +28,10 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
-  jumpForce: 50
+  attackAudio: Play Damage
+  deathAudio: Slime Death
+  takeDamageAudio: Slime Damage
+  jumpForce: 100
   enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
     type: 3}
   trailLayerMask:
@@ -119,6 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f57426ad889f9a344a8ced825cad61a9, type: 2}
     m_RemovedComponents:
     - {fileID: 8048053914739367016, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
+    - {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
 --- !u!1 &8226606755440833374 stripped
 GameObject:

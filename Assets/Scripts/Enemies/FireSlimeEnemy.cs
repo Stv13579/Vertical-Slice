@@ -36,6 +36,8 @@ public class FireSlimeEnemy : NormalSlimeEnemy
             tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
             // sets the scale of the firetrail as there are different sizes of enemies
             tempEnemyTrail.transform.localScale = fireTrailScale;
+            audioManager.Stop("Fire Slime Trail Initial");
+            audioManager.Play("Fire Slime Trail Initial", player.transform, this.transform);
         }
     }
     public override void Movement(Vector3 positionToMoveTo)

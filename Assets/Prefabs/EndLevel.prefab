@@ -58,3 +58,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 1
+  loadingScreen: {fileID: 6745194996092151448, guid: 5ae832cad30ede643a9768ef31045146,
+    type: 3}

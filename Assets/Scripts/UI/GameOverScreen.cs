@@ -16,15 +16,15 @@ public class GameOverScreen : MonoBehaviour
 
     AsyncOperation operation;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Load the hub scene in the background while the button fades in
         StartCoroutine(LoadScene());
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //As each object fades in, sart fading in the next object
         if(backgroundTimer < 1)
         {
             backgroundTimer += Time.deltaTime;

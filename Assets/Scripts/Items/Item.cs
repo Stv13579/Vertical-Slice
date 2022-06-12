@@ -20,7 +20,7 @@ public class Item : MonoBehaviour
         //UIWidget.GetComponent<Image>().sprite = sprite;
         //UIWidget.transform.SetParent(player.itemUI.transform);
         //UIWidget.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,0);
-        GameObject.Find("GameplayUI").GetComponent<GameplayUI>().AddItem(sprite);
+        player.itemUI.transform.parent.gameObject.GetComponent<GameplayUI>().AddItem(sprite);
         player.heldItems.Add(this);
 
     }

@@ -49,7 +49,10 @@ public class BaseElementClass : MonoBehaviour
 
     protected PlayerClass playerClass;
 
+    [SerializeField]
     protected Transform shootingTranform;
+    [SerializeField]
+    protected LayerMask shootingIgnore;
 
     protected AudioManager audioManager;
 
@@ -60,7 +63,7 @@ public class BaseElementClass : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerClass = player.GetComponent<PlayerClass>();
-        shootingTranform = GameObject.Find("Elements").transform;
+        //shootingTranform = GameObject.Find("Elements").transform;
         audioManager = FindObjectOfType<AudioManager>();
     }
     protected virtual void StartAnims(string animationName)

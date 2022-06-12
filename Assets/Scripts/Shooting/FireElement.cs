@@ -47,6 +47,12 @@ public class FireElement : BaseElementClass
         base.ElementEffect();
         //
         GameObject newFireball = Instantiate(fireBall, shootingTranform.position, Camera.main.transform.rotation);
+        RaycastHit hit;
+        Physics.Raycast(this.gameObject.transform.position, Camera.main.transform.forward, out hit, 100, shootingIgnore);
+        if(hit.collider)
+        {
+            newFireball.transform.LookAt(hit.point);
+        }
         newFireball.GetComponent<Fireball>().SetVars(projectileSpeed, damage * damageMultiplier, gravity, gravCurve, gravityLifetime, explosionArea, explosionDamage, attackTypes);
     }
 

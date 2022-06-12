@@ -16,7 +16,7 @@ public class BaseEnemyClass : MonoBehaviour
 
     //base class that all enemies derive from.
 
-    float currentHealth;
+    protected float currentHealth;
     bool isDead = false;
     protected GameObject player;
 
@@ -127,7 +127,7 @@ public class BaseEnemyClass : MonoBehaviour
     }
 
     //Death
-    public void Death()
+    public virtual void Death()
     {
         if(isDead)
         {

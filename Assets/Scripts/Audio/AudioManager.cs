@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
             i.audioSource.loop = i.loop;
         }
 
-        //Play(initalMusic);
+        Play(initalMusic);
     }
 
     public void Play(string soundName, Transform playerPos = null, Transform enemyPos = null) // play sound 

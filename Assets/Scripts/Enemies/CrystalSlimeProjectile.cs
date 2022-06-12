@@ -7,19 +7,24 @@ public class CrystalSlimeProjectile : MonoBehaviour
     Rigidbody rb;
     float projectileDamage;
     GameObject player;
+    [SerializeField]
     float followTimer;
+    [SerializeField]
     float lifeTimer;
     AudioManager audioManager;
+
+    [SerializeField]
+    float upForce;
+    [SerializeField]
+    float forwardForce;
 
     // Start is called before the first frame update
     void Start()
     {
         // setting the timers at start
-        lifeTimer = 5.0f;
-        followTimer = 2.0f;
         rb = this.gameObject.GetComponent<Rigidbody>();
         // shoots the projectiles up and out 
-        rb.AddForce(this.transform.up * 2000 + this.transform.forward * 700);
+        rb.AddForce(this.transform.up * upForce + this.transform.forward * forwardForce);
         player = GameObject.Find("Player");
         audioManager = FindObjectOfType<AudioManager>();
     }

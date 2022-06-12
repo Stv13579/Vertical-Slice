@@ -26,6 +26,8 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     Renderer rend;
 
+    BossSpawn spawner;
+
     /// <summary>
     /// The duration of the lerp between mats
     /// </summary>
@@ -64,6 +66,25 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     private Vector3 fireTrailScale;
     public GameObject enemyTrail;
 
+    /// <summary>
+    /// Normal Type Properties
+    /// </summary>
+    [SerializeField]
+    float normalSlimeJumpForce;
+    bool startAttack;
+    bool endAttack;
+    float cachedMoveSpeed;
+    [SerializeField]
+    float airSpeed;
+
+    /// <summary>
+    /// Crystal Type Properties
+    /// </summary>
+    [SerializeField]
+    GameObject crystalProjectiles;
+    [SerializeField]
+    Vector3 projScale;
+
 
     public override void Start()
     {
@@ -74,10 +95,15 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         mat2 = rend.material;
         currentAttackTime = timeBetweenAttacks;
         currentChargeDuration = fireChargeDuration;
+
+        spawner = GameObject.Find("BossSpawner").GetComponent<BossSpawn>();
     }
 
     protected override void Update()
     {
+
+        Death();
+
         if(!ExecuteAttack())
         {
             moveDirection = player.transform.position;
@@ -126,7 +152,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         {
             case Type.crystal:
                 //Slowly send crystals out which bombard the arena, giving some telegraph to their landing zones
-                currentAttackTime = timeBetweenAttacks;
+                CrystalAttack();
                 break;
             case Type.fire:
                 //Periodically charge in a straight line, setting the ground on fire.
@@ -134,7 +160,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
                 break;
             case Type.normal:
                 //Periodically jump up high and slam down.
-                currentAttackTime = timeBetweenAttacks;
+                NormalAttack();
                 break;
             default:
                 break;
@@ -209,6 +235,51 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     }
 
     //Attacks
+    private void NormalAttack()
+    {
+        if(!startAttack)
+        {
+            GetComponent<Rigidbody>().AddForce(0, normalSlimeJumpForce, 0);
+            startAttack = true;
+            cachedMoveSpeed = moveSpeed;
+        }
+        else
+        {
+            moveSpeed = cachedMoveSpeed * airSpeed;
+            moveDirection = player.transform.position;
+            base.Update();
+        }
+
+        if(endAttack)
+        {
+            startAttack = false;
+            endAttack = false;
+            currentAttackTime = timeBetweenAttacks;
+            moveSpeed = cachedMoveSpeed;
+        }
+    }
+
+    //Crystal attack very similar to the crystal slime
+    private void CrystalAttack()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject tempEnemyProjectile = Instantiate(crystalProjectiles, transform.position + new Vector3(0.0f, 3.0f, 0.0f), Quaternion.identity);
+            // ignores physics for the with the crystal slime and the enemy crystal slime projectiles 
+            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), tempEnemyProjectile.GetComponent<Collider>());
+            // setting scale of enemy projectile based on enemy size
+            tempEnemyProjectile.transform.localScale = projScale;
+            // setter to set variables from CrystalSlimeProject
+            tempEnemyProjectile.GetComponent<CrystalSlimeProjectile>().SetVars(damageAmount);
+            //setting the rotations of the projectiles so that it spawns in like a circle
+            tempEnemyProjectile.transform.eulerAngles = new Vector3(tempEnemyProjectile.transform.eulerAngles.x, tempEnemyProjectile.transform.eulerAngles.y + (360.0f / 5.0f * i), tempEnemyProjectile.transform.eulerAngles.z);
+            audioManager.Stop("Crystal Slime Projectile");
+            // play SFX
+            audioManager.Play("Crystal Slime Projectile", player.transform, this.transform);
+        }
+
+        currentAttackTime = timeBetweenAttacks;
+    }
 
     private void FireAttack()
     {
@@ -255,6 +326,28 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         }
 
         rend.material = mat2;
+        
+    }
+
+    public override void OnCollisionEnter(Collision collision)
+    {
+
+        if (currentType == Type.normal && startAttack && (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player") )
+        {
+            endAttack = true;
+        }
+
+        base.OnCollisionEnter(collision);
+    }
+
+    public override void Death()
+    {
+        if(currentHealth <= 0)
+        {
+            spawner.bossDead = true;
+        }
+        base.Death();
+
         
     }
 

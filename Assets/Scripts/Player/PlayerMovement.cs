@@ -50,9 +50,15 @@ public class PlayerMovement : MonoBehaviour
     float randIndexTimer = 0.0f;
 
     private AudioManager audioManager;
+
+    private Transform cameraTransform;
+
+    private bool isHeadShaking;
+
     // Start is called before the first frame update
     void Start()
     {
+        cameraTransform = this.gameObject.GetComponentInChildren<Camera>().transform;
         audioManager = FindObjectOfType<AudioManager>();
         lookScript = this.gameObject.GetComponent<PlayerLook>();
         cController = this.gameObject.GetComponent<CharacterController>();
@@ -61,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ableToMove)
+        if (ableToMove)
         {
             PlayerMoving();
         }
@@ -115,10 +121,16 @@ public class PlayerMovement : MonoBehaviour
         newPos = transform.position;
 
         // collision when touching the roof
-        if((cController.collisionFlags & CollisionFlags.Above) != 0)
+        if ((cController.collisionFlags & CollisionFlags.Above) != 0)
         {
+            if(isHeadShaking == true)
+            {
+                //StartCoroutine(Shake(0.1f, 1.0f));
+                isHeadShaking = false;
+            }
             velocity.y = -1.0f;
         }
+
         randIndexTimer -= Time.deltaTime;
         int randomSoundIndex = Random.Range(0, 4);
         if (isGrounded == true && (Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) ||
@@ -160,8 +172,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = jumpSpeed;
             isGrounded = false;
-            audioManager.Stop("Player Landing");
-            audioManager.Play("Player Landing");
+            isHeadShaking = true;
         }
     }
 
@@ -174,6 +185,13 @@ public class PlayerMovement : MonoBehaviour
             StoredJumpVelo = velocity;
             velocity.y = -1.0f;
             currentCoyoteTime = coyoteTime;
+            if (isHeadShaking == true)
+            {
+                //StartCoroutine(Shake(0.1f, 1.0f));
+                audioManager.Stop("Player Landing");
+                audioManager.Play("Player Landing");
+                isHeadShaking = false;
+            }
         }
         // coyoteTime
         if (currentCoyoteTime > 0)
@@ -228,6 +246,25 @@ public class PlayerMovement : MonoBehaviour
         float headBobMove = (Mathf.Cos(headBobTimer * headBobFrequency) - 1.0f) * headBobAmplitude;
         localPos.y = headBobNeutral + (headBobMove * headBobBlendCurve.Evaluate(headBobMultiplier));
         lookScript.GetCamera().transform.localPosition = localPos;
+    }
+
+    private IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos = cameraTransform.localEulerAngles;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            float z = Random.Range(0.0f, 1.0f) * magnitude;
+
+            cameraTransform.localEulerAngles += new Vector3(0, 0, z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        cameraTransform.localEulerAngles = originalPos;
     }
 
 }

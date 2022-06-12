@@ -8,8 +8,11 @@ public class PlayerLook : MonoBehaviour
     // current rotation of camera
     private float spin = 0.0f;
     private float tilt = 0.0f;
+    private float roll = 0.0f;
 
-    private float targetCameraPos;
+    private float targetRoll = 0.0f;
+    private float rollSpeed = 4.0f;
+    private float maxRoll = 2.5f;
 
     [SerializeField] private Vector2 tiltExtents = new Vector2(-85.0f, 85.0f);
     [SerializeField] private Vector2 spinExtents;
@@ -29,6 +32,8 @@ public class PlayerLook : MonoBehaviour
     // setter to set the sensitivity value
     public void SetSensitivity(float _sensitivity) { sensitivity = _sensitivity; }
 
+    public void SetRoll(float normalizedRoll) {targetRoll = -normalizedRoll * maxRoll; }
+
     public void LockCursor()
     {
         cursorLocked = !cursorLocked;
@@ -36,14 +41,6 @@ public class PlayerLook : MonoBehaviour
         Cursor.lockState = cursorLocked ? CursorLockMode.Locked : CursorLockMode.None;
         // cursor is not visable
         Cursor.visible = !cursorLocked;
-    }
-
-    private void HandleEditorInputs()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            LockCursor();
-        }
     }
     private void MoveCamera()
     {
@@ -62,10 +59,12 @@ public class PlayerLook : MonoBehaviour
             // stops the player from snapping their neck
             tilt = Mathf.Clamp(tilt, tiltExtents.x, tiltExtents.y);
 
+            roll = Mathf.Lerp(roll, targetRoll, rollSpeed * Time.deltaTime);
+            RollInput();
             // rotation on the x axis for the mouse (rotating head to look from side to side)
             // rotation on the y axis for the mouse (rotating head so looking up and down)
-            camera.transform.localEulerAngles = new Vector3(tilt, spin, 0);
-            camera.transform.localPosition += Quaternion.Euler(0.0f, spin, 0.0f) * new Vector3(targetCameraPos, 0, 0);
+            camera.transform.localEulerAngles = new Vector3(tilt, spin, roll);
+            camera.transform.localPosition += Quaternion.Euler(0.0f, spin, 0.0f) * new Vector3(0, 0, 0);
         }
     }
     // Start is called before the first frame update
@@ -81,8 +80,22 @@ public class PlayerLook : MonoBehaviour
         if(ableToMove)
         {
             MoveCamera();
-            HandleEditorInputs();
         }
 
+    }
+    private void RollInput()
+    {
+        if(Input.GetKey(KeyCode.A))
+        {
+            SetRoll(-0.5f);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            SetRoll(0.5f);
+        }
+        else
+        {
+            SetRoll(0);
+        }
     }
 }

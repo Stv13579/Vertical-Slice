@@ -979,6 +979,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1927470842457689050, guid: 2f4a84daf0dedf74fa143b029082440a,
+        type: 3}
+      propertyPath: sounds.Array.data[13].volume
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927470842457689050, guid: 2f4a84daf0dedf74fa143b029082440a,
+        type: 3}
+      propertyPath: sounds.Array.data[31].volume
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8932678716926906926, guid: 2f4a84daf0dedf74fa143b029082440a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1523,6 +1533,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: projScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: projScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: projScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: crystalProjectiles
+      value: 
+      objectReference: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
+        type: 3}
     - target: {fileID: 4878662708443654493, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}
       propertyPath: m_Name

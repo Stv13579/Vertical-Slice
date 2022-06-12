@@ -48,7 +48,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
         Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
         moveVec.y = 0;
         moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec;
+        transform.position += moveVec; 
 
 
 
@@ -81,7 +81,6 @@ public class NormalSlimeEnemy : BaseEnemyClass
             Attacking();
             damageTicker = 1.0f;
         }
-
     }
     public virtual void OnCollisionStay(Collision collision)
     {

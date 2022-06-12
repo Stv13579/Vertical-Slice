@@ -55,7 +55,15 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     float fireChargeSpeed;
     Vector3 chargeVec;
-    
+    [SerializeField]
+    private LayerMask trailLayerMask;
+    float trailCastDistance = 1.0f;
+    float backCastDistance = 0.1f;
+    float trailOffset = 0.01f;
+    [SerializeField]
+    private Vector3 fireTrailScale;
+    public GameObject enemyTrail;
+
 
     public override void Start()
     {
@@ -77,7 +85,28 @@ public class BossSlimeEnemy : NormalSlimeEnemy
 
             chargeVec = (moveDirection - transform.position).normalized;
 
-            //SwitchType();
+            SwitchType();
+        }
+
+        //If the boss is on fire mode, make the fire trail
+        if(currentType == Type.fire)
+        {
+            RaycastHit hit;
+            Vector3 Back = new Vector3(0f, backCastDistance, 0f);
+            // check of the ray cast line is hitting the ground
+            if (Physics.Raycast(transform.position + Back, -transform.up, out hit, trailCastDistance + backCastDistance, trailLayerMask))
+            {
+                // rotate the go if it hits a flat surface or an angled surface
+                Quaternion newrotation = Quaternion.FromToRotation(transform.up, hit.normal);
+                // creates a plane which is the trail of the fire slime
+                GameObject tempEnemyTrail = Instantiate(enemyTrail, hit.point + hit.normal * trailOffset, newrotation);
+                // sets the damage
+                tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
+                // sets the scale of the firetrail as there are different sizes of enemies
+                tempEnemyTrail.transform.localScale = fireTrailScale;
+                audioManager.Stop("Fire Slime Trail Initial");
+                audioManager.Play("Fire Slime Trail Initial", player.transform, this.transform);
+            }
         }
         
         

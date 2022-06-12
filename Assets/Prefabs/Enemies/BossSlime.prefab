@@ -38,7 +38,16 @@ MonoBehaviour:
   crystalMat: {fileID: 2100000, guid: aa507c1dd4ae1a44e9f88c959716f331, type: 2}
   rend: {fileID: 6094789019902066308}
   matLerpMax: 1
-  changeTime: 3
+  changeTime: 10
+  timeBetweenAttacks: 5
+  fireChargeDuration: 5
+  fireChargeSpeed: 10
+  trailLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  fireTrailScale: {x: 0.5, y: 1, z: 0.5}
+  enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
+    type: 3}
 --- !u!1001 &2361428090863536218
 PrefabInstance:
   m_ObjectHideFlags: 0

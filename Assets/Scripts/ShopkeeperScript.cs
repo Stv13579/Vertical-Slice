@@ -13,7 +13,7 @@ public class ShopkeeperScript : MonoBehaviour
     Shooting shooting;
     GameObject gameUI;
 
-    private void Start()
+    void Start()
     {
         gameUI = GameObject.Find("GameplayUI");
     }
@@ -32,7 +32,7 @@ public class ShopkeeperScript : MonoBehaviour
                 instantiatedShopUI.SetActive(true);
             }
             inShop = true;
-
+            //Lock the players actions, enable the shop
             playerLook.LockCursor();
             playerMove.ableToMove = false;
             playerLook.ableToMove = false;
@@ -58,6 +58,8 @@ public class ShopkeeperScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            gameUI = GameObject.Find("GameplayUI");
+
             inRange = true;
             playerMove = other.gameObject.GetComponent<PlayerMovement>();
             playerLook = other.gameObject.GetComponent<PlayerLook>();
@@ -78,6 +80,7 @@ public class ShopkeeperScript : MonoBehaviour
 
     public void LeaveShop()
     {
+        //Unlock the players actions, disable the shop
         inShop = false;
         instantiatedShopUI.SetActive(false);
         playerLook.LockCursor();

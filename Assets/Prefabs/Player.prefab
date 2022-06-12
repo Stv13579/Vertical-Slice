@@ -376,6 +376,36 @@ MonoBehaviour:
   - {fileID: 5153590985047999224}
   - {fileID: 128290791}
   - {fileID: 7904701518895008356}
+--- !u!1 &5574853780865932307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7154586944397213209}
+  m_Layer: 0
+  m_Name: SpellSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7154586944397213209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574853780865932307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: -0.0294, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7137256267730290853}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5625023910628228238
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +901,10 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 6ee77b03add3bef47a42ac7213c82bf0, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 7154586944397213209}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 200499
   shootingSoundFX: Fireball Initial
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
@@ -928,6 +962,10 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 0}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Soul Element
   healthRestore: 50
 --- !u!114 &5625023910511142018
@@ -953,6 +991,10 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 7154586944397213209}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Crystal Shotgun
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
@@ -1007,6 +1049,10 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 0}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Energy Element
   fullRestoreAmount: 60
 --- !u!114 &443619680
@@ -1032,6 +1078,10 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: db3d8f6650a6d9d42aa38560b3d2008d, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 7154586944397213209}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Shard Cannon
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
@@ -1061,6 +1111,10 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 0}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Acid Cloud (Long)
   cloudProj: {fileID: 8417138957682568096, guid: 10b41ea33a4534e4bb8656dcf5ea9cae,
     type: 3}
@@ -1091,6 +1145,10 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 770339e41d8494046adb4a9a0b4714db, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 0}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Laser Beam
   LaserBeam: {fileID: 3981687641008780923}
   damage: 1
@@ -1119,6 +1177,10 @@ MonoBehaviour:
   crosshair: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}
   attackTypes: []
   playerClass: {fileID: 0}
+  shootingTranform: {fileID: 0}
+  shootingIgnore:
+    serializedVersion: 2
+    m_Bits: 0
   shootingSoundFX: Curse Element Initial
   curseTargets:
     serializedVersion: 2
@@ -1355,15 +1417,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5625023910865451700}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3981687641818801459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8741999943941267335, guid: 9d0cd90afa85ff94fa6a88965851589e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5625023910865451700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3981687641008780920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8741999944741850316, guid: 9d0cd90afa85ff94fa6a88965851589e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5625023910865451700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3981687641818801459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8741999943941267335, guid: 9d0cd90afa85ff94fa6a88965851589e,
     type: 3}
   m_PrefabInstance: {fileID: 5625023910865451700}
   m_PrefabAsset: {fileID: 0}
@@ -1551,6 +1613,12 @@ GameObject:
 --- !u!4 &7285033174201533603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bdddcfde0b12e5b4099a5552a5a85e36,
+    type: 3}
+  m_PrefabInstance: {fileID: 7103050103543653192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7137256267730290853 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 117017368592116717, guid: bdddcfde0b12e5b4099a5552a5a85e36,
     type: 3}
   m_PrefabInstance: {fileID: 7103050103543653192}
   m_PrefabAsset: {fileID: 0}

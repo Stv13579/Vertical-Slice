@@ -72,6 +72,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 41bc13a0b2b7ee84196f8f26ec56af2d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture1:
+        m_Texture: {fileID: 2800000, guid: de220d106c1ee234787d813c220f9e0d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2:
+        m_Texture: {fileID: 2800000, guid: 39d0a903fd38fa045901d864a3f0ca8f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture3:
+        m_Texture: {fileID: 2800000, guid: bcf9928001deb8c4485e99ef210908a9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture4:
+        m_Texture: {fileID: 2800000, guid: bf00e325700b0714d8090cb909018828, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture5:
+        m_Texture: {fileID: 2800000, guid: a876fbcd2d6ea9f4d88d89bae37d0489, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture6:
+        m_Texture: {fileID: 2800000, guid: 0076bf24fba01f84bb03e9df4d7fe5b1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -108,12 +136,17 @@ Material:
     - _BaseColour: {r: 30.87059, g: 11.92157, b: 1.380392, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flashing_MainXYZ: {r: 5, g: 10, b: 3, a: 0}
+    - _Flashing_OuterXYZW: {r: 4, g: 10, b: 20, a: 15}
     - _LFull_UV_Tiling: {r: 2, g: 1, b: 0, a: 0}
     - _LFull_XY_Speed: {r: -5, g: 0, b: 0, a: 0}
     - _LHalf_UV_Tiling: {r: 2, g: 1, b: 0, a: 0}
     - _LHalf_XY_Speed: {r: -2, g: 0, b: 0, a: 0}
     - _LSoft_UV_Tiling: {r: 2, g: 1, b: 0, a: 0}
     - _LSoft_XY_Speed: {r: -1, g: 0, b: 0, a: 0}
+    - _Panning_MainXYZ: {r: -3, g: -6, b: -1, a: 0}
+    - _Panning_OuterXYZW: {r: -0.1, g: -0.2, b: 0.5, a: -2.3}
+    - _SecondaryColour: {r: 3.9533494, g: 1.0142101, b: 0.18628348, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UVTiling: {r: 2, g: 1, b: 0, a: 0}
     - _XYSpeed: {r: -1, g: 0, b: 0, a: 0}

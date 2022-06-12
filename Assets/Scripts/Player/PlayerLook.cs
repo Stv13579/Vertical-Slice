@@ -93,17 +93,17 @@ public class PlayerLook : MonoBehaviour
         if(Input.GetKey(KeyCode.A))
         {
             SetRoll(-0.5f);
-            ShiftCamera(0.5f);
+            //ShiftCamera(0.5f);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             SetRoll(0.5f);
-            ShiftCamera(-0.5f);
+            //ShiftCamera(-0.5f);
         }
         else
         {
             SetRoll(0);
-            ShiftCamera(0);
+            //ShiftCamera(0);
         }
     }
 }

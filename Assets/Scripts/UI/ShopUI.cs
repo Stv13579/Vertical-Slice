@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShopUI : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ShopUI : MonoBehaviour
     GameObject inventory;
     List<int> ids = new List<int>();
 
-    public Text moneyText;
+    public TextMeshProUGUI moneyText;
 
     [HideInInspector]
     public ShopkeeperScript shopkeeper;
@@ -61,15 +62,15 @@ public class ShopUI : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             //Give the UI buttons the necessary information for each item they contain
-            buttons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].itemName;
+            buttons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = shopItems[i].itemName;
             buttons[i].transform.GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprite;
-            buttons[i].transform.GetChild(2).GetComponent<Text>().text = shopItems[i].currencyCost.ToString();
+            buttons[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = shopItems[i].currencyCost.ToString();
         }
     }
 
     private void Update()
     {
-        moneyText.text = player.money.ToString();
+        moneyText.text = "Money: " + player.money.ToString();
     }
     public void Button(int button)
     {

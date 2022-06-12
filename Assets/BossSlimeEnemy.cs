@@ -29,6 +29,12 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     BossSpawn spawner;
 
     /// <summary>
+    /// Weak point objects
+    /// </summary>
+    [SerializeField]
+    GameObject firePoint, normalPoint, crystalPoint;
+
+    /// <summary>
     /// The duration of the lerp between mats
     /// </summary>
     [SerializeField]
@@ -53,7 +59,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     /// </summary>
     [SerializeField]
     float fireChargeDuration;
-    float currentChargeDuration;
+    public float currentChargeDuration;
     [SerializeField]
     float fireChargeSpeed;
     Vector3 chargeVec;

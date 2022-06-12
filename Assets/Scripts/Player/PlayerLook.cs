@@ -14,9 +14,6 @@ public class PlayerLook : MonoBehaviour
     private float rollSpeed = 4.0f;
     private float maxRoll = 2.5f;
 
-    private float targetCameraPos;
-    private float maxCameraPos = 0.05f;
-
     [SerializeField] private Vector2 tiltExtents = new Vector2(-85.0f, 85.0f);
     [SerializeField] private Vector2 spinExtents;
     [SerializeField] private float sensitivity = 2.0f;
@@ -36,8 +33,6 @@ public class PlayerLook : MonoBehaviour
     public void SetSensitivity(float _sensitivity) { sensitivity = _sensitivity; }
 
     public void SetRoll(float normalizedRoll) {targetRoll = -normalizedRoll * maxRoll; }
-
-    public void ShiftCamera(float normalizedSpeed) { targetCameraPos = -normalizedSpeed * maxCameraPos; }
 
     public void LockCursor()
     {
@@ -69,7 +64,7 @@ public class PlayerLook : MonoBehaviour
             // rotation on the x axis for the mouse (rotating head to look from side to side)
             // rotation on the y axis for the mouse (rotating head so looking up and down)
             camera.transform.localEulerAngles = new Vector3(tilt, spin, roll);
-            camera.transform.localPosition += Quaternion.Euler(0.0f, spin, 0.0f) * new Vector3(targetCameraPos, 0, 0);
+            camera.transform.localPosition += Quaternion.Euler(0.0f, spin, 0.0f) * new Vector3(0, 0, 0);
         }
     }
     // Start is called before the first frame update
@@ -93,17 +88,14 @@ public class PlayerLook : MonoBehaviour
         if(Input.GetKey(KeyCode.A))
         {
             SetRoll(-0.5f);
-            //ShiftCamera(0.5f);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             SetRoll(0.5f);
-            //ShiftCamera(-0.5f);
         }
         else
         {
             SetRoll(0);
-            //ShiftCamera(0);
         }
     }
 }

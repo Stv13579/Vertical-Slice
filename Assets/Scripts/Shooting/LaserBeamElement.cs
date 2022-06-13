@@ -12,6 +12,11 @@ public class LaserBeamElement : BaseElementClass
     public float damageMultiplier = 1;
 
     public bool usingLaserBeam;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
     // Update is called once per frame
     protected override void Update()
     {

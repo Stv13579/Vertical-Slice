@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5574853780865932307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -0.0294, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.029, z: -0.141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7137256267730290853}
@@ -904,7 +904,7 @@ MonoBehaviour:
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
-    m_Bits: 200497
+    m_Bits: 198449
   shootingSoundFX: Fireball Initial
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
@@ -994,7 +994,7 @@ MonoBehaviour:
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
-    m_Bits: 208689
+    m_Bits: 206641
   shootingSoundFX: Crystal Shotgun
   crystalProjectile: {fileID: 767471284418207900, guid: 6d74d8f7a4c049649922bd1346f7f9c6,
     type: 3}
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
     serializedVersion: 2
-    m_Bits: 208689
+    m_Bits: 206641
   shootingSoundFX: Shard Cannon
   shardProj: {fileID: 2115769081119537338, guid: 316042c01d1629e499fece67a8fd0bed,
     type: 3}
@@ -1231,6 +1231,7 @@ MonoBehaviour:
   - {fileID: 443619680}
   - {fileID: 5153590985047999224}
   - {fileID: 128290791}
+  - {fileID: 7904701518895008356}
 --- !u!1001 &4854432157825868252
 PrefabInstance:
   m_ObjectHideFlags: 0

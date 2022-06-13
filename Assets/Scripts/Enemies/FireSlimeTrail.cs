@@ -6,7 +6,8 @@ public class FireSlimeTrail : MonoBehaviour
 {
     float trailDamage;
     float trailDuration = 5.0f;
-    float trailDamageTicker = 1.0f;
+    static float trailDamageTicker = 1.0f;
+    static int frame = 0;
     AudioManager audioManager;
     GameObject player;
 
@@ -21,12 +22,21 @@ public class FireSlimeTrail : MonoBehaviour
     void Update()
     {
         trailDuration -= Time.deltaTime;
-        trailDamageTicker -= Time.deltaTime;
+        Countdown();
         // deletes the trail after trailDuration <= 0
         if(trailDuration <= 0)
         {
             audioManager.Stop("Fire Slime Trail Alive");
             Destroy(gameObject);
+        }
+    }
+
+    static void Countdown()
+    {
+        if(frame != Time.frameCount)
+        {
+            trailDamageTicker -= Time.deltaTime;
+            frame = Time.frameCount;
         }
     }
 
@@ -37,15 +47,15 @@ public class FireSlimeTrail : MonoBehaviour
     }
 
     // player takes damage when entering the trail
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.GetComponent<PlayerClass>())
-        {
-            other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
-            audioManager.Stop("Player Damage");
-            audioManager.Play("Player Damage");
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.GetComponent<PlayerClass>())
+    //    {
+    //        other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
+    //        audioManager.Stop("Player Damage");
+    //        audioManager.Play("Player Damage");
+    //    }
+    //}
 
     // player takes damage over time when they are still in the trail
     private void OnTriggerStay(Collider other)

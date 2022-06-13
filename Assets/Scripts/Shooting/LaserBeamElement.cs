@@ -12,7 +12,6 @@ public class LaserBeamElement : BaseElementClass
     public float damageMultiplier = 1;
 
     public bool usingLaserBeam;
-
     protected override void Start()
     {
         base.Start();

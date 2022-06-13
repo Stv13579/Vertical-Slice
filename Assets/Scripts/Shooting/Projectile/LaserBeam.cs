@@ -18,7 +18,7 @@ public class LaserBeam : MonoBehaviour
     [SerializeField]
     private GameObject laserBeamEndParticle;
 
-    private GameObject laserBeamEffectParticle;
+    public GameObject laserBeamEffectParticle;
 
     bool isHittingObj;
 
@@ -72,7 +72,12 @@ public class LaserBeam : MonoBehaviour
         if(other.tag == "Enemy" || other.tag == "Environment")
         {
             isHittingObj = true;
-            laserBeamEndParticle.transform.position = other.gameObject.transform.position;
+            RaycastHit hit;
+            if (Physics.Raycast(laserBeamEffectParticle.transform.position, laserBeamEffectParticle.transform.forward, out hit, Mathf.Infinity))
+            {
+               laserBeamEndParticle.transform.position = hit.point;
+               //laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPositions();
+            }
 
             Debug.Log("DesNUTS");
         }
@@ -84,7 +89,11 @@ public class LaserBeam : MonoBehaviour
             audioManager.Play("Slime Damage");
         }
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawLine(laserBeamEffectParticle.transform.position);
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Enemy" || other.tag == "Environment")

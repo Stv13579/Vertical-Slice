@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(isHeadShaking == true)
             {
-                StartCoroutine(Shake(0.1f, 1.0f));
+                //StartCoroutine(Shake(0.1f, 1.0f));
                 isHeadShaking = false;
             }
             velocity.y = -1.0f;
@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
             currentCoyoteTime = coyoteTime;
             if (isHeadShaking == true)
             {
-                StartCoroutine(Shake(0.1f, 1.0f));
+                //StartCoroutine(Shake(0.1f, 1.0f));
                 audioManager.Stop("Player Landing");
                 audioManager.Play("Player Landing");
                 isHeadShaking = false;
@@ -250,20 +250,21 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Shake(float duration, float magnitude)
     {
-        // while duration is greater then 0
-        while (duration > 0)
+        Vector3 originalPos = cameraTransform.localEulerAngles;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
         {
-            // z = random range times how big the shake
             float z = Random.Range(0.0f, 1.0f) * magnitude;
 
-            // shake on the z axis
-            cameraTransform.eulerAngles += new Vector3(0, 0, z);
+            cameraTransform.localEulerAngles += new Vector3(0, 0, z);
 
-            // decrease the duration
-            duration -= Time.deltaTime;
+            elapsed += Time.deltaTime;
 
             yield return null;
         }
+
+        cameraTransform.localEulerAngles = originalPos;
     }
 
 }

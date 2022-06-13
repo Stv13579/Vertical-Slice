@@ -24,7 +24,6 @@ public class DialogueData : ScriptableObject
     public List<DialoguePair> dialoguePairs;
 
     public Image dialogueBox;
-    public Image nameBackground;
 
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;

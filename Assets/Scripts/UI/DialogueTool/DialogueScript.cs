@@ -94,13 +94,8 @@ public class DialogueScript : MonoBehaviour
     // creates the text of the NPC name and creates a little background for the name
     public void CreateNameText()
     {
-        var NBG = dialogueData.nameBackground;
-        Image namebackground = Instantiate(NBG, new Vector3(330, 240, 0), Quaternion.identity, dialogueUIHolder.transform);
-        namebackground.name = "NPCNameImage";
-        namebackground.color = nameBackgroundColor;
-
         var NT = dialogueData.nameText;
-        TextMeshProUGUI nameText = Instantiate(NT, new Vector3(330, 240, 0), Quaternion.identity, dialogueUIHolder.transform);
+        TextMeshProUGUI nameText = Instantiate(NT, new Vector3(330, 240, 0), Quaternion.Euler(0.0f, 0.0f, 10.0f), dialogueUIHolder.transform);
         nameText.name = "NPCNameText";
         nameText.color = nameTextColor;
         nameText.font = dialogueData.nameFont;
@@ -196,7 +191,6 @@ public class DialogueScript : MonoBehaviour
     public void GatherDialogueBoxData()
     {
         dialogueData.dialogueBox = Resources.Load<Image>("UIAssets/DialogueBoxImage");
-        dialogueData.nameBackground = Resources.Load<Image>("UIAssets/NPCNameImage");
         dialogueData.nameText = Resources.Load<TextMeshProUGUI>("UIAssets/NPCNameText(TMP)");
         dialogueData.dialogueText = Resources.Load<TextMeshProUGUI>("UIAssets/DialogueText(TMP)");
         dialogueData.backButton = Resources.Load<Button>("UIAssets/BackandExitButton(TMP)");

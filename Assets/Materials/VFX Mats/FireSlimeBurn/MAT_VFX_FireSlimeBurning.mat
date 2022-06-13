@@ -77,7 +77,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _Blend: 0
     - _BumpScale: 1
-    - _CenterPoint: 0.242
+    - _CenterPoint: 0.143
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0

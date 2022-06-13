@@ -25,12 +25,6 @@ public class DialogueScript : MonoBehaviour
     [Header("This will need to change everytime")]
     public DialogueData dialogueData;
     public GameObject dialogueUIHolder;
-    [Header("e.g. dialogue background Image, dialogue text")]
-    [Header("Colours to change for the text and the Images")]
-    public Color nameBackgroundColor = new Color(0, 0, 0, 255);
-    public Color nameTextColor = new Color(0, 0, 0, 255);
-    public Color dialogueTextColor = new Color(0, 0, 0, 255);
-    public Color dialogueBoxColor = new Color(0, 0, 0, 255);
 
 #if UNITY_EDITOR
     [MenuItem("DialogueTool/Create DialogueTool")]
@@ -86,18 +80,16 @@ public class DialogueScript : MonoBehaviour
     public void CreateDialogueBox()
     {
         var DB = dialogueData.dialogueBox;
-        Image dialogueBox = Instantiate(DB, new Vector3(960,150,0), Quaternion.identity, dialogueUIHolder.transform);
+        Image dialogueBox = Instantiate(DB, new Vector3(960,805,0), Quaternion.identity, dialogueUIHolder.transform);
         dialogueBox.name = "DialogueBoxImage";
-        dialogueBox.color = dialogueBoxColor;
     }
 
     // creates the text of the NPC name and creates a little background for the name
     public void CreateNameText()
     {
         var NT = dialogueData.nameText;
-        TextMeshProUGUI nameText = Instantiate(NT, new Vector3(330, 240, 0), Quaternion.Euler(0.0f, 0.0f, 10.0f), dialogueUIHolder.transform);
+        TextMeshProUGUI nameText = Instantiate(NT, new Vector3(500, 790, 0), Quaternion.Euler(0.0f, 0.0f, 10.0f), dialogueUIHolder.transform);
         nameText.name = "NPCNameText";
-        nameText.color = nameTextColor;
         nameText.font = dialogueData.nameFont;
         nameText.text = dialogueData.npcName;
         nameText.alignment = TextAlignmentOptions.Center;
@@ -108,9 +100,8 @@ public class DialogueScript : MonoBehaviour
     public void CreateDialogueText()
     {
         var DT = dialogueData.dialogueText;
-        TextMeshProUGUI dialogueText = Instantiate(DT, new Vector3(960, 140, 0), Quaternion.identity, dialogueUIHolder.transform);
+        TextMeshProUGUI dialogueText = Instantiate(DT, new Vector3(960, 975, 0), Quaternion.identity, dialogueUIHolder.transform);
         dialogueText.name = "DialogueText";
-        dialogueText.color = dialogueTextColor;
         dialogueText.font = dialogueData.dialogueFont;
     }
 #if UNITY_EDITOR
@@ -118,7 +109,7 @@ public class DialogueScript : MonoBehaviour
     public void CreateNextExitButton()
     {
         var NEB = dialogueData.backButton;
-        Button backButton = Instantiate(NEB, new Vector3(1550, 50, 0), Quaternion.identity, dialogueUIHolder.transform);
+        Button backButton = Instantiate(NEB, new Vector3(960, 180, 0), Quaternion.identity, dialogueUIHolder.transform);
         backButton.name = "BackButton";
         backButton.GetComponentInChildren<TextMeshProUGUI>().font = dialogueData.nameFont;
         backButton.GetComponentInChildren<TextMeshProUGUI>().name = "ButtonText";
@@ -133,7 +124,7 @@ public class DialogueScript : MonoBehaviour
     public void CreatePlayerOption1Button()
     {
         var NEB = dialogueData.dialogueOptionButton;
-        Button backButton = Instantiate(NEB, new Vector3(960, 800, 0), Quaternion.identity, dialogueUIHolder.transform);
+        Button backButton = Instantiate(NEB, new Vector3(960, 420, 0), Quaternion.identity, dialogueUIHolder.transform);
         backButton.name = "PlayerOption1";
         backButton.GetComponentInChildren<TextMeshProUGUI>().font = dialogueData.nameFont;
         backButton.GetComponentInChildren<TextMeshProUGUI>().name = "PlayerOption1Text";
@@ -147,7 +138,7 @@ public class DialogueScript : MonoBehaviour
     public void CreatePlayerOption2Button()
     {
         var NEB = dialogueData.dialogueOptionButton;
-        Button backButton = Instantiate(NEB, new Vector3(960, 725, 0), Quaternion.identity, dialogueUIHolder.transform);
+        Button backButton = Instantiate(NEB, new Vector3(960, 370, 0), Quaternion.identity, dialogueUIHolder.transform);
         backButton.name = "PlayerOption2";
         backButton.GetComponentInChildren<TextMeshProUGUI>().font = dialogueData.nameFont;
         backButton.GetComponentInChildren<TextMeshProUGUI>().name = "PlayerOption2Text";
@@ -161,7 +152,7 @@ public class DialogueScript : MonoBehaviour
     public void CreatePlayerOption3Button()
     {
         var NEB = dialogueData.dialogueOptionButton;
-        Button backButton = Instantiate(NEB, new Vector3(960, 650, 0), Quaternion.identity, dialogueUIHolder.transform);
+        Button backButton = Instantiate(NEB, new Vector3(960, 320, 0), Quaternion.identity, dialogueUIHolder.transform);
         backButton.name = "PlayerOption3";
         backButton.GetComponentInChildren<TextMeshProUGUI>().font = dialogueData.nameFont;
         backButton.GetComponentInChildren<TextMeshProUGUI>().name = "PlayerOption3Text";
@@ -175,7 +166,7 @@ public class DialogueScript : MonoBehaviour
     public void CreatePlayerOption4Button()
     {
         var NEB = dialogueData.dialogueOptionButton;
-        Button backButton = Instantiate(NEB, new Vector3(960, 575, 0), Quaternion.identity, dialogueUIHolder.transform);
+        Button backButton = Instantiate(NEB, new Vector3(960, 270, 0), Quaternion.identity, dialogueUIHolder.transform);
         backButton.name = "PlayerOption4";
         backButton.GetComponentInChildren<TextMeshProUGUI>().font = dialogueData.nameFont;
         backButton.GetComponentInChildren<TextMeshProUGUI>().name = "PlayerOption4Text";

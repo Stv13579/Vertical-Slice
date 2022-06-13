@@ -30,7 +30,7 @@ Material:
     - _FracUVEnable: 0
     - _MulAlphaToRGB: 0
     - _ProjectionAngleDiscardEnable: 1
-    - _ProjectionAngleDiscardThreshold: 0.257
+    - _ProjectionAngleDiscardThreshold: -1
     - _StencilComp: 0
     - _StencilRef: 0
     - _SupportOrthographicCamera: 0

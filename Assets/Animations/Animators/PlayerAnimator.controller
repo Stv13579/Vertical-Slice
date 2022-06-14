@@ -85,7 +85,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FireProjectile
-  m_Speed: 0.75
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7272167296185313712}
@@ -229,7 +229,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3100369314251171874, guid: bdddcfde0b12e5b4099a5552a5a85e36,
+  m_Motion: {fileID: -3100369314251171874, guid: 56ba6ebbe29a9564586dc23b7af3fd9b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -762,7 +762,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CrystalCast
-  m_Speed: 1
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4613455341592022872}

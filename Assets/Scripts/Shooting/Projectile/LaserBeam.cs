@@ -17,16 +17,15 @@ public class LaserBeam : MonoBehaviour
 
     [SerializeField]
     private GameObject laserBeamEndParticle;
+    [SerializeField]
+    private GameObject laserBeamEffectParticle;
 
-    public GameObject laserBeamEffectParticle;
+    public bool isHittingObj;
 
-    bool isHittingObj;
-
+    public LayerMask layerMask;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        laserBeamEndParticle = GameObject.Find("VFX_Laser_BeamHitImpact");
-        laserBeamEffectParticle = GameObject.Find("VFX_Laser_BeamPos");
         isHittingObj = false;
     }
     // Update is called once per frame
@@ -40,6 +39,22 @@ public class LaserBeam : MonoBehaviour
         {
             laserBeamEndParticle.SetActive(false);
         }
+
+        RaycastHit hit;
+        // 20 because thats how long the capsule and laser beam are
+        // physics raycast to check if the laser is hitting the ground or enemies
+        if (Physics.Raycast(laserBeamEffectParticle.transform.position, laserBeamEffectParticle.transform.forward, out hit, 20.0f, layerMask))
+        {
+            laserBeamEndParticle.transform.position = hit.point;
+            laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, hit.distance));
+            this.gameObject.transform.localScale = new Vector3(0, hit.distance, 0);
+        }
+        else
+        {
+            laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, 20));
+            this.gameObject.transform.localScale = new Vector3(0, 20, 0);
+        }
+
         // might need later to add some juice
         currentHitDelay += Time.deltaTime;
 
@@ -64,7 +79,6 @@ public class LaserBeam : MonoBehaviour
     {
         damage = dmg;
         attackTypes = types;
-
     }
     private void OnTriggerStay(Collider other)
     {
@@ -72,14 +86,6 @@ public class LaserBeam : MonoBehaviour
         if(other.tag == "Enemy" || other.tag == "Environment")
         {
             isHittingObj = true;
-            RaycastHit hit;
-            if (Physics.Raycast(laserBeamEffectParticle.transform.position, laserBeamEffectParticle.transform.forward, out hit, Mathf.Infinity))
-            {
-               laserBeamEndParticle.transform.position = hit.point;
-               //laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPositions();
-            }
-
-            Debug.Log("DesNUTS");
         }
 
         if (other.tag == "Enemy" && !containedEnemies.Contains(other.gameObject))
@@ -88,11 +94,6 @@ public class LaserBeam : MonoBehaviour
             audioManager.Stop("Slime Damage");
             audioManager.Play("Slime Damage");
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        //Gizmos.DrawLine(laserBeamEffectParticle.transform.position);
     }
     private void OnTriggerExit(Collider other)
     {

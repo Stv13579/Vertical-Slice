@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserBeamElement : BaseElementClass
 {
     [SerializeField]
-    GameObject LaserBeam;
+    GameObject laserBeam;
 
     [SerializeField]
     float damage;
@@ -34,18 +34,19 @@ public class LaserBeamElement : BaseElementClass
         // stop the laser beam
         if (Input.GetKeyUp(KeyCode.Mouse0) || !PayCosts(Time.deltaTime))
         {
-            usingLaserBeam = false;
-           LaserBeam.SetActive(false);
+           usingLaserBeam = false;
+            laserBeam.SetActive(false);
            playerHand.SetTrigger("LaserStopCast");
-            audioManager.Stop("Laser Beam");
+           audioManager.Stop("Laser Beam");
+            laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
         }
     }
     public override void ElementEffect()
     {
         base.ElementEffect();
         usingLaserBeam = true;
-        LaserBeam.SetActive(true);
-        LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage * damageMultiplier, attackTypes);
+        laserBeam.SetActive(true);
+        laserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage * damageMultiplier, attackTypes);
     }
     public override void ActivateVFX()
     {

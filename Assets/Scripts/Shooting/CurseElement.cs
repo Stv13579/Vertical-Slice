@@ -90,12 +90,28 @@ public class CurseElement : BaseElementClass
 
         if(targeting)
         {
-           
+            if(targetToCurse)
+            {
+                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false);
+            }
+            
             RaycastHit rayHit;
 
             if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out rayHit, range, curseTargets))
             {
-               targetToCurse = rayHit.collider.gameObject;
+                
+
+                targetToCurse = rayHit.collider.gameObject;
+                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true);
+
+
+            }
+        }
+        else
+        {
+            if (targetToCurse)
+            {
+                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false);
             }
         }
     }

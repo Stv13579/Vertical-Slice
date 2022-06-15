@@ -17,7 +17,10 @@ public class BossSpawn : MonoBehaviour
 
     [SerializeField]
     GameObject hubPortal;
-    
+
+    [SerializeField]
+    GameObject bridge;
+
     void Start()
     {
         
@@ -32,6 +35,7 @@ public class BossSpawn : MonoBehaviour
         if(bossDead)
         {
             hubPortal.SetActive(true);
+            bridge.SetActive(true);
         }
     }
 
@@ -42,6 +46,8 @@ public class BossSpawn : MonoBehaviour
             return;
         }
         triggered = true;
+
+        bridge.SetActive(false);
 
         Instantiate(boss, spawnPosition.position, Quaternion.identity);
 

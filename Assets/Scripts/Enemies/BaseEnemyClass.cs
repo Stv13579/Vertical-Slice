@@ -55,6 +55,8 @@ public class BaseEnemyClass : MonoBehaviour
     [SerializeField]
     string takeDamageAudio;
 
+    [SerializeField]
+    GameObject targettingIndicator;
 
     public virtual void Start()
     {
@@ -169,6 +171,10 @@ public class BaseEnemyClass : MonoBehaviour
         }
     }
 
+    public void Targetted(bool targetted)
+    {
+        targettingIndicator.SetActive(targetted);
+    }
 
     
 }

@@ -8,6 +8,8 @@ public class EnergyElement : BaseElementClass
     float fullRestoreAmount;
     float perTickRestore;
 
+    private float previousHealth = 0.0f;
+
     private void Start()
     {
         base.Start();
@@ -16,11 +18,20 @@ public class EnergyElement : BaseElementClass
 
     protected override void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName("EnergyCast"))
+
+        if (previousHealth > playerClass.currentHealth)
         {
             playerHand.SetTrigger("StopEnergy");
             audioManager.Stop("Energy Element");
         }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName("Hold"))
+        {
+            playerHand.SetTrigger("StopEnergy");
+            audioManager.Stop("Energy Element");
+        }
+
+        previousHealth = playerClass.currentHealth;
     }
 
     public override void ElementEffect()
@@ -36,7 +47,7 @@ public class EnergyElement : BaseElementClass
         base.StartAnims(animationName);
 
         playerHand.SetTrigger(animationName);
-
+        playerHand.ResetTrigger("StopEnergy");
         audioManager.Play("Energy Element");
 
 

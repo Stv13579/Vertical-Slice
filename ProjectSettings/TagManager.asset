@@ -29,8 +29,8 @@ TagManager:
   - TriggerBox
   - Impassable
   - Bridge
-  - 
-  - 
+  - BossBlocker
+  - OtherPlayer
   - 
   - 
   - 

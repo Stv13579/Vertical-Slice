@@ -91,6 +91,11 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     Vector3 projScale;
 
+    /// <summary>
+    /// Attack Props
+    /// </summary>
+    [SerializeField]
+    float pushForce;
 
     public override void Start()
     {
@@ -143,6 +148,11 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         
         
         UpdateMaterials();
+    }
+
+    public override void Attacking()
+    {
+        playerClass.ChangeHealth(-damageAmount, transform.position, pushForce);
     }
 
     //Execute the attack based on the type it currently is
@@ -310,18 +320,27 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     {
         mat2 = crystalMat;
         currentType = Type.crystal;
+        crystalPoint.SetActive(true);
+        firePoint.SetActive(false);
+        normalPoint.SetActive(false);
     }
 
     private void SwitchToFire()
     {
         mat2 = fireMat;
         currentType = Type.fire;
+        crystalPoint.SetActive(false);
+        firePoint.SetActive(true);
+        normalPoint.SetActive(false);
     }
 
     private void SwitchToNormal()
     {
         mat2 = normalMat;
         currentType = Type.normal;
+        crystalPoint.SetActive(false);
+        firePoint.SetActive(false);
+        normalPoint.SetActive(true);
     }
 
     private void UpdateMaterials()
@@ -338,7 +357,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     public override void OnCollisionEnter(Collision collision)
     {
 
-        if (currentType == Type.normal && startAttack && (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player") )
+        if (currentType == Type.normal && startAttack && (collision.gameObject.layer == 10 || collision.gameObject.tag == "Player" || collision.gameObject.layer == 18) )
         {
             endAttack = true;
         }
@@ -355,6 +374,12 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         base.Death();
 
         
+    }
+
+    public void PushAway()
+    {
+        //GetComponent<Rigidbody>().AddForce( -(player.transform.position - transform.position).normalized * pushForce);
+        GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position).normalized.x * pushForce, 5 * pushForce, (player.transform.position - transform.position).normalized.z * pushForce);
     }
 
 }

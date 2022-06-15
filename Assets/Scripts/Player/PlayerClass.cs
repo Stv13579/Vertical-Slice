@@ -80,6 +80,17 @@ public class PlayerClass : MonoBehaviour
         }
     }
 
+    //Get hit and bounce
+    public void ChangeHealth(float healthAmount, Vector3 enemyPos, float pushForce)
+    {
+        currentHealth = Mathf.Min(currentHealth + healthAmount, maxHealth);
+
+        if (currentHealth <= 0 && !dead)
+        {
+            Death();
+        }
+    }
+
     public void ChangeMana(float manaAmount)
     {
         currentMana = Mathf.Min(currentMana + manaAmount, maxMana);

@@ -31,6 +31,7 @@ MonoBehaviour:
   attackAudio: Play Damage
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
+  targettingIndicator: {fileID: 688266462801590134}
   jumpForce: 100
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
@@ -119,6 +120,12 @@ PrefabInstance:
 --- !u!1 &8074025805592656083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404476596481006036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &688266462801590134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1941195159714918050, guid: 956b87a34921e9249a4dcbfe90732b61,
     type: 3}
   m_PrefabInstance: {fileID: 1404476596481006036}
   m_PrefabAsset: {fileID: 0}

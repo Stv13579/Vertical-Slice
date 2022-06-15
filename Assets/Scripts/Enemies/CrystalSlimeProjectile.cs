@@ -53,7 +53,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerClass>().ChangeHealth(-projectileDamage);
+            other.gameObject.GetComponentInParent<PlayerClass>().ChangeHealth(-projectileDamage);
             Destroy(this.gameObject);
             audioManager.Stop("Player Damage");
             audioManager.Play("Player Damage", player.transform, this.transform);

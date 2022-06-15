@@ -55,6 +55,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isHeadShaking;
 
+    [SerializeField]
+    private float initialFOV = 90.0f;
+    [SerializeField]
+    private float increasedFOVMoving = 100.0f;
+
+    public LayerMask enviromentLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
 
         Jumping();
-        HeadBobbing();
         if(this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
         {
             movementMulti = 0.5f;
@@ -93,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 inputMove = new Vector3(x, 0.0f, z);
         Vector3 realMove = Quaternion.Euler(0.0f, lookScript.GetSpin(), 0.0f) * inputMove;
         realMove.Normalize();
-
+     
+        Debug.Log(velocity);
         // friction
         // we store the y velocity
         float cacheY = velocity.y;
@@ -130,7 +136,13 @@ public class PlayerMovement : MonoBehaviour
             }
             velocity.y = -1.0f;
         }
+        CoyoteTime();
 
+        RaycastHit hit;
+        if (Physics.Raycast(cController.transform.position, transform.forward, out hit, 1.0f, enviromentLayer))
+        {
+            return;
+        }
         randIndexTimer -= Time.deltaTime;
         int randomSoundIndex = Random.Range(0, 4);
         if (isGrounded == true && (Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.S)) ||
@@ -158,11 +170,12 @@ public class PlayerMovement : MonoBehaviour
                     audioManager.Stop("Player Running 4");
                     audioManager.Play("Player Running 4");
                 }
-                randIndexTimer = 0.5f;
+                randIndexTimer = 0.37f;
             }
 
         }
-        CoyoteTime();
+        HeadBobbing();
+        FOVChange();
     }
 
     private void Jumping()
@@ -263,5 +276,31 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void FOVChange()
+    {
+
+        if (velocity.x > 0 || velocity.z > 0 || velocity.x < 0 || velocity.z < 0 && (cController.collisionFlags & CollisionFlags.Below) != 0)
+        {
+            lookScript.GetCamera().fieldOfView += moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            lookScript.GetCamera().fieldOfView -= initialFOV * Time.deltaTime;
+        }
+
+        if(velocity.y < -25.0f)
+        {
+            lookScript.GetCamera().fieldOfView += increasedFOVMoving * Time.deltaTime;
+        }
+
+        if (lookScript.GetCamera().fieldOfView >= increasedFOVMoving)
+        {
+            lookScript.GetCamera().fieldOfView = increasedFOVMoving;
+        }
+        if (lookScript.GetCamera().fieldOfView <= initialFOV)
+        {
+            lookScript.GetCamera().fieldOfView = initialFOV;
+        }
+    }
 }
 

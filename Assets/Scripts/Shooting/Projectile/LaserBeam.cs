@@ -23,6 +23,8 @@ public class LaserBeam : MonoBehaviour
     public bool isHittingObj;
 
     public LayerMask layerMask;
+
+    float initalLaserScale = 20.0f;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -43,7 +45,7 @@ public class LaserBeam : MonoBehaviour
         RaycastHit hit;
         // 20 because thats how long the capsule and laser beam are
         // physics raycast to check if the laser is hitting the ground or enemies
-        if (Physics.Raycast(laserBeamEffectParticle.transform.position, laserBeamEffectParticle.transform.forward, out hit, 20.0f, layerMask))
+        if (Physics.Raycast(laserBeamEffectParticle.transform.position, laserBeamEffectParticle.transform.forward, out hit, initalLaserScale, layerMask))
         {
             laserBeamEndParticle.transform.position = hit.point;
             laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, hit.distance));
@@ -51,8 +53,8 @@ public class LaserBeam : MonoBehaviour
         }
         else
         {
-            laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, 20));
-            this.gameObject.transform.localScale = new Vector3(0, 20, 0);
+            laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, initalLaserScale));
+            this.gameObject.transform.localScale = new Vector3(0, initalLaserScale, 0);
         }
 
         // might need later to add some juice

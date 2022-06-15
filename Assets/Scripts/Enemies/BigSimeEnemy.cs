@@ -22,9 +22,10 @@ public class BigSimeEnemy : NormalSlimeEnemy
     }
 
     // Update is called once per frame
-    new private void Update()
+    protected override void Update()
     {
         base.Update();
+    }
         //Shield();
         // Initialize bullet positions
         //List<Vector3> posArray = new List<Vector3>(BulletPos.Count);
@@ -53,7 +54,7 @@ public class BigSimeEnemy : NormalSlimeEnemy
         //}
 
 
-    }
+    
     //public void Shield()
     //{
     //    float minDistance = 7;

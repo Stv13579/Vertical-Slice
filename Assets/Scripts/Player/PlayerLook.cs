@@ -81,6 +81,7 @@ public class PlayerLook : MonoBehaviour
         {
             MoveCamera();
         }
+        HandleEditorInputs();
 
     }
     private void RollInput()
@@ -96,6 +97,14 @@ public class PlayerLook : MonoBehaviour
         else
         {
             SetRoll(0);
+        }
+    }
+    private void HandleEditorInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            cursorLocked = !cursorLocked;
+            LockCursor();
         }
     }
 }

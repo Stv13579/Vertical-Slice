@@ -835,7 +835,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   ableToMove: 1
   initialFOV: 90
-  increasedFOVMoving: 100
+  increasedFOVMoving: 95
   enviromentLayer:
     serializedVersion: 2
     m_Bits: 1024

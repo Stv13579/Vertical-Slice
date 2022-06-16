@@ -203,32 +203,34 @@ public class SAIM : MonoBehaviour
 
         foreach (BaseEnemyClass enemy in spawnedEnemies)
         {
-            float dist = float.MaxValue;
+            float distToNode = float.MaxValue;
 
             foreach (Node node in aliveNodes)
             {
-                if((node.transform.position - enemy.transform.position).magnitude < dist)
+                if((node.transform.position - enemy.transform.position).magnitude < distToNode)
                 {
-                    dist = (node.transform.position - enemy.transform.position).magnitude;
+                    distToNode = (node.transform.position - enemy.transform.position).magnitude;
                     enemy.moveDirection = node.bestNextNodePos;
                 }
 
             }
 
-            dist = float.MaxValue;
-
-            foreach (Node node in aliveNodes)
-            {
-                if ((node.transform.position - player.transform.position).magnitude < dist)
-                {
-                    pNode = node;
-                    dist = (node.transform.position - player.transform.position).magnitude;
-                }
-
-            }
+            
         }
 
-        if(pNode != playerNode)
+        float dist = float.MaxValue;
+
+        foreach (Node node in aliveNodes)
+        {
+            if ((node.transform.position - player.transform.position).magnitude < dist)
+            {
+                pNode = node;
+                dist = (node.transform.position - player.transform.position).magnitude;
+            }
+
+        }
+
+        if (pNode != playerNode)
         {
             playerNode = pNode;
             CreateIntegrationFlowField(playerNode);

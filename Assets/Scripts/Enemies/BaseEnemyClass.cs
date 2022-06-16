@@ -58,6 +58,8 @@ public class BaseEnemyClass : MonoBehaviour
     [SerializeField]
     GameObject targettingIndicator;
 
+    public Vector3 oldPosition;
+
     public virtual void Start()
     {
         startY = transform.position.y;

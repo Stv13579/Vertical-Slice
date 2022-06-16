@@ -19,15 +19,15 @@ MonoBehaviour:
   - {fileID: 3237453691476502534, guid: 8de20e8681670ca47a843341aed1619b, type: 3}
   - {fileID: 8226606755440833374, guid: dc1b9ddc781c1834f8d187b8ced554c0, type: 3}
   player: {fileID: 0}
-  totalSpawns: 1
+  totalSpawns: 20
   spawnDuration: 300
-  difficulty: 1
-  adjustedDifficulty: 1
+  difficulty: 5
+  adjustedDifficulty: 7
   totalSpawnTimer: 50
-  spawnMax: 3
-  spawnMin: 1
+  spawnMax: 10
+  spawnMin: 5
   enemyMinimum: 2
-  difficultyAdjustTimerTotal_DAMAGE: 100
+  difficultyAdjustTimerTotal_DAMAGE: 10
   difficultyAdjustTimerTotal_KILLS: 15
-  playerDamageThreshold: 50
-  enemyKillThreshold: 4
+  playerDamageThreshold: 90
+  enemyKillThreshold: 6

@@ -99,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 realMove = Quaternion.Euler(0.0f, lookScript.GetSpin(), 0.0f) * inputMove;
         realMove.Normalize();
      
-        Debug.Log(velocity);
         // friction
         // we store the y velocity
         float cacheY = velocity.y;

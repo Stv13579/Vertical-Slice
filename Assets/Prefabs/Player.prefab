@@ -937,6 +937,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   ableToMove: 1
+  initialFOV: 90
+  increasedFOVMoving: 100
+  enviromentLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!143 &5625023911835613077
 CharacterController:
   m_ObjectHideFlags: 0

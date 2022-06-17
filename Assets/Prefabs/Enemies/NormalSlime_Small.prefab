@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 8048053914739367018}
   - component: {fileID: 5167392731316396107}
   - component: {fileID: 8940881081434796308}
+  - component: {fileID: 8256094803587314692}
   m_Layer: 8
   m_Name: NormalSlime_Small
   m_TagString: Enemy
@@ -316,7 +317,7 @@ MeshCollider:
   m_GameObject: {fileID: 7165516955107352839}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -352,9 +353,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0d00b9643a0dc4fb344bd4915bfd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 75
+  maxHealth: 30
   damageAmount: 5
-  moveSpeed: 5
+  moveSpeed: 7.5
   damageThreshold: 0
   damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
@@ -372,7 +373,22 @@ MonoBehaviour:
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
   targettingIndicator: {fileID: 1941195159714918050}
+  oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 100
+  pushForce: 10
+--- !u!135 &8256094803587314692
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165516955107352839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30.6
+  m_Center: {x: 0, y: 19.5, z: 0}
 --- !u!1001 &750315651
 PrefabInstance:
   m_ObjectHideFlags: 0

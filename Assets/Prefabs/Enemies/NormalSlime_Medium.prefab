@@ -28,13 +28,18 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
+  attackAudio: 
+  deathAudio: 
+  takeDamageAudio: 
+  targettingIndicator: {fileID: 0}
+  oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 50
+  pushForce: 10
   enemyPos: []
   BulletPos: []
   LookAhead: 3
   StepInterval: 0.25
   DangerZone: 5
-  test: {fileID: 0}
 --- !u!1001 &2703953588024392954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +121,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8048053914739367016, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}

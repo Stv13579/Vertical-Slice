@@ -67,6 +67,8 @@ public class BaseEnemyClass : MonoBehaviour
         playerClass = player.GetComponent<PlayerClass>();
         currentHealth = maxHealth;
         audioManager = FindObjectOfType<AudioManager>();
+        oldPosition = new Vector3(-1000, -1000, -1000);
+
     }
 
     public virtual void Update()

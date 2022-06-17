@@ -8,6 +8,10 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     [SerializeField]
     float jumpForce;
+
+    [SerializeField]
+    protected float pushForce;
+
     public override void Start()
     {
         base.Start();
@@ -18,7 +22,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
     public override void Attacking()
     {
         base.Attacking();
-        playerClass.ChangeHealth(-damageAmount);
+        playerClass.ChangeHealth(-damageAmount, transform.position, pushForce);
     }
 
     public override void Movement(Vector3 positionToMoveTo)
@@ -99,4 +103,29 @@ public class NormalSlimeEnemy : BaseEnemyClass
             damageTicker = 1.0f;
         }
     }
+    
+
+    
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        // if colliding with player attack enemy reset damage ticker
+        // we reset it so that the player doesn't take double damage
+        if (other.gameObject.tag == "Player")
+        {
+            Attacking();
+            damageTicker = 1.0f;
+        }
+    }
+
+    public virtual void OnTriggerStay(Collider other)
+    {
+        // checks if colliding with player and damage ticker is less then 0
+        // player should take damage every one second after if they are still colliding with enemy normal slime
+        if (other.gameObject.tag == "Player" && damageTicker <= 0.0f)
+        {
+            Attacking();
+            damageTicker = 1.0f;
+        }
+    }
+
 }

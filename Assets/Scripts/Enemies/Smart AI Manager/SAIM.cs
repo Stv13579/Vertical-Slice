@@ -205,6 +205,14 @@ public class SAIM : MonoBehaviour
         {
             float distToNode = float.MaxValue;
 
+            //If the distance moved is miniscule since the last frame, continue.
+            if ((enemy.oldPosition - enemy.transform.position).magnitude < 1)
+            {
+                continue;
+            }
+
+            enemy.oldPosition = enemy.transform.position;
+
             foreach (Node node in aliveNodes)
             {
                 if((node.transform.position - enemy.transform.position).magnitude < distToNode)

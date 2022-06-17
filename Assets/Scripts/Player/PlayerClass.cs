@@ -24,6 +24,14 @@ public class PlayerClass : MonoBehaviour
 
     public Transform fallSpawner;
 
+    /// <summary>
+    /// Pushing Away When Hit
+    /// </summary>
+    public float pushDuration;
+    float pushStrength;
+    float currentPushDuration;
+    Vector3 pushDir;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -45,6 +53,8 @@ public class PlayerClass : MonoBehaviour
             transform.position = fallSpawner.position;
             Debug.Log("Reset Position");
         }
+
+        Push();
     }
 
     public void AddItem(Item newItem)
@@ -74,7 +84,7 @@ public class PlayerClass : MonoBehaviour
     public void ChangeHealth(float healthAmount)
     {
         currentHealth = Mathf.Min(currentHealth + healthAmount, maxHealth);
-        if(currentHealth <= 0 && !dead)
+        if (currentHealth <= 0 && !dead)
         {
             Death();
         }
@@ -85,9 +95,25 @@ public class PlayerClass : MonoBehaviour
     {
         currentHealth = Mathf.Min(currentHealth + healthAmount, maxHealth);
 
+        Vector3 bounceVec = transform.position - enemyPos;
+
+        pushDir = bounceVec.normalized;
+        pushDir.y = 1;
+        pushStrength = pushForce;
+        currentPushDuration = 0;
+
         if (currentHealth <= 0 && !dead)
         {
             Death();
+        }
+    }
+
+    public void Push()
+    {
+        if(currentPushDuration < pushDuration)
+        {
+            currentPushDuration += Time.deltaTime;
+            transform.position += pushDir * Time.deltaTime * pushStrength;
         }
     }
 

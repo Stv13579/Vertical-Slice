@@ -25,7 +25,7 @@ public class EnergyElement : BaseElementClass
             audioManager.Stop("Energy Element");
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1) & playerHand.GetCurrentAnimatorStateInfo(0).IsName("Hold"))
+        if (Input.GetKeyUp(KeyCode.Mouse1) & (playerHand.GetCurrentAnimatorStateInfo(0).IsName("Hold") || playerHand.GetCurrentAnimatorStateInfo(0).IsName("Start Hold")))
         {
             playerHand.SetTrigger("StopEnergy");
             audioManager.Stop("Energy Element");

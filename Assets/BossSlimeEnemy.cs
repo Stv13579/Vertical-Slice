@@ -91,11 +91,6 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     Vector3 projScale;
 
-    /// <summary>
-    /// Attack Props
-    /// </summary>
-    [SerializeField]
-    float pushForce;
 
     public override void Start()
     {
@@ -150,11 +145,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         UpdateMaterials();
     }
 
-    public override void Attacking()
-    {
-        playerClass.ChangeHealth(-damageAmount, transform.position, pushForce);
-    }
-
+    
     //Execute the attack based on the type it currently is
     private bool ExecuteAttack()
     {
@@ -363,6 +354,16 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         }
 
         base.OnCollisionEnter(collision);
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+    }
+
+    public override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
     }
 
     public override void Death()

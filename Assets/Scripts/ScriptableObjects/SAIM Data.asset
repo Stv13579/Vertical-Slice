@@ -16,16 +16,17 @@ MonoBehaviour:
   - {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}
   - {fileID: 8074025805592656083, guid: 8a59ba97a16535f40a2a89a1287c8d20, type: 3}
   - {fileID: 5571377368068683487, guid: d6d84abd338143244a4905de380fa040, type: 3}
+  - {fileID: 5113653494470958589, guid: 2615700bca5ac664ba16068fbe3138a5, type: 3}
   - {fileID: 3237453691476502534, guid: 8de20e8681670ca47a843341aed1619b, type: 3}
   - {fileID: 8226606755440833374, guid: dc1b9ddc781c1834f8d187b8ced554c0, type: 3}
   player: {fileID: 0}
   totalSpawns: 20
   spawnDuration: 300
   difficulty: 5
-  adjustedDifficulty: 7
+  adjustedDifficulty: 5
   totalSpawnTimer: 50
-  spawnMax: 10
-  spawnMin: 5
+  spawnMax: 6
+  spawnMin: 3
   enemyMinimum: 2
   difficultyAdjustTimerTotal_DAMAGE: 10
   difficultyAdjustTimerTotal_KILLS: 15

@@ -54,4 +54,14 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     {
         base.OnCollisionStay(collision);
     }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+    }
+
+    public override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
+    }
 }

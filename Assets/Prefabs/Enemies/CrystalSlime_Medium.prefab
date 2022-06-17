@@ -9,8 +9,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
+        type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}

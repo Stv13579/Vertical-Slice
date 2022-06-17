@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9965eb33e7d0d804086e863e303af43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 75
+  maxHealth: 30
   damageAmount: 2
   moveSpeed: 5
   damageThreshold: 0
@@ -32,7 +32,9 @@ MonoBehaviour:
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
   targettingIndicator: {fileID: 688266462801590134}
+  oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 100
+  pushForce: 10
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
   enemyProjectileScale: {x: 0.5, y: 0.5, z: 0.5}

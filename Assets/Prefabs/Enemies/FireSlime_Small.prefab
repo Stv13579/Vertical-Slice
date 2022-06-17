@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2d49cb487f6f94cb35fe0f28ea65bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 30
   damageAmount: 1
-  moveSpeed: 5
+  moveSpeed: 7.5
   damageThreshold: 0
   damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
@@ -32,7 +32,9 @@ MonoBehaviour:
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
   targettingIndicator: {fileID: 840838612295924987}
+  oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 100
+  pushForce: 10
   enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
     type: 3}
   trailLayerMask:

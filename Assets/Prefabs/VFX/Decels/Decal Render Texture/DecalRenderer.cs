@@ -15,11 +15,12 @@ public class DecalRenderer : MonoBehaviour
     public RenderTexture m_RenderTexture;
     public Material m_MaterialInstance;
 
+    // turns the camera off
     public void Release()
     {
         m_Camera.enabled = false;
     }
-
+    // sets ups the decal renderers
     public void FirstSetup(DecalRendererManager _manager)
     {
         m_Manager = _manager;
@@ -37,7 +38,7 @@ public class DecalRenderer : MonoBehaviour
 
         m_Camera.enabled = false;
     }
-
+    // sets up the decal renderer during updates
     public void Setup(Material _originalMaterial)
     {
         m_MaterialInstance = new Material(_originalMaterial);

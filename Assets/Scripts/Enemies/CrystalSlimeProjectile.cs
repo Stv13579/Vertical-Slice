@@ -34,6 +34,10 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
+        if(lifeTimer <= 4.5f)
+        {
+            this.transform.rotation = Quaternion.LookRotation(player.transform.position, player.transform.position);
+        }
         // if follow timer is greater then 0 then follow the player
         if (followTimer >= 0)
         {

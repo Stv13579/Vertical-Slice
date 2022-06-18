@@ -22,6 +22,21 @@ PrefabInstance:
       propertyPath: damageAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
+        type: 3}
+      propertyPath: enemyProjectileScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
+        type: 3}
+      propertyPath: enemyProjectileScale.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
+        type: 3}
+      propertyPath: enemyProjectileScale.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 7056646380703231440, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
       propertyPath: m_Center.y
@@ -55,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 8883177769087771241, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.28
       objectReference: {fileID: 0}
     - target: {fileID: 8883177769087771241, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
@@ -65,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 8883177769087771241, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 19.58
       objectReference: {fileID: 0}
     - target: {fileID: 8883177769087771241, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}

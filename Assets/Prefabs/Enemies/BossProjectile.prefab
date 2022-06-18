@@ -93,6 +93,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7564702098056426074, guid: 319ee57292d1b084a9fa57cf30f26e56,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents:
     - {fileID: 822626131838917157, guid: 319ee57292d1b084a9fa57cf30f26e56, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 319ee57292d1b084a9fa57cf30f26e56, type: 3}

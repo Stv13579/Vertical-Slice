@@ -39,6 +39,7 @@ public class DecalRendererManager : MonoBehaviour
         }
     }
 
+    //generates the decal
     public DecalRenderer GenerateDecalRenderer(Material _originalMaterial)
     {
         int firstAvailable = -1;
@@ -51,12 +52,15 @@ public class DecalRendererManager : MonoBehaviour
             }
         }
 
+        // first slot becomes unavailable
         m_Available[firstAvailable] = false;
+        // sets up the materials
         m_DecalRenderers[firstAvailable].Setup(_originalMaterial);
 
         return m_DecalRenderers[firstAvailable];
     }
 
+    // release the decals after it has before its been destroyed
     public void ReleaseDecalRenderer(DecalRenderer _renderer)
     {
         for (int i = 0; i < m_DecalRenderers.Length; i++)

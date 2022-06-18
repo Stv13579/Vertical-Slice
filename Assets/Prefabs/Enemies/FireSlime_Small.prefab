@@ -43,7 +43,8 @@ MonoBehaviour:
   trailLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  fireTrailScale: {x: 0.5, y: 1, z: 0.5}
+  enemyFireTrailScale: {x: 5, y: 5, z: 1}
+  decalManager: {fileID: 0}
 --- !u!1001 &1250805480861160025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,6 +62,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireSlime_Small
       objectReference: {fileID: 0}
+    - target: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_RootOrder
@@ -69,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 13.12
       objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
@@ -79,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 14.42
       objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}

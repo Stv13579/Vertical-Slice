@@ -32,6 +32,21 @@ PrefabInstance:
       propertyPath: fireTrailScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: -9117193303088965663, guid: dc1b9ddc781c1834f8d187b8ced554c0,
+        type: 3}
+      propertyPath: enemyFireTrailScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -9117193303088965663, guid: dc1b9ddc781c1834f8d187b8ced554c0,
+        type: 3}
+      propertyPath: enemyFireTrailScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -9117193303088965663, guid: dc1b9ddc781c1834f8d187b8ced554c0,
+        type: 3}
+      propertyPath: enemyFireTrailScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7190078779347330653, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}
       propertyPath: m_Center.y

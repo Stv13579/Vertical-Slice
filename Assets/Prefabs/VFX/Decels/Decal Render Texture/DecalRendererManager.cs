@@ -60,9 +60,10 @@ public class DecalRendererManager : MonoBehaviour
         return m_DecalRenderers[firstAvailable];
     }
 
-    // release the decals after it has before its been destroyed
+    // release the decals before its been destroyed
     public void ReleaseDecalRenderer(DecalRenderer _renderer)
     {
+        // checks if its the right decal renderer and releases it if its the right one
         for (int i = 0; i < m_DecalRenderers.Length; i++)
         {
             if (m_DecalRenderers[i] == _renderer)
@@ -72,6 +73,7 @@ public class DecalRendererManager : MonoBehaviour
         }
     }
 
+    // releases the decalrenderer and sets a spot free
     public void ReleaseDecalRenderer(int _index)
     {
         m_DecalRenderers[_index].Release();

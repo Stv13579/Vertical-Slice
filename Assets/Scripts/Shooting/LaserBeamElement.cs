@@ -28,6 +28,15 @@ public class LaserBeamElement : BaseElementClass
             DeactivateLaser();
         }
 
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            usingLaserBeam = false;
+            laserBeam.SetActive(false);
+            playerHand.SetTrigger("LaserStopCast");
+            audioManager.Stop("Laser Beam");
+            laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
+        }
+
     }
 
     public void DeactivateLaser()

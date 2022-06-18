@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_VFX_FIreOrb
+  m_Name: MAT_VFX_FireOrb
   m_Shader: {fileID: 4800000, guid: 1b733e3b4cdc6b94c8d05db27c769b4d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

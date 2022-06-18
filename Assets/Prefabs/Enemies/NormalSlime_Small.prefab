@@ -361,8 +361,8 @@ MonoBehaviour:
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
     type: 3}
   spawner: {fileID: 0}
-  weaknesses: []
-  resistances: []
+  weaknesses: 
+  resistances: 
   bounceList: []
   deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
     type: 3}
@@ -376,6 +376,9 @@ MonoBehaviour:
   oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 100
   pushForce: 10
+  viewToPlayer:
+    serializedVersion: 2
+    m_Bits: 3072
 --- !u!135 &8256094803587314692
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -388,7 +391,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 30.6
-  m_Center: {x: 0, y: 19.5, z: 0}
+  m_Center: {x: 0, y: 28.6, z: 0}
 --- !u!1001 &750315651
 PrefabInstance:
   m_ObjectHideFlags: 0

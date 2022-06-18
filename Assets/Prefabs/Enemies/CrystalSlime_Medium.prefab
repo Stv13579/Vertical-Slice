@@ -22,6 +22,11 @@ PrefabInstance:
       propertyPath: damageAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7056646380703231440, guid: 8a59ba97a16535f40a2a89a1287c8d20,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 8074025805592656083, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
       propertyPath: m_Name

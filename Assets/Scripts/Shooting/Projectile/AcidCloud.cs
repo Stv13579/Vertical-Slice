@@ -12,7 +12,7 @@ public class AcidCloud : MonoBehaviour
 
     [SerializeField] GameObject acidBurnVFX;
 
-    [SerializeField] List<string> attackTypes;
+    [SerializeField] List<BaseEnemyClass.Types> attackTypes;
 
     AudioManager audioManager;
 
@@ -47,7 +47,7 @@ public class AcidCloud : MonoBehaviour
         }
     }
 
-    public void SetVars(float dmg, float size, float duration, List<string> types)
+    public void SetVars(float dmg, float size, float duration, List<BaseEnemyClass.Types> types)
     {
         //Set up the variables according to the element script
         damage = dmg;

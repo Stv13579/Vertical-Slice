@@ -982,6 +982,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 5938581657908307557, guid: c15b7a340c63df74189d70226e0485bc,
     type: 3}
   fallSpawner: {fileID: 0}
+  pushDuration: 0
 --- !u!114 &1363181307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,7 +1030,7 @@ MonoBehaviour:
   elementName: Fire
   uiSprite: {fileID: 21300000, guid: 8aaa85c24102064448bafc61b4115e8b, type: 3}
   crosshair: {fileID: 21300000, guid: 6ee77b03add3bef47a42ac7213c82bf0, type: 3}
-  attackTypes: []
+  attackTypes: 00000000
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
@@ -1090,7 +1091,7 @@ MonoBehaviour:
   elementName: Soul
   uiSprite: {fileID: 21300000, guid: 440c433fae370f94f87b722cb5d9828d, type: 3}
   crosshair: {fileID: 0}
-  attackTypes: []
+  attackTypes: 
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 0}
   shootingIgnore:
@@ -1119,7 +1120,7 @@ MonoBehaviour:
   elementName: Crystal
   uiSprite: {fileID: 21300000, guid: ef048782f4171ce4ab784c6238bbaf14, type: 3}
   crosshair: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
-  attackTypes: []
+  attackTypes: 01000000
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
@@ -1177,7 +1178,7 @@ MonoBehaviour:
   elementName: Energy
   uiSprite: {fileID: 21300000, guid: 0965d3790b5781c4f8a7007bfdc86e67, type: 3}
   crosshair: {fileID: 0}
-  attackTypes: []
+  attackTypes: 
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 0}
   shootingIgnore:
@@ -1206,7 +1207,7 @@ MonoBehaviour:
   elementName: Shard Cannon
   uiSprite: {fileID: 21300000, guid: 42dffc313ac0c664ba203257bab79f21, type: 3}
   crosshair: {fileID: 21300000, guid: db3d8f6650a6d9d42aa38560b3d2008d, type: 3}
-  attackTypes: []
+  attackTypes: 01000000
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
@@ -1239,7 +1240,7 @@ MonoBehaviour:
   elementName: Acid Cloud
   uiSprite: {fileID: 21300000, guid: 52f739ba6ce3b2e4bb4e300fd3f42b31, type: 3}
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
-  attackTypes: []
+  attackTypes: 00000000
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 7154586944397213209}
   shootingIgnore:
@@ -1273,7 +1274,7 @@ MonoBehaviour:
   elementName: LaserBeam
   uiSprite: {fileID: 21300000, guid: edc6bb5259b8a07418dc078001b9464c, type: 3}
   crosshair: {fileID: 21300000, guid: 770339e41d8494046adb4a9a0b4714db, type: 3}
-  attackTypes: []
+  attackTypes: 00000000
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 1668261772}
   shootingIgnore:
@@ -1305,7 +1306,7 @@ MonoBehaviour:
   elementName: Curse
   uiSprite: {fileID: 21300000, guid: 7ab09dbefaadcb646a19d0ca81d1ffdd, type: 3}
   crosshair: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}
-  attackTypes: []
+  attackTypes: 01000000
   playerClass: {fileID: 0}
   shootingTranform: {fileID: 0}
   shootingIgnore:
@@ -1321,7 +1322,7 @@ MonoBehaviour:
   explosionRange: 10
   damage: 50
   damageMultiplier: 1
-  types: []
+  types: 
 --- !u!95 &6931027923422626699
 Animator:
   serializedVersion: 3

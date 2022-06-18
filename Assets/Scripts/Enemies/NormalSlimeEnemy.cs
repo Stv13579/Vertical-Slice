@@ -12,6 +12,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
     [SerializeField]
     protected float pushForce;
 
+    public LayerMask viewToPlayer;
+
     public override void Start()
     {
         base.Start();
@@ -29,11 +31,35 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         base.Movement(moveDirection);
 
-        //Come back to hopping
-        Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec;
+        RaycastHit hit;
+
+        Debug.DrawRay(transform.position + (Vector3.up * 10), Vector3.up /*player.transform.position - transform.position*/, Color.blue);
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, Mathf.Infinity, viewToPlayer))
+        {
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                Vector3 moveVec = (player.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+            else
+            {
+                Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+
+
+        }
+        else
+        {
+            Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
+            moveVec.y = 0;
+            moveVec.y -= 1 * Time.deltaTime;
+            transform.position += moveVec;
+        }
 
 
 
@@ -48,11 +74,38 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         base.Movement(moveDirection);
 
-        //Come back to hopping
-        Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec; 
+        RaycastHit hit;
+
+        //If they can see the player, go for it, otherwise pathfind
+        Debug.DrawRay(transform.position + (Vector3.up * 10), Vector3.up /*player.transform.position - transform.position*/, Color.blue);
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, Mathf.Infinity, viewToPlayer))
+        {
+            if(hit.collider.gameObject.tag == "Player")
+            {
+                Vector3 moveVec = (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+            else
+            {
+                Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+
+
+        }
+        else
+        {
+            Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
+            moveVec.y = 0;
+            moveVec.y -= 1 * Time.deltaTime;
+            transform.position += moveVec;
+        }
+
+
 
 
 

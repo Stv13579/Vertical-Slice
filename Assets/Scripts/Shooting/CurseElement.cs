@@ -25,7 +25,7 @@ public class CurseElement : BaseElementClass
     public float damageMultiplier = 1;
 
     [SerializeField]
-    List<string> types;
+    List<BaseEnemyClass.Types> types;
 
     protected override void StartAnims(string animationName)
     {

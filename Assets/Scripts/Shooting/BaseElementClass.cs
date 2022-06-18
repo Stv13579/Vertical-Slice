@@ -43,7 +43,7 @@ public class BaseElementClass : MonoBehaviour
     public Sprite crosshair;
 
     [SerializeField]
-    protected List<string> attackTypes;
+    protected List<BaseEnemyClass.Types> attackTypes;
     GameObject player;
     [SerializeField]
 
@@ -68,7 +68,7 @@ public class BaseElementClass : MonoBehaviour
     }
     protected virtual void StartAnims(string animationName)
     {
-
+        playerHand.SetTrigger("CancelBack");
     }
 
     //Called from the hand objects when the appropriate event triggers to turn on the vfx
@@ -95,7 +95,7 @@ public class BaseElementClass : MonoBehaviour
         else
         {
             //Set out of mana anim
-
+            playerHand.SetTrigger("NoMana");
             return false;
         }
     }

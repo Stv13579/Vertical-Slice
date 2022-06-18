@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/RowanScenes/Main Menu.unity
+    guid: 9cc6182022234824ea842738f106da01
+  - enabled: 1
     path: Assets/Scenes/RowanScenes/RowanHubWorldScene.unity
     guid: f150ae3efb4e18a449f9f28efb142ffa
   - enabled: 1

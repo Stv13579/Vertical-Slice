@@ -14,7 +14,7 @@ ModelImporter:
     second: Fire Shoot
   - first:
       74: 9067093048684652814
-    second: Take 001 (1)
+    second: Out of Ammo
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -131,11 +131,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Take 001 (1)
+      name: Out of Ammo
       takeName: Take 001
       internalID: 0
-      firstFrame: 84
-      lastFrame: 106
+      firstFrame: 21
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -572,9 +572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62c09bc7cec4bb4faaae87d6095e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 750
   damageAmount: 3
-  moveSpeed: 5
+  moveSpeed: 10
   damageThreshold: 0
   damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
@@ -592,7 +592,9 @@ MonoBehaviour:
   deathAudio: 
   takeDamageAudio: 
   targettingIndicator: {fileID: 4194532269593929464}
-  jumpForce: 15
+  oldPosition: {x: 0, y: 0, z: 0}
+  jumpForce: 30
+  pushForce: 30
   currentType: 0
   normalMat: {fileID: 2100000, guid: ae8af0f837a7bc64786dcdf9f4b2d1dd, type: 2}
   fireMat: {fileID: 2100000, guid: 92c3a625923882747bf64474e18c83f2, type: 2}
@@ -614,11 +616,10 @@ MonoBehaviour:
   enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
     type: 3}
   normalSlimeJumpForce: 1000
-  airSpeed: 10
+  airSpeed: 3
   crystalProjectiles: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
     type: 3}
   projScale: {x: 3, y: 3, z: 3}
-  pushForce: 100
 --- !u!1001 &2361428090863536218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -727,6 +728,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256094803587314692, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 26.6
       objectReference: {fileID: 0}
     - target: {fileID: 8678994780238758098, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}

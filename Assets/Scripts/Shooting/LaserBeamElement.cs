@@ -67,7 +67,7 @@ public class LaserBeamElement : BaseElementClass
     protected override void StartAnims(string animationName)
     {
         base.StartAnims(animationName);
-
+        playerHand.ResetTrigger("LaserStopCast");
         playerHand.SetTrigger(animationName);
     }
 }

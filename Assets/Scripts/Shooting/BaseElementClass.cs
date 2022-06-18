@@ -94,6 +94,8 @@ public class BaseElementClass : MonoBehaviour
         }
         else
         {
+            //Set out of mana anim
+
             return false;
         }
     }

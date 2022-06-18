@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: -9117193303088965663, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -9117193303088965663, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}
@@ -31,6 +31,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fireTrailScale.z
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190078779347330653, guid: dc1b9ddc781c1834f8d187b8ced554c0,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 28.9
       objectReference: {fileID: 0}
     - target: {fileID: 8226606755440833374, guid: dc1b9ddc781c1834f8d187b8ced554c0,
         type: 3}

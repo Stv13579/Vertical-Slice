@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5113653494470958589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61ddc6b67c95bad40be2ea042b8ba38c, type: 3}
   m_Name: 
@@ -20,21 +20,29 @@ MonoBehaviour:
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
     type: 3}
   spawner: {fileID: 0}
-  weaknesses: []
-  resistances: []
+  weaknesses: 
+  resistances: 
   bounceList: []
   deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
     type: 3}
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
+  attackAudio: 
+  deathAudio: 
+  takeDamageAudio: 
+  targettingIndicator: {fileID: 0}
+  oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 50
+  pushForce: 10
+  viewToPlayer:
+    serializedVersion: 2
+    m_Bits: 0
   enemyPos: []
   BulletPos: []
   LookAhead: 3
   StepInterval: 0.25
   DangerZone: 5
-  test: {fileID: 0}
 --- !u!1001 &2703953588024392954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +124,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256094803587314692, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 27.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8048053914739367016, guid: 956b87a34921e9249a4dcbfe90732b61, type: 3}

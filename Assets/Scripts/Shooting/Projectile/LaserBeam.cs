@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserBeam : MonoBehaviour
 {
     float damage;
-    List<string> attackTypes;
+    List<BaseEnemyClass.Types> attackTypes;
 
     List<GameObject> containedEnemies = new List<GameObject>();
 
@@ -77,7 +77,7 @@ public class LaserBeam : MonoBehaviour
         }
     }
     // setter
-    public void SetVars(float dmg, List<string> types)
+    public void SetVars(float dmg, List<BaseEnemyClass.Types> types)
     {
         damage = dmg;
         attackTypes = types;

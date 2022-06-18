@@ -21,11 +21,22 @@ public class LaserBeamElement : BaseElementClass
     {
         base.Update();
 
+       
+
         if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("LaserBeam"))
         {
             DeactivateLaser();
         }
-        
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            usingLaserBeam = false;
+            laserBeam.SetActive(false);
+            playerHand.SetTrigger("LaserStopCast");
+            audioManager.Stop("Laser Beam");
+            laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
+        }
+
     }
 
     public void DeactivateLaser()
@@ -56,7 +67,7 @@ public class LaserBeamElement : BaseElementClass
     protected override void StartAnims(string animationName)
     {
         base.StartAnims(animationName);
-
+        playerHand.ResetTrigger("LaserStopCast");
         playerHand.SetTrigger(animationName);
     }
 }

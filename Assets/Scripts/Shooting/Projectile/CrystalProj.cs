@@ -10,7 +10,7 @@ public class CrystalProj : MonoBehaviour
     float damageLifeTimer;
     float startLifeTimer;
 
-    List<string> attackTypes;
+    List<BaseEnemyClass.Types> attackTypes;
     AudioManager audioManager;
     bool ismoving;
     private void Start()
@@ -44,7 +44,7 @@ public class CrystalProj : MonoBehaviour
         transform.position += projMovement;
     }
     //setter to set the varibles
-    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<string> types)
+    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<BaseEnemyClass.Types> types)
     {
         speed = spd;
         damage = dmg;

@@ -8,6 +8,12 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
     [SerializeField]
     float jumpForce;
+
+    [SerializeField]
+    protected float pushForce;
+
+    public LayerMask viewToPlayer;
+
     public override void Start()
     {
         base.Start();
@@ -18,18 +24,42 @@ public class NormalSlimeEnemy : BaseEnemyClass
     public override void Attacking()
     {
         base.Attacking();
-        playerClass.ChangeHealth(-damageAmount);
+        playerClass.ChangeHealth(-damageAmount, transform.position, pushForce);
     }
 
     public override void Movement(Vector3 positionToMoveTo)
     {
         base.Movement(moveDirection);
 
-        //Come back to hopping
-        Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec;
+        RaycastHit hit;
+
+        Debug.DrawRay(transform.position + (Vector3.up * 10), Vector3.up /*player.transform.position - transform.position*/, Color.blue);
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, Mathf.Infinity, viewToPlayer))
+        {
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                Vector3 moveVec = (player.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+            else
+            {
+                Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+
+
+        }
+        else
+        {
+            Vector3 moveVec = (moveDirection - transform.position).normalized * moveSpeed * Time.deltaTime;
+            moveVec.y = 0;
+            moveVec.y -= 1 * Time.deltaTime;
+            transform.position += moveVec;
+        }
 
 
 
@@ -44,11 +74,38 @@ public class NormalSlimeEnemy : BaseEnemyClass
     {
         base.Movement(moveDirection);
 
-        //Come back to hopping
-        Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
-        moveVec.y = 0;
-        moveVec.y -= 1 * Time.deltaTime;
-        transform.position += moveVec; 
+        RaycastHit hit;
+
+        //If they can see the player, go for it, otherwise pathfind
+        Debug.DrawRay(transform.position + (Vector3.up * 10), Vector3.up /*player.transform.position - transform.position*/, Color.blue);
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, Mathf.Infinity, viewToPlayer))
+        {
+            if(hit.collider.gameObject.tag == "Player")
+            {
+                Vector3 moveVec = (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+            else
+            {
+                Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
+                moveVec.y = 0;
+                moveVec.y -= 1 * Time.deltaTime;
+                transform.position += moveVec;
+            }
+
+
+        }
+        else
+        {
+            Vector3 moveVec = (moveDirection - transform.position).normalized * speed * Time.deltaTime;
+            moveVec.y = 0;
+            moveVec.y -= 1 * Time.deltaTime;
+            transform.position += moveVec;
+        }
+
+
 
 
 
@@ -99,4 +156,29 @@ public class NormalSlimeEnemy : BaseEnemyClass
             damageTicker = 1.0f;
         }
     }
+    
+
+    
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        // if colliding with player attack enemy reset damage ticker
+        // we reset it so that the player doesn't take double damage
+        if (other.gameObject.tag == "Player")
+        {
+            Attacking();
+            damageTicker = 1.0f;
+        }
+    }
+
+    public virtual void OnTriggerStay(Collider other)
+    {
+        // checks if colliding with player and damage ticker is less then 0
+        // player should take damage every one second after if they are still colliding with enemy normal slime
+        if (other.gameObject.tag == "Player" && damageTicker <= 0.0f)
+        {
+            Attacking();
+            damageTicker = 1.0f;
+        }
+    }
+
 }

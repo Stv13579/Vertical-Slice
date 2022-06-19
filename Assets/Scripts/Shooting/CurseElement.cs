@@ -27,6 +27,9 @@ public class CurseElement : BaseElementClass
     [SerializeField]
     List<BaseEnemyClass.Types> types;
 
+    [SerializeField]
+    GameObject curseDeath;
+
     protected override void StartAnims(string animationName)
     {
         base.StartAnims(animationName);
@@ -72,6 +75,8 @@ public class CurseElement : BaseElementClass
                 hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);
             }
         }
+
+        Instantiate(curseDeath, transform.position, Quaternion.identity);
         audioManager.Stop("Curse Element Explosion");
         audioManager.Play("Curse Element Explosion");
         Debug.Log("Explodded");

@@ -28,7 +28,7 @@ public class FireSlimeTrail : MonoBehaviour
         decalManager = FindObjectOfType<DecalRendererManager>();
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
         decalMaterialInstance = new Material(decal.sharedMaterial);
-        decalMaterialInstance.SetTexture("_MainTex", decalRenderer.m_RenderTexture);
+        decalMaterialInstance.SetTexture("_MainTex", decalRenderer.renderTexture);
         decal.material = decalMaterialInstance;
         audioManager.Stop("Fire Slime Trail Alive");
         audioManager.Play("Fire Slime Trail Alive", player.transform, this.transform);
@@ -37,7 +37,7 @@ public class FireSlimeTrail : MonoBehaviour
     void Update()
     {
         trailDuration += Time.deltaTime;
-        decalRenderer.m_MaterialInstance.SetFloat("_CenterPoint", m_Animation.Evaluate(trailDuration / trailLength));
+        decalRenderer.materialInstance.SetFloat("_CenterPoint", m_Animation.Evaluate(trailDuration / trailLength));
         //m_DecalRenderer.m_MaterialInstance.SetFloat("_CenterPoint", m_AnimationValue); // <-- pass value through here from animator
         Countdown();
         // deletes the trail after trailDuration >= trailLength

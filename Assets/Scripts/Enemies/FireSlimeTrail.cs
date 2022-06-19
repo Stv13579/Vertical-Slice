@@ -24,7 +24,7 @@ public class FireSlimeTrail : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
         decalManager = FindObjectOfType<DecalRendererManager>();
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
         decalMaterialInstance = new Material(decal.sharedMaterial);

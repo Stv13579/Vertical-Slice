@@ -130,6 +130,9 @@ Material:
     - _Voronoi_1_Speed: 2
     - _Voronoi_2_Scale: 40
     - _Voronoi_2_Speed: 2
+    - _Voronoi_Disolve_Angle: 2
+    - _Voronoi_Disolve_Power_Exp: 0.88
+    - _Voronoi_Disolve_Scale: 30
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

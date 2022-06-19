@@ -9,7 +9,7 @@ public class DecalRenderer : MonoBehaviour
     public int decalIndex;
 
     [SerializeField]
-    private Camera orthoCamera;
+    public Camera orthoCamera;
     [SerializeField]
     private MeshRenderer quad;
 

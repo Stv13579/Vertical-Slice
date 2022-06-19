@@ -10,8 +10,9 @@ public class ItemEntry
 {
     public string item;
     public string itemName;
+    public string description;
     //[HideInInspector]
     public bool alreadyAdded;
     public bool mulipleAllowed;
-    public Sprite sprite;
+    public Sprite[] sprites;
 }

@@ -9,8 +9,9 @@ public class Item : MonoBehaviour
 {
     GameObject UIWidget;
     public float currencyCost;
-    public Sprite sprite;
+    public Sprite[] sprites;
     public string itemName = "";
+    public string description = "";
 
 
     //Any effects from obtaining an item go here e.g. if the item increases max health, add it here.
@@ -20,7 +21,7 @@ public class Item : MonoBehaviour
         //UIWidget.GetComponent<Image>().sprite = sprite;
         //UIWidget.transform.SetParent(player.itemUI.transform);
         //UIWidget.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,0);
-        player.itemUI.transform.parent.gameObject.GetComponent<GameplayUI>().AddItem(sprite);
+        player.itemUI.transform.parent.gameObject.GetComponent<GameplayUI>().AddItem(sprites);
         player.heldItems.Add(this);
 
     }

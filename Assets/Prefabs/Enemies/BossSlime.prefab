@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &774113282
 Transform:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   trailLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  fireTrailScale: {x: 0.5, y: 1, z: 0.5}
+  fireTrailScale: {x: 10, y: 10, z: 1}
   enemyTrail: {fileID: 6819038300084677813, guid: 79afc09f247abe84da4e93575174e4d8,
     type: 3}
   normalSlimeJumpForce: 1000

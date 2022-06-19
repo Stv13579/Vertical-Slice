@@ -13,7 +13,7 @@ public class FireSlimeTrail : MonoBehaviour
     GameObject player;
 
     public MeshRenderer decal;
-    public DecalRendererManager decalManager;
+    private DecalRendererManager decalManager;
     public DecalRenderer decalRenderer;
 
     public Material effectMaterial;

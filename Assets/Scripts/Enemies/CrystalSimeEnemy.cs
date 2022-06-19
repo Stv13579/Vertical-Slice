@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CrystalSimeEnemy : NormalSlimeEnemy
 {
-    float shootTimer = 0.0f;
-    public GameObject enemyProjectile;
+    [SerializeField]
+    private float shootTimer = 0.0f;
+    [SerializeField]
+    private float shootTimerLength = 2.0f;
+    [SerializeField]
+    private GameObject enemyProjectile;
     [SerializeField]
     private Vector3 enemyProjectileScale;
     // Update is called once per frame
@@ -13,7 +17,7 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
     {
         base.Update();
         CrystalSlimeAttack();
-        shootTimer -= Time.deltaTime;
+        shootTimer += Time.deltaTime;
     }
 
     public override void Attacking()
@@ -23,7 +27,7 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
     // seperate function as they have their own unique attack
     public void CrystalSlimeAttack()
     {
-        if (shootTimer <= 0)
+        if (shootTimer >= shootTimerLength)
         {
             // instanciates 5 projectiles above itself
             for (int i = 0; i < 5; i++)
@@ -41,7 +45,7 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
                 // play SFX
                 audioManager.Play("Crystal Slime Projectile", player.transform, this.transform);
             }
-            shootTimer = 2.0f;
+            shootTimer = 0.0f;
         }
     }
     public override void Movement(Vector3 positionToMoveTo)

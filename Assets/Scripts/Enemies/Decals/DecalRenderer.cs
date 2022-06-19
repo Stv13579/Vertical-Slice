@@ -5,15 +5,20 @@ using UnityEngine;
 public class DecalRenderer : MonoBehaviour
 {
     public DecalRendererManager manager;
-    public int decalIndex;
 
-    public Camera orthoCamera;
-    public MeshRenderer quad;
+    private int decalIndex;
 
-    public int renderTextureSize = 128;
+    [SerializeField]
+    private Camera orthoCamera;
+    [SerializeField]
+    private MeshRenderer quad;
+
+    [SerializeField]
+    private int renderTextureSize = 128;
 
     public RenderTexture renderTexture;
     public Material materialInstance;
+
 
     // turns the camera off
     public void Release()
@@ -23,6 +28,8 @@ public class DecalRenderer : MonoBehaviour
     // sets ups the decal renderers once
     public void FirstSetup(DecalRendererManager _manager)
     {
+        orthoCamera = GetComponentInChildren<Camera>();
+        quad = GetComponentInChildren<MeshRenderer>();
         manager = _manager;
 
         renderTexture = new RenderTexture(renderTextureSize, renderTextureSize, 0, UnityEngine.Experimental.Rendering.DefaultFormat.LDR);

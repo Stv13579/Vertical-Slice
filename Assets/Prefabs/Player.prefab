@@ -983,6 +983,7 @@ MonoBehaviour:
     type: 3}
   fallSpawner: {fileID: 0}
   pushDuration: 0
+  fallDamage: 25
 --- !u!114 &1363181307
 MonoBehaviour:
   m_ObjectHideFlags: 0

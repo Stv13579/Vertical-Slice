@@ -69,7 +69,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
             audioManager.Stop("Player Damage");
             audioManager.Play("Player Damage", player.transform, this.transform);
         }
-        if (other.tag == "Environment")
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
         {
             Destroy(this.gameObject);
         }

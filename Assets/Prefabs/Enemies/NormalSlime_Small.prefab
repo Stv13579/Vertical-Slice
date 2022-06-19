@@ -364,7 +364,7 @@ MonoBehaviour:
   weaknesses: 
   resistances: 
   bounceList: []
-  deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
+  deathSpawn: {fileID: 7267713575654507604, guid: a94aaa96e6d5ba94d98a584be3024af7,
     type: 3}
   hitSpawn: {fileID: 972929455091577122, guid: dba3c9cd22f34fd40a2a7fc037b1a5c3, type: 3}
   moveDirection: {x: 0, y: 0, z: 0}

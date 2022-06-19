@@ -23,7 +23,7 @@ MonoBehaviour:
   weaknesses: 00000000
   resistances: 01000000
   bounceList: []
-  deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
+  deathSpawn: {fileID: 1584426400794531735, guid: f49572f8a25942242a110636866f6bdd,
     type: 3}
   hitSpawn: {fileID: 8873115531169138571, guid: f6a1c9e799a27c14cbe74b5fe39bfc25,
     type: 3}

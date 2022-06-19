@@ -123,10 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164348128dafca54596591113a9d29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTimer: 2
+  followTimer: 1
   followTimerLength: 0
   lifeTimer: 5
-  rotationTime: 4.5
   lifeTimerLength: 0
   upForce: 2000
   forwardForce: 700
+  rotTimerMax: 1

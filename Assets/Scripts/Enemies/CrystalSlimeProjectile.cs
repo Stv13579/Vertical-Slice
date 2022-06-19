@@ -21,6 +21,10 @@ public class CrystalSlimeProjectile : MonoBehaviour
     [SerializeField]
     private float forwardForce;
 
+
+    float rotTimer = 0.0f;
+    [SerializeField]
+    private float rotTimerMax = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,21 +41,29 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
-        // when the crystals shoot out rotate teh crystals so that it faces the player
-        if(lifeTimer <= 4.5f)
+
+        if (rotTimer <= rotTimerMax)
         {
-            this.transform.LookAt(player.transform.position);
-            Quaternion rot = transform.rotation;
-            rot.eulerAngles = new Vector3(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
-            transform.rotation = rot;
+            rotTimer += Time.deltaTime;
+            transform.Rotate(transform.right, /*Mathf.Lerp(0, 140, rotTimer / rotTimerMax)*/Time.deltaTime * 200);
         }
-        // if follow timer is greater then 0 then follow the player
+
+
+        // when the crystals shoot out rotate teh crystals so that it faces the player
+        //if(lifeTimer <= 4.5f)
+        //{
+        //    this.transform.LookAt(player.transform.position);
+        //    Quaternion rot = transform.rotation;
+        //    rot.eulerAngles = new Vector3(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
+        //    transform.rotation = rot;
+        //}
+        //if follow timer is greater then 0 then follow the player
         if (followTimer >= followTimerLength)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 10 * Time.deltaTime);
         }
         // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
-        if(lifeTimer <= lifeTimerLength)
+        if (lifeTimer <= lifeTimerLength)
         {
             Destroy(this.gameObject);
             lifeTimer = 5.0f;

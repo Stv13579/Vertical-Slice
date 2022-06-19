@@ -46,12 +46,14 @@ public class GameplayUI : MonoBehaviour
         }
     }
 
-    public void AddItem(Sprite sprite)
+    public void AddItem(Sprite[] sprites)
     {
         if(itemIndex < items.Count)
         {
-            items[itemIndex].sprite = sprite;
+            items[itemIndex].sprite = sprites[0];
+            items[itemIndex].transform.GetChild(0).GetComponent<Image>().sprite = sprites[1];
             items[itemIndex].enabled = true;
+            items[itemIndex].transform.GetChild(0).GetComponent<Image>().enabled = true;
             itemIndex++;
         }
     }

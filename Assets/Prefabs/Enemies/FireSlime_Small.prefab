@@ -28,7 +28,7 @@ MonoBehaviour:
   hitSpawn: {fileID: 4786863155429246897, guid: a3345ae8846797047bedf92710df1138,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
-  attackAudio: Play Damage
+  attackAudio: Player Damage
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
   targettingIndicator: {fileID: 840838612295924987}

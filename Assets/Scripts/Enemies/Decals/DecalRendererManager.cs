@@ -79,7 +79,7 @@ public class DecalRendererManager : MonoBehaviour
         }
     }
 
-    // releases the decalrenderer and sets a spot free
+    // disables camera and sets a spot free
     public void ReleaseDecalRenderer(int _index)
     {
         decalRenderers[_index].Release();

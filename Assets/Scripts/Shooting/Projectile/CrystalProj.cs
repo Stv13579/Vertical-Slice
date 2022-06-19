@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CrystalProj : MonoBehaviour
 {
-    float speed;
-    float damage;
-    AnimationCurve damageCurve;
-    float damageLifeTimer;
-    float startLifeTimer;
+    private float speed;
+    private float damage;
+
+    private AnimationCurve damageCurve;
+
+    private float damageLifeTimer;
+    private float startLifeTimer;
 
     List<BaseEnemyClass.Types> attackTypes;
-    AudioManager audioManager;
-    bool ismoving;
+    private AudioManager audioManager;
+
+    private bool ismoving;
+
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -26,11 +30,14 @@ public class CrystalProj : MonoBehaviour
         {
             damageLifeTimer -= Time.deltaTime;
         }
+        // decrease the life of the crystal once its been shot out
         if(startLifeTimer > 0)
         {
             startLifeTimer -= Time.deltaTime;
         }
+        // decrease the damage of the crystals every frame
         damage -= damageCurve.Evaluate(startLifeTimer - damageLifeTimer) * Time.deltaTime;
+        // moves the projectiles
         if (ismoving == true)
         {
             MoveCrystalProjectile();
@@ -65,13 +72,16 @@ public class CrystalProj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if enemy, hit them for the damage
-        // destroy projectile after
+        // if bullet hits the environment
+        // stops it from moving
+        // gets embedded in the environment
         if (other.tag == "Environment")
         {
             ismoving = false;
         }
         Collider taggedEnemy = null;
+        //if enemy, hit them for the damage
+        // destroy projectile after
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);

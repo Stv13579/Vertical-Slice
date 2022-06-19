@@ -38,6 +38,8 @@ MonoBehaviour:
   viewToPlayer:
     serializedVersion: 2
     m_Bits: 3072
+  shootTimer: 0
+  shootTimerLength: 2
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
   enemyProjectileScale: {x: 0.02, y: 0.02, z: 0.02}

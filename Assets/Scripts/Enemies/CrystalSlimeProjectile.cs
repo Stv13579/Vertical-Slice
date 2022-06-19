@@ -5,18 +5,21 @@ using UnityEngine;
 public class CrystalSlimeProjectile : MonoBehaviour
 {
     Rigidbody rb;
-    float projectileDamage;
+    private float projectileDamage;
     GameObject player;
     [SerializeField]
-    float followTimer;
+    private float followTimer;
     [SerializeField]
-    float lifeTimer;
-    AudioManager audioManager;
-
+    private float followTimerLength;
     [SerializeField]
-    float upForce;
+    private float lifeTimer;
     [SerializeField]
-    float forwardForce;
+    private float lifeTimerLength;
+    private AudioManager audioManager;
+    [SerializeField]
+    private float upForce;
+    [SerializeField]
+    private float forwardForce;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
+        // when the crystals shoot out rotate teh crystals so that it faces the player
         if(lifeTimer <= 4.5f)
         {
             this.transform.LookAt(player.transform.position);
@@ -42,12 +46,12 @@ public class CrystalSlimeProjectile : MonoBehaviour
             transform.rotation = rot;
         }
         // if follow timer is greater then 0 then follow the player
-        if (followTimer >= 0)
+        if (followTimer >= followTimerLength)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 10 * Time.deltaTime);
         }
         // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
-        if(lifeTimer <= 0)
+        if(lifeTimer <= lifeTimerLength)
         {
             Destroy(this.gameObject);
             lifeTimer = 5.0f;

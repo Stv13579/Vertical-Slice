@@ -40,8 +40,9 @@ public class ShopUI : MonoBehaviour
             Item item = (Item)this.gameObject.AddComponent(System.Type.GetType(items.itemList[i].item));
             if(!items.itemList[i].alreadyAdded || (items.itemList[i].alreadyAdded && items.itemList[i].mulipleAllowed))
             {
-                item.sprite = items.itemList[i].sprite;
+                item.sprites = items.itemList[i].sprites;
                 item.itemName = items.itemList[i].itemName;
+                item.description = items.itemList[i].description;
                 shopItems.Add(item);
                 ids.Add(i);
                 items.itemList[i].alreadyAdded = true;
@@ -64,9 +65,11 @@ public class ShopUI : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             //Give the UI buttons the necessary information for each item they contain
-            buttons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = shopItems[i].itemName;
-            buttons[i].transform.GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprite;
-            buttons[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = shopItems[i].currencyCost.ToString();
+            buttons[i].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = shopItems[i].itemName;
+            buttons[i].transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = shopItems[i].sprites[0];
+            buttons[i].transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().sprite = shopItems[i].sprites[1];
+            buttons[i].transform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = shopItems[i].currencyCost.ToString();
+            buttons[i].transform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = shopItems[i].description;
         }
     }
 
@@ -80,13 +83,14 @@ public class ShopUI : MonoBehaviour
         {
             //If he player has enough money, give the player the item, take away their money, and remove he option from the shop
             Item item = (Item)inventory.AddComponent(shopItems[button].GetType());
-            item.sprite = shopItems[button].sprite;
+            item.sprites = shopItems[button].sprites;
             Destroy(shopItems[button]);
             player.AddItem(item);
             buttons[button].SetActive(false);
             player.ChangeMoney(-item.currencyCost);
             audioManager.Stop("Shop Buy");
             audioManager.Play("Shop Buy");
+            Debug.Log("Test");
         }
     }
 

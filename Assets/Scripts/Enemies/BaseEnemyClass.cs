@@ -164,7 +164,7 @@ public class BaseEnemyClass : MonoBehaviour
 
 
             //Spawn currency
-            for(int i = 0; i < Random.Range(0, 3); i++)
+            for(int i = 0; i < Random.Range(1, 4); i++)
             {
                 Instantiate(currencyDrop, this.transform.position, Quaternion.identity);
             }

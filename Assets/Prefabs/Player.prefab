@@ -1317,12 +1317,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   range: 100
-  curseVFX: {fileID: 1851046429954357201, guid: 718220abca31952449419007f10c3ee5,
+  curseVFX: {fileID: 3934473922943028311, guid: d90c7af31018af246bc8767cec223b09,
     type: 3}
   explosionRange: 10
   damage: 50
   damageMultiplier: 1
   types: 
+  curseDeath: {fileID: 9040072988987624986, guid: 6ad2501f765957d4fab25257d276645a,
+    type: 3}
 --- !u!95 &6931027923422626699
 Animator:
   serializedVersion: 3

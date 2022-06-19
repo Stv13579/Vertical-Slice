@@ -19,6 +19,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
         type: 3}
+      propertyPath: attackAudio
+      value: Player Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: -362456135243041838, guid: 8a59ba97a16535f40a2a89a1287c8d20,
+        type: 3}
       propertyPath: damageAmount
       value: 1
       objectReference: {fileID: 0}

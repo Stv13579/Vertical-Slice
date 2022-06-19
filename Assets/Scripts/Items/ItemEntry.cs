@@ -11,6 +11,7 @@ public class ItemEntry
     public string item;
     public string itemName;
     public string description;
+    public int price;
     //[HideInInspector]
     public bool alreadyAdded;
     public bool mulipleAllowed;

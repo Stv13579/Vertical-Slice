@@ -32,6 +32,9 @@ public class PlayerClass : MonoBehaviour
     float currentPushDuration;
     Vector3 pushDir;
 
+    [SerializeField]
+    float fallDamage;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -51,6 +54,7 @@ public class PlayerClass : MonoBehaviour
         if (transform.position.y <= -30)
         {
             transform.position = fallSpawner.position;
+            ChangeHealth(-fallDamage);
             Debug.Log("Reset Position");
         }
 

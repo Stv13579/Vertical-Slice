@@ -142,6 +142,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
+      propertyPath: deathSpawn
+      value: 
+      objectReference: {fileID: 7267713575654507604, guid: a94aaa96e6d5ba94d98a584be3024af7,
+        type: 3}
+    - target: {fileID: 8940881081434796308, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
       propertyPath: damageAmount
       value: 3
       objectReference: {fileID: 0}

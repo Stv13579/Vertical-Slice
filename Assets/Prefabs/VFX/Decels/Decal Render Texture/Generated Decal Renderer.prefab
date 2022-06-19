@@ -230,10 +230,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b31409795130164d8619a73bb28f302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Manager: {fileID: 0}
-  m_DecalIndex: 0
-  m_Camera: {fileID: 5089570619031943065}
-  m_Quad: {fileID: 5089570619421367585}
-  m_RenderTextureSize: 128
-  m_RenderTexture: {fileID: 0}
-  m_MaterialInstance: {fileID: 0}
+  manager: {fileID: 0}
+  decalIndex: 0
+  orthoCamera: {fileID: 5089570619031943065}
+  quad: {fileID: 5089570619421367585}
+  renderTextureSize: 128
+  renderTexture: {fileID: 0}
+  materialInstance: {fileID: 2100000, guid: 577e95b76a85b3f4b8d4a6187c30df34, type: 2}

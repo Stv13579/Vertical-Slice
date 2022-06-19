@@ -28,8 +28,8 @@ public class DecalRenderer : MonoBehaviour
     // sets ups the decal renderers once
     public void FirstSetup(DecalRendererManager _manager)
     {
-        orthoCamera = GetComponentInChildren<Camera>();
-        quad = GetComponentInChildren<MeshRenderer>();
+        //orthoCamera = GetComponentInChildren<Camera>();
+        //quad = GetComponentInChildren<MeshRenderer>();
         manager = _manager;
 
         renderTexture = new RenderTexture(renderTextureSize, renderTextureSize, 0, UnityEngine.Experimental.Rendering.DefaultFormat.LDR);

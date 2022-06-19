@@ -21,8 +21,6 @@ public class LaserBeamElement : BaseElementClass
     {
         base.Update();
 
-       
-
         if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("LaserBeam"))
         {
             DeactivateLaser();

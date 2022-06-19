@@ -28,7 +28,7 @@ MonoBehaviour:
   hitSpawn: {fileID: 4786863155429246897, guid: a3345ae8846797047bedf92710df1138,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
-  attackAudio: Play Damage
+  attackAudio: Player Damage
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
   targettingIndicator: {fileID: 840838612295924987}
@@ -45,6 +45,8 @@ MonoBehaviour:
     m_Bits: 1024
   enemyFireTrailScale: {x: 5, y: 5, z: 1}
   decalManager: {fileID: 0}
+  spawnTimer: 0
+  spawnTimerLength: 1
 --- !u!1001 &1250805480861160025
 PrefabInstance:
   m_ObjectHideFlags: 0

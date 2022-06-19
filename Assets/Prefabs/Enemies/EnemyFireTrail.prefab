@@ -86,10 +86,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decal: {fileID: 6819038300084677815}
-  decalManager: {fileID: 0}
   decalRenderer: {fileID: 0}
   effectMaterial: {fileID: 2100000, guid: 577e95b76a85b3f4b8d4a6187c30df34, type: 2}
-  decalMaterialInstance: {fileID: 0}
+  decalMaterialInstance: {fileID: 2100000, guid: f1c6309ae61598f41befbb59f69cefec,
+    type: 2}
   m_Animation:
     serializedVersion: 2
     m_Curve:

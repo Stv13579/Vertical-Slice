@@ -14,6 +14,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
     [SerializeField]
     private float lifeTimer;
     [SerializeField]
+    private float rotationTime = 4.5f;
+    [SerializeField]
     private float lifeTimerLength;
     private AudioManager audioManager;
     [SerializeField]
@@ -38,7 +40,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
         // when the crystals shoot out rotate teh crystals so that it faces the player
-        if(lifeTimer <= 4.5f)
+        if(lifeTimer <= rotationTime)
         {
             this.transform.LookAt(player.transform.position);
             Quaternion rot = transform.rotation;

@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTimer: 2
+  followTimerLength: 0
   lifeTimer: 5
+  rotationTime: 4.5
+  lifeTimerLength: 0
   upForce: 2000
   forwardForce: 700

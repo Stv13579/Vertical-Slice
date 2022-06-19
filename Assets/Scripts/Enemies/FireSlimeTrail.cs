@@ -18,12 +18,14 @@ public class FireSlimeTrail : MonoBehaviour
     private MeshRenderer decal;
 
     private DecalRendererManager decalManager;
+
     public DecalRenderer decalRenderer;
 
     [SerializeField]
     private Material effectMaterial;
 
-    public Material decalMaterialInstance;
+    [SerializeField]
+    private Material decalMaterialInstance;
 
     [SerializeField]
     private AnimationCurve m_Animation = AnimationCurve.EaseInOut(1.0f, 1.0f, 0.0f, 0.0f);
@@ -35,9 +37,10 @@ public class FireSlimeTrail : MonoBehaviour
         decalManager = FindObjectOfType<DecalRendererManager>();
 
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
-        decalMaterialInstance = new Material(decal.sharedMaterial);
+        //decalMaterialInstance = new Material(decal.sharedMaterial);
         decalMaterialInstance.SetTexture("_MainTex", decalRenderer.renderTexture);
         decal.material = decalMaterialInstance;
+
         audioManager.Stop("Fire Slime Trail Alive");
         audioManager.Play("Fire Slime Trail Alive", player.transform, this.transform);
     }

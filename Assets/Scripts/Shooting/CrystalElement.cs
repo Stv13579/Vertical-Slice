@@ -5,20 +5,20 @@ using UnityEngine;
 public class CrystalElement : BaseElementClass
 {
     [SerializeField]
-    GameObject crystalProjectile;
+    private GameObject crystalProjectile;
 
     [SerializeField]
-    float damage;
+    private float damage;
     public float damageMultiplier = 1;
 
     [SerializeField]
-    float projectileSpeed;
+    private float projectileSpeed;
 
     [SerializeField]
-    AnimationCurve damageCurve;
+    private AnimationCurve damageCurve;
 
     [SerializeField]
-    float lifeTimer;
+    private float lifeTimer;
 
     // Update is called once per frame
     protected override void Update()

@@ -13,7 +13,7 @@ public class BaseElementClass : MonoBehaviour
     GameObject activatedVFX;
     //VFX that appears in the hand while this element is active (perhaps nothing for combos)
     [SerializeField]
-    GameObject handVFX;
+    public GameObject handVFX;
 
     [SerializeField]
     public float manaCost;

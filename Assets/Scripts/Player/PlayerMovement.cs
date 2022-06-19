@@ -264,9 +264,9 @@ public class PlayerMovement : MonoBehaviour
     {
         while (duration > 0)
         {
-            float z = Random.Range(0.0f, 1.0f) * magnitude;
+            float x = Random.Range(-1.0f, 1.0f) * magnitude;
 
-            cameraTransform.localEulerAngles += new Vector3(0, 0, z);
+            cameraTransform.localEulerAngles += new Vector3(x, 0, 0);
 
             duration -= Time.deltaTime;
 

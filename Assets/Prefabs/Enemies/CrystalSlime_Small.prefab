@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
-  damageAmount: 2
+  damageAmount: 1
   moveSpeed: 5
   damageThreshold: 0
   damageResistance: 1

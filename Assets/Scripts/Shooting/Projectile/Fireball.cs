@@ -19,7 +19,7 @@ public class Fireball : MonoBehaviour
 
     float explosionRadii;
 
-    List<string> attackTypes;
+    List<BaseEnemyClass.Types> attackTypes;
 
     AudioManager audioManager;
     void Start()
@@ -52,7 +52,7 @@ public class Fireball : MonoBehaviour
 
     }
 
-    public void SetVars(float spd, float dmg, float grav, AnimationCurve grCurve, float lifeTime, float explosionRadius, float expDamage, List<string> types)
+    public void SetVars(float spd, float dmg, float grav, AnimationCurve grCurve, float lifeTime, float explosionRadius, float expDamage, List<BaseEnemyClass.Types> types)
     {
         speed = spd;
         damage = dmg;

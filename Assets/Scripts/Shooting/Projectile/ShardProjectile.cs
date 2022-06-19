@@ -10,7 +10,7 @@ public class ShardProjectile : MonoBehaviour
 
     int pierceAmount;
 
-    List<string> attackTypes;
+    List<BaseEnemyClass.Types> attackTypes;
 
     AudioManager audioManager;
     void Start()
@@ -30,7 +30,7 @@ public class ShardProjectile : MonoBehaviour
 
     }
 
-    public void SetVars(float spd, float dmg, List<string> types)
+    public void SetVars(float spd, float dmg, List<BaseEnemyClass.Types> types)
     {
         speed = spd;
         damage = dmg;

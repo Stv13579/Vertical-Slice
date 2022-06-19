@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9965eb33e7d0d804086e863e303af43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 75
-  damageAmount: 5
-  moveSpeed: 4
+  maxHealth: 30
+  damageAmount: 2
+  moveSpeed: 5
   damageThreshold: 0
   damageResistance: 1
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
     type: 3}
   spawner: {fileID: 0}
-  weaknesses: []
-  resistances: []
+  weaknesses: 00000000
+  resistances: 01000000
   bounceList: []
   deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
     type: 3}
@@ -31,10 +31,16 @@ MonoBehaviour:
   attackAudio: Play Damage
   deathAudio: Slime Death
   takeDamageAudio: Slime Damage
+  targettingIndicator: {fileID: 688266462801590134}
+  oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 100
+  pushForce: 10
+  viewToPlayer:
+    serializedVersion: 2
+    m_Bits: 3072
   enemyProjectile: {fileID: 5267926084121278719, guid: 319ee57292d1b084a9fa57cf30f26e56,
     type: 3}
-  enemyProjectileScale: {x: 0.5, y: 0.5, z: 0.5}
+  enemyProjectileScale: {x: 0.02, y: 0.02, z: 0.02}
 --- !u!1001 &1404476596481006036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 8.7
       objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
@@ -107,6 +113,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8256094803587314692, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 25.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8678994780238758098, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -119,6 +130,12 @@ PrefabInstance:
 --- !u!1 &8074025805592656083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404476596481006036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &688266462801590134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1941195159714918050, guid: 956b87a34921e9249a4dcbfe90732b61,
     type: 3}
   m_PrefabInstance: {fileID: 1404476596481006036}
   m_PrefabAsset: {fileID: 0}

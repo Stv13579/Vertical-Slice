@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MAT_Slime_Boss_Lerping
+  m_Shader: {fileID: 4800000, guid: 1451c0ed5105b934bb7f40db29737d13, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CrystalEmmisive:
+        m_Texture: {fileID: 2800000, guid: 9cd6ee011ea58e3468429ff119beb61c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CrystalSubsurfaceMulti:
+        m_Texture: {fileID: 2800000, guid: 40cfa72d7a927ff4f9d9c4ee1c57bc18, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CrystalTexture:
+        m_Texture: {fileID: 2800000, guid: 40cfa72d7a927ff4f9d9c4ee1c57bc18, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DefaultEmmisive:
+        m_Texture: {fileID: 2800000, guid: a1f54dfa529ce0f41a2f81e1380cfd02, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DefaultSubsurfaceMulti:
+        m_Texture: {fileID: 2800000, guid: 50041941d1e8d18448c3dab07e5150e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DefaultTexture:
+        m_Texture: {fileID: 2800000, guid: 50041941d1e8d18448c3dab07e5150e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Diffuse:
+        m_Texture: {fileID: 2800000, guid: 2736746e2da8f794cb59b9b8c2a41d43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FireEmmisive:
+        m_Texture: {fileID: 2800000, guid: 380019da6d0638a41bbfd40980af87e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FireSubsurfaceMulti:
+        m_Texture: {fileID: 2800000, guid: fe24b13ab18ef6a48937ff321f94110f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FireTexture:
+        m_Texture: {fileID: 2800000, guid: fe24b13ab18ef6a48937ff321f94110f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SlimeEmmisive:
+        m_Texture: {fileID: 2800000, guid: a1f54dfa529ce0f41a2f81e1380cfd02, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubSurfMulti:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaClip: 0
+    - _AlphaCutoff: 0.5
+    - _Blend: 0
+    - _BumpScale: 1
+    - _CrystalTextureLerp: 1
+    - _CrystalTextureLerpFade: 0.8235295
+    - _CrystalVoronoiScale: 6.1
+    - _CrystalVoronoiSpeed: 3
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _FireTextureLerp: 1
+    - _FireTextureLerpFade: 0.67446005
+    - _FireVoronoiScale: 5
+    - _FireVoronoiSpeed: 5
+    - _FlameNoiseScale: 2.48
+    - _FresnelScale: 0.65
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Highlight_Strenght: 1
+    - _LerpIntoFireMode_Fill: -10
+    - _LerpIntoFireMode_Soften: 0
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _Outline_Alpha: 1
+    - _Outline_Distance: 200
+    - _Outline_Width: 0.001
+    - _Overall_Smoothness: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Rim_Alpha: 1
+    - _Rim_Strenght: 2.2
+    - _SSS_Fres_Power: 3
+    - _SSS_Fres_Scale: 11
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _Spec_Smoothness: 0.94
+    - _SpecularHighlights: 1
+    - _Specular_Alpha: 1
+    - _Specular_Intensity: 10
+    - _SrcBlend: 1
+    - _SubSurf_Alpha: 1
+    - _SubSurface_Stenght: 10
+    - _Surface: 0
+    - _TestLerp1: 0
+    - _TestLerp2: 0
+    - _Voronoi_Fire_Scale: 5
+    - _Voronoi_Fire_Speed: 5
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Diffuse_Colour: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FireRemapNews: {r: 0, g: 1.85, b: 0, a: 0}
+    - _FlameNoiseSpeed: {r: 1, g: 1, b: 0, a: 0}
+    - _Outline_Colour: {r: 0, g: 0, b: 0, a: 0}
+    - _RemapVoronoiFireNews: {r: -3.14, g: 1.95, b: 0, a: 0}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Spec_Colour: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 0}
+--- !u!114 &7283730170572967164
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2

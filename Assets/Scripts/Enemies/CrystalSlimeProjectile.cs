@@ -26,7 +26,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
         // shoots the projectiles up and out 
         rb.AddForce(this.transform.up * upForce + this.transform.forward * forwardForce);
         player = GameObject.Find("Player");
-        audioManager = FindObjectOfType<AudioManager>();
+        audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -34,6 +34,13 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
+        if(lifeTimer <= 4.5f)
+        {
+            this.transform.LookAt(player.transform.position);
+            Quaternion rot = transform.rotation;
+            rot.eulerAngles = new Vector3(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
+            transform.rotation = rot;
+        }
         // if follow timer is greater then 0 then follow the player
         if (followTimer >= 0)
         {
@@ -53,7 +60,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerClass>().ChangeHealth(-projectileDamage);
+            other.gameObject.GetComponentInParent<PlayerClass>().ChangeHealth(-projectileDamage);
             Destroy(this.gameObject);
             audioManager.Stop("Player Damage");
             audioManager.Play("Player Damage", player.transform, this.transform);

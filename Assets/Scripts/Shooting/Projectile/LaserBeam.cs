@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserBeam : MonoBehaviour
 {
     float damage;
-    List<string> attackTypes;
+    List<BaseEnemyClass.Types> attackTypes;
 
     List<GameObject> containedEnemies = new List<GameObject>();
 
@@ -15,13 +15,48 @@ public class LaserBeam : MonoBehaviour
 
     AudioManager audioManager;
 
+    [SerializeField]
+    private GameObject laserBeamEndParticle;
+    [SerializeField]
+    private GameObject laserBeamEffectParticle;
+
+    public bool isHittingObj;
+
+    public LayerMask layerMask;
+
+    float initalLaserScale = 20.0f;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        isHittingObj = false;
     }
     // Update is called once per frame
     void Update()
     {
+        if(isHittingObj == true)
+        {
+            laserBeamEndParticle.SetActive(true);
+        }
+        else
+        {
+            laserBeamEndParticle.SetActive(false);
+        }
+
+        RaycastHit hit;
+        // 20 because thats how long the capsule and laser beam are
+        // physics raycast to check if the laser is hitting the ground or enemies
+        if (Physics.Raycast(laserBeamEffectParticle.transform.position, laserBeamEffectParticle.transform.forward, out hit, initalLaserScale, layerMask))
+        {
+            laserBeamEndParticle.transform.position = hit.point;
+            laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, hit.distance));
+            this.gameObject.transform.localScale = new Vector3(0, hit.distance, 0);
+        }
+        else
+        {
+            laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, initalLaserScale));
+            this.gameObject.transform.localScale = new Vector3(0, initalLaserScale, 0);
+        }
+
         // might need later to add some juice
         currentHitDelay += Time.deltaTime;
 
@@ -42,16 +77,18 @@ public class LaserBeam : MonoBehaviour
         }
     }
     // setter
-    public void SetVars(float dmg, List<string> types)
+    public void SetVars(float dmg, List<BaseEnemyClass.Types> types)
     {
         damage = dmg;
         attackTypes = types;
-
     }
-
     private void OnTriggerStay(Collider other)
     {
         //if enemy, hit them for the damage
+        if(other.tag == "Enemy" || other.tag == "Environment")
+        {
+            isHittingObj = true;
+        }
 
         if (other.tag == "Enemy" && !containedEnemies.Contains(other.gameObject))
         { 
@@ -60,9 +97,12 @@ public class LaserBeam : MonoBehaviour
             audioManager.Play("Slime Damage");
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
+        if (other.tag == "Enemy" || other.tag == "Environment")
+        {
+            isHittingObj = false;
+        }
         if (containedEnemies.Contains(other.gameObject))
         {
             containedEnemies.Remove(other.gameObject);

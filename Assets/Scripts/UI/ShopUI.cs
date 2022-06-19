@@ -18,8 +18,10 @@ public class ShopUI : MonoBehaviour
     [HideInInspector]
     public ShopkeeperScript shopkeeper;
 
+    private AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         player = GameObject.Find("Player").GetComponent<PlayerClass>();
         inventory = GameObject.Find("Player").transform.GetChild(2).gameObject;
 
@@ -83,6 +85,8 @@ public class ShopUI : MonoBehaviour
             player.AddItem(item);
             buttons[button].SetActive(false);
             player.ChangeMoney(-item.currencyCost);
+            audioManager.Stop("Shop Buy");
+            audioManager.Play("Shop Buy");
         }
     }
 

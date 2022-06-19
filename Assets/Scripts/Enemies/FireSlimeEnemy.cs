@@ -7,14 +7,20 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     public GameObject enemyTrail;
     [SerializeField]
     private LayerMask trailLayerMask;
-    float trailCastDistance = 1.0f;
-    float backCastDistance = 0.1f;
-    float trailOffset = 0.01f;
     [SerializeField]
-    private Vector3 fireTrailScale;
+    private Vector3 enemyFireTrailScale;
+    public DecalRendererManager decalManager;
+    float spawntimer;
+
+    public override void Start()
+    {
+        base.Start();
+        decalManager = FindObjectOfType<DecalRendererManager>();
+    }
     new private void Update()
     {
         base.Update();
+        spawntimer -= Time.deltaTime;
     }
     public override void Attacking()
     {
@@ -23,21 +29,17 @@ public class FireSlimeEnemy : NormalSlimeEnemy
 
     public void FireSlimeAttack()
     {
-        RaycastHit hit;
-        Vector3 Back = new Vector3(0f, backCastDistance, 0f);
-        // check of the ray cast line is hitting the ground
-        if (Physics.Raycast(transform.position + Back, -transform.up, out hit, trailCastDistance + backCastDistance, trailLayerMask))
-        {
-            // rotate the go if it hits a flat surface or an angled surface
-            Quaternion newrotation = Quaternion.FromToRotation(transform.up, hit.normal);
+        if (spawntimer <= 0.0f)
+        { 
+            float angle = Random.Range(0.0f, Mathf.PI * 2.0f);
+            Vector3 forward = new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle));
             // creates a plane which is the trail of the fire slime
-            GameObject tempEnemyTrail = Instantiate(enemyTrail, hit.point + hit.normal * trailOffset, newrotation);
-            // sets the damage
+            GameObject tempEnemyTrail = Instantiate(enemyTrail, transform.position, Quaternion.LookRotation(Vector3.down, forward));
+            tempEnemyTrail.transform.localScale = enemyFireTrailScale;
             tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
-            // sets the scale of the firetrail as there are different sizes of enemies
-            tempEnemyTrail.transform.localScale = fireTrailScale;
             audioManager.Stop("Fire Slime Trail Initial");
             audioManager.Play("Fire Slime Trail Initial", player.transform, this.transform);
+            spawntimer = 1.0f;
         }
     }
     public override void Movement(Vector3 positionToMoveTo)
@@ -53,5 +55,15 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     public override void OnCollisionStay(Collision collision)
     {
         base.OnCollisionStay(collision);
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+    }
+
+    public override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
     }
 }

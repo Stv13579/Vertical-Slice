@@ -98,7 +98,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColour: {r: 0.21960784, g: 1.4980392, b: 0, a: 0}
+    - _BaseColour: {r: 0.10980392, g: 0.7490196, b: 0, a: 0}
     - _BaseColour1: {r: 0.40066537, g: 0.9215686, b: 0, a: 0}
     - _BaseDarkColour: {r: 0.20277673, g: 1.8443027, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

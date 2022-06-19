@@ -5,23 +5,38 @@ using UnityEngine;
 public class LaserBeamElement : BaseElementClass
 {
     [SerializeField]
-    GameObject LaserBeam;
+    GameObject laserBeam;
 
     [SerializeField]
     float damage;
     public float damageMultiplier = 1;
 
     public bool usingLaserBeam;
+    protected override void Start()
+    {
+        base.Start();
+    }
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
 
+       
+
         if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("LaserBeam"))
         {
             DeactivateLaser();
         }
-        
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            usingLaserBeam = false;
+            laserBeam.SetActive(false);
+            playerHand.SetTrigger("LaserStopCast");
+            audioManager.Stop("Laser Beam");
+            laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
+        }
+
     }
 
     public void DeactivateLaser()
@@ -30,18 +45,19 @@ public class LaserBeamElement : BaseElementClass
         // stop the laser beam
         if (Input.GetKeyUp(KeyCode.Mouse0) || !PayCosts(Time.deltaTime))
         {
-            usingLaserBeam = false;
-           LaserBeam.SetActive(false);
+           usingLaserBeam = false;
+            laserBeam.SetActive(false);
            playerHand.SetTrigger("LaserStopCast");
-            audioManager.Stop("Laser Beam");
+           audioManager.Stop("Laser Beam");
+            laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
         }
     }
     public override void ElementEffect()
     {
         base.ElementEffect();
         usingLaserBeam = true;
-        LaserBeam.SetActive(true);
-        LaserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage * damageMultiplier, attackTypes);
+        laserBeam.SetActive(true);
+        laserBeam.GetComponentInChildren<LaserBeam>().SetVars(damage * damageMultiplier, attackTypes);
     }
     public override void ActivateVFX()
     {
@@ -51,7 +67,7 @@ public class LaserBeamElement : BaseElementClass
     protected override void StartAnims(string animationName)
     {
         base.StartAnims(animationName);
-
+        playerHand.ResetTrigger("LaserStopCast");
         playerHand.SetTrigger(animationName);
     }
 }

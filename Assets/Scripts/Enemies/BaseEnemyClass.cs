@@ -30,8 +30,18 @@ public class BaseEnemyClass : MonoBehaviour
     [HideInInspector]
     public GameObject spawner;
 
+    /// <summary>
+    /// Element types for weaknesses and resists
+    /// </summary>
+
+    public enum Types
+    {
+        Fire,
+        Crystal
+    }
+
     [SerializeField]
-    List<string> weaknesses, resistances;
+    List<Types> weaknesses, resistances;
 
     public List<GameObject> bounceList;
 
@@ -55,6 +65,10 @@ public class BaseEnemyClass : MonoBehaviour
     [SerializeField]
     string takeDamageAudio;
 
+    [SerializeField]
+    GameObject targettingIndicator;
+
+    public Vector3 oldPosition;
 
     public virtual void Start()
     {
@@ -63,6 +77,8 @@ public class BaseEnemyClass : MonoBehaviour
         playerClass = player.GetComponent<PlayerClass>();
         currentHealth = maxHealth;
         audioManager = FindObjectOfType<AudioManager>();
+        oldPosition = new Vector3(-1000, -1000, -1000);
+
     }
 
     public virtual void Update()
@@ -99,20 +115,20 @@ public class BaseEnemyClass : MonoBehaviour
 
 
     //Taking damage
-    public void TakeDamage(float damageToTake, List<string> attackTypes)
+    public void TakeDamage(float damageToTake, List<Types> attackTypes)
     {
         Instantiate(hitSpawn, transform.position, Quaternion.identity);
         float multiplier = 1;
-        foreach(string type in attackTypes)
+        foreach(Types type in attackTypes)
         {
-            foreach (string weak in weaknesses)
+            foreach (Types weak in weaknesses)
             {
                 if(weak == type)
                 {
                     multiplier *= 2; 
                 }
             }
-            foreach (string resist in resistances)
+            foreach (Types resist in resistances)
             {
                 if(resist == type)
                 {
@@ -169,6 +185,10 @@ public class BaseEnemyClass : MonoBehaviour
         }
     }
 
+    public void Targetted(bool targetted)
+    {
+        targettingIndicator.SetActive(targetted);
+    }
 
     
 }

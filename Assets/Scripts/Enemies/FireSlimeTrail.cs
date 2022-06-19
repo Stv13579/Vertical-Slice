@@ -4,28 +4,36 @@ using UnityEngine;
 
 public class FireSlimeTrail : MonoBehaviour
 {
-    float trailDamage;
-    float trailDuration = 0.0f;
-    float trailLength = 5.0f;
+    private float trailDamage;
+    private float trailDuration = 0.0f;
+    private float trailLength = 5.0f;
+
     static float trailDamageTicker = 1.0f;
     static int frame = 0;
-    AudioManager audioManager;
-    GameObject player;
 
-    public MeshRenderer decal;
+    private AudioManager audioManager;
+    private GameObject player;
+
+    [SerializeField]
+    private MeshRenderer decal;
+
     private DecalRendererManager decalManager;
     public DecalRenderer decalRenderer;
 
-    public Material effectMaterial;
+    [SerializeField]
+    private Material effectMaterial;
+
     public Material decalMaterialInstance;
 
-    public AnimationCurve m_Animation = AnimationCurve.EaseInOut(1.0f, 1.0f, 0.0f, 0.0f);
+    [SerializeField]
+    private AnimationCurve m_Animation = AnimationCurve.EaseInOut(1.0f, 1.0f, 0.0f, 0.0f);
     //public float m_AnimationValue; // <-- animate this to move it on the actual renderer
     private void Start()
     {
         player = GameObject.Find("Player");
         audioManager = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
         decalManager = FindObjectOfType<DecalRendererManager>();
+
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
         decalMaterialInstance = new Material(decal.sharedMaterial);
         decalMaterialInstance.SetTexture("_MainTex", decalRenderer.renderTexture);

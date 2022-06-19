@@ -43,53 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663c63980f6414945b475d1c7becf6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DecalRendererPrefab: {fileID: 5089570620132935336, guid: 9e49da028239fa9498d0d867c984fdf3,
+  decalRendererPrefab: {fileID: 5089570620132935336, guid: 9e49da028239fa9498d0d867c984fdf3,
     type: 3}
-  m_OriginPosition: {x: 0, y: 0, z: 0}
-  m_Offset: 1
-  m_Slots: 50
-  m_Available: 0101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
-  m_DecalRenderers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  originPosition: {x: 0, y: 0, z: 0}
+  offset: 1
+  slots: 10
+  available: 01010101010101010101
+  decalRenderers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

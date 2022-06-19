@@ -6,7 +6,7 @@ public class DecalRenderer : MonoBehaviour
 {
     public DecalRendererManager manager;
 
-    private int decalIndex;
+    public int decalIndex;
 
     [SerializeField]
     private Camera orthoCamera;

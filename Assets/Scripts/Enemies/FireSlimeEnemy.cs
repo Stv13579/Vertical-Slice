@@ -9,9 +9,12 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     private LayerMask trailLayerMask;
     [SerializeField]
     private Vector3 enemyFireTrailScale;
-    public DecalRendererManager decalManager;
-    float spawntimer;
-
+    [SerializeField]
+    private DecalRendererManager decalManager;
+    [SerializeField]
+    private float spawnTimer;
+    [SerializeField]
+    private float spawnTimerLength = 1.0f;
     public override void Start()
     {
         base.Start();
@@ -20,7 +23,7 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     new private void Update()
     {
         base.Update();
-        spawntimer -= Time.deltaTime;
+        spawnTimer -= Time.deltaTime;
     }
     public override void Attacking()
     {
@@ -29,7 +32,7 @@ public class FireSlimeEnemy : NormalSlimeEnemy
 
     public void FireSlimeAttack()
     {
-        if (spawntimer <= 0.0f)
+        if (spawnTimer <= 0.0f)
         { 
             float angle = Random.Range(0.0f, Mathf.PI * 2.0f);
             Vector3 forward = new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle));
@@ -39,7 +42,7 @@ public class FireSlimeEnemy : NormalSlimeEnemy
             tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
             audioManager.Stop("Fire Slime Trail Initial");
             audioManager.Play("Fire Slime Trail Initial", player.transform, this.transform);
-            spawntimer = 1.0f;
+            spawnTimer = spawnTimerLength;
         }
     }
     public override void Movement(Vector3 positionToMoveTo)

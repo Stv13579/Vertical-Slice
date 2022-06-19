@@ -20,7 +20,8 @@ public class NormalSlimeEnemy : BaseEnemyClass
         
     }
 
-    // need to work on
+    // damages the player
+    // takes alway the players health
     public override void Attacking()
     {
         base.Attacking();
@@ -108,7 +109,7 @@ public class NormalSlimeEnemy : BaseEnemyClass
 
 
 
-
+        // slime is always looking at the player
         transform.LookAt(player.transform.position);
         Quaternion rot = transform.rotation;
         rot.eulerAngles = new Vector3(0, rot.eulerAngles.y + 135, 0);
@@ -122,7 +123,9 @@ public class NormalSlimeEnemy : BaseEnemyClass
         Movement(player.transform.position);
         damageTicker -= Time.deltaTime;
     }
-
+    
+    // when the slime collides with the ground player audio for slime bounce
+    // and add force to the slime so that it jumps
     public virtual void OnCollisionEnter(Collision collision)
     {
         if (GetComponent<Rigidbody>().velocity.y < 10 && collision.gameObject.layer == 10)

@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class DecalRendererManager : MonoBehaviour
 {
-    public GameObject decalRendererPrefab;
-
-    public Vector3 originPosition = new Vector3(0.0f, 0.0f, 0.0f);
-    public float offset = 1.0f;
-    public int slots = 10;
-
-    public bool[] available;
-    public DecalRenderer[] decalRenderers;
+    [SerializeField]
+    private GameObject decalRendererPrefab;
+    [SerializeField]
+    private Vector3 originPosition = new Vector3(0.0f, 0.0f, 0.0f);
+    [SerializeField]
+    private float offset = 1.0f;
+    [SerializeField]
+    private int slots = 10;
+    [SerializeField]
+    private bool[] available;
+    [SerializeField]
+    private DecalRenderer[] decalRenderers;
 
     private void OnValidate()
     {

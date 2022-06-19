@@ -25,7 +25,7 @@ MonoBehaviour:
   bounceList: []
   deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
     type: 3}
-  hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
+  hitSpawn: {fileID: 4786863155429246897, guid: a3345ae8846797047bedf92710df1138,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
   attackAudio: Play Damage

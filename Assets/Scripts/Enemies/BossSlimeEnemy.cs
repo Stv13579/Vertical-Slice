@@ -12,16 +12,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     }
     public Type currentType = Type.normal;
 
-    //Properties for the material editing
-    Material mat1;
-    Material mat2;
-
-    [SerializeField]
-    Material normalMat;
-    [SerializeField]
-    Material fireMat;
-    [SerializeField]
-    Material crystalMat;
+    //Properties for the material editig
 
     [SerializeField]
     Renderer rend;
@@ -41,6 +32,9 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     float matLerpMax;
 
     float currentMatLerp;
+
+    float crystalLerpValue;
+    float fireLerpValue;
 
     //Properties for type transitions
     /// <summary>
@@ -91,18 +85,23 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     Vector3 projScale;
 
+    /// <summary>
+    /// Fire Trail Stuff
+    /// </summary>
+    public DecalRendererManager decalManager;
+    float spawnTimer;
 
     public override void Start()
     {
         base.Start();
         moveDirection = player.transform.position;
         currentChangeTime = changeTime;
-        mat1 = rend.material;
-        mat2 = rend.material;
         currentAttackTime = timeBetweenAttacks;
         currentChargeDuration = fireChargeDuration;
-
+        decalManager = FindObjectOfType<DecalRendererManager>();
+        currentMatLerp = 0;
         spawner = GameObject.Find("BossSpawner").GetComponent<BossSpawn>();
+        
     }
 
     protected override void Update()
@@ -120,25 +119,13 @@ public class BossSlimeEnemy : NormalSlimeEnemy
             SwitchType();
         }
 
+
         //If the boss is on fire mode, make the fire trail
         if(currentType == Type.fire)
         {
-            RaycastHit hit;
-            Vector3 Back = new Vector3(0f, backCastDistance, 0f);
-            // check of the ray cast line is hitting the ground
-            if (Physics.Raycast(transform.position + Back, -transform.up, out hit, trailCastDistance + backCastDistance, trailLayerMask))
-            {
-                // rotate the go if it hits a flat surface or an angled surface
-                Quaternion newrotation = Quaternion.FromToRotation(transform.up, hit.normal);
-                // creates a plane which is the trail of the fire slime
-                GameObject tempEnemyTrail = Instantiate(enemyTrail, hit.point + hit.normal * trailOffset, newrotation);
-                // sets the damage
-                tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
-                // sets the scale of the firetrail as there are different sizes of enemies
-                tempEnemyTrail.transform.localScale = fireTrailScale;
-                audioManager.Stop("Fire Slime Trail Initial");
-                audioManager.Play("Fire Slime Trail Initial", player.transform, this.transform);
-            }
+            spawnTimer -= Time.deltaTime;
+
+            
         }
         
         
@@ -193,7 +180,6 @@ public class BossSlimeEnemy : NormalSlimeEnemy
 
         //Set material lerping properties
         currentMatLerp = 0;
-        mat1 = mat2;
 
         int choice = Random.Range(0, 2);
 
@@ -309,7 +295,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     //Change mats
     private void SwitchToCrystal()
     {
-        mat2 = crystalMat;
+
         currentType = Type.crystal;
         crystalPoint.SetActive(true);
         firePoint.SetActive(false);
@@ -318,7 +304,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
 
     private void SwitchToFire()
     {
-        mat2 = fireMat;
+
         currentType = Type.fire;
         crystalPoint.SetActive(false);
         firePoint.SetActive(true);
@@ -327,7 +313,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
 
     private void SwitchToNormal()
     {
-        mat2 = normalMat;
+
         currentType = Type.normal;
         crystalPoint.SetActive(false);
         firePoint.SetActive(false);
@@ -340,8 +326,47 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         {
             currentMatLerp += Time.deltaTime;
         }
+        else
+        {
+            currentMatLerp = matLerpMax;
+        }    
 
-        rend.material = mat2;
+        switch(currentType)
+        {
+            case Type.crystal:
+                //crystalLerpValue = 1 - (2 * currentMatLerp / matLerpMax);
+                //fireLerpValue = -1 + (2 * currentMatLerp / matLerpMax);
+
+                crystalLerpValue -= Time.deltaTime;
+                fireLerpValue += Time.deltaTime;
+
+                break;
+            case Type.fire:
+                //crystalLerpValue = 1 - (2 * currentMatLerp / matLerpMax);
+                //fireLerpValue = 1 - (2 * currentMatLerp / matLerpMax);
+
+                crystalLerpValue -= Time.deltaTime;
+                fireLerpValue -= Time.deltaTime;
+
+                
+                break;
+            case Type.normal:
+                //crystalLerpValue = -1 + (2 * currentMatLerp / matLerpMax);
+                //fireLerpValue = -1 + (2 * currentMatLerp / matLerpMax);
+
+                crystalLerpValue += Time.deltaTime;
+                fireLerpValue += Time.deltaTime;
+
+                break;
+        }
+
+        crystalLerpValue = Mathf.Clamp(crystalLerpValue, -1, 1);
+        fireLerpValue = Mathf.Clamp(fireLerpValue, -1, 1);
+
+
+        rend.sharedMaterial.SetFloat("_FireTextureLerp", fireLerpValue);
+        rend.sharedMaterial.SetFloat("_CrystalTextureLerp", crystalLerpValue);
+        
         
     }
 
@@ -352,6 +377,27 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         {
             endAttack = true;
         }
+
+        if(currentType == Type.fire)
+        {
+            if (spawnTimer <= 0.0f)
+            {
+                float angle = Random.Range(0.0f, Mathf.PI * 2.0f);
+                Vector3 forward = new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle));
+                // creates a plane which is the trail of the fire slime
+                Vector3 trailPos = transform.position;
+                trailPos.y -= 0.5f;
+
+                GameObject tempEnemyTrail = Instantiate(enemyTrail, trailPos, Quaternion.LookRotation(Vector3.down, forward));
+                tempEnemyTrail.transform.localScale = fireTrailScale;
+                tempEnemyTrail.GetComponent<FireSlimeTrail>().SetVars(damageAmount);
+                audioManager.Stop("Fire Slime Trail Initial");
+                audioManager.Play("Fire Slime Trail Initial", player.transform, this.transform);
+                spawnTimer = 1.0f;
+            }
+        }
+
+        
 
         base.OnCollisionEnter(collision);
     }

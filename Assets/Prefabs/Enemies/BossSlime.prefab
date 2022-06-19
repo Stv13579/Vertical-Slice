@@ -580,8 +580,8 @@ MonoBehaviour:
   currencyDrop: {fileID: 4669563560585946338, guid: 9c37637694ea5aa428eaff35ecc53468,
     type: 3}
   spawner: {fileID: 0}
-  weaknesses: []
-  resistances: []
+  weaknesses: 
+  resistances: 
   bounceList: []
   deathSpawn: {fileID: 1140089593594349035, guid: 58cc516cec47cd9448a27c3f1ed9a4a6,
     type: 3}
@@ -595,10 +595,10 @@ MonoBehaviour:
   oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 30
   pushForce: 30
+  viewToPlayer:
+    serializedVersion: 2
+    m_Bits: 0
   currentType: 0
-  normalMat: {fileID: 2100000, guid: ae8af0f837a7bc64786dcdf9f4b2d1dd, type: 2}
-  fireMat: {fileID: 2100000, guid: 92c3a625923882747bf64474e18c83f2, type: 2}
-  crystalMat: {fileID: 2100000, guid: aa507c1dd4ae1a44e9f88c959716f331, type: 2}
   rend: {fileID: 6094789019902066308}
   firePoint: {fileID: 1949522794}
   normalPoint: {fileID: 880440684}
@@ -620,6 +620,7 @@ MonoBehaviour:
   crystalProjectiles: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
     type: 3}
   projScale: {x: 3, y: 3, z: 3}
+  decalManager: {fileID: 0}
 --- !u!1001 &2361428090863536218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,7 +739,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: aa507c1dd4ae1a44e9f88c959716f331, type: 2}
+      objectReference: {fileID: 2100000, guid: f9761bf59ea9d77409f79f0f965b2496, type: 2}
     - target: {fileID: 8683612213633217241, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_RootOrder
@@ -852,7 +853,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae8af0f837a7bc64786dcdf9f4b2d1dd, type: 2}
+      objectReference: {fileID: 2100000, guid: f9761bf59ea9d77409f79f0f965b2496, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841300b9b0ad2064c915d7013cff39b8, type: 3}
 --- !u!137 &6094789019902066308 stripped

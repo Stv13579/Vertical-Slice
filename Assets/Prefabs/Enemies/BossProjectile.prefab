@@ -30,6 +30,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -92,6 +107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925501133791911981, guid: 319ee57292d1b084a9fa57cf30f26e56,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7564702098056426074, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}

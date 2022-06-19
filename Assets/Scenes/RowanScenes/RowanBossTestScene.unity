@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalSlime_Small
       objectReference: {fileID: 0}
+    - target: {fileID: 7165516955107352839, guid: 956b87a34921e9249a4dcbfe90732b61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7510551828275542973, guid: 956b87a34921e9249a4dcbfe90732b61,
         type: 3}
       propertyPath: m_RootOrder
@@ -1533,6 +1538,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556038433}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1657073799
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 295947173770953273, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_Name
+      value: Decal Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295947173770953275, guid: b0eedbe2ec8093a42aa68ab9654c0b16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0eedbe2ec8093a42aa68ab9654c0b16, type: 3}
 --- !u!1 &1706744922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1812,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: changeTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: fireTrailScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: fireTrailScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762401204, guid: 726a78b5187dfac49b2b6db7edec71fe, type: 3}
+      propertyPath: fireTrailScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4878662708443654493, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}
       propertyPath: m_Name
@@ -1746,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 4878662708443654493, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5260113440462795751, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}

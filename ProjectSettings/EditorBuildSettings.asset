@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RowanScenes/Main Menu.unity
     guid: 9cc6182022234824ea842738f106da01
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_HubWorld.unity
     guid: f64fd5a91d31ab74fb99d29e6d3f742f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/RowanScenes/RowanHubWorldScene.unity
     guid: f150ae3efb4e18a449f9f28efb142ffa
   - enabled: 1

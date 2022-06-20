@@ -90,6 +90,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Highlight_Strenght: 1
+    - _IDNum: 2
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Outline_Alpha: 1

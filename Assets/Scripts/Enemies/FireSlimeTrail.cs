@@ -28,7 +28,10 @@ public class FireSlimeTrail : MonoBehaviour
     private Material decalMaterialInstance;
 
     [SerializeField]
-    private AnimationCurve m_Animation = AnimationCurve.EaseInOut(1.0f, 1.0f, 0.0f, 0.0f);
+    private AnimationCurve fireTrailAnimation = AnimationCurve.EaseInOut(1.0f, 1.0f, 0.0f, 0.0f);
+
+    [SerializeField]
+    private GameObject fireParticles;
     //public float m_AnimationValue; // <-- animate this to move it on the actual renderer
     private void Start()
     {
@@ -37,7 +40,7 @@ public class FireSlimeTrail : MonoBehaviour
         decalManager = FindObjectOfType<DecalRendererManager>();
 
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
-        //decalMaterialInstance = new Material(decal.sharedMaterial);
+        decalMaterialInstance = new Material(decal.sharedMaterial);
         decalMaterialInstance.SetTexture("_MainTex", decalRenderer.renderTexture);
         decal.material = decalMaterialInstance;
 
@@ -48,7 +51,7 @@ public class FireSlimeTrail : MonoBehaviour
     void Update()
     {
         trailDuration += Time.deltaTime;
-        decalRenderer.materialInstance.SetFloat("_CenterPoint", m_Animation.Evaluate(trailDuration / trailLength));
+        decalRenderer.materialInstance.SetFloat("_CenterPoint", fireTrailAnimation.Evaluate(trailDuration / trailLength));
         //m_DecalRenderer.m_MaterialInstance.SetFloat("_CenterPoint", m_AnimationValue); // <-- pass value through here from animator
         Countdown();
         // deletes the trail after trailDuration >= trailLength
@@ -57,6 +60,16 @@ public class FireSlimeTrail : MonoBehaviour
             audioManager.Stop("Fire Slime Trail Alive");
             decalManager.ReleaseDecalRenderer(decalRenderer);
             Destroy(gameObject);
+        }
+        // turn on particle
+        if(trailDuration >= 1.0f)
+        {
+            fireParticles.SetActive(true);
+        }
+        // turn off particle
+        if (trailDuration >= 4.0f)
+        {
+            fireParticles.SetActive(false);
         }
     }
 

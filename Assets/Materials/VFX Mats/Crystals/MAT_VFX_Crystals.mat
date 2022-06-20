@@ -94,7 +94,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _Blend: 0
     - _BottomColourCull: 0
-    - _BottomColourFade: -15.855632
+    - _BottomColourFade: -3
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -119,7 +119,7 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _TopColourCull: 1
-    - _TopColourFade: -27
+    - _TopColourFade: -4
     - _TransAmbient: 0.1
     - _TransDirect: 0.9
     - _TransNormal: 0.5

@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("General Movement Values")]
     [SerializeField]
-    private float moveSpeed = 12.0f;
-    [SerializeField]
     private float gravity = 30.0f;
     [SerializeField]
     private float jumpSpeed = 15.0f;
@@ -60,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float increasedFOVMoving = 100.0f;
 
+    [SerializeField]
+    private float moveTime = 0.0f;
+    [SerializeField]
+    private AnimationCurve moveAnimaCurve;
+
     public LayerMask enviromentLayer;
     // Start is called before the first frame update
     void Start()
@@ -86,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxisRaw("Vertical");
 
         Jumping();
-        if(this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
+        if (this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
         {
             movementMulti = 0.5f;
         }
@@ -98,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 inputMove = new Vector3(x, 0.0f, z);
         Vector3 realMove = Quaternion.Euler(0.0f, lookScript.GetSpin(), 0.0f) * inputMove;
         realMove.Normalize();
-     
+
         // friction
         // we store the y velocity
         float cacheY = velocity.y;
@@ -112,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = cacheY;
 
         // multiplies velocity by desired movespeed
-        float planarSpeed = moveSpeed;
+        float planarSpeed = acceleration;
         velocity.x = realMove.x * planarSpeed;
         velocity.z = realMove.z * planarSpeed;
 
@@ -128,9 +131,9 @@ public class PlayerMovement : MonoBehaviour
         // collision when touching the roof
         if ((cController.collisionFlags & CollisionFlags.Above) != 0)
         {
-            if(isHeadShaking == true)
+            if (isHeadShaking == true)
             {
-                StartCoroutine(Shake(0.1f, 1.0f));
+                StartCoroutine(Shake(0.2f, 1.0f));
                 isHeadShaking = false;
             }
             velocity.y = -1.0f;
@@ -174,7 +177,39 @@ public class PlayerMovement : MonoBehaviour
 
         }
         HeadBobbing();
-        FOVChange();
+        MovingCurve();
+        if (velocity.y < -25.0f)
+        {
+            lookScript.GetCamera().fieldOfView += increasedFOVMoving * Time.deltaTime;
+        }
+        Debug.Log(acceleration);
+    }
+
+    private void MovingCurve()
+    {
+        if (((cController.collisionFlags & CollisionFlags.Below) != 0) && Mathf.Abs(velocity.x) > 0.1f || Mathf.Abs(velocity.z) > 0.1f)
+        {
+            moveTime += Time.deltaTime;
+            moveTime = Mathf.Clamp(moveTime, 0, 3);
+            if (acceleration >= 12.0f)
+            {
+                lookScript.GetCamera().fieldOfView += increasedFOVMoving * Time.deltaTime;
+            }
+        }
+        else
+        {
+            lookScript.GetCamera().fieldOfView -= initialFOV * Time.deltaTime;
+            moveTime = 0.0f;
+        }
+        acceleration = moveAnimaCurve.Evaluate(moveTime);
+        if (lookScript.GetCamera().fieldOfView >= increasedFOVMoving)
+        {
+            lookScript.GetCamera().fieldOfView = increasedFOVMoving;
+        }
+        if (lookScript.GetCamera().fieldOfView <= initialFOV)
+        {
+            lookScript.GetCamera().fieldOfView = initialFOV;
+        }
     }
 
     private void Jumping()
@@ -191,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
     private void CoyoteTime()
     {
         // collision detection for player
-        if((cController.collisionFlags & CollisionFlags.Below) != 0)
+        if ((cController.collisionFlags & CollisionFlags.Below) != 0)
         {
             isGrounded = true;
             StoredJumpVelo = velocity;
@@ -199,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
             currentCoyoteTime = coyoteTime;
             if (isHeadShaking == true)
             {
-                StartCoroutine(Shake(0.1f, 1.0f));
+                StartCoroutine(Shake(0.2f, 1.0f));
                 audioManager.Stop("Player Landing");
                 audioManager.Play("Player Landing");
                 isHeadShaking = false;
@@ -275,31 +310,5 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void FOVChange()
-    {
-
-        if (velocity.x > 0 || velocity.z > 0 || velocity.x < 0 || velocity.z < 0 && (cController.collisionFlags & CollisionFlags.Below) != 0)
-        {
-            lookScript.GetCamera().fieldOfView += moveSpeed * Time.deltaTime;
-        }
-        else
-        {
-            lookScript.GetCamera().fieldOfView -= initialFOV * Time.deltaTime;
-        }
-
-        if(velocity.y < -25.0f)
-        {
-            lookScript.GetCamera().fieldOfView += increasedFOVMoving * Time.deltaTime;
-        }
-
-        if (lookScript.GetCamera().fieldOfView >= increasedFOVMoving)
-        {
-            lookScript.GetCamera().fieldOfView = increasedFOVMoving;
-        }
-        if (lookScript.GetCamera().fieldOfView <= initialFOV)
-        {
-            lookScript.GetCamera().fieldOfView = initialFOV;
-        }
-    }
 }
 

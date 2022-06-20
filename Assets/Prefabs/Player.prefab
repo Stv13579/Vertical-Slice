@@ -913,9 +913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa7853506573a143b3c9c6f789e0444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  gravity: 60
-  jumpSpeed: 15
+  gravity: 80
+  jumpSpeed: 20
   acceleration: 10
   frictionCurve:
     serializedVersion: 2
@@ -970,6 +969,31 @@ MonoBehaviour:
   ableToMove: 1
   initialFOV: 90
   increasedFOVMoving: 95
+  moveTime: 0
+  moveAnimaCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 3
+      value: 15
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   enviromentLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -986,7 +1010,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 75
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -1073,7 +1097,7 @@ MonoBehaviour:
   shootingSoundFX: Fireball Initial
   fireBall: {fileID: 1674563964008408851, guid: 53c9a56f9a190e74680cf970480c8f2b,
     type: 3}
-  damage: 5
+  damage: 7
   damageMultiplier: 1
   projectileSpeed: 50
   explosionArea: 2

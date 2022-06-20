@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1463047589554535289
+--- !u!114 &-3588767478063684327
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_VFX_AcidCloudOrb
-  m_Shader: {fileID: 4800000, guid: 7c5ef5dc136d134418beb8273ca059a9, type: 3}
+  m_Name: MAT_VFX_Laserbeam_Orb
+  m_Shader: {fileID: 4800000, guid: 4ff1d09ea5c33cf4fa0ac314b714cfc9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -64,71 +64,84 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture0:
-        m_Texture: {fileID: 2800000, guid: 9a7be70759d48ff48a8ef359791bfa99, type: 3}
+    - _Texture1:
+        m_Texture: {fileID: 2800000, guid: 5512be1e0e083f24eb6f50956c6066f6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2:
+        m_Texture: {fileID: 2800000, guid: 5512be1e0e083f24eb6f50956c6066f6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture3:
+        m_Texture: {fileID: 2800000, guid: 5512be1e0e083f24eb6f50956c6066f6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: 88fe50336f30e04478eb04534ac134a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _texcoord:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
     - _AlphaCutoff: 0.5
-    - _Base_Intensity: 1
     - _Blend: 0
-    - _BottomColourCull: 0.453
-    - _BottomColourFade: -1
-    - _Bright_Step_Value: 0.1
-    - _Brightest_Parts_Intense: 5
+    - _BottomCull: 0.431
+    - _BottomFade: -0.5
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
-    - _EdgeFade: 1
     - _EnvironmentReflections: 1
-    - _Fres_Power_MaxNew: 0
-    - _Fres_Power_MinNew: 10
-    - _Fres_Scale_MaxNew: 5
-    - _Fres_Scale_MinNew: 3
+    - _Float0: 20
+    - _Float1: -0.5
+    - _Float2: 1
+    - _Float3: 0
+    - _Fres_2_Power_MaxNew: 3
+    - _Fres_2_Power_MinNew: -1
+    - _Fres_2_Scale_MinNew: 4
+    - _Fres_Power_MaxNew: 1
+    - _Fres_Power_MinNew: 5
+    - _Fres_Scale_MaxNew: 7
+    - _Fres_Scale_MaxNew1: 2
+    - _Fres_Scale_MinNew: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _Noise_1_Scale: 3.38
-    - _Noise_2_Scale: 1.4
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SmoothStep_Fill: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _Smoothstep_Fade: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TopColourCull: 1
-    - _TopColourFade: 0
-    - _VertOffset_Intensity: 0.01
+    - _TessEdgeLength: 16
+    - _TessMax: 25
+    - _TessMaxDisp: 25
+    - _TessMin: 10
+    - _TessPhongStrength: 0.5
+    - _TessValue: 16
+    - _TopCull: 0.5
+    - _TopFade: 0.5
     - _Voronoi_Scale: 5
-    - _Voronoi_Scale1: 5
     - _Voronoi_Speed: 5
-    - _Voronoi_Speed1: 5
+    - _Voronoi_Speed1: 20
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AcidColour: {r: 1.2772634, g: 2.9960785, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseFire_1_Panning: {r: 1, g: 0, b: 0, a: 0}
     - _BaseFire_2_Panning: {r: -1, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FireColour: {r: 3.4415908, g: 0.7387708, b: 0, a: 0}
+    - _FireColour: {r: 2.1185474, g: 0.2067708, b: 0, a: 0}
     - _Flame2Remap: {r: 0, g: 1, b: 0, a: 1.5}
-    - _Fres_ScaleX_PowerY_Speeds: {r: 1, g: 1, b: 0, a: 0}
-    - _RemapNews: {r: -3.14, g: 1.95, b: 0, a: 0}
+    - _Flashing_MainXYZ: {r: 1, g: 5, b: 10, a: 0}
+    - _Fres_2_ScaleX_PowerY_Speeds: {r: 1, g: 1, b: 0, a: 0}
+    - _Fres_ScaleX_PowerY_Speeds: {r: 10, g: 5, b: 0, a: 0}
+    - _LightningColour_1: {r: 6.498019, g: 2.5609958, b: 0, a: 0}
+    - _LightningColour_2: {r: 4.237095, g: 1.2819124, b: 0, a: 0}
+    - _Panning_MainXYZ: {r: -2, g: 1, b: 0.5, a: 0}
+    - _RemapNews: {r: 0, g: 1.3, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

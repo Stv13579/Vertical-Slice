@@ -42,6 +42,7 @@ public class ShopUI : MonoBehaviour
             {
                 item.sprites = items.itemList[i].sprites;
                 item.itemName = items.itemList[i].itemName;
+                item.currencyCost = items.itemList[i].price;
                 item.description = items.itemList[i].description;
                 shopItems.Add(item);
                 ids.Add(i);

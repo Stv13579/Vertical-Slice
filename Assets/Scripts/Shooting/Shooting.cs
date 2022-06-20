@@ -28,6 +28,12 @@ public class Shooting : MonoBehaviour
 
     AudioManager audioManager;
 
+    [SerializeField]
+    Transform leftOrbPos;
+
+    [SerializeField]
+    Transform rightOrbPos;
+
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -62,6 +68,8 @@ public class Shooting : MonoBehaviour
             {
                 leftElementIndex = 0;
             }
+            Destroy(leftOrbPos.GetChild(0).gameObject);
+            Instantiate(primaryElements[leftElementIndex].handVFX, leftOrbPos);
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
@@ -73,6 +81,8 @@ public class Shooting : MonoBehaviour
             {
                 rightElementIndex = 0;
             }
+            Destroy(rightOrbPos.GetChild(0).gameObject);
+            Instantiate(catalystElements[rightElementIndex].handVFX, rightOrbPos);
         }
 
         if(Input.GetKeyUp(KeyCode.F))

@@ -12,7 +12,7 @@ public class GameOverScreen : MonoBehaviour
     float backgroundTimer = 0;
     float textTimer = 0;
     float buttonTimer = 0;
-    public string sceneToLoad;
+    public int sceneToLoad;
 
     AsyncOperation operation;
 

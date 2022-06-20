@@ -16,6 +16,7 @@ MonoBehaviour:
   - item: IncreaseMaxHealthScript
     itemName: Necklace of Vitality
     description: Increases Max HP
+    price: 20
     alreadyAdded: 1
     mulipleAllowed: 0
     sprites:
@@ -24,6 +25,7 @@ MonoBehaviour:
   - item: IncreaseMaxManaScript
     itemName: Spirit Eye
     description: Increases Max MP
+    price: 20
     alreadyAdded: 0
     mulipleAllowed: 0
     sprites:
@@ -32,6 +34,7 @@ MonoBehaviour:
   - item: IncreaseFireDamageScript
     itemName: Salamander's Breath
     description: Increases Fire based spell damage
+    price: 20
     alreadyAdded: 0
     mulipleAllowed: 0
     sprites:
@@ -40,6 +43,7 @@ MonoBehaviour:
   - item: IncreaseCrystalDamageScript
     itemName: Amethyst Heart
     description: Increases Crystal based spell damage
+    price: 20
     alreadyAdded: 0
     mulipleAllowed: 0
     sprites:

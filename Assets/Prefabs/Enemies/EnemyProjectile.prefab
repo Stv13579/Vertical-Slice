@@ -129,4 +129,5 @@ MonoBehaviour:
   lifeTimerLength: 0
   upForce: 2000
   forwardForce: 700
+  isMoving: 0
   rotTimerMax: 1

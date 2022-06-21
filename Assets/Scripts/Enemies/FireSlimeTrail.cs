@@ -89,17 +89,6 @@ public class FireSlimeTrail : MonoBehaviour
         trailDamage = damage;
     }
 
-    // player takes damage when entering the trail
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.GetComponent<PlayerClass>())
-    //    {
-    //        other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
-    //        audioManager.Stop("Player Damage");
-    //        audioManager.Play("Player Damage");
-    //    }
-    //}
-
     // player takes damage over time when they are still in the trail
     private void OnTriggerStay(Collider other)
     {
@@ -109,8 +98,8 @@ public class FireSlimeTrail : MonoBehaviour
             {
                 other.GetComponent<PlayerClass>().ChangeHealth(-trailDamage);
                 trailDamageTicker = 1.0f;
-                audioManager.Stop("Player Damage");
-                audioManager.Play("Player Damage");
+                audioManager.Stop("Player Burn Damage");
+                audioManager.Play("Player Burn Damage");
             }
         }
     }

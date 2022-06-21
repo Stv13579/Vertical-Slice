@@ -67,8 +67,16 @@ public class CrystalSlimeProjectile : MonoBehaviour
         // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
         if (lifeTimer <= lifeTimerLength)
         {
-            Destroy(this.gameObject);
-            lifeTimer = 5.0f;
+            Color color = this.gameObject.GetComponent<MeshRenderer>().material.GetColor("_BaseColour");
+            color = new Color(color.r, color.g, color.b, color.a - Time.deltaTime);
+            if (color.a <= 0.0f)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                this.gameObject.GetComponent<MeshRenderer>().material.SetColor("_BaseColour", color);
+            }
         }
     }
 

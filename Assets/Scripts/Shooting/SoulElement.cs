@@ -18,7 +18,7 @@ public class SoulElement : BaseElementClass
         base.Update();
 
         //Checking if the player has taken damage, which cancels the spell
-        if(previousHealth > playerClass.currentHealth)
+        if(previousHealth > playerClass.currentHealth && ((playerHand.GetCurrentAnimatorStateInfo(0).IsName("Hold") || playerHand.GetCurrentAnimatorStateInfo(0).IsName("Start Hold"))))
         {
             playerHand.SetTrigger("SoulStopCast");
             audioManager.Stop("Soul Element");

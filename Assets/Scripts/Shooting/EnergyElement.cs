@@ -21,7 +21,7 @@ public class EnergyElement : BaseElementClass
     protected override void Update()
     {
 
-        if (previousHealth > playerClass.currentHealth)
+        if (previousHealth > playerClass.currentHealth && (playerHand.GetCurrentAnimatorStateInfo(0).IsName("Hold") || playerHand.GetCurrentAnimatorStateInfo(0).IsName("Start Hold")))
         {
             playerHand.SetTrigger("StopEnergy");
             audioManager.Stop("Energy Element");

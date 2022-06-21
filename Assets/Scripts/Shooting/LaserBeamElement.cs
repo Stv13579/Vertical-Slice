@@ -32,7 +32,7 @@ public class LaserBeamElement : BaseElementClass
             audioManager.Stop("Laser Beam");
             laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
         }
-        if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("LaserBeam"))
+        if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("HoldLaser"))
         {
             DeactivateLaser();
         }

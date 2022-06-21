@@ -53,7 +53,10 @@ public class FireSlimeEnemy : NormalSlimeEnemy
     public override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        FireSlimeAttack();
+        if (collision.gameObject.layer == 10)
+        {
+            FireSlimeAttack();
+        }
     }
     public override void OnCollisionStay(Collision collision)
     {

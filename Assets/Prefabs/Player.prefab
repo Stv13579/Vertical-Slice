@@ -3252,6 +3252,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   lifeTimer: 3
+  damageLimit: 0.1
 --- !u!114 &7929494458867233755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,7 +3372,7 @@ MonoBehaviour:
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 7085110900658056965, guid: d8b6c40de411ad8478e6bba3774af010, type: 3}
   wristVFX: {fileID: 0}
-  manaCost: 5
+  manaCost: 10
   animationToPlay: LaserCast
   useDelay: 0
   playerHand: {fileID: 4653365320959009119}
@@ -3432,6 +3433,7 @@ MonoBehaviour:
   types: 
   curseDeath: {fileID: 9040072988987624986, guid: 6ad2501f765957d4fab25257d276645a,
     type: 3}
+  outlineColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &5898286419646802724
 GameObject:
   m_ObjectHideFlags: 0

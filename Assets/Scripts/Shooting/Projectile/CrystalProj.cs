@@ -15,7 +15,7 @@ public class CrystalProj : MonoBehaviour
     private AudioManager audioManager;
 
     private bool ismoving;
-
+    private float damageLimit;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -24,10 +24,10 @@ public class CrystalProj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // the max drop off the damage can do is 2
-        if(damage < 1)
+        // the max drop off the damage is 0.5f
+        if(damage <= 0)
         {
-            damage = 1;
+            damage = damageLimit;
         }
         // decrease the life of the crystal once its been shot out
         if(startLifeTimer > 0)
@@ -55,14 +55,14 @@ public class CrystalProj : MonoBehaviour
         }
     }
     //setter to set the varibles
-    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<BaseEnemyClass.Types> types)
+    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<BaseEnemyClass.Types> types, float tempDamageLimit)
     {
         speed = spd;
         damage = dmg;
         damageCurve = dmgCurve;
         startLifeTimer = stLifeTimer;
         attackTypes = types;
-
+        damageLimit = tempDamageLimit;
     }
     // if the life timer for the projectiles is 0
     // destroy the projectiles

@@ -76,6 +76,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     float cachedMoveSpeed;
     [SerializeField]
     float airSpeed;
+    float previousY;
 
     /// <summary>
     /// Crystal Type Properties
@@ -235,10 +236,21 @@ public class BossSlimeEnemy : NormalSlimeEnemy
             GetComponent<Rigidbody>().AddForce(0, normalSlimeJumpForce, 0);
             startAttack = true;
             cachedMoveSpeed = moveSpeed;
+            previousY = transform.position.y;
         }
         else
         {
-            moveSpeed = cachedMoveSpeed * airSpeed;
+            if(transform.position.y > previousY)
+            {
+                moveSpeed = cachedMoveSpeed * airSpeed;
+            }
+            else
+            {
+                moveSpeed = cachedMoveSpeed;
+            }
+
+            previousY = transform.position.y;
+
             moveDirection = player.transform.position;
             base.Update();
         }
@@ -269,6 +281,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
             audioManager.Stop("Crystal Slime Projectile");
             // play SFX
             audioManager.Play("Crystal Slime Projectile", player.transform, this.transform);
+            enemyAnims.SetTrigger("Shoot");
         }
 
         currentAttackTime = timeBetweenAttacks;
@@ -334,16 +347,12 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         switch(currentType)
         {
             case Type.crystal:
-                //crystalLerpValue = 1 - (2 * currentMatLerp / matLerpMax);
-                //fireLerpValue = -1 + (2 * currentMatLerp / matLerpMax);
 
                 crystalLerpValue -= Time.deltaTime;
                 fireLerpValue += Time.deltaTime;
 
                 break;
             case Type.fire:
-                //crystalLerpValue = 1 - (2 * currentMatLerp / matLerpMax);
-                //fireLerpValue = 1 - (2 * currentMatLerp / matLerpMax);
 
                 crystalLerpValue -= Time.deltaTime;
                 fireLerpValue -= Time.deltaTime;
@@ -351,8 +360,6 @@ public class BossSlimeEnemy : NormalSlimeEnemy
                 
                 break;
             case Type.normal:
-                //crystalLerpValue = -1 + (2 * currentMatLerp / matLerpMax);
-                //fireLerpValue = -1 + (2 * currentMatLerp / matLerpMax);
 
                 crystalLerpValue += Time.deltaTime;
                 fireLerpValue += Time.deltaTime;

@@ -44,6 +44,8 @@ public class CrystalSimeEnemy : NormalSlimeEnemy
                 audioManager.Stop("Crystal Slime Projectile");
                 // play SFX
                 audioManager.Play("Crystal Slime Projectile", player.transform, this.transform);
+                //Play animation
+                enemyAnims.SetTrigger("Shoot");
             }
             shootTimer = 0.0f;
         }

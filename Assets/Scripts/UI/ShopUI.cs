@@ -88,10 +88,9 @@ public class ShopUI : MonoBehaviour
             Destroy(shopItems[button]);
             player.AddItem(item);
             buttons[button].SetActive(false);
-            player.ChangeMoney(-item.currencyCost);
+            player.ChangeMoney(-shopItems[button].currencyCost);
             audioManager.Stop("Shop Buy");
             audioManager.Play("Shop Buy");
-            Debug.Log("Test");
         }
     }
 

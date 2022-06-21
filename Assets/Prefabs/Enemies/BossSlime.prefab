@@ -955,6 +955,8 @@ MonoBehaviour:
     type: 3}
   normalSlimeJumpForce: 1000
   airSpeed: 3
+  slamEffect: {fileID: 6075216975495641854, guid: f6a92ba1b60cb1a478d10b3ff625676f,
+    type: 3}
   crystalProjectiles: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
     type: 3}
   projScale: {x: 3, y: 3, z: 3}

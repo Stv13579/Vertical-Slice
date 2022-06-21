@@ -69,7 +69,15 @@ public class Shooting : MonoBehaviour
                 leftElementIndex = 0;
             }
             Destroy(leftOrbPos.GetChild(0).gameObject);
+            if(leftOrbPos.parent.parent.GetChild(1))
+            {
+                Destroy(leftOrbPos.parent.parent.GetChild(1).gameObject);
+            }
             Instantiate(primaryElements[leftElementIndex].handVFX, leftOrbPos);
+            if(primaryElements[leftElementIndex].wristVFX)
+            {
+                Instantiate(primaryElements[leftElementIndex].wristVFX);
+            }
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
@@ -82,7 +90,15 @@ public class Shooting : MonoBehaviour
                 rightElementIndex = 0;
             }
             Destroy(rightOrbPos.GetChild(0).gameObject);
+            if (rightOrbPos.parent.parent.GetChild(1))
+            {
+                Destroy(rightOrbPos.parent.parent.GetChild(1).gameObject);
+            }
             Instantiate(catalystElements[rightElementIndex].handVFX, rightOrbPos);
+            if (catalystElements[rightElementIndex].wristVFX)
+            {
+                Instantiate(catalystElements[rightElementIndex].wristVFX);
+            }
         }
 
         if(Input.GetKeyUp(KeyCode.F))

@@ -15,6 +15,10 @@ public class BaseElementClass : MonoBehaviour
     [SerializeField]
     public GameObject handVFX;
 
+    //VFX that appears around the wrist while this element is active (Mostly unused)
+    [SerializeField]
+    public GameObject wristVFX = null;
+
     [SerializeField]
     public float manaCost;
 

@@ -19,7 +19,7 @@ public class BossSpawn : MonoBehaviour
     GameObject hubPortal;
 
     [SerializeField]
-    GameObject bridge;
+    GameObject bridge, bossRing;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class BossSpawn : MonoBehaviour
         {
             hubPortal.SetActive(true);
             bridge.SetActive(true);
+            bossRing.SetActive(false);
         }
     }
 
@@ -48,6 +49,7 @@ public class BossSpawn : MonoBehaviour
         triggered = true;
 
         bridge.SetActive(false);
+        bossRing.SetActive(true);
 
         Instantiate(boss, spawnPosition.position, Quaternion.identity);
 

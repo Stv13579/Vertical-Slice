@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc3892b50a7bbe42aed6be5344b856c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTimer: 2
-  lifeTimer: 20
+  followTimer: 3
+  followTimerLength: 0
+  lifeTimer: 10
+  lifeTimerLength: 0
   upForce: 5000
   forwardForce: 500
+  isMoving: 0
+  rotTimerMax: 3
 --- !u!1001 &5166209617567479554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31,17 +35,17 @@ PrefabInstance:
     - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 599522778814927976, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
@@ -111,13 +115,14 @@ PrefabInstance:
     - target: {fileID: 6925501133791911981, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7564702098056426074, guid: 319ee57292d1b084a9fa57cf30f26e56,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: -5862269446481930585, guid: 2aafe2a1c197dc74d9a47e877b5b9e84,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 822626131838917157, guid: 319ee57292d1b084a9fa57cf30f26e56, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 319ee57292d1b084a9fa57cf30f26e56, type: 3}

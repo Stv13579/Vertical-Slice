@@ -32,7 +32,6 @@ public class FireSlimeTrail : MonoBehaviour
 
     [SerializeField]
     private GameObject fireParticles;
-    //public float m_AnimationValue; // <-- animate this to move it on the actual renderer
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -50,7 +49,6 @@ public class FireSlimeTrail : MonoBehaviour
     {
         trailDuration += Time.deltaTime;
         decalRenderer.materialInstance.SetFloat("_CenterPoint", fireTrailAnimation.Evaluate(trailDuration / trailLength));
-        //m_DecalRenderer.m_MaterialInstance.SetFloat("_CenterPoint", m_AnimationValue); // <-- pass value through here from animator
         Countdown();
         // deletes the trail after trailDuration >= trailLength
         if (trailDuration >= trailLength)

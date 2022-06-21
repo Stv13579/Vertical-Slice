@@ -959,7 +959,7 @@ MonoBehaviour:
     type: 3}
   crystalProjectiles: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
     type: 3}
-  projScale: {x: 3, y: 3, z: 3}
+  projScale: {x: 0.1, y: 0.1, z: 0.1}
   decalManager: {fileID: 0}
 --- !u!1001 &4176425359293596282
 PrefabInstance:

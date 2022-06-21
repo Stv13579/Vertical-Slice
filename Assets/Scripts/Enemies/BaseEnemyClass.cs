@@ -90,6 +90,11 @@ public class BaseEnemyClass : MonoBehaviour
             Death();
             currentHealth = 0;
         }
+
+        if(transform.position.y > 100)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 
     //Movement
@@ -117,22 +122,54 @@ public class BaseEnemyClass : MonoBehaviour
 
 
     //Taking damage
-    public void TakeDamage(float damageToTake, List<Types> attackTypes)
+    //public void TakeDamage(float damageToTake, List<Types> attackTypes)
+    //{
+    //    Instantiate(hitSpawn, transform.position, Quaternion.identity);
+    //    float multiplier = 1;
+    //    foreach(Types type in attackTypes)
+    //    {
+    //        foreach (Types weak in weaknesses)
+    //        {
+    //            if(weak == type)
+    //            {
+    //                multiplier *= 2; 
+    //            }
+    //        }
+    //        foreach (Types resist in resistances)
+    //        {
+    //            if(resist == type)
+    //            {
+    //                multiplier *= 0.5f;
+    //            }
+    //        }
+    //    }
+
+    //    enemyAnims.SetTrigger("TakeDamage");
+
+    //    currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
+    //    audioManager.Stop(takeDamageAudio);
+    //    audioManager.Play(takeDamageAudio, player.transform, this.transform);
+    //    Death();
+    //}
+
+    public virtual void TakeDamage(float damageToTake, List<Types> attackTypes, float extraSpawnScale = 1)
     {
-        Instantiate(hitSpawn, transform.position, Quaternion.identity);
+        GameObject hitSpn = Instantiate(hitSpawn, transform.position, Quaternion.identity);
+        Vector3 scale = hitSpn.transform.lossyScale * extraSpawnScale;
+        hitSpn.transform.localScale = scale;
         float multiplier = 1;
-        foreach(Types type in attackTypes)
+        foreach (Types type in attackTypes)
         {
             foreach (Types weak in weaknesses)
             {
-                if(weak == type)
+                if (weak == type)
                 {
-                    multiplier *= 2; 
+                    multiplier *= 2;
                 }
             }
             foreach (Types resist in resistances)
             {
-                if(resist == type)
+                if (resist == type)
                 {
                     multiplier *= 0.5f;
                 }

@@ -33,7 +33,7 @@ MonoBehaviour:
   takeDamageAudio: Slime Damage
   targettingIndicator: {fileID: 840838612295924987}
   oldPosition: {x: 0, y: 0, z: 0}
-  jumpForce: 100
+  jumpForce: 50
   pushForce: 10
   viewToPlayer:
     serializedVersion: 2

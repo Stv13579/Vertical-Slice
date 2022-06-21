@@ -3093,7 +3093,7 @@ MonoBehaviour:
     - {fileID: 7904701518895008356}
     - {fileID: 443619680}
   ableToShoot: 1
-  leftOrbPos: {fileID: 8104181672164531802}
+  leftOrbPos: {fileID: 251630664421853680}
   rightOrbPos: {fileID: 338691987680772104}
 --- !u!114 &1363181306
 MonoBehaviour:

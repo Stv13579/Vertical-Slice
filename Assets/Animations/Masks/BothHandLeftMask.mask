@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BothHandLeftMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Dummy001
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit054
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit054/Base HumanLDigit055
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit054/Base HumanLDigit055/Base HumanLDigit056
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit057
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit057/Base HumanLDigit058
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit057/Base HumanLDigit058/Base HumanLDigit059
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit060
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit060/Base HumanLDigit061
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit060/Base HumanLDigit061/Base HumanLDigit062
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit063
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit063/Base HumanLDigit064
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit063/Base HumanLDigit064/Base HumanLDigit065
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit068
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit068/Base HumanLDigit067
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanLUpperarm001/Base HumanLForearm001/Base HumanLPalm001/Base
+      HumanLDigit068/Base HumanLDigit067/Base HumanLDigit066
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001
+    m_Weight: 0
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit055
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit055/Base HumanRDigit056
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit055/Base HumanRDigit056/Base HumanRDigit054
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit057
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit057/Base HumanRDigit058
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit057/Base HumanRDigit058/Base HumanRDigit059
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit062
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit062/Base HumanRDigit061
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit062/Base HumanRDigit061/Base HumanRDigit060
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit063
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit063/Base HumanRDigit064
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit063/Base HumanRDigit064/Base HumanRDigit065
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit068
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit068/Base HumanRDigit067
+    m_Weight: 1
+  - m_Path: Dummy001/Base HumanRUpperarm001/Base HumanRForearm001/Base HumanRPalm001/Base
+      HumanRDigit068/Base HumanRDigit067/Base HumanRDigit066
+    m_Weight: 1
+  - m_Path: L_Arm
+    m_Weight: 1
+  - m_Path: R_Arm
+    m_Weight: 0

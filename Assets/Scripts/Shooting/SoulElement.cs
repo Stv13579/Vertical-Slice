@@ -10,17 +10,20 @@ public class SoulElement : BaseElementClass
     //Cached health from previous frame
     private float previousHealth = 0.0f;
 
-
+    [SerializeField]
+    private GameObject chargeVFX;
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
 
         //Checking if the player has taken damage, which cancels the spell
-        if(previousHealth > playerClass.currentHealth)
+        if(previousHealth > playerClass.currentHealth && ((playerHand.GetCurrentAnimatorStateInfo(0).IsName("Hold") || playerHand.GetCurrentAnimatorStateInfo(0).IsName("Start Hold"))))
         {
             playerHand.SetTrigger("SoulStopCast");
             audioManager.Stop("Soul Element");
+            Destroy(playerClass.gameObject.GetComponent<Shooting>().GetRightOrbPos().GetChild(1).gameObject);
+
         }
         else
         {
@@ -32,6 +35,8 @@ public class SoulElement : BaseElementClass
         {
             playerHand.SetTrigger("SoulStopCast");
             audioManager.Stop("Soul Element");
+            Destroy(playerClass.gameObject.GetComponent<Shooting>().GetRightOrbPos().GetChild(1).gameObject);
+
         }
         previousHealth = playerClass.currentHealth;
 
@@ -45,6 +50,7 @@ public class SoulElement : BaseElementClass
         playerClass.ChangeHealth(healthRestore);
         playerHand.SetTrigger("SoulStopCast");
         audioManager.Stop("Soul Element");
+        Destroy(playerClass.gameObject.GetComponent<Shooting>().GetRightOrbPos().GetChild(1).gameObject);
     }
 
     public override void ActivateVFX()
@@ -59,6 +65,7 @@ public class SoulElement : BaseElementClass
         playerHand.SetTrigger(animationName);
         playerHand.ResetTrigger("SoulStopCast");
         audioManager.Play("Soul Element");
+        Instantiate(chargeVFX, playerClass.gameObject.GetComponent<Shooting>().GetRightOrbPos());
 
     }
 

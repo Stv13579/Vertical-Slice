@@ -242,5 +242,11 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
+  - name: Player Burn Damage
+    clip: {fileID: 8300000, guid: 8674d9e87423ccd428375b7bbca70faf, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
   initalMusic: Ambient Sound
   audioDistance: 30

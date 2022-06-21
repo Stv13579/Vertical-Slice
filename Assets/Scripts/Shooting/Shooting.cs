@@ -245,4 +245,14 @@ public class Shooting : MonoBehaviour
             return (primaryElements[leftElementIndex].crosshair);
         }
     }
+
+    public Transform GetLeftOrbPos()
+    {
+        return leftOrbPos;
+    }
+
+    public Transform GetRightOrbPos()
+    {
+        return rightOrbPos;
+    }
 }

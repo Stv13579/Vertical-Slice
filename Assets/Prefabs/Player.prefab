@@ -2206,6 +2206,8 @@ MonoBehaviour:
     m_Bits: 0
   shootingSoundFX: Soul Element
   healthRestore: 50
+  chargeVFX: {fileID: 7144440908512349638, guid: b4c7698c653762545aba164e4a9405dc,
+    type: 3}
 --- !u!114 &5625023910511142018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2296,6 +2298,8 @@ MonoBehaviour:
     m_Bits: 0
   shootingSoundFX: Energy Element
   fullRestoreAmount: 60
+  chargeVFX: {fileID: 3741630589799510051, guid: 11b6b3af246574042bab1579ff2b33e3,
+    type: 3}
 --- !u!114 &443619680
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,11 @@ public class DecalRenderer : MonoBehaviour
     public Camera orthoCamera;
 
     [SerializeField]
+    private Material decalMaterialOriginal;
+
+    public Material decalMaterial;
+
+    [SerializeField]
     private MeshRenderer quad;
 
     [SerializeField]
@@ -40,7 +45,8 @@ public class DecalRenderer : MonoBehaviour
         renderTexture.useMipMap = false; // change with the auto generate mips above
         renderTexture.graphicsFormat = UnityEngine.Experimental.Rendering.GraphicsFormat.R8G8B8A8_UNorm; // probably fine
         renderTexture.depth = 0;
-
+        decalMaterial = new Material(decalMaterialOriginal);
+        decalMaterial.SetTexture("_MainTex", renderTexture);
         orthoCamera.targetTexture = renderTexture;
 
         orthoCamera.enabled = false;

@@ -40,9 +40,7 @@ public class FireSlimeTrail : MonoBehaviour
         decalManager = FindObjectOfType<DecalRendererManager>();
 
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
-        decalMaterialInstance = new Material(decal.sharedMaterial);
-        decalMaterialInstance.SetTexture("_MainTex", decalRenderer.renderTexture);
-        decal.material = decalMaterialInstance;
+        decal.material = decalRenderer.decalMaterial;
 
         audioManager.Stop("Fire Slime Trail Alive");
         audioManager.Play("Fire Slime Trail Alive", player.transform, this.transform);

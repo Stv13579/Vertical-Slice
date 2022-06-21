@@ -233,6 +233,9 @@ MonoBehaviour:
   manager: {fileID: 0}
   decalIndex: 0
   orthoCamera: {fileID: 5089570619031943065}
+  decalMaterialOriginal: {fileID: 2100000, guid: f1c6309ae61598f41befbb59f69cefec,
+    type: 2}
+  decalMaterial: {fileID: 0}
   quad: {fileID: 5089570619421367585}
   renderTextureSize: 128
   renderTexture: {fileID: 0}

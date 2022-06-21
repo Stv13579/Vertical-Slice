@@ -13,7 +13,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2999
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -64,8 +64,8 @@ Material:
     - _Cutoff: 0.5
     - _Distor_Distance: 0
     - _Distort_Stength: 1.25
-    - _Distortion_Amount: 1
-    - _Distortion_Scale: 10
+    - _Distortion_Amount: 1.5
+    - _Distortion_Scale: 5
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -75,7 +75,7 @@ Material:
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RotationAmount: 2.18
+    - _RotationAmount: -0.2
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -87,13 +87,13 @@ Material:
     - _TessMin: 10
     - _TessPhongStrength: 0.5
     - _TessValue: 16
-    - _Twirl_Strenght: 5
+    - _Twirl_Strenght: -4
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DistortionRemapValues: {r: 0, g: 1, b: 0, a: 1}
+    - _DistortionRemapValues: {r: 0.06, g: 0.82, b: 0.14, a: 0.83}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UV_Tiling: {r: 1, g: 1, b: 0, a: 0}

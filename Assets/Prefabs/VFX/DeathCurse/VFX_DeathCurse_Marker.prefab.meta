@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Tech Art/Shader.meta
+guid: 1ca519a8b1391874e971d19983cbfc3d
+folderAsset: yes
+DefaultImporter:
+========
 guid: b150364c76365af4c827c583f8337fcf
 PrefabImporter:
+>>>>>>>> 642900640674a576a917433f2b1160bda3467543:Assets/Prefabs/VFX/DeathCurse/VFX_DeathCurse_Marker.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

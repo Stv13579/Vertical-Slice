@@ -38,6 +38,8 @@ public class BaseElementClass : MonoBehaviour
     //The animator which the element calls animations on
     [SerializeField]
     protected Animator playerHand;
+    [SerializeField]
+    protected Animator playerHandL;
 
     float currentUseDelay = 0;
 
@@ -100,6 +102,7 @@ public class BaseElementClass : MonoBehaviour
         {
             //Set out of mana anim
             playerHand.SetTrigger("NoMana");
+            playerHandL.SetTrigger("NoMana");
             return false;
         }
     }

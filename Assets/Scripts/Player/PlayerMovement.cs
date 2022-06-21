@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         Jumping();
         if (this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
         {
-            movementMulti = 0.5f;
+            movementMulti = 0.25f;
         }
         else
         {

@@ -30,6 +30,9 @@ public class CurseElement : BaseElementClass
     [SerializeField]
     GameObject curseDeath;
 
+    [SerializeField]
+    Color outlineColour;
+
     protected override void StartAnims(string animationName)
     {
         base.StartAnims(animationName);
@@ -99,7 +102,7 @@ public class CurseElement : BaseElementClass
         {
             if(targetToCurse)
             {
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false);
+                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
             }
             
             RaycastHit rayHit;
@@ -109,7 +112,7 @@ public class CurseElement : BaseElementClass
                 
 
                 targetToCurse = rayHit.collider.gameObject;
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true);
+                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true, outlineColour);
 
 
             }
@@ -118,7 +121,7 @@ public class CurseElement : BaseElementClass
         {
             if (targetToCurse)
             {
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false);
+                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
             }
         }
     }

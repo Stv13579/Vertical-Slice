@@ -65,7 +65,12 @@ public class CurseElement : BaseElementClass
     
     public void DeathEffect()
     {
-        Collider[] hitColls = Physics.OverlapSphere(targetToCurse.transform.position, explosionRange);
+        Collider[] hitColls = null;
+        if (targetToCurse)
+        {
+            hitColls = Physics.OverlapSphere(targetToCurse.transform.position, explosionRange);
+        }
+        
 
         int i = 0;
         foreach (Collider hit in hitColls)
@@ -73,7 +78,7 @@ public class CurseElement : BaseElementClass
             //if(hitColls[i] == )
 
             //i++;
-
+            
             if (hit.tag == "Enemy")
             {
                 hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);

@@ -182,7 +182,6 @@ public class PlayerMovement : MonoBehaviour
         {
             lookScript.GetCamera().fieldOfView += increasedFOVMoving * Time.deltaTime;
         }
-        Debug.Log(acceleration);
     }
 
     private void MovingCurve()

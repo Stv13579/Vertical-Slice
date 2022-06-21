@@ -20,14 +20,18 @@ public class CrystalSlimeProjectile : MonoBehaviour
     private float upForce;
     [SerializeField]
     private float forwardForce;
-
+    [SerializeField]
+    private bool isMoving;
 
     float rotTimer = 0.0f;
     [SerializeField]
     private float rotTimerMax = 1.0f;
+
+    private Vector3 originPos;
     // Start is called before the first frame update
     void Start()
     {
+        isMoving = true;
         // setting the timers at start
         rb = this.gameObject.GetComponent<Rigidbody>();
         // shoots the projectiles up and out 
@@ -41,26 +45,23 @@ public class CrystalSlimeProjectile : MonoBehaviour
     {
         followTimer -= Time.deltaTime;
         lifeTimer -= Time.deltaTime;
-
+        // when the crystals shoot out rotate teh crystals so that it faces the player
         if (rotTimer <= rotTimerMax)
         {
             rotTimer += Time.deltaTime;
-            transform.Rotate(transform.right, /*Mathf.Lerp(0, 140, rotTimer / rotTimerMax)*/Time.deltaTime * 200);
+            transform.Rotate(transform.right, Time.deltaTime * 200);
         }
-
-
-        // when the crystals shoot out rotate teh crystals so that it faces the player
-        //if(lifeTimer <= 4.5f)
-        //{
-        //    this.transform.LookAt(player.transform.position);
-        //    Quaternion rot = transform.rotation;
-        //    rot.eulerAngles = new Vector3(rot.eulerAngles.x + 90, rot.eulerAngles.y, rot.eulerAngles.z);
-        //    transform.rotation = rot;
-        //}
-        //if follow timer is greater then 0 then follow the player
-        if (followTimer >= followTimerLength)
+        if (isMoving == true)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 10 * Time.deltaTime);
+            //if follow timer is greater then 0 then follow the player
+            if (followTimer >= followTimerLength)
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 10 * Time.deltaTime);
+            }
+        }
+        else
+        {
+            transform.position = originPos;
         }
         // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
         if (lifeTimer <= lifeTimerLength)
@@ -83,7 +84,8 @@ public class CrystalSlimeProjectile : MonoBehaviour
         }
         if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
         {
-            Destroy(this.gameObject);
+            isMoving = false;
+            originPos = transform.position;
         }
     }
     // setter

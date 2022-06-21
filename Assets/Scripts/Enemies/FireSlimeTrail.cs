@@ -69,6 +69,7 @@ public class FireSlimeTrail : MonoBehaviour
         // turn off particle
         if (trailDuration >= 4.0f)
         {
+            this.gameObject.GetComponent<BoxCollider>().size = new Vector3(0, 0, 0);
             fireParticles.SetActive(false);
         }
     }

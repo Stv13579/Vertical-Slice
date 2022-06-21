@@ -57,6 +57,7 @@ public class BaseEnemyClass : MonoBehaviour
 
     public Vector3 moveDirection;
     protected AudioManager audioManager;
+    protected Animator enemyAnims;
 
     [SerializeField]
     string attackAudio;
@@ -78,6 +79,7 @@ public class BaseEnemyClass : MonoBehaviour
         currentHealth = maxHealth;
         audioManager = FindObjectOfType<AudioManager>();
         oldPosition = new Vector3(-1000, -1000, -1000);
+        enemyAnims = GetComponentInChildren<Animator>();
 
     }
 
@@ -136,6 +138,9 @@ public class BaseEnemyClass : MonoBehaviour
                 }
             }
         }
+
+        enemyAnims.SetTrigger("TakeDamage");
+
         currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
         audioManager.Stop(takeDamageAudio);
         audioManager.Play(takeDamageAudio, player.transform, this.transform);

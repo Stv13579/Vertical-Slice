@@ -158,15 +158,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417584080}
-  m_LocalRotation: {x: -0.07018596, y: -0.014316527, z: -0.0010074074, w: 0.9974307}
-  m_LocalPosition: {x: 0.00990239, y: -0.04659432, z: -0.035461932}
+  m_LocalRotation: {x: -0.06944317, y: -0.145292, z: -0.010223509, w: 0.9868958}
+  m_LocalPosition: {x: 0.00990239, y: -0.04659432, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4337867004846007711}
   - {fileID: 547512227054375522}
   m_Father: {fileID: 5625023910628228237}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -8.05, y: -1.6450001, z: 0}
+  m_LocalEulerAnglesHint: {x: -8.05, y: -16.75, z: 0}
 --- !u!1 &979699311
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5625023911835613078}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668261771
 GameObject:
@@ -1627,7 +1627,7 @@ Animator:
   m_GameObject: {fileID: 3997194955424251685}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0211042273da77c4a90406b6aa0572db, type: 3}
-  m_Controller: {fileID: 9100000, guid: ee01c61a3432a3b4487d002eb1660653, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c6f27e16415f894ea508da720dbdaef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2618,7 +2618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5625023910628228238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8689280685199263535}
@@ -2626,7 +2626,7 @@ Transform:
   - {fileID: 1668261772}
   - {fileID: 417584081}
   m_Father: {fileID: 5625023911835613078}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5625023910628228236
 Camera:
@@ -2903,12 +2903,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5625023911835613081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5625023911016436714}
-  - {fileID: 5625023910628228237}
   - {fileID: 979699312}
+  - {fileID: 5625023910628228237}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3012,7 +3012,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 3
-      value: 15
+      value: 13
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3038,8 +3038,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 75
-  m_StepOffset: 0.3
+  m_SlopeLimit: 50
+  m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -3093,7 +3093,7 @@ MonoBehaviour:
     - {fileID: 7904701518895008356}
     - {fileID: 443619680}
   ableToShoot: 1
-  leftOrbPos: {fileID: 8104181672164531802}
+  leftOrbPos: {fileID: 251630664421853680}
   rightOrbPos: {fileID: 338691987680772104}
 --- !u!114 &1363181306
 MonoBehaviour:
@@ -3114,12 +3114,13 @@ MonoBehaviour:
   animationToPlay: FireProj
   useDelay: 1
   playerHand: {fileID: 3689423523472854436}
+  playerHandL: {fileID: 0}
   elementName: Fire
   uiSprite: {fileID: 21300000, guid: 8aaa85c24102064448bafc61b4115e8b, type: 3}
   crosshair: {fileID: 21300000, guid: 6ee77b03add3bef47a42ac7213c82bf0, type: 3}
   attackTypes: 00000000
   playerClass: {fileID: 0}
-  shootingTranform: {fileID: 7154586944397213209}
+  shootingTranform: {fileID: 8095173518610394603}
   shootingIgnore:
     serializedVersion: 2
     m_Bits: 198449
@@ -3176,6 +3177,7 @@ MonoBehaviour:
   animationToPlay: SoulCast
   useDelay: 1
   playerHand: {fileID: 4653365320959009119}
+  playerHandL: {fileID: 0}
   elementName: Soul
   uiSprite: {fileID: 21300000, guid: 440c433fae370f94f87b722cb5d9828d, type: 3}
   crosshair: {fileID: 0}
@@ -3209,12 +3211,13 @@ MonoBehaviour:
   animationToPlay: CrystalProj
   useDelay: 1
   playerHand: {fileID: 3689423523472854436}
+  playerHandL: {fileID: 0}
   elementName: Crystal
   uiSprite: {fileID: 21300000, guid: ef048782f4171ce4ab784c6238bbaf14, type: 3}
   crosshair: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
   attackTypes: 01000000
   playerClass: {fileID: 0}
-  shootingTranform: {fileID: 7154586944397213209}
+  shootingTranform: {fileID: 8095173518610394603}
   shootingIgnore:
     serializedVersion: 2
     m_Bits: 206641
@@ -3249,6 +3252,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   lifeTimer: 3
+  damageLimit: 0.1
 --- !u!114 &7929494458867233755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3268,6 +3272,7 @@ MonoBehaviour:
   animationToPlay: StartEnergy
   useDelay: 0
   playerHand: {fileID: 4653365320959009119}
+  playerHandL: {fileID: 0}
   elementName: Energy
   uiSprite: {fileID: 21300000, guid: 0965d3790b5781c4f8a7007bfdc86e67, type: 3}
   crosshair: {fileID: 0}
@@ -3300,12 +3305,13 @@ MonoBehaviour:
   animationToPlay: ShardCast
   useDelay: 1
   playerHand: {fileID: 4653365320959009119}
+  playerHandL: {fileID: 3689423523472854436}
   elementName: Shard Cannon
   uiSprite: {fileID: 21300000, guid: 42dffc313ac0c664ba203257bab79f21, type: 3}
   crosshair: {fileID: 21300000, guid: db3d8f6650a6d9d42aa38560b3d2008d, type: 3}
   attackTypes: 01000000
   playerClass: {fileID: 0}
-  shootingTranform: {fileID: 7154586944397213209}
+  shootingTranform: {fileID: 8095173518610394603}
   shootingIgnore:
     serializedVersion: 2
     m_Bits: 206641
@@ -3334,6 +3340,7 @@ MonoBehaviour:
   animationToPlay: AcidCast
   useDelay: 2
   playerHand: {fileID: 4653365320959009119}
+  playerHandL: {fileID: 3689423523472854436}
   elementName: Acid Cloud
   uiSprite: {fileID: 21300000, guid: 52f739ba6ce3b2e4bb4e300fd3f42b31, type: 3}
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
@@ -3365,10 +3372,11 @@ MonoBehaviour:
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 7085110900658056965, guid: d8b6c40de411ad8478e6bba3774af010, type: 3}
   wristVFX: {fileID: 0}
-  manaCost: 5
+  manaCost: 10
   animationToPlay: LaserCast
   useDelay: 0
   playerHand: {fileID: 4653365320959009119}
+  playerHandL: {fileID: 3689423523472854436}
   elementName: LaserBeam
   uiSprite: {fileID: 21300000, guid: edc6bb5259b8a07418dc078001b9464c, type: 3}
   crosshair: {fileID: 21300000, guid: 770339e41d8494046adb4a9a0b4714db, type: 3}
@@ -3402,6 +3410,7 @@ MonoBehaviour:
   animationToPlay: CurseCast
   useDelay: 1
   playerHand: {fileID: 4653365320959009119}
+  playerHandL: {fileID: 3689423523472854436}
   elementName: Curse
   uiSprite: {fileID: 21300000, guid: 7ab09dbefaadcb646a19d0ca81d1ffdd, type: 3}
   crosshair: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}
@@ -3424,6 +3433,7 @@ MonoBehaviour:
   types: 
   curseDeath: {fileID: 9040072988987624986, guid: 6ad2501f765957d4fab25257d276645a,
     type: 3}
+  outlineColour: {r: 0.12724805, g: 1, b: 0, a: 1}
 --- !u!1 &5898286419646802724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4640,21 +4650,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -5814111869136598520, guid: 9d0cd90afa85ff94fa6a88965851589e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9d0cd90afa85ff94fa6a88965851589e, type: 3}
---- !u!1 &3981687641818801459 stripped
+--- !u!1 &3981687641008780923 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8741999943941267335, guid: 9d0cd90afa85ff94fa6a88965851589e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5625023910865451700}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6303370703232215908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1831288515270545872, guid: 9d0cd90afa85ff94fa6a88965851589e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5625023910865451700}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5765847359698139306 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2167496882611864094, guid: 9d0cd90afa85ff94fa6a88965851589e,
+  m_CorrespondingSourceObject: {fileID: 8741999944741850319, guid: 9d0cd90afa85ff94fa6a88965851589e,
     type: 3}
   m_PrefabInstance: {fileID: 5625023910865451700}
   m_PrefabAsset: {fileID: 0}
@@ -4664,9 +4662,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5625023910865451700}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3981687641008780923 stripped
+--- !u!1 &3981687641818801459 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8741999944741850319, guid: 9d0cd90afa85ff94fa6a88965851589e,
+  m_CorrespondingSourceObject: {fileID: 8741999943941267335, guid: 9d0cd90afa85ff94fa6a88965851589e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5625023910865451700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5765847359698139306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2167496882611864094, guid: 9d0cd90afa85ff94fa6a88965851589e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5625023910865451700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6303370703232215908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1831288515270545872, guid: 9d0cd90afa85ff94fa6a88965851589e,
     type: 3}
   m_PrefabInstance: {fileID: 5625023910865451700}
   m_PrefabAsset: {fileID: 0}

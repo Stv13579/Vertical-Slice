@@ -77,6 +77,8 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     [SerializeField]
     float airSpeed;
     float previousY;
+    [SerializeField]
+    GameObject slamEffect;
 
     /// <summary>
     /// Crystal Type Properties
@@ -261,6 +263,7 @@ public class BossSlimeEnemy : NormalSlimeEnemy
             endAttack = false;
             currentAttackTime = timeBetweenAttacks;
             moveSpeed = cachedMoveSpeed;
+            Instantiate(slamEffect, this.transform.position, slamEffect.transform.rotation);
         }
     }
 

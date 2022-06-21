@@ -21,20 +21,21 @@ public class LaserBeamElement : BaseElementClass
     {
         base.Update();
 
-        if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("LaserBeam"))
-        {
-            DeactivateLaser();
-        }
+        
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (!Input.GetKey(KeyCode.Mouse0))
         {
             usingLaserBeam = false;
             laserBeam.SetActive(false);
             playerHand.SetTrigger("LaserStopCast");
+            playerHandL.SetTrigger("LaserStopCast");
             audioManager.Stop("Laser Beam");
             laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
         }
-
+        if (playerHand.GetCurrentAnimatorStateInfo(0).IsName("HoldLaser"))
+        {
+            DeactivateLaser();
+        }
     }
 
     public void DeactivateLaser()
@@ -43,10 +44,11 @@ public class LaserBeamElement : BaseElementClass
         // stop the laser beam
         if (Input.GetKeyUp(KeyCode.Mouse0) || !PayCosts(Time.deltaTime))
         {
-           usingLaserBeam = false;
+            usingLaserBeam = false;
             laserBeam.SetActive(false);
-           playerHand.SetTrigger("LaserStopCast");
-           audioManager.Stop("Laser Beam");
+            playerHand.SetTrigger("LaserStopCast");
+            playerHandL.SetTrigger("LaserStopCast");
+            audioManager.Stop("Laser Beam");
             laserBeam.GetComponentInChildren<LaserBeam>().isHittingObj = false;
         }
     }
@@ -66,6 +68,8 @@ public class LaserBeamElement : BaseElementClass
     {
         base.StartAnims(animationName);
         playerHand.ResetTrigger("LaserStopCast");
+        playerHandL.ResetTrigger("LaserStopCast");
         playerHand.SetTrigger(animationName);
+        playerHandL.SetTrigger(animationName);
     }
 }

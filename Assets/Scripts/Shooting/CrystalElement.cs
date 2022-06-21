@@ -20,6 +20,9 @@ public class CrystalElement : BaseElementClass
     [SerializeField]
     private float lifeTimer;
 
+    [SerializeField]
+    private float damageLimit;
+
     // Update is called once per frame
     protected override void Update()
     {
@@ -41,7 +44,7 @@ public class CrystalElement : BaseElementClass
                 newCrystalPro.transform.RotateAround(shootingTranform.position, Camera.main.transform.right, 3.0f * j - 5.0f);
 
                 // setting the varibles from CrystalProj script
-                newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage * damageMultiplier, damageCurve, lifeTimer, attackTypes);
+                newCrystalPro.GetComponent<CrystalProj>().SetVars(projectileSpeed, damage * damageMultiplier, damageCurve, lifeTimer, attackTypes, damageLimit);
             }
         }
     }
@@ -55,6 +58,7 @@ public class CrystalElement : BaseElementClass
     {
         base.StartAnims(animationName);
         playerHand.SetTrigger(animationName);
+
 
     }
 }

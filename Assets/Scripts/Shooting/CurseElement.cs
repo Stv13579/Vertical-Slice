@@ -38,6 +38,7 @@ public class CurseElement : BaseElementClass
         base.StartAnims(animationName);
 
         playerHand.SetTrigger(animationName);
+        playerHandL.SetTrigger(animationName);
 
         targeting = true;
 
@@ -64,7 +65,12 @@ public class CurseElement : BaseElementClass
     
     public void DeathEffect()
     {
-        Collider[] hitColls = Physics.OverlapSphere(targetToCurse.transform.position, explosionRange);
+        Collider[] hitColls = null;
+        if (targetToCurse)
+        {
+            hitColls = Physics.OverlapSphere(targetToCurse.transform.position, explosionRange);
+        }
+        
 
         int i = 0;
         foreach (Collider hit in hitColls)
@@ -72,7 +78,7 @@ public class CurseElement : BaseElementClass
             //if(hitColls[i] == )
 
             //i++;
-
+            
             if (hit.tag == "Enemy")
             {
                 hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);
@@ -90,6 +96,7 @@ public class CurseElement : BaseElementClass
         base.LiftEffect();
 
         playerHand.SetTrigger("CurseRelease");
+        playerHandL.SetTrigger("CurseRelease");
     }
 
     protected override void Update()
@@ -100,7 +107,7 @@ public class CurseElement : BaseElementClass
         {
             if(targetToCurse)
             {
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
+                //targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
             }
             
             RaycastHit rayHit;
@@ -108,9 +115,21 @@ public class CurseElement : BaseElementClass
             if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out rayHit, range, curseTargets))
             {
                 
+                if(targetToCurse == rayHit.collider.gameObject)
+                {
 
-                targetToCurse = rayHit.collider.gameObject;
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true, outlineColour);
+                }
+                else
+                {
+
+                    if (targetToCurse)
+                    {
+                        targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
+                    }
+                    targetToCurse = rayHit.collider.gameObject;
+                    targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true, outlineColour);
+                }
+                
 
 
             }

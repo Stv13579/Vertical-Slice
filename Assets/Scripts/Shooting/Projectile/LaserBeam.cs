@@ -50,11 +50,13 @@ public class LaserBeam : MonoBehaviour
             laserBeamEndParticle.transform.position = hit.point;
             laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, hit.distance));
             this.gameObject.transform.localScale = new Vector3(0, hit.distance, 0);
+            isHittingObj = true;
         }
         else
         {
             laserBeamEffectParticle.GetComponentInChildren<LineRenderer>().SetPosition(1, new Vector3(0, 0, initalLaserScale));
             this.gameObject.transform.localScale = new Vector3(0, initalLaserScale, 0);
+            isHittingObj = false;
         }
 
         // might need later to add some juice

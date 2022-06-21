@@ -10,6 +10,7 @@ public class DecalRendererManager : MonoBehaviour
     private Vector3 originPosition = new Vector3(0.0f, 0.0f, 0.0f);
     [SerializeField]
     private float offset = 1.0f;
+
     [SerializeField]
     private int slots = 10;
     [SerializeField]
@@ -34,7 +35,9 @@ public class DecalRendererManager : MonoBehaviour
         for (int i = 0; i < slots; i++)
         {
             GameObject newRenderer = Instantiate(decalRendererPrefab, transform.position, transform.rotation);
+
             newRenderer.name = $"Decal Renderer [{i}]";
+            
             
             newRenderer.transform.parent = transform;
             newRenderer.transform.localPosition = originPosition + new Vector3(offset * i, 0.0f, 0.0f);

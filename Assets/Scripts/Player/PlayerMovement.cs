@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         Jumping();
         if (this.gameObject.GetComponent<LaserBeamElement>().usingLaserBeam == true)
         {
-            movementMulti = 0.5f;
+            movementMulti = 0.25f;
         }
         else
         {
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isHeadShaking == true)
             {
-                StartCoroutine(Shake(0.2f, 1.0f));
+                StartCoroutine(Shake(0.1f, 1.0f));
                 isHeadShaking = false;
             }
             velocity.y = -1.0f;
@@ -233,7 +233,7 @@ public class PlayerMovement : MonoBehaviour
             currentCoyoteTime = coyoteTime;
             if (isHeadShaking == true)
             {
-                StartCoroutine(Shake(0.2f, 1.0f));
+                StartCoroutine(Shake(0.1f, 1.0f));
                 audioManager.Stop("Player Landing");
                 audioManager.Play("Player Landing");
                 isHeadShaking = false;

@@ -15,7 +15,10 @@ public class CrystalProj : MonoBehaviour
     private AudioManager audioManager;
 
     private bool ismoving;
-
+    private float damageLimit;
+    private Vector3 originalPosition;
+    [SerializeField]
+    private GameObject particleEffect;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -24,10 +27,10 @@ public class CrystalProj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // the max drop off the damage can do is 2
-        if(damage < 1)
+        // the max drop off the damage is 0.5f
+        if(damage <= 0)
         {
-            damage = 1;
+            damage = damageLimit;
         }
         // decrease the life of the crystal once its been shot out
         if(startLifeTimer > 0)
@@ -39,30 +42,30 @@ public class CrystalProj : MonoBehaviour
         // moves the projectiles
         MoveCrystalProjectile();
         KillProjectile();
-        Debug.Log(damage);
     }
     // move crystal projectile forwards
     private void MoveCrystalProjectile()
     {
-        Vector3 projMovement = transform.forward * speed * Time.deltaTime;
         if (ismoving == true)
-        { 
+        {
+            Vector3 projMovement = transform.forward * speed * Time.deltaTime;
             transform.position += projMovement;
         }
         if(ismoving == false)
         {
-            projMovement = Vector3.zero;
+            transform.position = originalPosition;
+            particleEffect.SetActive(false);
         }
     }
     //setter to set the varibles
-    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<BaseEnemyClass.Types> types)
+    public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<BaseEnemyClass.Types> types, float tempDamageLimit)
     {
         speed = spd;
         damage = dmg;
         damageCurve = dmgCurve;
         startLifeTimer = stLifeTimer;
         attackTypes = types;
-
+        damageLimit = tempDamageLimit;
     }
     // if the life timer for the projectiles is 0
     // destroy the projectiles
@@ -81,12 +84,13 @@ public class CrystalProj : MonoBehaviour
         // gets embedded in the environment
         if (other.gameObject.layer == 10)
         {
+            originalPosition = transform.position;
             ismoving = false;
         }
         Collider taggedEnemy = null;
         //if enemy, hit them for the damage
         // destroy projectile after
-        if (other.tag == "Enemy")
+        if (other.gameObject.layer == 8)
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
             taggedEnemy = other;

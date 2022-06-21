@@ -32,7 +32,6 @@ public class FireSlimeTrail : MonoBehaviour
 
     [SerializeField]
     private GameObject fireParticles;
-    //public float m_AnimationValue; // <-- animate this to move it on the actual renderer
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -40,9 +39,7 @@ public class FireSlimeTrail : MonoBehaviour
         decalManager = FindObjectOfType<DecalRendererManager>();
 
         decalRenderer = decalManager.GenerateDecalRenderer(effectMaterial);
-        decalMaterialInstance = new Material(decal.sharedMaterial);
-        decalMaterialInstance.SetTexture("_MainTex", decalRenderer.renderTexture);
-        decal.material = decalMaterialInstance;
+        decal.material = decalRenderer.decalMaterial;
 
         audioManager.Stop("Fire Slime Trail Alive");
         audioManager.Play("Fire Slime Trail Alive", player.transform, this.transform);
@@ -52,7 +49,6 @@ public class FireSlimeTrail : MonoBehaviour
     {
         trailDuration += Time.deltaTime;
         decalRenderer.materialInstance.SetFloat("_CenterPoint", fireTrailAnimation.Evaluate(trailDuration / trailLength));
-        //m_DecalRenderer.m_MaterialInstance.SetFloat("_CenterPoint", m_AnimationValue); // <-- pass value through here from animator
         Countdown();
         // deletes the trail after trailDuration >= trailLength
         if (trailDuration >= trailLength)

@@ -62,6 +62,7 @@ public class CrystalSlimeProjectile : MonoBehaviour
         else
         {
             transform.position = originPos;
+            this.GetComponent<SphereCollider>().enabled = false;
         }
         // if life timer is less then 0 then destroy enemy slime crystal projectile and reset timer
         if (lifeTimer <= lifeTimerLength)

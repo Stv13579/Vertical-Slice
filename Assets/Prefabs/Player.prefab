@@ -3433,7 +3433,7 @@ MonoBehaviour:
   types: 
   curseDeath: {fileID: 9040072988987624986, guid: 6ad2501f765957d4fab25257d276645a,
     type: 3}
-  outlineColour: {r: 0, g: 0, b: 0, a: 0}
+  outlineColour: {r: 0.12724805, g: 1, b: 0, a: 1}
 --- !u!1 &5898286419646802724
 GameObject:
   m_ObjectHideFlags: 0

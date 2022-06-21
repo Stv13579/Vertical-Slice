@@ -959,7 +959,7 @@ MonoBehaviour:
     type: 3}
   crystalProjectiles: {fileID: 1056514789116792829, guid: de3d986e7cfa101438a4776f0d7da12d,
     type: 3}
-  projScale: {x: 3, y: 3, z: 3}
+  projScale: {x: 0.1, y: 0.1, z: 0.1}
   decalManager: {fileID: 0}
   crystalHit: {fileID: 8873115531169138571, guid: f6a1c9e799a27c14cbe74b5fe39bfc25,
     type: 3}

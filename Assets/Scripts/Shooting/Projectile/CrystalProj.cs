@@ -16,6 +16,9 @@ public class CrystalProj : MonoBehaviour
 
     private bool ismoving;
     private float damageLimit;
+    private Vector3 originalPosition;
+    [SerializeField]
+    private GameObject particleEffect;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -39,19 +42,19 @@ public class CrystalProj : MonoBehaviour
         // moves the projectiles
         MoveCrystalProjectile();
         KillProjectile();
-        Debug.Log(damage);
     }
     // move crystal projectile forwards
     private void MoveCrystalProjectile()
     {
-        Vector3 projMovement = transform.forward * speed * Time.deltaTime;
         if (ismoving == true)
-        { 
+        {
+            Vector3 projMovement = transform.forward * speed * Time.deltaTime;
             transform.position += projMovement;
         }
         if(ismoving == false)
         {
-            projMovement = Vector3.zero;
+            transform.position = originalPosition;
+            particleEffect.SetActive(false);
         }
     }
     //setter to set the varibles
@@ -81,12 +84,13 @@ public class CrystalProj : MonoBehaviour
         // gets embedded in the environment
         if (other.gameObject.layer == 10)
         {
+            originalPosition = transform.position;
             ismoving = false;
         }
         Collider taggedEnemy = null;
         //if enemy, hit them for the damage
         // destroy projectile after
-        if (other.tag == "Enemy")
+        if (other.gameObject.layer == 8)
         {
             other.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
             taggedEnemy = other;

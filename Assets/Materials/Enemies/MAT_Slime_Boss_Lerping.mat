@@ -112,7 +112,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _Blend: 0
     - _BumpScale: 1
-    - _CrystalTextureLerp: -1
+    - _CrystalTextureLerp: 1
     - _CrystalTextureLerpFade: 0.8235295
     - _CrystalVoronoiScale: 6.1
     - _CrystalVoronoiSpeed: 3
@@ -120,7 +120,7 @@ Material:
     - _Cutoff: 0.5
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FireTextureLerp: -1
+    - _FireTextureLerp: 1
     - _FireTextureLerpFade: 0.67446005
     - _FireVoronoiScale: 5
     - _FireVoronoiSpeed: 5

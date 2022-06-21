@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ddd44f65717214c96a663735930d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleEffect: {fileID: 1463804776593298447}
 --- !u!135 &3651910169154457978
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -208,6 +209,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12ea24a4ad4d7774eb873f2e3a79f1f3, type: 3}
+--- !u!1 &1463804776593298447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 12ea24a4ad4d7774eb873f2e3a79f1f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1770217438908000606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2241572280204086965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 12ea24a4ad4d7774eb873f2e3a79f1f3,

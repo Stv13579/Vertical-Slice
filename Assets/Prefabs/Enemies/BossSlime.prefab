@@ -961,6 +961,17 @@ MonoBehaviour:
     type: 3}
   projScale: {x: 0.1, y: 0.1, z: 0.1}
   decalManager: {fileID: 0}
+  crystalHit: {fileID: 8873115531169138571, guid: f6a1c9e799a27c14cbe74b5fe39bfc25,
+    type: 3}
+  crystalDeath: {fileID: 1584426400794531735, guid: f49572f8a25942242a110636866f6bdd,
+    type: 3}
+  fireHit: {fileID: 4786863155429246897, guid: a3345ae8846797047bedf92710df1138, type: 3}
+  fireDeath: {fileID: 6298907768690529144, guid: a0b61e964697a6a45a37535f48a3b594,
+    type: 3}
+  normalHit: {fileID: 972929455091577122, guid: dba3c9cd22f34fd40a2a7fc037b1a5c3,
+    type: 3}
+  normalDeath: {fileID: 7267713575654507604, guid: a94aaa96e6d5ba94d98a584be3024af7,
+    type: 3}
 --- !u!1001 &4176425359293596282
 PrefabInstance:
   m_ObjectHideFlags: 0

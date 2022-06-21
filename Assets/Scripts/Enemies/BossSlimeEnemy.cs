@@ -94,6 +94,12 @@ public class BossSlimeEnemy : NormalSlimeEnemy
     public DecalRendererManager decalManager;
     float spawnTimer;
 
+    /// <summary>
+    /// Hits
+    /// </summary>
+    [SerializeField]
+    GameObject crystalHit, crystalDeath, fireHit, fireDeath, normalHit, normalDeath;
+
     public override void Start()
     {
         base.Start();
@@ -316,6 +322,8 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         crystalPoint.SetActive(true);
         firePoint.SetActive(false);
         normalPoint.SetActive(false);
+        hitSpawn = crystalHit;
+        deathSpawn = crystalDeath;
     }
 
     private void SwitchToFire()
@@ -325,6 +333,8 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         crystalPoint.SetActive(false);
         firePoint.SetActive(true);
         normalPoint.SetActive(false);
+        hitSpawn = fireHit;
+        deathSpawn = fireDeath;
     }
 
     private void SwitchToNormal()
@@ -334,6 +344,8 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         crystalPoint.SetActive(false);
         firePoint.SetActive(false);
         normalPoint.SetActive(true);
+        hitSpawn = normalHit;
+        deathSpawn = normalDeath;
     }
 
     private void UpdateMaterials()
@@ -431,6 +443,11 @@ public class BossSlimeEnemy : NormalSlimeEnemy
         base.Death();
 
         
+    }
+
+    public override void TakeDamage(float damageToTake, List<Types> attackTypes, float extraSpawnScale = 1)
+    {
+        base.TakeDamage(damageToTake, attackTypes, 2);
     }
 
     public void PushAway()

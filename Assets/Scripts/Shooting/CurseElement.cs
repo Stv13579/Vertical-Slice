@@ -107,7 +107,7 @@ public class CurseElement : BaseElementClass
         {
             if(targetToCurse)
             {
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
+                //targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
             }
             
             RaycastHit rayHit;
@@ -115,9 +115,21 @@ public class CurseElement : BaseElementClass
             if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out rayHit, range, curseTargets))
             {
                 
+                if(targetToCurse == rayHit.collider.gameObject)
+                {
 
-                targetToCurse = rayHit.collider.gameObject;
-                targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true, outlineColour);
+                }
+                else
+                {
+
+                    if (targetToCurse)
+                    {
+                        targetToCurse.GetComponent<BaseEnemyClass>().Targetted(false, new Color(0, 0, 0));
+                    }
+                    targetToCurse = rayHit.collider.gameObject;
+                    targetToCurse.GetComponent<BaseEnemyClass>().Targetted(true, outlineColour);
+                }
+                
 
 
             }

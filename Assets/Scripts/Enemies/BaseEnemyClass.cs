@@ -192,10 +192,17 @@ public class BaseEnemyClass : MonoBehaviour
 
     public void Targetted(bool targetted, Color colour)
     {
-        //targettingIndicator.SetActive(targetted);
+        if(targettingIndicator.active == false && targetted == true)
+        {
+            targettingIndicator.SetActive(targetted);
+        }
+        
+        if(targettingIndicator.active == true && targetted == false)
+        {
+            targettingIndicator.SetActive(targetted);
+        }
+
         this.transform.GetChild(1).GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Outline_Colour", colour);
-
-
     }
 
 

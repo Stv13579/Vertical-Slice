@@ -9,7 +9,6 @@ public class CrystalProj : MonoBehaviour
 
     private AnimationCurve damageCurve;
 
-    private float damageLifeTimer;
     private float startLifeTimer;
 
     List<BaseEnemyClass.Types> attackTypes;
@@ -26,9 +25,9 @@ public class CrystalProj : MonoBehaviour
     void Update()
     {
         // the max drop off the damage can do is 2
-        if(damage > 2)
+        if(damage < 1)
         {
-            damageLifeTimer -= Time.deltaTime;
+            damage = 1;
         }
         // decrease the life of the crystal once its been shot out
         if(startLifeTimer > 0)
@@ -36,19 +35,24 @@ public class CrystalProj : MonoBehaviour
             startLifeTimer -= Time.deltaTime;
         }
         // decrease the damage of the crystals every frame
-        damage -= damageCurve.Evaluate(startLifeTimer - damageLifeTimer) * Time.deltaTime;
+        damage -= damageCurve.Evaluate(startLifeTimer) * Time.deltaTime;
         // moves the projectiles
-        if (ismoving == true)
-        {
-            MoveCrystalProjectile();
-        }
+        MoveCrystalProjectile();
         KillProjectile();
+        Debug.Log(damage);
     }
     // move crystal projectile forwards
     private void MoveCrystalProjectile()
     {
         Vector3 projMovement = transform.forward * speed * Time.deltaTime;
-        transform.position += projMovement;
+        if (ismoving == true)
+        { 
+            transform.position += projMovement;
+        }
+        if(ismoving == false)
+        {
+            projMovement = Vector3.zero;
+        }
     }
     //setter to set the varibles
     public void SetVars(float spd, float dmg, AnimationCurve dmgCurve, float stLifeTimer, List<BaseEnemyClass.Types> types)
@@ -75,7 +79,7 @@ public class CrystalProj : MonoBehaviour
         // if bullet hits the environment
         // stops it from moving
         // gets embedded in the environment
-        if (other.tag == "Environment")
+        if (other.gameObject.layer == 10)
         {
             ismoving = false;
         }

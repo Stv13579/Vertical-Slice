@@ -2128,6 +2128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 7128103365064262050, guid: 38ba7214c9215794098efd48e6d1078a, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 1
   animationToPlay: FireProj
   useDelay: 1
@@ -2189,6 +2190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 3402536344946380668, guid: 8397178657a067d48bcc863d6790b078, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 1
   animationToPlay: SoulCast
   useDelay: 1
@@ -2217,7 +2219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
-  handVFX: {fileID: 7128103365064262050, guid: 38ba7214c9215794098efd48e6d1078a, type: 3}
+  handVFX: {fileID: 3588022246820785612, guid: d84d2c64a8d7ce84c97a4650e477e6ef, type: 3}
+  wristVFX: {fileID: 4952139987312495225, guid: 2a7f82e3da1331b40af316fc2d1dd30b,
+    type: 3}
   manaCost: 1
   animationToPlay: CrystalProj
   useDelay: 1
@@ -2276,6 +2280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 720389188591641386, guid: 532b89b055d9296469be3f9f8e57a424, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 0
   animationToPlay: StartEnergy
   useDelay: 0
@@ -2304,7 +2309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
-  handVFX: {fileID: 0}
+  handVFX: {fileID: 9102101168774939595, guid: 8fba95ab9aaab0f46a8049a35f4d6dad, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 10
   animationToPlay: ShardCast
   useDelay: 1
@@ -2338,6 +2344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 6858203384706500376, guid: 3467d4b068c26bc4989b1e6a07190e13, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 5
   animationToPlay: AcidCast
   useDelay: 2
@@ -2371,7 +2378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
-  handVFX: {fileID: 0}
+  handVFX: {fileID: 7085110900658056965, guid: d8b6c40de411ad8478e6bba3774af010, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 5
   animationToPlay: LaserCast
   useDelay: 0
@@ -2404,6 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedVFX: {fileID: 0}
   handVFX: {fileID: 6087893857474337523, guid: 3a419bfd3448b67409b8f59075dafc4f, type: 3}
+  wristVFX: {fileID: 0}
   manaCost: 10
   animationToPlay: CurseCast
   useDelay: 1
@@ -2777,6 +2786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_Fire_Orb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128103365064262050, guid: 38ba7214c9215794098efd48e6d1078a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7128103365064262078, guid: 38ba7214c9215794098efd48e6d1078a,
         type: 3}

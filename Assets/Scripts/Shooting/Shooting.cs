@@ -69,7 +69,35 @@ public class Shooting : MonoBehaviour
                 leftElementIndex = 0;
             }
             Destroy(leftOrbPos.GetChild(0).gameObject);
-            Instantiate(primaryElements[leftElementIndex].handVFX, leftOrbPos);
+            if(leftOrbPos.parent.parent.childCount == 2)
+            {
+                Destroy(leftOrbPos.parent.parent.GetChild(1).gameObject);
+            }
+            if(!inComboMode)
+            {
+                Instantiate(primaryElements[leftElementIndex].handVFX, leftOrbPos);
+                if (primaryElements[leftElementIndex].wristVFX)
+                {
+                    Instantiate(primaryElements[leftElementIndex].wristVFX, leftOrbPos.parent.parent);
+                }
+            }
+            else
+            {
+                Destroy(rightOrbPos.GetChild(0).gameObject);
+                if (rightOrbPos.parent.parent.childCount == 2)
+                {
+                    Destroy(rightOrbPos.parent.parent.GetChild(1).gameObject);
+                }
+                Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].handVFX, leftOrbPos);
+                Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].handVFX, rightOrbPos);
+                if (comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX)
+                {
+                    Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX, leftOrbPos.parent.parent);
+                    Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX, rightOrbPos.parent.parent);
+                }
+
+            }
+
         }
         if(Input.GetKeyUp(KeyCode.E))
         {
@@ -82,13 +110,74 @@ public class Shooting : MonoBehaviour
                 rightElementIndex = 0;
             }
             Destroy(rightOrbPos.GetChild(0).gameObject);
-            Instantiate(catalystElements[rightElementIndex].handVFX, rightOrbPos);
+            if (rightOrbPos.parent.parent.childCount == 2)
+            {
+                Destroy(rightOrbPos.parent.parent.GetChild(1).gameObject);
+            }
+            if(!inComboMode)
+            {
+                Instantiate(catalystElements[rightElementIndex].handVFX, rightOrbPos);
+                if (catalystElements[rightElementIndex].wristVFX)
+                {
+                    Instantiate(catalystElements[rightElementIndex].wristVFX, rightOrbPos.parent.parent);
+                }
+            }
+            else
+            {
+                Destroy(leftOrbPos.GetChild(0).gameObject);
+                if (leftOrbPos.parent.parent.childCount == 2)
+                {
+                    Destroy(leftOrbPos.parent.parent.GetChild(1).gameObject);
+                }
+                Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].handVFX, leftOrbPos);
+                Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].handVFX, rightOrbPos);
+                if (comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX)
+                {
+                    Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX, leftOrbPos.parent.parent);
+                    Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX, rightOrbPos.parent.parent);
+                }
+            }
+
         }
 
         if(Input.GetKeyUp(KeyCode.F))
         {
             inComboMode = !inComboMode;
             //Activate an animation trigger?
+
+            Destroy(leftOrbPos.GetChild(0).gameObject);
+            if (leftOrbPos.parent.parent.childCount == 2)
+            {
+                Destroy(leftOrbPos.parent.parent.GetChild(1).gameObject);
+            }
+            Destroy(rightOrbPos.GetChild(0).gameObject);
+            if (rightOrbPos.parent.parent.childCount == 2)
+            {
+                Destroy(rightOrbPos.parent.parent.GetChild(1).gameObject);
+            }
+            if(!inComboMode)
+            {
+                Instantiate(primaryElements[leftElementIndex].handVFX, leftOrbPos);
+                if (primaryElements[leftElementIndex].wristVFX)
+                {
+                    Instantiate(primaryElements[leftElementIndex].wristVFX, leftOrbPos.parent.parent);
+                }
+                Instantiate(catalystElements[rightElementIndex].handVFX, rightOrbPos);
+                if (catalystElements[rightElementIndex].wristVFX)
+                {
+                    Instantiate(catalystElements[rightElementIndex].wristVFX, rightOrbPos.parent.parent);
+                }
+            }
+            else
+            {
+                Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].handVFX, leftOrbPos);
+                Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].handVFX, rightOrbPos);
+                if (comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX)
+                {
+                    Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX, leftOrbPos.parent.parent);
+                    Instantiate(comboElements[leftElementIndex].comboElements[rightElementIndex].wristVFX, rightOrbPos.parent.parent);
+                }
+            }
 
         }
 

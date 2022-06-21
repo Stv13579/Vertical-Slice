@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1674563964008408850}
   - component: {fileID: 1674563964008408854}
   - component: {fileID: 8686742105717239448}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +132,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1674563964008408855}
     m_Modifications:
+    - target: {fileID: 6896129020711457191, guid: d10f4e73f2b39414baa587298c2b3ecd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6896129020711457192, guid: d10f4e73f2b39414baa587298c2b3ecd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -146,6 +151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896129021100479362, guid: d10f4e73f2b39414baa587298c2b3ecd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6896129021100479365, guid: d10f4e73f2b39414baa587298c2b3ecd,
         type: 3}
@@ -166,6 +176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_Fire_ImpactFlames
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896129021766088942, guid: d10f4e73f2b39414baa587298c2b3ecd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6896129021766088942, guid: d10f4e73f2b39414baa587298c2b3ecd,
         type: 3}
@@ -331,6 +346,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_Fire_ProjectileFlames
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885154688781081845, guid: 23237d1d2c00d85409dbbe0606d34b0a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885154689576039828, guid: 23237d1d2c00d85409dbbe0606d34b0a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885154690513077356, guid: 23237d1d2c00d85409dbbe0606d34b0a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23237d1d2c00d85409dbbe0606d34b0a, type: 3}

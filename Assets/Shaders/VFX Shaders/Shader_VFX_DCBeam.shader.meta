@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 01aa8a234b098744da0c8c8a28134979
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MAT_VFX_DeathCurseBeam: {fileID: 2800000, guid: 96a2420085d073b4fbac83f962b122fe,
+      type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

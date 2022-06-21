@@ -751,7 +751,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1865586733}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1020130117
+--- !u!95 &1020130118
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -1857,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 4878662708443654493, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5260113440462795751, guid: 726a78b5187dfac49b2b6db7edec71fe,
         type: 3}
@@ -1923,6 +1923,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5625023910511142016, guid: b3c8d9beac7f5f14aaa36cd4e751fb94,
+        type: 3}
+      propertyPath: pushDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5625023911835613078, guid: b3c8d9beac7f5f14aaa36cd4e751fb94,
         type: 3}
       propertyPath: m_RootOrder

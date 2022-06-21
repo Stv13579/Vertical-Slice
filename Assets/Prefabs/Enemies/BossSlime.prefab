@@ -931,7 +931,7 @@ MonoBehaviour:
   targettingIndicator: {fileID: 4194532269593929464}
   oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 20
-  pushForce: 30
+  pushForce: 20
   viewToPlayer:
     serializedVersion: 2
     m_Bits: 0

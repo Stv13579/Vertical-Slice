@@ -21,6 +21,8 @@ public class GameplayUI : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI moneyText;
 
+    bool combo = false;
+
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Shooting>();
@@ -32,16 +34,19 @@ public class GameplayUI : MonoBehaviour
         //Getting the current values from the player and updating the UI with them
         healthBar.fillAmount = playerClass.currentHealth / playerClass.maxHealth;
         manaBar.fillAmount = playerClass.currentMana / playerClass.maxMana;
-        moneyText.text = "Money: " + playerClass.money.ToString();
+        moneyText.text = playerClass.money.ToString();
         activePrimaryElement.sprite = player.GetPrimaryElement();
         activeCatalystElement.sprite = player.GetCatalystElement();
         activeComboElement.sprite = player.GetComboElement();
         crosshair.sprite = player.GetCrosshair();
         if (Input.GetKeyDown(KeyCode.F))
         {
-            activePrimaryElement.transform.parent.parent.gameObject.SetActive(!activePrimaryElement.transform.parent.parent.gameObject.activeSelf);
-            activeCatalystElement.transform.parent.parent.gameObject.SetActive(!activeCatalystElement.transform.parent.parent.gameObject.activeSelf);
-            activeComboElement.transform.parent.parent.gameObject.SetActive(!activeComboElement.transform.parent.parent.gameObject.activeSelf);
+            combo = !combo;
+            Transform uiObject = activePrimaryElement.transform.parent;
+            ChangeCombo(activePrimaryElement.transform.parent, combo);
+            ChangeCombo(activeCatalystElement.transform.parent, combo);
+            ChangeCombo(activeComboElement.transform.parent, !combo);
+
 
         }
     }
@@ -55,6 +60,51 @@ public class GameplayUI : MonoBehaviour
             items[itemIndex].enabled = true;
             items[itemIndex].transform.GetChild(0).GetComponent<Image>().enabled = true;
             itemIndex++;
+        }
+    }
+
+    void ChangeCombo(Transform uiObject, bool doCombo)
+    {
+        if(doCombo)
+        {
+            Color colour = uiObject.GetComponent<Image>().color;
+            uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 0.25f);
+
+        }
+        else
+        {
+            Color colour = uiObject.GetComponent<Image>().color;
+            uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 1.0f);
+        }
+        for (int i = 0; i < uiObject.childCount; i++)
+        {
+            if (doCombo)
+            {
+                if (uiObject.GetChild(i).GetComponent<Image>())
+                {
+                    Color colour = uiObject.GetChild(i).GetComponent<Image>().color;
+                    uiObject.GetChild(i).GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 0.25f);
+                }
+                else if (uiObject.GetChild(i).GetComponent<TextMeshProUGUI>())
+                {
+                    Color colour = uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color;
+                    uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(colour.r, colour.g, colour.b, 0.25f);
+                }
+
+            }
+            else
+            {
+                if (uiObject.GetChild(i).GetComponent<Image>())
+                {
+                    Color colour = uiObject.GetChild(i).GetComponent<Image>().color;
+                    uiObject.GetChild(i).GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 1.0f);
+                }
+                else if (uiObject.GetChild(i).GetComponent<TextMeshProUGUI>())
+                {
+                    Color colour = uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color;
+                    uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(colour.r, colour.g, colour.b, 0.5f);
+                }
+            }
         }
     }
 }

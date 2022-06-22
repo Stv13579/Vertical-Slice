@@ -277,7 +277,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 0211042273da77c4a90406b6aa0572db, type: 3}
+  - {fileID: 2100000, guid: 255c65c0cba3f0c428287079747bc588, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -974,7 +974,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 0211042273da77c4a90406b6aa0572db, type: 3}
+  - {fileID: 2100000, guid: fe263cfe0c1d16e40ae7419f9e1df164, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3116,7 +3116,8 @@ MonoBehaviour:
   playerHand: {fileID: 3689423523472854436}
   playerHandL: {fileID: 0}
   elementName: Fire
-  uiSprite: {fileID: 21300000, guid: 8aaa85c24102064448bafc61b4115e8b, type: 3}
+  uiSprite: {fileID: -1128774787792666313, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 21300000, guid: 6ee77b03add3bef47a42ac7213c82bf0, type: 3}
   attackTypes: 00000000
   playerClass: {fileID: 0}
@@ -3179,7 +3180,8 @@ MonoBehaviour:
   playerHand: {fileID: 4653365320959009119}
   playerHandL: {fileID: 0}
   elementName: Soul
-  uiSprite: {fileID: 21300000, guid: 440c433fae370f94f87b722cb5d9828d, type: 3}
+  uiSprite: {fileID: -7654870270679289077, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 0}
   attackTypes: 
   playerClass: {fileID: 0}
@@ -3213,7 +3215,8 @@ MonoBehaviour:
   playerHand: {fileID: 3689423523472854436}
   playerHandL: {fileID: 0}
   elementName: Crystal
-  uiSprite: {fileID: 21300000, guid: ef048782f4171ce4ab784c6238bbaf14, type: 3}
+  uiSprite: {fileID: 4541470821485710819, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 21300000, guid: 60ba117551a488647a057174be37c3fd, type: 3}
   attackTypes: 01000000
   playerClass: {fileID: 0}
@@ -3274,7 +3277,8 @@ MonoBehaviour:
   playerHand: {fileID: 4653365320959009119}
   playerHandL: {fileID: 0}
   elementName: Energy
-  uiSprite: {fileID: 21300000, guid: 0965d3790b5781c4f8a7007bfdc86e67, type: 3}
+  uiSprite: {fileID: 6129296847577865886, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 0}
   attackTypes: 
   playerClass: {fileID: 0}
@@ -3307,7 +3311,8 @@ MonoBehaviour:
   playerHand: {fileID: 4653365320959009119}
   playerHandL: {fileID: 3689423523472854436}
   elementName: Shard Cannon
-  uiSprite: {fileID: 21300000, guid: 42dffc313ac0c664ba203257bab79f21, type: 3}
+  uiSprite: {fileID: -1561463394628770788, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 21300000, guid: db3d8f6650a6d9d42aa38560b3d2008d, type: 3}
   attackTypes: 01000000
   playerClass: {fileID: 0}
@@ -3342,7 +3347,8 @@ MonoBehaviour:
   playerHand: {fileID: 4653365320959009119}
   playerHandL: {fileID: 3689423523472854436}
   elementName: Acid Cloud
-  uiSprite: {fileID: 21300000, guid: 52f739ba6ce3b2e4bb4e300fd3f42b31, type: 3}
+  uiSprite: {fileID: -424643889610224408, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 21300000, guid: da9efba32dcd01d4d94eca11706d7877, type: 3}
   attackTypes: 00000000
   playerClass: {fileID: 0}
@@ -3378,7 +3384,8 @@ MonoBehaviour:
   playerHand: {fileID: 4653365320959009119}
   playerHandL: {fileID: 3689423523472854436}
   elementName: LaserBeam
-  uiSprite: {fileID: 21300000, guid: edc6bb5259b8a07418dc078001b9464c, type: 3}
+  uiSprite: {fileID: -5782891034314955071, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 21300000, guid: 770339e41d8494046adb4a9a0b4714db, type: 3}
   attackTypes: 00000000
   playerClass: {fileID: 0}
@@ -3412,7 +3419,8 @@ MonoBehaviour:
   playerHand: {fileID: 4653365320959009119}
   playerHandL: {fileID: 3689423523472854436}
   elementName: Curse
-  uiSprite: {fileID: 21300000, guid: 7ab09dbefaadcb646a19d0ca81d1ffdd, type: 3}
+  uiSprite: {fileID: 1937476291286521762, guid: d39b8bc076de18747869f25ce241874b,
+    type: 3}
   crosshair: {fileID: 21300000, guid: 329a242dcf2f84440a96d5fb670f17c3, type: 3}
   attackTypes: 01000000
   playerClass: {fileID: 0}

@@ -477,6 +477,9 @@ public class SAIM : MonoBehaviour
         if(spawningFinished && spawnedEnemies.Count <= 0)
         {
             roomComplete = true;
+            //Aydens Audio
+            audioManager.Stop(battleMusic);
+            audioManager.Play(initialMusic);
         }
         
     }

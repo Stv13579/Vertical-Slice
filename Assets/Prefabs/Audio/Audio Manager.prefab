@@ -248,5 +248,11 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioSource: {fileID: 0}
+  - name: Boss Music
+    clip: {fileID: 8300000, guid: 5aaedbbfe8b769e43bdb8c830ea36a18, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
   initalMusic: Ambient Sound
   audioDistance: 30

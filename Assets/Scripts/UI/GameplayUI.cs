@@ -23,10 +23,19 @@ public class GameplayUI : MonoBehaviour
 
     bool combo = false;
 
+
+    [SerializeField]
+    float maxComboTimer = 1.0f;
+
+    float comboTimer = 1.0f;
+
+
+
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Shooting>();
         playerClass = player.gameObject.GetComponent<PlayerClass>();
+        comboTimer = maxComboTimer;
     }
 
     void Update()
@@ -42,13 +51,20 @@ public class GameplayUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             combo = !combo;
-            Transform uiObject = activePrimaryElement.transform.parent;
-            ChangeCombo(activePrimaryElement.transform.parent, combo);
-            ChangeCombo(activeCatalystElement.transform.parent, combo);
-            ChangeCombo(activeComboElement.transform.parent, !combo);
-
-
         }
+        if (combo)
+        {
+            comboTimer -= Time.deltaTime;
+        }
+        else
+        {
+            comboTimer += Time.deltaTime;
+        }
+        comboTimer = Mathf.Clamp(comboTimer, 0, maxComboTimer);
+
+        ChangeCombo(activePrimaryElement.transform.parent, true);
+        ChangeCombo(activeCatalystElement.transform.parent, true);
+        ChangeCombo(activeComboElement.transform.parent, false);
     }
 
     public void AddItem(Sprite[] sprites)
@@ -65,44 +81,51 @@ public class GameplayUI : MonoBehaviour
 
     void ChangeCombo(Transform uiObject, bool doCombo)
     {
+
+
         if(doCombo)
         {
             Color colour = uiObject.GetComponent<Image>().color;
-            uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 0.25f);
+            float alpha = Mathf.Lerp(0.25f, 1.0f, comboTimer);
+            uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
 
         }
         else
         {
             Color colour = uiObject.GetComponent<Image>().color;
-            uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 1.0f);
+            float alpha = Mathf.Lerp(1.0f, 0.25f, comboTimer);
+            uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
         }
         for (int i = 0; i < uiObject.childCount; i++)
         {
             if (doCombo)
             {
+                float alpha = Mathf.Lerp(0.25f, 1.0f, comboTimer);
                 if (uiObject.GetChild(i).GetComponent<Image>())
                 {
                     Color colour = uiObject.GetChild(i).GetComponent<Image>().color;
-                    uiObject.GetChild(i).GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 0.25f);
+                    uiObject.GetChild(i).GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
                 }
                 else if (uiObject.GetChild(i).GetComponent<TextMeshProUGUI>())
                 {
                     Color colour = uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color;
-                    uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(colour.r, colour.g, colour.b, 0.25f);
+                    uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(colour.r, colour.g, colour.b, alpha);
                 }
 
             }
             else
             {
+                float alpha = Mathf.Lerp(1.0f, 0.25f, comboTimer);
+
                 if (uiObject.GetChild(i).GetComponent<Image>())
                 {
                     Color colour = uiObject.GetChild(i).GetComponent<Image>().color;
-                    uiObject.GetChild(i).GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, 1.0f);
+                    uiObject.GetChild(i).GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
                 }
                 else if (uiObject.GetChild(i).GetComponent<TextMeshProUGUI>())
                 {
                     Color colour = uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color;
-                    uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(colour.r, colour.g, colour.b, 0.5f);
+                    uiObject.GetChild(i).GetComponent<TextMeshProUGUI>().color = new Color(colour.r, colour.g, colour.b, alpha);
                 }
             }
         }

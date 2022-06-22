@@ -926,9 +926,9 @@ MonoBehaviour:
   hitSpawn: {fileID: 2154916016029885947, guid: 927b09bead51b864990a49b3960ddc7c,
     type: 3}
   moveDirection: {x: 0, y: 0, z: 0}
-  attackAudio: 
-  deathAudio: 
-  takeDamageAudio: 
+  attackAudio: Player Damage
+  deathAudio: Slime Boss Death
+  takeDamageAudio: Slime Boss Damage
   targettingIndicator: {fileID: 4194532269593929464}
   oldPosition: {x: 0, y: 0, z: 0}
   jumpForce: 20

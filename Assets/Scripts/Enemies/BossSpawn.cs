@@ -21,9 +21,10 @@ public class BossSpawn : MonoBehaviour
     [SerializeField]
     GameObject bridge, bossRing;
 
+    AudioManager audioManager;
     void Start()
     {
-        
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -37,6 +38,8 @@ public class BossSpawn : MonoBehaviour
             hubPortal.SetActive(true);
             bridge.SetActive(true);
             bossRing.SetActive(false);
+            audioManager.Stop("Boss Music");
+            audioManager.Play("Ambient Sound");
         }
     }
 
@@ -53,7 +56,8 @@ public class BossSpawn : MonoBehaviour
 
         Instantiate(boss, spawnPosition.position, Quaternion.identity);
 
-
+        audioManager.Stop("Ambient Sound");
+        audioManager.Play("Boss Music");
     }
 
 }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_UI_Colours
+  m_Name: MAT_UI_SymbolsColour
   m_Shader: {fileID: 4800000, guid: e12446a71b4069a478cf7fca9cc41ee8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -47,10 +47,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: d39b8bc076de18747869f25ce241874b, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -64,9 +60,6 @@ Material:
     - _AlphaCutoff: 0.5
     - _Blend: 0
     - _BumpScale: 1
-    - _Colour1_Intens: 1
-    - _Colour2_Intens: 1
-    - _Colour3_Intens: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
@@ -83,27 +76,23 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TexAlphaIncrease: 4.6
-    - _TimeDivide: 2
-    - _VoronoiIntensity: 1
+    - _TimeDivide: 1
     - _Voronoi_2_Scale: 10
     - _Voronoi_2_Speed: 1
-    - _Voronoi_Scale: 10
+    - _Voronoi_Scale: 0
     - _Voronoi_Speed: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColour: {r: 5.656854, g: 1.0365963, b: 0, a: 1}
-    - _CentreRingColour: {r: 1.4980392, g: 1.137255, b: 0.21176471, a: 1}
-    - _CentreRingSecondColour: {r: 2.9960785, g: 2.9960785, b: 2.9960785, a: 1}
+    - _CentreRingColour: {r: 2.6929896, g: 29.857058, b: 0, a: 1}
+    - _CentreRingSecondColour: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RingOutlineandDarkerColour: {r: 11.984314, g: 2.8235295, b: 1.7568628, a: 1}
-    - _SecondaryColour: {r: 1.8880861, g: 1.8880861, b: 1.8880861, a: 0}
+    - _RingOutlineandDarkerColour: {r: 32, g: 2.3843138, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Voronoi_2_Remap: {r: 0, g: 1, b: -0.6, a: 10}
---- !u!114 &8403387257242586945
+    - _Voronoi_2_Remap: {r: 0, g: 1, b: 0, a: 10}
+--- !u!114 &2406423166311525894
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

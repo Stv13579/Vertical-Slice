@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_UI_Colours
-  m_Shader: {fileID: 4800000, guid: e12446a71b4069a478cf7fca9cc41ee8, type: 3}
+  m_Name: MAT_UI_HPBar
+  m_Shader: {fileID: 4800000, guid: 35ce136f020cac444911c3d5b86a446a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture0:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: cc8619fba6e3bd64397162fc7be6c5ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
@@ -64,11 +64,14 @@ Material:
     - _AlphaCutoff: 0.5
     - _Blend: 0
     - _BumpScale: 1
-    - _Colour1_Intens: 1
-    - _Colour2_Intens: 1
-    - _Colour3_Intens: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DisplacementofX: 1
+    - _DisplacementofX1: 10
+    - _DisplacementofX2: 2
+    - _DisplacementofY: 10
+    - _DisplacementofY1: 10
+    - _DisplacementofY2: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -83,27 +86,34 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TexAlphaIncrease: 4.6
-    - _TimeDivide: 2
-    - _VoronoiIntensity: 1
-    - _Voronoi_2_Scale: 10
-    - _Voronoi_2_Speed: 1
-    - _Voronoi_Scale: 10
-    - _Voronoi_Speed: 1
+    - _TessEdgeLength: 16
+    - _TessMax: 25
+    - _TessMaxDisp: 25
+    - _TessMin: 10
+    - _TessPhongStrength: 0.5
+    - _TessValue: 16
+    - _Voronoi_2_Scale: 1
+    - _Voronoi_2_Speed: 2
+    - _Voronoi_Scale: 1
+    - _Voronoi_Scale1: 1
+    - _Voronoi_Scale_2: 1
+    - _Voronoi_Speed: 2
+    - _Voronoi_Speed1: 2
+    - _Voronoi_Speed_2: 2
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColour: {r: 5.656854, g: 1.0365963, b: 0, a: 1}
-    - _CentreRingColour: {r: 1.4980392, g: 1.137255, b: 0.21176471, a: 1}
-    - _CentreRingSecondColour: {r: 2.9960785, g: 2.9960785, b: 2.9960785, a: 1}
+    - _BaseColour: {r: 0.6509434, g: 0.06448024, b: 0.06448024, a: 1}
+    - _BaseColour2: {r: 0, g: 0.8904908, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RingOutlineandDarkerColour: {r: 11.984314, g: 2.8235295, b: 1.7568628, a: 1}
-    - _SecondaryColour: {r: 1.8880861, g: 1.8880861, b: 1.8880861, a: 0}
+    - _SecondaryColour: {r: 0.6981132, g: 0.10208259, b: 0.11430871, a: 1}
+    - _SheenColour: {r: 0.2264151, g: 0.030971883, b: 0.030971883, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Voronoi_2_Remap: {r: 0, g: 1, b: -0.6, a: 10}
---- !u!114 &8403387257242586945
+    - _Voronoi_2_Panenr: {r: 0, g: 0, b: 0, a: 0}
+    - _Voronoi_2_Remap: {r: 0, g: 1, b: 0, a: 2}
+--- !u!114 &6411524998148023221
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

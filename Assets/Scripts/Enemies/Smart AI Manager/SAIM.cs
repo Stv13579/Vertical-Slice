@@ -106,6 +106,8 @@ public class SAIM : MonoBehaviour
     string initialMusic;
     [SerializeField]
     string battleMusic;
+    bool fadeOutAmbientAudio = false;
+    bool fadeOutBattleAudio = false;
     void Start()
     {
         //Aydens Audio manager
@@ -130,7 +132,18 @@ public class SAIM : MonoBehaviour
 
     void Update()
     {
-        if(!triggered || roomComplete)
+        if (fadeOutBattleAudio == true)
+        {
+            audioManager.sounds[2].audioSource.volume -= 0.01f * Time.deltaTime;
+        }
+        if (audioManager.sounds[2].audioSource.volume <= 0 && fadeOutAmbientAudio == false)
+        {
+            audioManager.Stop(battleMusic);
+            audioManager.Play(initialMusic);
+            fadeOutBattleAudio = false;
+            audioManager.sounds[2].audioSource.volume = 0.1f;
+        }
+        if (!triggered || roomComplete)
         {
             return;
         }
@@ -145,8 +158,20 @@ public class SAIM : MonoBehaviour
         }
 
         CheckEndOfRoom();
+        if(fadeOutAmbientAudio == true)
+        {
+            audioManager.sounds[0].audioSource.volume -= 0.01f * Time.deltaTime;
+        }
+        if (audioManager.sounds[0].audioSource.volume <= 0 && fadeOutBattleAudio == false)
+        {
+            audioManager.Stop(initialMusic);
+            audioManager.Play(battleMusic);
+            fadeOutAmbientAudio = false;
+            audioManager.sounds[0].audioSource.volume = 0.1f;
+        }
 
-        if(triggered && !roomComplete)
+        Debug.Log(fadeOutBattleAudio);
+        if (triggered && !roomComplete)
         {
             
 
@@ -478,10 +503,8 @@ public class SAIM : MonoBehaviour
         {
             roomComplete = true;
             //Aydens Audio
-            audioManager.Stop(battleMusic);
-            audioManager.Play(initialMusic);
+            fadeOutBattleAudio = true;
         }
-        
     }
 
     bool CheckSpawnConditions()
@@ -540,8 +563,7 @@ public class SAIM : MonoBehaviour
             spawnAmount++;
         }
         // Aydens Audio
-        audioManager.Stop(initialMusic);
-        audioManager.Play(battleMusic);
+        fadeOutAmbientAudio = true;
     }
 
     public int ChooseEnemy()

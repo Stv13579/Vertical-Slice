@@ -73,17 +73,21 @@ public class CurseElement : BaseElementClass
         
 
         int i = 0;
-        foreach (Collider hit in hitColls)
+        if(hitColls != null)
         {
-            //if(hitColls[i] == )
-
-            //i++;
-            
-            if (hit.tag == "Enemy")
+            foreach (Collider hit in hitColls)
             {
-                hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);
+                //if(hitColls[i] == )
+
+                //i++;
+
+                if (hit.tag == "Enemy")
+                {
+                    hit.gameObject.GetComponent<BaseEnemyClass>().TakeDamage(damage * damageMultiplier, types);
+                }
             }
         }
+
 
         Instantiate(curseDeath, transform.position, Quaternion.identity);
         audioManager.Stop("Curse Element Explosion");

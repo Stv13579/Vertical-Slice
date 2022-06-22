@@ -58,6 +58,13 @@ public class PlayerClass : MonoBehaviour
             Debug.Log("Reset Position");
         }
 
+        if (transform.position.y > 70)
+        {
+            transform.position = fallSpawner.position;
+            //ChangeHealth(-fallDamage);
+            Debug.Log("Reset Position");
+        }
+
         Push();
     }
 

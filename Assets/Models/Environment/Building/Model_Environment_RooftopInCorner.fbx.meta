@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc46c55fc6add4a4aa4d0e07c819cfc9
+guid: 1c792396bb3d55a49a8761440e8810f3
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: blinn1
+      name: StoneTrim
     second: {fileID: 2100000, guid: aee334a4b123dcc4cb08e996d6e29a21, type: 2}
   materials:
     materialImportMode: 1

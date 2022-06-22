@@ -57,7 +57,7 @@ public class BossSpawn : MonoBehaviour
         Instantiate(boss, spawnPosition.position, Quaternion.identity);
 
         audioManager.Stop("Ambient Sound");
-        audioManager.Play("Boss Music");
+        audioManager.Play("Ambient Sound");
     }
 
 }

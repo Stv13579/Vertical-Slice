@@ -87,8 +87,8 @@ public class AudioManager : MonoBehaviour
         s.audioSource.Stop();
 
     }
-
-    // this is for alpha needs so fixing to do
+    // will be working on this in alpha was a late implementation 
+    // this is for alpha needs fixing to do
     public void FadeInAndOut(string fadeIn, string fadeOut, int audioIn, int audioOut, bool condition)
     {
         if (condition == true)

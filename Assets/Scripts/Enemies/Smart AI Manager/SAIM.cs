@@ -132,10 +132,13 @@ public class SAIM : MonoBehaviour
 
     void Update()
     {
+        // will be working on this in alpha was a late implementation 
+        // fades out the audio for the battle music
         if (fadeOutBattleAudio == true)
         {
             audioManager.sounds[2].audioSource.volume -= 0.01f * Time.deltaTime;
         }
+        // starts the ambient sound again and sets the volume back for the battle music
         if (audioManager.sounds[2].audioSource.volume <= 0 && fadeOutAmbientAudio == false)
         {
             audioManager.Stop(battleMusic);
@@ -158,10 +161,12 @@ public class SAIM : MonoBehaviour
         }
 
         CheckEndOfRoom();
-        if(fadeOutAmbientAudio == true)
+        // fades out the audio for the ambient sound
+        if (fadeOutAmbientAudio == true)
         {
             audioManager.sounds[0].audioSource.volume -= 0.01f * Time.deltaTime;
         }
+        // starts the battle music and sets back the volume of the ambient sound
         if (audioManager.sounds[0].audioSource.volume <= 0 && fadeOutBattleAudio == false)
         {
             audioManager.Stop(initialMusic);
@@ -169,8 +174,6 @@ public class SAIM : MonoBehaviour
             fadeOutAmbientAudio = false;
             audioManager.sounds[0].audioSource.volume = 0.1f;
         }
-
-        Debug.Log(fadeOutBattleAudio);
         if (triggered && !roomComplete)
         {
             

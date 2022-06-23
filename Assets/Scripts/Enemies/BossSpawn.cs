@@ -21,6 +21,7 @@ public class BossSpawn : MonoBehaviour
     [SerializeField]
     GameObject bridge, bossRing;
 
+    // audio manager
     AudioManager audioManager;
     bool fadeOutAmbientAudio = false;
     bool fadeOutBattleAudio = false;
@@ -31,10 +32,13 @@ public class BossSpawn : MonoBehaviour
 
     void Update()
     {
+        // will be working on this in alpha was a late implementation 
+        // fades out the audio for the ambient sound
         if (fadeOutAmbientAudio == true)
         {
             audioManager.sounds[0].audioSource.volume -= 0.01f * Time.deltaTime;
         }
+        // starts the boss music and sets back the volume of the ambient sound
         if (audioManager.sounds[0].audioSource.volume <= 0 && fadeOutBattleAudio == false)
         {
             audioManager.Stop("Ambient Sound");
@@ -42,10 +46,12 @@ public class BossSpawn : MonoBehaviour
             fadeOutAmbientAudio = false;
             audioManager.sounds[0].audioSource.volume = 0.1f;
         }
+        // fades out the audio for the boss music
         if (fadeOutBattleAudio == true)
         {
             audioManager.sounds[34].audioSource.volume -= 0.01f * Time.deltaTime;
         }
+        // starts the ambient sound again and sets the volume back for the boss music
         if (audioManager.sounds[34].audioSource.volume <= 0 && fadeOutAmbientAudio == false)
         {
             audioManager.Stop("Boss Music");
@@ -62,6 +68,7 @@ public class BossSpawn : MonoBehaviour
             hubPortal.SetActive(true);
             bridge.SetActive(true);
             bossRing.SetActive(false);
+            // if the boss dies set this to true
             fadeOutBattleAudio = true;
         }
     }
@@ -78,6 +85,7 @@ public class BossSpawn : MonoBehaviour
         bossRing.SetActive(true);
 
         Instantiate(boss, spawnPosition.position, Quaternion.identity);
+        // when the boss spawns set this to true
         fadeOutAmbientAudio = true;
     }
 

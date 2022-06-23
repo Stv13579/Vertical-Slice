@@ -120,38 +120,6 @@ public class BaseEnemyClass : MonoBehaviour
         audioManager.Play(attackAudio);
     }
 
-
-    //Taking damage
-    //public void TakeDamage(float damageToTake, List<Types> attackTypes)
-    //{
-    //    Instantiate(hitSpawn, transform.position, Quaternion.identity);
-    //    float multiplier = 1;
-    //    foreach(Types type in attackTypes)
-    //    {
-    //        foreach (Types weak in weaknesses)
-    //        {
-    //            if(weak == type)
-    //            {
-    //                multiplier *= 2; 
-    //            }
-    //        }
-    //        foreach (Types resist in resistances)
-    //        {
-    //            if(resist == type)
-    //            {
-    //                multiplier *= 0.5f;
-    //            }
-    //        }
-    //    }
-
-    //    enemyAnims.SetTrigger("TakeDamage");
-
-    //    currentHealth -= (damageToTake * multiplier) * damageResistance - damageThreshold;
-    //    audioManager.Stop(takeDamageAudio);
-    //    audioManager.Play(takeDamageAudio, player.transform, this.transform);
-    //    Death();
-    //}
-
     public virtual void TakeDamage(float damageToTake, List<Types> attackTypes, float extraSpawnScale = 1)
     {
         GameObject hitSpn = Instantiate(hitSpawn, transform.position, Quaternion.identity);

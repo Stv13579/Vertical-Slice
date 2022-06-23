@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RowanScenes/Main Menu.unity
-    guid: 9cc6182022234824ea842738f106da01
+    path: Assets/Scenes/Build Scenes/Main Menu.unity
+    guid: 6e66fc851bbb1164488184d0c5b5c532
   - enabled: 1
-    path: Assets/Scenes/RowanScenes/RowanHubWorldScene.unity
-    guid: f150ae3efb4e18a449f9f28efb142ffa
-  - enabled: 0
-    path: Assets/Scenes/Scene_HubWorld.unity
-    guid: f64fd5a91d31ab74fb99d29e6d3f742f
+    path: Assets/Scenes/Build Scenes/HubWorldScene.unity
+    guid: 90a04a87c11a4b54ca2de3bc68376528
   - enabled: 1
-    path: Assets/Scenes/RowanScenes/RowanFinalSceneDraft.unity
-    guid: a365550305cd0c24fb5d9759a91d976a
+    path: Assets/Scenes/Build Scenes/FinalScene.unity
+    guid: 1c7067d62695db14f824c470f43afd12
   m_configObjects: {}

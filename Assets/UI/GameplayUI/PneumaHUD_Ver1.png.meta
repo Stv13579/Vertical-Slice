@@ -270,10 +270,10 @@ TextureImporter:
       name: PneumaHUD_Ver1_7
       rect:
         serializedVersion: 2
-        x: 2018
-        y: 1404
-        width: 393
-        height: 382
+        x: 2020
+        y: 1410
+        width: 406
+        height: 391
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,8 +333,8 @@ TextureImporter:
       name: PneumaHUD_Ver1_11
       rect:
         serializedVersion: 2
-        x: 439
-        y: 992
+        x: 441
+        y: 990
         width: 476
         height: 565
       alignment: 0
@@ -417,10 +417,10 @@ TextureImporter:
       name: PneumaHUD_Ver1_23
       rect:
         serializedVersion: 2
-        x: 1535
-        y: 758
-        width: 360
-        height: 371
+        x: 1511
+        y: 731
+        width: 458
+        height: 477
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

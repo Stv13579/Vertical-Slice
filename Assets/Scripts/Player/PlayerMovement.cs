@@ -21,11 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private float currentCoyoteTime;
 
     [SerializeField]
-    public float movementMulti = 1;
+    private float movementMulti = 1;
 
     [Header("Character velocity")]
     private Vector3 velocity;
-    private Vector3 StoredJumpVelo;
+    private Vector3 storedJumpVelo;
 
     [Header("Checks")]
     private bool isGrounded = false;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private AnimationCurve moveAnimaCurve;
 
-    public LayerMask enviromentLayer;
+    public LayerMask environmentLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         CoyoteTime();
 
         RaycastHit hit;
-        if (Physics.Raycast(cController.transform.position, transform.forward, out hit, 1.0f, enviromentLayer))
+        if (Physics.Raycast(cController.transform.position, transform.forward, out hit, 1.0f, environmentLayer))
         {
             return;
         }
@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
         if ((cController.collisionFlags & CollisionFlags.Below) != 0)
         {
             isGrounded = true;
-            StoredJumpVelo = velocity;
+            storedJumpVelo = velocity;
             velocity.y = -1.0f;
             currentCoyoteTime = coyoteTime;
             if (isHeadShaking == true)

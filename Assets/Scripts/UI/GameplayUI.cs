@@ -86,21 +86,21 @@ public class GameplayUI : MonoBehaviour
         if(doCombo)
         {
             Color colour = uiObject.GetComponent<Image>().color;
-            float alpha = Mathf.Lerp(0.25f, 1.0f, comboTimer);
+            float alpha = Mathf.Lerp(0.15f, 1.0f, comboTimer / maxComboTimer);
             uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
 
         }
         else
         {
             Color colour = uiObject.GetComponent<Image>().color;
-            float alpha = Mathf.Lerp(1.0f, 0.25f, comboTimer);
+            float alpha = Mathf.Lerp(1.0f, 0.15f, comboTimer / maxComboTimer);
             uiObject.GetComponent<Image>().color = new Color(colour.r, colour.g, colour.b, alpha);
         }
         for (int i = 0; i < uiObject.childCount; i++)
         {
             if (doCombo)
             {
-                float alpha = Mathf.Lerp(0.25f, 1.0f, comboTimer);
+                float alpha = Mathf.Lerp(0.15f, 1.0f, comboTimer / maxComboTimer);
                 if (uiObject.GetChild(i).GetComponent<Image>())
                 {
                     Color colour = uiObject.GetChild(i).GetComponent<Image>().color;
@@ -115,7 +115,7 @@ public class GameplayUI : MonoBehaviour
             }
             else
             {
-                float alpha = Mathf.Lerp(1.0f, 0.25f, comboTimer);
+                float alpha = Mathf.Lerp(1.0f, 0.15f, comboTimer / maxComboTimer);
 
                 if (uiObject.GetChild(i).GetComponent<Image>())
                 {

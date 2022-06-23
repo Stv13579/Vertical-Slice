@@ -89,8 +89,8 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Outline_Alpha: 1
-    - _Outline_Distance: 5
-    - _Outline_Width: 0.1
+    - _Outline_Distance: 1
+    - _Outline_Width: 0.005
     - _Overall_Smoothness: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1

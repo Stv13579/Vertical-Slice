@@ -89,7 +89,7 @@ public class CurseElement : BaseElementClass
         }
 
 
-        Instantiate(curseDeath, transform.position, Quaternion.identity);
+        Instantiate(curseDeath, targetToCurse.transform.position, Quaternion.identity);
         audioManager.Stop("Curse Element Explosion");
         audioManager.Play("Curse Element Explosion");
         Debug.Log("Explodded");

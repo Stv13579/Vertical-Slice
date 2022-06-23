@@ -56,13 +56,14 @@ public class ShardProjectile : MonoBehaviour
 
         if (other.gameObject.tag != "Player")
         {
-            if(pierceAmount > 0)
+            Instantiate(impactSpawn, transform.position, Quaternion.identity);
+            if (pierceAmount > 0)
             {
                 pierceAmount--;
             }
             else
             {
-                Instantiate(impactSpawn, transform.position, Quaternion.identity);
+                
                 Destroy(gameObject);
             }            
         }

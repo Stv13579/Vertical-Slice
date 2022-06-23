@@ -87,4 +87,20 @@ public class AudioManager : MonoBehaviour
         s.audioSource.Stop();
 
     }
+
+    // this is for alpha needs so fixing to do
+    public void FadeInAndOut(string fadeIn, string fadeOut, int audioIn, int audioOut, bool condition)
+    {
+        if (condition == true)
+        {
+            sounds[audioOut].volume -= Time.deltaTime;
+        }
+        if (sounds[audioOut].volume <= 0)
+        {
+            Stop(fadeOut);
+            Play(fadeIn);
+            condition = false;
+            sounds[audioOut].volume = 0.1f;
+        }
+    }
 }

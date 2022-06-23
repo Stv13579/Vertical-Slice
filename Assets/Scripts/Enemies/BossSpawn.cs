@@ -22,6 +22,8 @@ public class BossSpawn : MonoBehaviour
     GameObject bridge, bossRing;
 
     AudioManager audioManager;
+    bool fadeOutAmbientAudio = false;
+    bool fadeOutBattleAudio = false;
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -29,7 +31,29 @@ public class BossSpawn : MonoBehaviour
 
     void Update()
     {
-        if(!triggered)
+        if (fadeOutAmbientAudio == true)
+        {
+            audioManager.sounds[0].audioSource.volume -= 0.01f * Time.deltaTime;
+        }
+        if (audioManager.sounds[0].audioSource.volume <= 0 && fadeOutBattleAudio == false)
+        {
+            audioManager.Stop("Ambient Sound");
+            audioManager.Play("Boss Music");
+            fadeOutAmbientAudio = false;
+            audioManager.sounds[0].audioSource.volume = 0.1f;
+        }
+        if (fadeOutBattleAudio == true)
+        {
+            audioManager.sounds[34].audioSource.volume -= 0.01f * Time.deltaTime;
+        }
+        if (audioManager.sounds[34].audioSource.volume <= 0 && fadeOutAmbientAudio == false)
+        {
+            audioManager.Stop("Boss Music");
+            audioManager.Play("Ambient Sound");
+            fadeOutBattleAudio = false;
+            audioManager.sounds[34].audioSource.volume = 0.1f;
+        }
+        if (!triggered)
         {
             return;
         }
@@ -38,8 +62,7 @@ public class BossSpawn : MonoBehaviour
             hubPortal.SetActive(true);
             bridge.SetActive(true);
             bossRing.SetActive(false);
-            audioManager.Stop("Boss Music");
-            audioManager.Play("Ambient Sound");
+            fadeOutBattleAudio = true;
         }
     }
 
@@ -55,9 +78,7 @@ public class BossSpawn : MonoBehaviour
         bossRing.SetActive(true);
 
         Instantiate(boss, spawnPosition.position, Quaternion.identity);
-
-        audioManager.Stop("Ambient Sound");
-        audioManager.Play("Boss Music");
+        fadeOutAmbientAudio = true;
     }
 
 }

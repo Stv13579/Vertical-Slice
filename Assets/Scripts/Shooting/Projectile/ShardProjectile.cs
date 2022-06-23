@@ -13,6 +13,10 @@ public class ShardProjectile : MonoBehaviour
     List<BaseEnemyClass.Types> attackTypes;
 
     AudioManager audioManager;
+
+    [SerializeField]
+    GameObject impactSpawn;
+
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -58,6 +62,7 @@ public class ShardProjectile : MonoBehaviour
             }
             else
             {
+                Instantiate(impactSpawn, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }            
         }

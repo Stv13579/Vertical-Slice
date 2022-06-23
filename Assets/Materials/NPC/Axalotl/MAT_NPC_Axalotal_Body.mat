@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NPCTesting1
+  m_Name: MAT_NPC_Axalotal_Body
   m_Shader: {fileID: 4800000, guid: b65cc1acb486a884587179423c009ade, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -104,15 +104,16 @@ Material:
     - _SpecularHighlights: 1
     - _Specular_Alpha: 1
     - _SrcBlend: 1
-    - _SubSurf_Alpha: 1
+    - _SubSurf_Alpha: 0.4
     - _SubSurface_Stenght: 10
     - _Surface: 0
+    - _TestIntens: 0.88
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse_Colour: {r: 1, g: 1, b: 1, a: 0}
+    - _Diffuse_Colour: {r: 1.0717734, g: 1.0717734, b: 1.0717734, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline_Colour: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

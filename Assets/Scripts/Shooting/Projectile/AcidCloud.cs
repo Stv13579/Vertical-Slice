@@ -64,9 +64,9 @@ public class AcidCloud : MonoBehaviour
             other.GetComponent<BaseEnemyClass>().TakeDamage(damage, attackTypes);
             audioManager.Stop("Slime Damage");
             audioManager.Play("Slime Damage");
-            if(other.GetComponentInChildren<AcidBurnScript>())
+            if(other.gameObject.GetComponentInChildren<AcidBurnScript>())
             {
-                other.GetComponent<AcidBurnScript>().timer = 2.0f;
+                other.gameObject.GetComponentInChildren<AcidBurnScript>().timer = 2.0f;
             }
         }
     }

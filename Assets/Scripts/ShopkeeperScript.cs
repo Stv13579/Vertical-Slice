@@ -56,7 +56,7 @@ public class ShopkeeperScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.GetComponent<PlayerClass>())
         {
             gameUI = GameObject.Find("GameplayUI");
 
@@ -65,6 +65,7 @@ public class ShopkeeperScript : MonoBehaviour
             playerLook = other.gameObject.GetComponent<PlayerLook>();
             shooting = other.gameObject.GetComponent<Shooting>();
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            Debug.Log(other.gameObject.name);
         }
     }
 

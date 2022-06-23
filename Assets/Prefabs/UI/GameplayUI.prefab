@@ -514,7 +514,7 @@ RectTransform:
   m_GameObject: {fileID: 2031652425819458565}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4533796347823746619}
   - {fileID: 894956963787374158}
@@ -524,7 +524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 435, y: -76}
+  m_AnchoredPosition: {x: 348, y: -55}
   m_SizeDelta: {x: 173.93198, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6490158601506022463
@@ -1959,6 +1959,7 @@ MonoBehaviour:
   - {fileID: 2838442427725014673}
   - {fileID: 152897595097252052}
   moneyText: {fileID: 2957168795366941701}
+  maxComboTimer: 1
 --- !u!1 &6357646119434200355
 GameObject:
   m_ObjectHideFlags: 0

@@ -1959,7 +1959,11 @@ MonoBehaviour:
   - {fileID: 2838442427725014673}
   - {fileID: 152897595097252052}
   moneyText: {fileID: 2957168795366941701}
+<<<<<<< HEAD
   maxComboTimer: 0.2
+=======
+  maxComboTimer: 1
+>>>>>>> main
 --- !u!1 &6357646119434200355
 GameObject:
   m_ObjectHideFlags: 0
